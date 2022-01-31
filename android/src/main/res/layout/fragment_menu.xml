@@ -6,18 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".MenuFragment">
 
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/kryss_m_text"
+        android:contentDescription="@string/cross_with_close_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_view_close"
+        android:id="@+id/text_view_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stäng"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="116dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/settings"
+        android:textColor="@color/tree_green"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/image_settings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_settings"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="26dp"
+        android:background="@drawable/menu_settings"
+        android:contentDescription="@string/settings_icon"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_settings"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_knowledgebank"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/menu_knowledgebank"
+        android:contentDescription="@string/knowledgebank_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_settings" />
+
+    <TextView
+        android:id="@+id/text_view_knowledgebank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/knowledgebank"
+        android:textColor="@color/tree_green"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/image_knowledgebank"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_settings" />
+
+    <TextView
+        android:id="@+id/text_view_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/version"
+        android:textColor="@color/tree_green"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/image_version"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_about" />
+
+    <ImageView
+        android:id="@+id/image_about"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/menu_about"
+        android:contentDescription="@string/about_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_knowledgebank" />
+
+    <TextView
+        android:id="@+id/text_view_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/about"
+        android:textColor="@color/tree_green"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/image_about"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_knowledgebank" />
+
+    <ImageView
+        android:id="@+id/image_version"
+        android:layout_width="19dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/menu_version"
+        android:contentDescription="@string/version_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_about" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

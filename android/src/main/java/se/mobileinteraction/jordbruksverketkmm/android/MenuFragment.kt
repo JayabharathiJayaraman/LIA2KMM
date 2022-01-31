@@ -23,7 +23,7 @@ class MenuFragment : Fragment() {
         val binding = FragmentMenuBinding.bind(view)
         fragmentMenuBinding = binding
 
-        binding.textViewClose.setOnClickListener {
+        binding.btnClose.setOnClickListener {
             view.findNavController().navigate(R.id.navigateToStartFragment)
         }
 

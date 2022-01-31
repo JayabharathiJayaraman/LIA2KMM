@@ -1,8 +1,8 @@
-se/mobileinteraction/jordbruksverketkmm/android/BuildConfig.java
- se.mobileinteraction.jordbruksverketkmm.android.BuildConfig
 se/mobileinteraction/jordbruksverketkmm/android/databinding/FragmentStartBinding.java
  se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentStartBinding
 se/mobileinteraction/jordbruksverketkmm/android/databinding/FragmentMenuBinding.java
  se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentMenuBinding
 se/mobileinteraction/jordbruksverketkmm/android/databinding/ActivityMainBinding.java
  se.mobileinteraction.jordbruksverketkmm.android.databinding.ActivityMainBinding
+se/mobileinteraction/jordbruksverketkmm/android/BuildConfig.java
+ se.mobileinteraction.jordbruksverketkmm.android.BuildConfig
