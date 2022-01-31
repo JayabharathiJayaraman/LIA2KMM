@@ -1,6 +1,18 @@
 [
     {
-        "merged": "/Users/erikhedrenius/Projects/JordbruksverketKMM/android/build/intermediates/merged_res/debug/layout_activity_main.xml.flat",
-        "source": "/Users/erikhedrenius/Projects/JordbruksverketKMM/android/src/main/res/layout/activity_main.xml"
+        "merged": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\build\\intermediates\\merged_res\\debug\\layout_fragment_menu.xml.flat",
+        "source": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\src\\main\\res\\layout\\fragment_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\build\\intermediates\\merged_res\\debug\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\src\\main\\res\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\build\\intermediates\\merged_res\\debug\\layout_fragment_start.xml.flat",
+        "source": "C:\\Users\\semir\\StudioProjects\\JordbruksverketKMM\\android\\src\\main\\res\\layout\\fragment_start.xml"
     }
 ]
