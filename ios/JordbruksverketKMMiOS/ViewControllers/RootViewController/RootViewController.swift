@@ -8,5 +8,6 @@ class RootViewController: UIViewController {
 
         print("Hello world!")
         print("\(Greeting().greeting())")
+        print("HEJ".localized)
     }
 }
