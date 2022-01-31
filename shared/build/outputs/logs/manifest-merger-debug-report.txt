@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
+ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
 	package
-		ADDED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:11-60
-		INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-		INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:11-60
+		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
+		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml:2:1-63
 uses-sdk
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-		ADDED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-		INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-		ADDED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
-		INJECTED from /Users/erikhedrenius/Projects/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/src/androidMain/AndroidManifest.xml
