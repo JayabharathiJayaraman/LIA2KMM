@@ -1,12 +1,12 @@
-#Wed Jan 26 10:56:12 CET 2022
+#Mon Jan 31 14:38:41 CET 2022
 path.3=8/classes.dex
 path.2=0/classes.dex
 path.1=5/classes.dex
 path.0=classes.dex
-base.3=/Users/erikhedrenius/Projects/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
-base.2=/Users/erikhedrenius/Projects/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.1=/Users/erikhedrenius/Projects/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeLibDexDebug/5/classes.dex
-base.0=/Users/erikhedrenius/Projects/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.3=/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
+base.2=/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.1=/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeLibDexDebug/5/classes.dex
+base.0=/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
