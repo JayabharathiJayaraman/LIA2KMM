@@ -15,6 +15,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+        //tv.text = greet()
+
+        displayAboutApp()
+    }
+
+    private fun displayAboutApp(){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        val aboutAppFragment = AboutAppFragment()
+        fragmentTransaction.add(R.id.frameLayout, aboutAppFragment).commit()
     }
 }

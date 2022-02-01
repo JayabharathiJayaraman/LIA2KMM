@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
+ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
 MERGED from [:shared] /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.4.0] /Users/ghanavino/.gradle/caches/transforms-3/64693a3178d0fb14eac7047b6a172ff2/transformed/material-1.4.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/ghanavino/.gradle/caches/transforms-3/71144f1aee2061a6a506f7502a84a717/transformed/constraintlayout-2.1.0/AndroidManifest.xml:2:1-11:12
@@ -40,25 +40,25 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/
 MERGED from [androidx.print:print:1.0.0] /Users/ghanavino/.gradle/caches/transforms-3/3ac4e459972f3d29e810b6d23255b049/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ghanavino/.gradle/caches/transforms-3/890b04c962880c6f69564ffbaeb0d461/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/ghanavino/.gradle/caches/transforms-3/2195fea3bddb38dc10feea1442868be8/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
+INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
 	package
 		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:3:5-62
 		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
 		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
-		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
+		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
 		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
-		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-18:12
+		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
 		INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:5:5-17:19
+ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:5:5-18:19
 MERGED from [com.google.android.material:material:1.4.0] /Users/ghanavino/.gradle/caches/transforms-3/64693a3178d0fb14eac7047b6a172ff2/transformed/material-1.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] /Users/ghanavino/.gradle/caches/transforms-3/64693a3178d0fb14eac7047b6a172ff2/transformed/material-1.4.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/ghanavino/.gradle/caches/transforms-3/71144f1aee2061a6a506f7502a84a717/transformed/constraintlayout-2.1.0/AndroidManifest.xml:9:5-20

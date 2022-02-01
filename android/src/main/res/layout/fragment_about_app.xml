@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_editor_absoluteX="1dp"
+    app:layout_editor_absoluteY="1dp"
+    android:fillViewport="true"
     android:id="@+id/about_app_fragment_container">
-
-    
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/appBackgroundColor">
 
         <TextView
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/opensans_semi_bold"
             android:text="@string/about_app_section1_title"
             android:textColor="@color/aboutSectionTitleColor"
             android:textSize="18sp"
@@ -38,7 +38,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/opensans_regular"
             android:text="@string/about_app_section1_description"
             android:textColor="@color/aboutSectionDescriptionColor"
             android:textSize="16sp"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/opensans_semi_bold"
             android:text="@string/about_app_section2_title"
             android:textColor="@color/aboutSectionTitleColor"
             android:textSize="18sp"
@@ -71,7 +71,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/opensans_regular"
             android:text="@string/about_app_section2_description"
             android:textColor="@color/aboutSectionDescriptionColor"
             android:textSize="16sp"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/opensans_semi_bold"
             android:text="@string/about_app_section3_title"
             android:textColor="@color/aboutSectionTitleColor"
             android:textSize="18sp"
@@ -104,7 +104,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/opensans_regular"
             android:text="@string/about_app_section3_description"
             android:textColor="@color/aboutSectionDescriptionColor"
             android:textSize="16sp"
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/opensans_semi_bold"
             android:text="@string/about_app_section4_title"
             android:textColor="@color/aboutSectionTitleColor"
             android:textSize="18sp"
@@ -137,7 +137,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/opensans_regular"
             android:text="@string/about_app_section4_description"
             android:textColor="@color/aboutSectionDescriptionColor"
             android:textSize="16sp"
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/opensans_semi_bold"
             android:text="@string/about_app_section5_title"
             android:textColor="@color/aboutSectionTitleColor"
             android:textSize="18sp"
@@ -170,7 +170,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/open_sans"
+            android:fontFamily="@font/opensans_regular"
             android:text="@string/about_app_section5_description"
             android:textColor="@color/aboutSectionDescriptionColor"
             android:textSize="16sp"
@@ -182,4 +182,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+</ScrollView>
