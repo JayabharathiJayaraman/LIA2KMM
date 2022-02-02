@@ -17,19 +17,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        displayToolBar()
+        displayAboutApp()
+    }
+
+    private fun displayToolBar()
+    {
         val customMenuItemToolbar : Toolbar = findViewById(R.id.custom_menuItem_toolbar)
         val toolbarTitle : TextView = findViewById(R.id.toolbar_titleText)
         val toolbarNavText : TextView = findViewById(R.id.toolbar_navigationText)
 
         customMenuItemToolbar.setTitle("")
-        toolbarTitle.setText("OM APPEN")
-        toolbarNavText.setText("TILLBAKA")
+        toolbarTitle.setText(getString(R.string.about_app_fragment_title))
+        toolbarNavText.setText(getString(R.string.toolbar_navigation_back))
         setSupportActionBar(customMenuItemToolbar)
-
-        //val tv: TextView = findViewById(R.id.text_view)
-        //tv.text = greet()
-
-        displayAboutApp()
     }
 
     private fun displayAboutApp(){

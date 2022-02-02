@@ -1,5 +1,5 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="toolbar_navigation_back">TILLBAKA</string>
     <string name="about_app_fragment_title">OM APPEN</string>
     <string name="about_app_section1_title">Vikten av god markstruktur</string>
     <string name="about_app_section2_title">Bakgrund</string>
