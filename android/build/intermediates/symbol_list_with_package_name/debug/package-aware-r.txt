@@ -1261,6 +1261,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
+color toolbarBackgroundColor
 color tooltip_background_dark
 color tooltip_background_light
 dimen abc_action_bar_content_inset_material
@@ -1845,7 +1846,8 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id about_app_fragment_container
+id aboutAppBarLayout
+id about_app_scrollview
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -1967,6 +1969,7 @@ id counterclockwise
 id currentState
 id custom
 id customPanel
+id custom_menuItem_toolbar
 id cut
 id date_picker_actions
 id decelerate
@@ -2266,7 +2269,6 @@ id textTop
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_view
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2278,6 +2280,8 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar_navigationText
+id toolbar_titleText
 id top
 id topPanel
 id touch_outside
@@ -2380,6 +2384,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout custom_dialog
+layout custom_toolbar
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -3096,6 +3101,7 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
 style ThemeOverlayColorAccentRed
+style Toolbar_TitleText
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

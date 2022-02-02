@@ -6,4 +6,5 @@
     <color name="appBackgroundColor">#edf1e2</color>
     <color name="aboutSectionTitleColor">#2f651a</color>
     <color name="aboutSectionDescriptionColor">#2f651a</color>
+    <color name="toolbarBackgroundColor">#F7F8F5</color>
 </resources>

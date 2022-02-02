@@ -44,6 +44,10 @@
         "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/font/opensans_light.ttf"
     },
     {
+        "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/layout_custom_toolbar.xml.flat",
+        "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/layout/custom_toolbar.xml"
+    },
+    {
         "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_semi_bold.ttf.flat",
         "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/font/opensans_semi_bold.ttf"
     }

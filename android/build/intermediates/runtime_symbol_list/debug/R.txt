@@ -1260,6 +1260,7 @@ int color switch_thumb_normal_material_dark 0x7f0500ce
 int color switch_thumb_normal_material_light 0x7f0500cf
 int color test_mtrl_calendar_day 0x7f0500d0
 int color test_mtrl_calendar_day_selected 0x7f0500d1
+int color toolbarBackgroundColor 0x7f0500d4
 int color tooltip_background_dark 0x7f0500d2
 int color tooltip_background_light 0x7f0500d3
 int dimen abc_action_bar_content_inset_material 0x7f060000
@@ -1844,7 +1845,8 @@ int id SHOW_PROGRESS 0x7f09000a
 int id SYM 0x7f09000b
 int id TOP_END 0x7f09000c
 int id TOP_START 0x7f09000d
-int id about_app_fragment_container 0x7f09000e
+int id aboutAppBarLayout 0x7f0901e1
+int id about_app_scrollview 0x7f0901e0
 int id accelerate 0x7f09000f
 int id accessibility_action_clickable_span 0x7f090010
 int id accessibility_custom_action_0 0x7f090011
@@ -1966,6 +1968,7 @@ int id counterclockwise 0x7f090084
 int id currentState 0x7f090085
 int id custom 0x7f090086
 int id customPanel 0x7f090087
+int id custom_menuItem_toolbar 0x7f0901e3
 int id cut 0x7f090088
 int id date_picker_actions 0x7f090089
 int id decelerate 0x7f09008a
@@ -2265,7 +2268,6 @@ int id textTop 0x7f0901af
 int id text_input_end_icon 0x7f0901b0
 int id text_input_error_icon 0x7f0901b1
 int id text_input_start_icon 0x7f0901b2
-int id text_view 0x7f0901b3
 int id textinput_counter 0x7f0901b4
 int id textinput_error 0x7f0901b5
 int id textinput_helper_text 0x7f0901b6
@@ -2277,6 +2279,8 @@ int id title 0x7f0901bb
 int id titleDividerNoCustom 0x7f0901bc
 int id title_template 0x7f0901bd
 int id toggle 0x7f0901be
+int id toolbar_navigationText 0x7f0901e4
+int id toolbar_titleText 0x7f0901e5
 int id top 0x7f0901bf
 int id topPanel 0x7f0901c0
 int id touch_outside 0x7f0901c1
@@ -2379,6 +2383,7 @@ int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
 int layout activity_main 0x7f0c001c
 int layout custom_dialog 0x7f0c001d
+int layout custom_toolbar 0x7f0c0072
 int layout design_bottom_navigation_item 0x7f0c001e
 int layout design_bottom_sheet_dialog 0x7f0c001f
 int layout design_layout_snackbar 0x7f0c0020
@@ -3095,6 +3100,7 @@ int style ThemeOverlay_MaterialComponents_TimePicker_Display 0x7f0f0200
 int style ThemeOverlay_MaterialComponents_Toolbar_Primary 0x7f0f0201
 int style ThemeOverlay_MaterialComponents_Toolbar_Surface 0x7f0f0202
 int style ThemeOverlayColorAccentRed 0x7f0f0203
+int style Toolbar_TitleText 0x7f0f02d3
 int style Widget_AppCompat_ActionBar 0x7f0f0204
 int style Widget_AppCompat_ActionBar_Solid 0x7f0f0205
 int style Widget_AppCompat_ActionBar_TabBar 0x7f0f0206
