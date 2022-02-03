@@ -12,3 +12,5 @@
 /captures
 .externalNativeBuild
 .idea
+/android/build
+/shared/build
