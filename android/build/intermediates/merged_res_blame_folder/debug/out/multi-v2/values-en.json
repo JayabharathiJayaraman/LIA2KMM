@@ -1,0 +1,27 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/values-en/strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,2",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,55",
+                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,56",
+                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,107"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,11,12,13,14,19,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,122,391,482,741,805,1340,1409,1622,1702,2372,2448",
+                        "endLines": "2,3,4,5,6,10,11,12,13,18,19,20",
+                        "endColumns": "66,268,90,258,63,13,68,212,79,13,75,56",
+                        "endOffsets": "117,386,477,736,800,1335,1404,1617,1697,2367,2443,2500"
+                    }
+                }
+            ]
+        }
+    ]
+}

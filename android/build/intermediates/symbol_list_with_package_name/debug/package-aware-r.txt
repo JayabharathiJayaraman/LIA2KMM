@@ -1076,10 +1076,13 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color aboutSectionDescriptionColor
+color aboutSectionTitleColor
 color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color appBackgroundColor
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1258,6 +1261,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
+color toolbarBackgroundColor
 color tooltip_background_dark
 color tooltip_background_light
 dimen abc_action_bar_content_inset_material
@@ -1818,6 +1822,16 @@ drawable notify_panel_notification_icon_bg
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font opensans_bold
+font opensans_bold_italic
+font opensans_extra_bold
+font opensans_extra_bold_italic
+font opensans_italic
+font opensans_light
+font opensans_light_italic
+font opensans_regular
+font opensans_semi_bold
+font opensans_semi_bold_italic
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1832,6 +1846,8 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id aboutAppBarLayout
+id about_app_scrollview
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -1953,6 +1969,7 @@ id counterclockwise
 id currentState
 id custom
 id customPanel
+id custom_menuItem_toolbar
 id cut
 id date_picker_actions
 id decelerate
@@ -2007,6 +2024,7 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id frameLayout
 id frost
 id ghost_view
 id ghost_view_holder
@@ -2172,6 +2190,16 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id section1_description
+id section1_title
+id section2_description
+id section2_title
+id section3_description
+id section3_title
+id section4_description
+id section4_title
+id section5_description
+id section5_title
 id select_dialog_listview
 id selected
 id selection_type
@@ -2241,7 +2269,6 @@ id textTop
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_view
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2253,6 +2280,8 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar_navigationText
+id toolbar_titleText
 id top
 id topPanel
 id touch_outside
@@ -2355,6 +2384,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout custom_dialog
+layout custom_toolbar
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -2370,6 +2400,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_about_app
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -2466,6 +2497,17 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string about_app_fragment_title
+string about_app_section1_description
+string about_app_section1_title
+string about_app_section2_description
+string about_app_section2_title
+string about_app_section3_description
+string about_app_section3_title
+string about_app_section4_description
+string about_app_section4_title
+string about_app_section5_description
+string about_app_section5_title
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
@@ -2543,6 +2585,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string toolbar_navigation_back
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
@@ -3059,6 +3102,7 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
 style ThemeOverlayColorAccentRed
+style Toolbar_TitleText
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar
