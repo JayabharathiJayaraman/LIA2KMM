@@ -10,18 +10,18 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="460dp"
-        android:layout_height="220dp"
+        android:layout_width="412dp"
+        android:layout_height="186dp"
+        android:layout_marginBottom="137dp"
         android:src="@drawable/curve_bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="1292dp"
-        android:layout_height="196dp"
+        android:layout_width="1313dp"
+        android:layout_height="217dp"
         android:background="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,15 +46,16 @@
 
     <ImageButton
         android:id="@+id/image_button_menu"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="60dp"
+        android:layout_height="58dp"
         android:background="@drawable/meny_m_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.035"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/text_view1"
@@ -112,18 +113,19 @@
 
     <ImageButton
         android:id="@+id/image_add_test_button"
-        android:layout_width="43dp"
+        android:layout_width="50dp"
         android:layout_height="60dp"
         android:background="@drawable/add_test_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.932" />
+        app:layout_constraintVertical_bias="0.932"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/image_test_done_button"
-        android:layout_width="43dp"
+        android:layout_width="50dp"
         android:layout_height="60dp"
         android:background="@drawable/test_done_icon"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,11 +133,12 @@
         app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintVertical_bias="0.907"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/image_plant_icon_button"
-        android:layout_width="43dp"
+        android:layout_width="50dp"
         android:layout_height="60dp"
         android:background="@drawable/plant_icon"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -143,7 +146,8 @@
         app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintVertical_bias="0.907"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
