@@ -1,6 +1,82 @@
 [
     {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_extra_bold.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_extra_bold.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_semi_bold_italic.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_semi_bold_italic.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_bold.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_bold.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_test_done_icon.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/test_done_icon.png"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_regular.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_regular.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_semi_bold.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_semi_bold.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_add_test_icon.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/add_test_icon.png"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_meny_m_text.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/meny_m_text.png"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_bold_italic.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_bold_italic.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_light_italic.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_light_italic.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_extra_bold_italic.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_extra_bold_italic.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_plant_icon.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/plant_icon.png"
+    },
+    {
         "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/layout_activity_main.xml.flat",
         "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_light.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_light.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_curve_bottom.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/curve_bottom.png"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_jv_logo_black.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/jv_logo_black.png"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_italic.ttf.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/font/opensans_italic.ttf"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_appikon1024.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/appikon1024.png"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/layout_fragment_start_screen.xml.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/layout/fragment_start_screen.xml"
+    },
+    {
+        "merged": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/build/intermediates/merged_res/debug/drawable_curved_bottom.png.flat",
+        "source": "/Users/jonasbergstrom/Desktop/JordbruksverketKMM/android/src/main/res/drawable/curved_bottom.png"
     }
 ]
