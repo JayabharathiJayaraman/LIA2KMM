@@ -24,6 +24,10 @@
         "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/font/opensans_bold_italic.ttf"
     },
     {
+        "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/layout_appbar_customtoolbar.xml.flat",
+        "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/layout/appbar_customtoolbar.xml"
+    },
+    {
         "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_bold.ttf.flat",
         "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/font/opensans_bold.ttf"
     },
@@ -42,10 +46,6 @@
     {
         "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_light.ttf.flat",
         "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/font/opensans_light.ttf"
-    },
-    {
-        "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/layout_custom_toolbar.xml.flat",
-        "source": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/res/layout/custom_toolbar.xml"
     },
     {
         "merged": "/Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/build/intermediates/merged_res/debug/font_opensans_semi_bold.ttf.flat",
