@@ -1846,7 +1846,6 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id aboutAppBarLayout
 id about_app_scrollview
 id accelerate
 id accessibility_action_clickable_span
@@ -2283,6 +2282,7 @@ id toggle
 id toolbar_navigationText
 id toolbar_titleText
 id top
+id topAppBar
 id topPanel
 id touch_outside
 id transitionToEnd

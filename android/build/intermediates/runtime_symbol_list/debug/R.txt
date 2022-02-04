@@ -1845,7 +1845,6 @@ int id SHOW_PROGRESS 0x7f09000a
 int id SYM 0x7f09000b
 int id TOP_END 0x7f09000c
 int id TOP_START 0x7f09000d
-int id aboutAppBarLayout 0x7f0901e1
 int id about_app_scrollview 0x7f0901e0
 int id accelerate 0x7f09000f
 int id accessibility_action_clickable_span 0x7f090010
@@ -2282,6 +2281,7 @@ int id toggle 0x7f0901be
 int id toolbar_navigationText 0x7f0901e4
 int id toolbar_titleText 0x7f0901e5
 int id top 0x7f0901bf
+int id topAppBar 0x7f0901e2
 int id topPanel 0x7f0901c0
 int id touch_outside 0x7f0901c1
 int id transitionToEnd 0x7f0901c2

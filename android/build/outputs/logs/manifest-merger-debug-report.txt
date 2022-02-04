@@ -4,6 +4,7 @@ ADDED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/andr
 INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
 INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
 INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml:2:1-19:12
+MERGED from [androidx.databinding:viewbinding:7.1.0] /Users/ghanavino/.gradle/caches/transforms-3/91ed35dfdd6d6eaaa476cdc62cd43225/transformed/viewbinding-7.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [:shared] /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.4.0] /Users/ghanavino/.gradle/caches/transforms-3/64693a3178d0fb14eac7047b6a172ff2/transformed/material-1.4.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] /Users/ghanavino/.gradle/caches/transforms-3/71144f1aee2061a6a506f7502a84a717/transformed/constraintlayout-2.1.0/AndroidManifest.xml:2:1-11:12
@@ -95,6 +96,8 @@ uses-sdk
 INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
 INJECTED from /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/android/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:7.1.0] /Users/ghanavino/.gradle/caches/transforms-3/91ed35dfdd6d6eaaa476cdc62cd43225/transformed/viewbinding-7.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.databinding:viewbinding:7.1.0] /Users/ghanavino/.gradle/caches/transforms-3/91ed35dfdd6d6eaaa476cdc62cd43225/transformed/viewbinding-7.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [:shared] /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:shared] /Users/ghanavino/Documents/MI Academy Project/JordbruksverketKMM/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.material:material:1.4.0] /Users/ghanavino/.gradle/caches/transforms-3/64693a3178d0fb14eac7047b6a172ff2/transformed/material-1.4.0/AndroidManifest.xml:20:5-44

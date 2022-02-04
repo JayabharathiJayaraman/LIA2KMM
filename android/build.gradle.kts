@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("kotlin-android")
     kotlin("android")
 }
 
@@ -16,6 +17,10 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
