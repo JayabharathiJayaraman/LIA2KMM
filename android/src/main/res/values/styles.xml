@@ -6,4 +6,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Toolbar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/opensans_semi_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Toolbar.NavigationLinkText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>
