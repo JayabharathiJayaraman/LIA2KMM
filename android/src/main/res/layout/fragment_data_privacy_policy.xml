@@ -57,8 +57,8 @@
                 android:id="@+id/jordbruksverket_icon"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="60dp"
                 android:contentDescription="@string/jordbruksverket_icon"
                 android:src="@drawable/jv_logga" />
 
@@ -66,7 +66,7 @@
                 android:id="@+id/appInfoHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/open_sans_semi_bold"
                 android:text="@string/data_privacy_policy_applikationen"
                 android:textColor="#2f651a"
@@ -95,8 +95,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="60dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -121,7 +121,7 @@
                 android:id="@+id/hanteringHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/open_sans_semi_bold"
                 android:text="@string/data_privacy_policy_hanteringHeader"
                 android:textColor="#2f651a"
@@ -131,7 +131,7 @@
                 android:id="@+id/hanteringText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="@string/data_privacy_policy_hanteringText1"
                 android:textColor="#2f651a"
