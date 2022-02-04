@@ -16,5 +16,13 @@ class MainActivity : AppCompatActivity() {
 
         val tv: TextView = findViewById(R.id.text_view)
         tv.text = greet()
+
+        val settingsFragment = SettingsFragment()
+
+        val transaction = supportFragmentManager.beginTransaction()
+
+        transaction.replace(R.id.main_view, settingsFragment, "settingsFragment")
+        transaction.commit()
+
     }
 }

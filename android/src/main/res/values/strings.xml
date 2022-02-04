@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="mina_uppgifter">Mina uppgifter</string>
+    <string name="namn">Namn</string>
+    <string name="emailadress">E-mailadress</string>
+    <string name="spara">Spara</string>
+
+</resources>
