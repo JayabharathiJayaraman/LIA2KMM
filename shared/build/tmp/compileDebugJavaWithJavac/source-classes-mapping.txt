@@ -1,2 +1,0 @@
-se/mobileinteraction/jordbruksverketkmm/BuildConfig.java
- se.mobileinteraction.jordbruksverketkmm.BuildConfig
