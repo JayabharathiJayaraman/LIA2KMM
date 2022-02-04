@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:height="24sp"
-                android:background="#fff"
+                android:background="@drawable/data_privacy_btn"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="@string/data_privacy_policy_feedbackButton"
                 android:textColor="#2f651a" />
