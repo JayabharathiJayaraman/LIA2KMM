@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/opensans_semi_bold"
+        android:fontFamily="@font/opensans_bold"
         android:text="@string/mina_uppgifter"
         android:textColor="@color/darkGreen"
         android:textSize="20sp"
@@ -45,13 +45,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/namn"
+                android:background="@drawable/custom_edittext_input"
                 android:fontFamily="@font/opensans_regular"
+                android:hint="@string/namn"
                 android:paddingTop="10dp"
                 android:paddingBottom="40dp"
-                app:layout_constraintHorizontal_bias="0.5"
-                android:background="@drawable/custom_edittext_input"/>
-
+                app:layout_constraintHorizontal_bias="0.5" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -78,12 +77,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext_input"
+                android:fontFamily="@font/opensans_regular"
                 android:hint="@string/emailadress"
                 android:paddingTop="10dp"
                 android:paddingBottom="40dp"
-                android:fontFamily="@font/opensans_regular"
-                android:background="@drawable/custom_edittext_input"
-                app:layout_constraintHorizontal_bias="0.5"/>
+                app:layout_constraintHorizontal_bias="0.5" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -92,16 +91,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/mydetails_save_btn"
-        android:fontFamily="@font/opensans_regular"
+        android:fontFamily="@font/opensans_bold"
         android:text="@string/spara"
         android:textAllCaps="false"
-        android:textColor="@color/darkGreen"
+        android:textColor="@color/lightOlive"
+        android:textFontWeight="750"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputConstraintLayout2"
-        app:layout_constraintVertical_bias="0.1"></Button>
+        app:layout_constraintVertical_bias="0.1">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
