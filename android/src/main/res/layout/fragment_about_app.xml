@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/aboutApp_fragment_container">
 
     <LinearLayout
         android:id="@+id/topAppBar_container"
@@ -16,7 +17,7 @@
         layout="@layout/appbar_customtoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-</LinearLayout>
+    </LinearLayout>
 
 
 <ScrollView
@@ -35,7 +36,7 @@
         android:paddingHorizontal="20dp">
 
         <TextView
-            android:id="@+id/section1_title"
+            android:id="@+id/aboutSection1_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -50,7 +51,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/section1_description"
+            android:id="@+id/aboutSection1_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -62,10 +63,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section1_title" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection1_title" />
 
         <TextView
-            android:id="@+id/section2_title"
+            android:id="@+id/aboutSection2_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -77,10 +78,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section1_description" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection1_description" />
 
         <TextView
-            android:id="@+id/section2_description"
+            android:id="@+id/aboutSection2_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -92,10 +93,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section2_title" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection2_title" />
 
         <TextView
-            android:id="@+id/section3_title"
+            android:id="@+id/aboutSection3_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -107,10 +108,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section2_description" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection2_description" />
 
         <TextView
-            android:id="@+id/section3_description"
+            android:id="@+id/aboutSection3_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -122,10 +123,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section3_title" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection3_title" />
 
         <TextView
-            android:id="@+id/section4_title"
+            android:id="@+id/aboutSection4_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -137,10 +138,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section3_description" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection3_description" />
 
         <TextView
-            android:id="@+id/section4_description"
+            android:id="@+id/aboutSection4_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -152,10 +153,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section4_title" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection4_title" />
 
         <TextView
-            android:id="@+id/section5_title"
+            android:id="@+id/aboutSection5_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -167,10 +168,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section4_description" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection4_description" />
 
         <TextView
-            android:id="@+id/section5_description"
+            android:id="@+id/aboutSection5_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
@@ -183,7 +184,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section5_title" />
+            app:layout_constraintTop_toBottomOf="@+id/aboutSection5_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
