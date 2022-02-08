@@ -1,0 +1,11 @@
+<resources>
+    <string name="settings">Inställningar</string>
+    <string name="knowledgebank">Kunskapsbank</string>
+    <string name="about">Om appen</string>
+    <string name="version"><![CDATA[Utvecklare & datahantering]]></string>
+    <string name="cross_with_close_text">kryss med texten stäng</string>
+    <string name="settings_icon">kugghjul som representerar inställningar</string>
+    <string name="knowledgebank_icon">tankebubbla som innehåller citattecken</string>
+    <string name="about_icon">anteckningsblock med bokstaven i på omslaget</string>
+    <string name="version_icon">mobiltelefon med programmeringsikon på framsidan</string>
+</resources>
