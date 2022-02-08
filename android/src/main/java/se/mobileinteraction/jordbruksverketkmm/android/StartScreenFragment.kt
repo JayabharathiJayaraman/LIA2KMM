@@ -38,10 +38,10 @@ class StartScreenFragment : Fragment() {
 
 
         val welcomeLabel: TextView = view.findViewById(R.id.welcomeText)
-        welcomeLabel.text = welcome()
+
 
         val mainLabel: TextView = view.findViewById(R.id.appNameText)
-        mainLabel.text = appName()
+
 
     }
 }

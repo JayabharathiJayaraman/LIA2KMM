@@ -2,7 +2,6 @@ package se.mobileinteraction.jordbruksverketkmm.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import se.mobileinteraction.jordbruksverketkmm.Greeting
 import android.widget.TextView
 
 
