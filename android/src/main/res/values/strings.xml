@@ -31,4 +31,15 @@
     <string name="knowledgebank_icon">tankebubbla som innehåller citattecken</string>
     <string name="about_icon">anteckningsblock med bokstaven i på omslaget</string>
     <string name="version_icon">mobiltelefon med programmeringsikon på framsidan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="jordbruksverket_icon">jordbruksverket_icon</string>
+    <string name="data_privacy_policy_applikationen">Applikationen</string>
+    <string name="data_privacy_policy_appInfoText">Är utformad och utvecklad av Jordbruksverket i samarbete med SLU och Mobile Interaction och finansierad genom EUs landsbygdsprogram.</string>
+    <string name="data_privacy_policy_feedbackButton">Skicka feedback eller rappotera fel</string>
+    <string name="data_privacy_policy_hanteringHeader">Hantering av data i appen</string>
+    <string name="data_privacy_policy_hanteringText1">Information som du anger sparas bara i appen. Det är endast om du som använder aktivt väljer att exportera testresultat som information lämnar appen. Den skickas då bara till den e-postadress du angivit. Det finns ingen koppling mellan data i appen och Jordbruksverkets IT-system.</string>
+    <string name="data_privacy_policy_hanteringText2">Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.</string>
+    <string name="data_privacy_policy_header_close">TILLBAKA</string>
+    <string name="data_privacy_policy_header">UTVECKLARE</string>
 </resources>
