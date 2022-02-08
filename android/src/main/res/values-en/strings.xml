@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="mina_uppgifter">My Details</string>
+    <string name="namn">Name</string>
+    <string name="emailadress">E-mailaddress</string>
+    <string name="spara">Save</string>
     <string name="toolbar_navigation_back">BACK</string>
     <string name="about_app_fragment_title">ABOUT THE APP</string>
     <string name="about_app_section1_title">The importance of good soil structure</string>
