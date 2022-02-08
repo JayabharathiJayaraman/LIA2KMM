@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
     kotlin("android")
+    id("kotlin-android")
 }
 
 android {
@@ -18,7 +18,6 @@ android {
             isMinifyEnabled = false
         }
     }
-
     buildFeatures {
         viewBinding = true
     }
@@ -29,4 +28,7 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 }
