@@ -1,5 +1,4 @@
 <resources>
-<<<<<<< HEAD
     <string name="toolbar_navigation_back">TILLBAKA</string>
     <string name="about_app_fragment_title">OM APPEN</string>
     <string name="about_app_section1_title">Vikten av god markstruktur</string>
@@ -19,7 +18,6 @@
         \n\nDet går att exportera utförda test från appen, och att importera tillbaka dem, med uppgifter om position. Så du ska kunna återkomma och följa upp tidigare test.
         \n\nDu kan även skicka enskilda testresultat som PDF med e-post till dig själv eller, till exempel, en rådgivare. Du kan också skapa en PDF med en summering av dina tre deltest för en plats.
     </string>
-=======
     <string name="settings">Inställningar</string>
     <string name="knowledgebank">Kunskapsbank</string>
     <string name="about">Om appen</string>
@@ -29,5 +27,4 @@
     <string name="knowledgebank_icon">tankebubbla som innehåller citattecken</string>
     <string name="about_icon">anteckningsblock med bokstaven i på omslaget</string>
     <string name="version_icon">mobiltelefon med programmeringsikon på framsidan</string>
->>>>>>> origin/develop
 </resources>
