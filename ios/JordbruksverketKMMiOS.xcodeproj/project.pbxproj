@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51C7154927B281AE0005FE91 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */; };
+		51C7154A27B281AE0005FE91 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */; };
 		9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50C27A14C740043B5A1 /* AppDelegate.swift */; };
 		9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */; };
 		9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D34C51227A14C740043B5A1 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.release.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.release.xcconfig"; sourceTree = "<group>"; };
 		177C7667C4A164A69D155271 /* Pods-JordbruksverketKMMiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.debug.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
+		51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 				13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */,
+				51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */,
+			);
+			path = DataPrivacyViewController;
 			sourceTree = "<group>";
 		};
 		9D34C50027A14C740043B5A1 = {
@@ -183,6 +196,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				51C7154627B281730005FE91 /* DataPrivacyViewController */,
 				9D34C54227A14FE40043B5A1 /* RootViewController */,
 			);
 			path = ViewControllers;
@@ -322,6 +336,7 @@
 				9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
+				51C7154A27B281AE0005FE91 /* DataPrivacyViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 			);
@@ -382,6 +397,7 @@
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
+				51C7154927B281AE0005FE91 /* DataPrivacyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
