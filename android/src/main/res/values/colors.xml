@@ -3,5 +3,9 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="appBackgroundColor">#edf1e2</color>
+    <color name="aboutSectionTitleColor">#2f651a</color>
+    <color name="aboutSectionDescriptionColor">#2f651a</color>
+    <color name="toolbarBackgroundColor">#F7F8F5</color>
     <color name="tree_green">#2f651a</color>
 </resources>
