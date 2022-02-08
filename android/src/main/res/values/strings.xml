@@ -1,4 +1,36 @@
 <resources>
+    <string name="mina_uppgifter">Mina uppgifter</string>
+    <string name="namn">Namn</string>
+    <string name="emailadress">E-mailadress</string>
+    <string name="spara">Spara</string>
+    <string name="toolbar_navigation_back">TILLBAKA</string>
+    <string name="about_app_fragment_title">OM APPEN</string>
+    <string name="about_app_section1_title">Vikten av god markstruktur</string>
+    <string name="about_app_section2_title">Bakgrund</string>
+    <string name="about_app_section3_title">Hur mår min jord?</string>
+    <string name="about_app_section4_title">Vårda markstrukturen</string>
+    <string name="about_app_section5_title">Följ upp och utvärdera</string>
+    <string name="about_app_section1_description">God och stabil markstruktur är grunden för en väl fungerande odlingsjord. Det ökar odlingssäkerheten och möjligheterna att bedriva ett lönsamt jordbruk, med mindre klimat- och miljöpåverkan.</string>
+    <string name="about_app_section2_description">Appen är utvecklad utifrån SLUs rapport "Markstrukturtest i fält". Rapporten finns i Kunskapsbanken. Där finns även en kort film om markstruktur och annan information.</string>
+    <string name="about_app_section3_description">
+        Appens tre deltest (allmänna frågor, markstrukturtest, infiltrationstest)  hjälper dig att få koll på markstrukturen. De  går att göra var för sig. Men bäst koll på din jord får du om du gör alla tre delarna. Testen går att göra närsomhelst, men funkar allra bäst när det är fuktigt i jorden.
+        \n\nGör gärna testen på olika platser på samma fält för att lära känna din jord ännu bättre. Då kan du  jämföra bra, representativa och dåliga områden.
+    </string>
+    <string name="about_app_section4_description">Här finns  tips om  åtgärder för att vårda och förbättra  markstrukturen. Du kan  göra egna checklistor för de åtgärder  du tycker passar bäst för dina skiften.</string>
+    <string name="about_app_section5_description">
+        Genom att regelbundet utföra testerna håller du markstrukturen under uppsikt och märker effekterna av dina odlingsåtgärder. Det hjälper dig att utveckla en långsiktig strategi för att förbättra markstrukturen på dina åkrar.
+        \n\nDet går att exportera utförda test från appen, och att importera tillbaka dem, med uppgifter om position. Så du ska kunna återkomma och följa upp tidigare test.
+        \n\nDu kan även skicka enskilda testresultat som PDF med e-post till dig själv eller, till exempel, en rådgivare. Du kan också skapa en PDF med en summering av dina tre deltest för en plats.
+    </string>
+    <string name="settings">Inställningar</string>
+    <string name="knowledgebank">Kunskapsbank</string>
+    <string name="about">Om appen</string>
+    <string name="version"><![CDATA[Utvecklare & datahantering]]></string>
+    <string name="cross_with_close_text">kryss med texten stäng</string>
+    <string name="settings_icon">kugghjul som representerar inställningar</string>
+    <string name="knowledgebank_icon">tankebubbla som innehåller citattecken</string>
+    <string name="about_icon">anteckningsblock med bokstaven i på omslaget</string>
+    <string name="version_icon">mobiltelefon med programmeringsikon på framsidan</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="jordbruksverket_icon">jordbruksverket_icon</string>
