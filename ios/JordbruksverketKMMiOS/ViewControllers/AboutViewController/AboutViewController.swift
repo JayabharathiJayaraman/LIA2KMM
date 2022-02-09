@@ -17,9 +17,21 @@ class AboutViewController: UIViewController {
     
     @IBOutlet weak var about_section2_info: UILabel!
     
-   // @IBOutlet weak var about_section3_title: UILabel!
+    @IBOutlet weak var about_section3_title: UILabel!
     
-   // @IBOutlet weak var about_section3_info: UILabel!
+    @IBOutlet weak var about_section3_info: UILabel!
+    
+    
+    @IBOutlet weak var about_section4_title: UILabel!
+    
+    
+    @IBOutlet weak var about_section4_info: UILabel!
+    
+    
+    @IBOutlet weak var about_section5_title: UILabel!
+    
+    
+    @IBOutlet weak var about_section5_info: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +45,17 @@ class AboutViewController: UIViewController {
         
         about_section2_info.text = "about_app_section2_description".localized
        
-       /* about_section3_title.text = "about_app_section3_title".localized
+        about_section3_title.text = "about_app_section3_title".localized
         
-        about_section3_info.text = "about_app_section3_description".localized*/
+        about_section3_info.text = "about_app_section3_description".localized
+        
+        about_section4_title.text = "about_app_section4_title".localized
+        
+        about_section4_info.text = "about_app_section4_description".localized
+        
+        about_section5_title.text = "about_app_section5_title".localized
+        
+        about_section5_info.text = "about_app_section5_description".localized
     
     }
 
