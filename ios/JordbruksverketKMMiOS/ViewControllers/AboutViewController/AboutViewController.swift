@@ -10,33 +10,29 @@ import UIKit
 class AboutViewController: UIViewController {
 
     @IBOutlet weak var about_section1_title: UILabel!
-    
     @IBOutlet weak var about_section1_info: UILabel!
-    
     @IBOutlet weak var about_section2_title: UILabel!
-    
     @IBOutlet weak var about_section2_info: UILabel!
-    
     @IBOutlet weak var about_section3_title: UILabel!
-    
     @IBOutlet weak var about_section3_info: UILabel!
-    
-    
     @IBOutlet weak var about_section4_title: UILabel!
-    
-    
     @IBOutlet weak var about_section4_info: UILabel!
-    
-    
     @IBOutlet weak var about_section5_title: UILabel!
-    
-    
     @IBOutlet weak var about_section5_info: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+        displayAboutInfo()
+    
+    }
+    
+    func displayAboutInfo()
+    {
+        
         about_section1_title.text = "about_app_section1_title".localized
         
         about_section1_info.text = "about_app_section1_description".localized
@@ -56,8 +52,10 @@ class AboutViewController: UIViewController {
         about_section5_title.text = "about_app_section5_title".localized
         
         about_section5_info.text = "about_app_section5_description".localized
-    
+        
     }
+    
+    
 
 
     /*
