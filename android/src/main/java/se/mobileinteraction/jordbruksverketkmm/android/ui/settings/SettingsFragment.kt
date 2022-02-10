@@ -24,7 +24,7 @@ class SettingsFragment : Fragment() {
 
         binding.mydetailsSaveBtn.setOnClickListener {
 
-            view.findNavController().navigate(R.id.navigateToMenu)
+            view.findNavController().navigateUp()
         }
 
         return view

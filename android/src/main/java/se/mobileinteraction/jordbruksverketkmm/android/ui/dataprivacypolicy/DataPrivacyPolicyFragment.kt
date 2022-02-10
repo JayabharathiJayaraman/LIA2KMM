@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentDataPrivacyPolicyBinding
-import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentMenuBinding
-
 
 class DataPrivacyPolicyFragment : Fragment() {
 
@@ -25,7 +23,7 @@ class DataPrivacyPolicyFragment : Fragment() {
         fragmentDataPrivacyPolicyBinding = binding
 
         binding.closeLink.setOnClickListener {
-            view.findNavController().navigate(R.id.navigateToMenu)
+            view.findNavController().navigateUp()
         }
 
         return view

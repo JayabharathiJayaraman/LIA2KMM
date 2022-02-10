@@ -23,7 +23,7 @@ class MenuFragment : Fragment() {
         fragmentMenuBinding = binding
 
         binding.btnClose.setOnClickListener {
-              view.findNavController().navigate(R.id.navigateToStart)
+              view.findNavController().navigateUp()
         }
 
         binding.textViewSettings.setOnClickListener {

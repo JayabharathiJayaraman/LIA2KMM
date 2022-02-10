@@ -21,10 +21,7 @@ class AboutAppFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_about_app, container, false)
         val binding = FragmentAboutAppBinding.bind(view)
         fragmentAboutAppBinding = binding
-
-
         return view
-
     }
 
     override fun onDestroyView() {
