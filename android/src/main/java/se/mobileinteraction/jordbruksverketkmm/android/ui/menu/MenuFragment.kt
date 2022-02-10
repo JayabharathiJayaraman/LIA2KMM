@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentMenuBinding
 
-
 class MenuFragment : Fragment() {
 
     private var fragmentMenuBinding: FragmentMenuBinding? = null
@@ -24,7 +23,19 @@ class MenuFragment : Fragment() {
         fragmentMenuBinding = binding
 
         binding.btnClose.setOnClickListener {
-            view.findNavController().navigate(R.id.navigateToStartFragment)
+              view.findNavController().navigate(R.id.navigateToStart)
+        }
+
+        binding.textViewSettings.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToSettings)
+        }
+
+        binding.textViewDataPrivacyPolicy.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToDataPrivacyPolicy)
+        }
+
+        binding.textViewAboutApp.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToAboutApp)
         }
 
         return view
