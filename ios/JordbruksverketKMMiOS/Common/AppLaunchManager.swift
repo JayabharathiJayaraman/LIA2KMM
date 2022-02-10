@@ -2,14 +2,14 @@ import UIKit
 
 protocol AppLaunchManager {
     var rootViewController: UIViewController { get }
-    //var dataPrivacyPolicyViewController: UIViewController { get }
+    //var dataPrivacyViewController: UIViewController { get }
 }
 
 struct DefaultAppLaunchManager: AppLaunchManager {
     let rootViewController: UIViewController
-    //let dataPrivacyPolicyViewController: UIViewController
+    //let dataPrivacyViewController: UIViewController
     init() {
-        rootViewController = RootViewController()
-        //dataPrivacyPolicyViewController = DataPrivacyPolicyViewController()
+        rootViewController = DataPrivacyViewController()//RootViewController()
+        //dataPrivacyViewController = DataPrivacyViewController()
     }
 }
