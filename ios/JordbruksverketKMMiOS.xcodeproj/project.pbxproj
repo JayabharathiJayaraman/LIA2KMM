@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
+		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50C27A14C740043B5A1 /* AppDelegate.swift */; };
 		9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */; };
 		9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D34C51227A14C740043B5A1 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.release.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.release.xcconfig"; sourceTree = "<group>"; };
 		177C7667C4A164A69D155271 /* Pods-JordbruksverketKMMiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.debug.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E55517C27B3BE3200AD461E /* StartScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E55518327B4579200AD461E /* StartScreenViewController.swift */,
+				2E55518427B4579200AD461E /* StartScreenViewController.xib */,
+			);
+			path = StartScreenViewController;
+			sourceTree = "<group>";
+		};
 		32FAC77D241BF838CC793F6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
 				9D34C54227A14FE40043B5A1 /* RootViewController */,
 			);
 			path = ViewControllers;
@@ -324,6 +338,7 @@
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
+				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +395,7 @@
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
+				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
 			);
@@ -577,7 +593,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -606,7 +622,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -634,7 +650,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -659,7 +675,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -683,7 +699,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -706,7 +722,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
