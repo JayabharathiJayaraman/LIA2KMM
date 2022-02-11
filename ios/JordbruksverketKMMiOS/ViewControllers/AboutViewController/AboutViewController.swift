@@ -27,6 +27,7 @@ class AboutViewController: UIViewController {
         
         
         displayAboutInfo()
+        //adjustFontAccessibility()
     
     }
     
@@ -54,6 +55,34 @@ class AboutViewController: UIViewController {
         about_section5_info.text = "about_app_section5_description".localized
         
     }
+    
+    func adjustFontAccessibility()
+    {
+            guard let customTitleFont = UIFont(name: "OpenSans-SemiBold", size: UIFont.labelFontSize) else {
+                fatalError("""
+                    Failed to load the "Opensans-SemiBold" font.
+                    Make sure the font file is included in the project and the font name is spelled correctly.
+                    """)
+            }
+            
+            guard let customBodyFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
+                fatalError("""
+                    Failed to load the "Opensans-Regular" font.
+                    Make sure the font file is included in the project and the font name is spelled correctly.
+                    """)
+            }
+            
+            about_section1_title.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: customTitleFont)
+            about_section1_title.adjustsFontForContentSizeCategory = true
+            about_section1_title.adjustsFontSizeToFitWidth = true
+        about_section1_title.translatesAutoresizingMaskIntoConstraints = false
+            
+            about_section1_info.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: customBodyFont)
+            about_section1_info.adjustsFontForContentSizeCategory = true
+            about_section1_info.adjustsFontSizeToFitWidth = true
+            about_section1_info.lineBreakMode = .byClipping
+        about_section1_info.translatesAutoresizingMaskIntoConstraints = false
+        }
     
     
 
