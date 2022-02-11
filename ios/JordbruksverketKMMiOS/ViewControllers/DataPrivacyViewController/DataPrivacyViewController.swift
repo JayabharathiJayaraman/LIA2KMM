@@ -11,12 +11,7 @@ class DataPrivacyViewController: UIViewController {
  
     
     @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var text1: UITextView!
-    @IBOutlet weak var feedbackButton: UIButton!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var text2: UITextView!
-    
-    
+    @IBOutlet weak var text1: UILabel!
     
     
     override func viewDidLoad() {
@@ -25,9 +20,10 @@ class DataPrivacyViewController: UIViewController {
 
         label1.text = "DataPrivacyPolicyApplikationen".localized
         text1.text = "DataPrivacyPolicyTextPart1".localized
-       // feedBackButton.titleLabel = "DataPrivacyPolicyFeedbackButton".localized
+        text1.numberOfLines = 0
+        /* feedBackButton.titleLabel = "DataPrivacyPolicyFeedbackButton".localized
       label2.text = "DataPrivacyPolicyHantering".localized
-        text2.text = "DataPrivacyPolicyTextPart2".localized
+        text2.text = "DataPrivacyPolicyTextPart2".localized */
        
         
         

@@ -1,7 +1,17 @@
-/* 
-  Localizable.strings
-  JordbruksverketKMMiOS
+"Hej" = "Hej!";
 
-  Created by Erik Hedrenius on 2022-01-31.
-  
-*/
+"DataPrivacyPolicyTILLBAKA" = "TILLBAKA";
+
+"DataPrivacyPolicyPageLabel" = "UTVECKLARE";
+
+"DataPrivacyPolicyApplikationen" = "Applikationen";
+
+"DataPrivacyPolicyTextPart1" = "Är utformad och utvecklad av Jordbruksverket i samarbete med SLU och Mobile Interaction och finansierad genom EUs landsbygdsprogram.";
+
+"DataPrivacyPolicyFeedbackButton" = "Skicka feedback eller rapportera fel";
+
+"DataPrivacyPolicyHantering" = "Hantering av data i appen";
+
+"DataPrivacyPolicyTextPart2" = "Information som du anger sparas bara i appen. Det är endast om du som användare aktivt väljer att exportera testresultat som information lämnar appen. Den skickas då bara till den e-postadress du angivit. Det finns ingen koppling mellan data i appen och Jordbruksverkets IT-system.";
+
+"DataPrivacyPolicyTextPart3" = "Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.";

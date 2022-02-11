@@ -56,7 +56,8 @@
 		13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.release.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.release.xcconfig"; sourceTree = "<group>"; };
 		177C7667C4A164A69D155271 /* Pods-JordbruksverketKMMiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.debug.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
+		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -463,6 +464,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9D8E1E9227A7FAFC002E7D94 /* sv */,
+				51C3C2DE27B6A20F00454C9B /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
