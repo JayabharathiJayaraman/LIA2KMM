@@ -68,8 +68,8 @@ class AboutAppViewController: UIViewController {
         for title in titles
         {
             title.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: customTitleFont)
-            about_title1.adjustsFontForContentSizeCategory = true
-            about_title1.adjustsFontSizeToFitWidth = true
+            title.adjustsFontForContentSizeCategory = true
+            title.adjustsFontSizeToFitWidth = true
         }
         
         for information in informations

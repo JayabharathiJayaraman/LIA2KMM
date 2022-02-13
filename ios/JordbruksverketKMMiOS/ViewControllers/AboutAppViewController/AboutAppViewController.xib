@@ -52,7 +52,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlT-Vk-1A6">
-                                            <rect key="frame" x="20" y="115" width="550" height="125"/>
+                                            <rect key="frame" x="20" y="115" width="550" height="115"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                             <color key="textColor" name="AboutSectionInfoColor"/>
                                             <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="AppBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="IlT-Vk-1A6" secondAttribute="bottom" constant="10" id="1r4-Nv-u2u"/>
+                                        <constraint firstAttribute="bottom" secondItem="IlT-Vk-1A6" secondAttribute="bottom" constant="20" id="Af1-fQ-JrQ"/>
                                         <constraint firstItem="IlT-Vk-1A6" firstAttribute="leading" secondItem="hiy-KK-Mhg" secondAttribute="leading" constant="20" symbolic="YES" id="H1a-dF-fJG"/>
                                         <constraint firstAttribute="trailing" secondItem="j62-JC-M6p" secondAttribute="trailing" constant="20" id="Kih-pM-qYV"/>
                                         <constraint firstAttribute="trailing" secondItem="IlT-Vk-1A6" secondAttribute="trailing" constant="20" id="Y9o-AO-81M"/>
@@ -73,13 +73,13 @@
                                     <rect key="frame" x="0.0" y="250" width="590" height="128"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpB-rU-LzH">
-                                            <rect key="frame" x="20" y="10" width="550" height="66"/>
+                                            <rect key="frame" x="20" y="10" width="550" height="56"/>
                                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                             <color key="textColor" name="AboutSectionTitleColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtg-UH-ALv">
-                                            <rect key="frame" x="20" y="96" width="550" height="22"/>
+                                            <rect key="frame" x="20" y="86" width="550" height="22"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                             <color key="textColor" name="AboutSectionInfoColor"/>
                                             <nil key="highlightedColor"/>
@@ -92,8 +92,8 @@
                                         <constraint firstItem="rtg-UH-ALv" firstAttribute="leading" secondItem="DNR-0R-F9x" secondAttribute="leading" constant="20" symbolic="YES" id="Zzt-4U-oBd"/>
                                         <constraint firstAttribute="trailing" secondItem="rtg-UH-ALv" secondAttribute="trailing" constant="20" id="cPA-Lc-6ca"/>
                                         <constraint firstItem="rtg-UH-ALv" firstAttribute="top" secondItem="IpB-rU-LzH" secondAttribute="bottom" constant="20" id="gJk-sS-bkw"/>
-                                        <constraint firstAttribute="bottom" secondItem="rtg-UH-ALv" secondAttribute="bottom" constant="10" id="sQG-Mh-hxu"/>
                                         <constraint firstAttribute="trailing" secondItem="IpB-rU-LzH" secondAttribute="trailing" constant="20" id="xvG-bN-GX7"/>
+                                        <constraint firstAttribute="bottom" secondItem="rtg-UH-ALv" secondAttribute="bottom" constant="20" id="yBx-fA-v2h"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBg-8v-ICx">
@@ -106,7 +106,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHo-E9-GZs">
-                                            <rect key="frame" x="20" y="55" width="550" height="63"/>
+                                            <rect key="frame" x="20" y="55" width="550" height="53"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                             <color key="textColor" name="AboutSectionInfoColor"/>
                                             <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="AppBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="QHo-E9-GZs" secondAttribute="bottom" constant="10" id="FSL-pe-nvn"/>
+                                        <constraint firstAttribute="bottom" secondItem="QHo-E9-GZs" secondAttribute="bottom" constant="20" id="9QC-np-vMh"/>
                                         <constraint firstItem="7me-rh-tOQ" firstAttribute="top" secondItem="pBg-8v-ICx" secondAttribute="top" constant="10" id="IC1-dx-rGQ"/>
                                         <constraint firstAttribute="trailing" secondItem="7me-rh-tOQ" secondAttribute="trailing" constant="20" id="KDz-FI-ebR"/>
                                         <constraint firstItem="QHo-E9-GZs" firstAttribute="leading" secondItem="pBg-8v-ICx" secondAttribute="leading" constant="20" symbolic="YES" id="NdA-um-rwB"/>
@@ -133,7 +133,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9f-gd-Yv8">
-                                            <rect key="frame" x="20" y="55" width="550" height="63"/>
+                                            <rect key="frame" x="20" y="55" width="550" height="53"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                             <color key="textColor" name="AboutSectionInfoColor"/>
                                             <nil key="highlightedColor"/>
@@ -143,8 +143,8 @@
                                     <constraints>
                                         <constraint firstItem="l9f-gd-Yv8" firstAttribute="leading" secondItem="p8h-zd-GKe" secondAttribute="leading" constant="20" symbolic="YES" id="Bj7-UQ-CZj"/>
                                         <constraint firstItem="nHw-Kp-OlH" firstAttribute="top" secondItem="p8h-zd-GKe" secondAttribute="top" constant="10" id="Cym-sI-bVO"/>
-                                        <constraint firstAttribute="bottom" secondItem="l9f-gd-Yv8" secondAttribute="bottom" constant="10" id="Kqa-f2-cmm"/>
                                         <constraint firstAttribute="trailing" secondItem="nHw-Kp-OlH" secondAttribute="trailing" constant="20" id="L01-Lm-wwW"/>
+                                        <constraint firstAttribute="bottom" secondItem="l9f-gd-Yv8" secondAttribute="bottom" constant="20" id="SXE-bK-dvj"/>
                                         <constraint firstItem="l9f-gd-Yv8" firstAttribute="top" secondItem="nHw-Kp-OlH" secondAttribute="bottom" constant="20" id="gYq-UF-oRq"/>
                                         <constraint firstItem="nHw-Kp-OlH" firstAttribute="leading" secondItem="p8h-zd-GKe" secondAttribute="leading" constant="20" id="ts8-Qq-oJM"/>
                                         <constraint firstAttribute="trailing" secondItem="l9f-gd-Yv8" secondAttribute="trailing" constant="20" id="uQT-M8-l4m"/>
@@ -154,13 +154,13 @@
                                     <rect key="frame" x="0.0" y="634" width="590" height="128"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hy-QN-fYm">
-                                            <rect key="frame" x="20" y="10" width="550" height="25"/>
+                                            <rect key="frame" x="20" y="10" width="550" height="56"/>
                                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                             <color key="textColor" name="AboutSectionTitleColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-av-unq">
-                                            <rect key="frame" x="20" y="55" width="550" height="63"/>
+                                            <rect key="frame" x="20" y="86" width="550" height="22"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                             <color key="textColor" name="AboutSectionInfoColor"/>
                                             <nil key="highlightedColor"/>
@@ -169,8 +169,8 @@
                                     <color key="backgroundColor" name="AppBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="xyl-av-unq" firstAttribute="leading" secondItem="qg4-8N-JGF" secondAttribute="leading" constant="20" symbolic="YES" id="A5N-of-vYW"/>
-                                        <constraint firstAttribute="bottom" secondItem="xyl-av-unq" secondAttribute="bottom" constant="10" id="EEY-gH-J6f"/>
                                         <constraint firstItem="xyl-av-unq" firstAttribute="top" secondItem="8Hy-QN-fYm" secondAttribute="bottom" constant="20" id="R3d-IR-QMn"/>
+                                        <constraint firstAttribute="bottom" secondItem="xyl-av-unq" secondAttribute="bottom" constant="20" id="UsM-kF-nam"/>
                                         <constraint firstAttribute="trailing" secondItem="8Hy-QN-fYm" secondAttribute="trailing" constant="20" id="aql-73-d6b"/>
                                         <constraint firstItem="8Hy-QN-fYm" firstAttribute="top" secondItem="qg4-8N-JGF" secondAttribute="top" constant="10" id="eTN-c8-ItW"/>
                                         <constraint firstAttribute="trailing" secondItem="xyl-av-unq" secondAttribute="trailing" constant="20" id="lel-c0-Bb3"/>
