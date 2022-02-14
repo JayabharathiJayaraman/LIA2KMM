@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638027BAAB9600A1CF2D /* opensans_regular.ttf */; };
+		5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */; };
 		51C7154927B281AE0005FE91 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */; };
 		51C7154A27B281AE0005FE91 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */; };
 		9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50C27A14C740043B5A1 /* AppDelegate.swift */; };
@@ -56,6 +58,8 @@
 		13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.release.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.release.xcconfig"; sourceTree = "<group>"; };
 		177C7667C4A164A69D155271 /* Pods-JordbruksverketKMMiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.debug.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5133638027BAAB9600A1CF2D /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
+		5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_semi_bold.ttf; sourceTree = "<group>"; };
 		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 				13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5133637F27BAAA5C00A1CF2D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5133638027BAAB9600A1CF2D /* opensans_regular.ttf */,
+				5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
@@ -215,6 +228,7 @@
 		9D8E1E8327A7F9C1002E7D94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5133637F27BAAA5C00A1CF2D /* Fonts */,
 				9D8E1E9127A7FA92002E7D94 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -340,8 +354,10 @@
 				9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
+				5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */,
 				51C7154A27B281AE0005FE91 /* DataPrivacyViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
+				5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

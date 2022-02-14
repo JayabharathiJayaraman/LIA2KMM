@@ -7,7 +7,6 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
 
         print("Hello world!")
-        print("\(Greeting().greeting())")
         print("HEJ".localized)
     }
     
