@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mina_uppgifter">My Details</string>
+    <string name="namn">Name</string>
+    <string name="emailadress">E-mailaddress</string>
+    <string name="spara">Save</string>
+    <string name="toolbar_navigation_back">BACK</string>
+    <string name="about_app_fragment_title">ABOUT THE APP</string>
+    <string name="about_app_section1_title">The importance of good soil structure</string>
+    <string name="about_app_section2_title">Background</string>
+    <string name="about_app_section3_title">How is my soil?</string>
+    <string name="about_app_section4_title">Nurture the soil structure</string>
+    <string name="about_app_section5_title">Follow up and evaluate</string>
+    <string name="about_app_section1_description">Good and stable soil structure is the basis for a well-functioning arable land. It increases crop security and the opportunities to engage in profitable agriculture, with less climate and environmental impact.</string>
+    <string name="about_app_section2_description">The app is developed based on SLU\'s report "Ground structure test in the field". The report is available in the Knowledge Bank. There is also a short film about soil structure and other information.</string>
+    <string name="about_app_section3_description">
+        The app\'s three subtests (general questions, soil structure test, infiltration test) help you keep track of the soil structure. They can be done separately. But you get the best view of your soil if you do all three parts. The test can be done at any time, but works best when the soil is moist.
+         \n\nPlease do the test in different places in the same field to get to know your soil even better. Then you can compare good, representative and bad areas.
+    </string>
+    <string name="about_app_section4_description">Here are tips on measures to nurture and improve the soil structure. You can make your own checklists for the actions you think are best for your shifts.</string>
+    <string name="about_app_section5_description">
+        By performing the tests regularly, you keep the soil structure under surveillance and notice the effects of your cultivation measures. It will help you develop a long-term strategy to improve the soil structure of your fields.
+         \n\nIt is possible to export performed tests from the app, and to import them back, with position information. So you should be able to come back and follow up on previous tests.
+         \n\nYou can also email individual test results as a PDF to yourself or, for example, an advisor. You can also create a PDF with a summary of your three subtests for a site.
+    </string>
+</resources>
