@@ -5,43 +5,33 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
+import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentStartScreenBinding
 
 
 class StartScreenFragment : Fragment() {
 
+    private var fragmentStartScreenBinding: FragmentStartScreenBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
-    {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_start_screen, container, false)
 
-        val startScreenFragmentView = inflater.inflate(R.layout.fragment_start_screen, container, false)
-        return startScreenFragmentView
+        val binding = FragmentStartScreenBinding.bind(view)
+        fragmentStartScreenBinding = binding
+
+        binding.imageButtonMenu.setOnClickListener{
+            view.findNavController().navigate(R.id.navigateToMenu)
+        }
+
+        return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val menuButton: ImageButton = view.findViewById(R.id.image_button_menu)
-
-
-        val aboutApp: TextView = view.findViewById(R.id.aboutAppText)
-
-
-        val testDoneButton: ImageButton = view.findViewById(R.id.image_test_done_button)
-
-
-        val addTestButton: ImageButton = view.findViewById(R.id.image_add_test_button)
-
-
-        val plantIconButton: ImageButton = view.findViewById(R.id.image_plant_icon_button)
-
-
-        val welcomeLabel: TextView = view.findViewById(R.id.welcomeText)
-
-
-        val mainLabel: TextView = view.findViewById(R.id.appNameText)
-
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        fragmentStartScreenBinding = null
     }
 }

@@ -3,24 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/startScreenFragment">
 
-    <fragment
-        android:id="@+id/startFragment"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
-        <action
-            android:id="@+id/navigateToMenuFragment"
-            app:destination="@id/menuFragment" />
-    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/navigateToStartFragment"
-            app:destination="@id/startFragment" />
+            android:id="@+id/navigateToStart"
+            app:destination="@id/startScreenFragment" />
+        <action
+            android:id="@+id/navigateToSettings"
+            app:destination="@id/settingsFragment2" />
+        <action
+            android:id="@+id/navigateToDataPrivacyPolicy"
+            app:destination="@id/dataPrivacyPolicyFragment" />
+        <action
+            android:id="@+id/navigateToAboutApp"
+            app:destination="@id/aboutAppFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.StartScreenFragment"
+        android:label="fragment_start_screen"
+        tools:layout="@layout/fragment_start_screen" >
+        <action
+            android:id="@+id/navigateToMenu"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/navigateToMenu"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataPrivacyPolicyFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.DataPrivacyPolicyFragment"
+        android:label="fragment_data_privacy_policy"
+        tools:layout="@layout/fragment_data_privacy_policy" >
+        <action
+            android:id="@+id/navigateToMenu"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.fragments.AboutAppFragment"
+        android:label="AboutAppFragment" >
+        <action
+            android:id="@+id/navigateToMenu"
+            app:destination="@id/menuFragment" />
     </fragment>
 </navigation>

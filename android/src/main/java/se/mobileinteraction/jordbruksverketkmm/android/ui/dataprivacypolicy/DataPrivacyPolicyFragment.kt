@@ -5,37 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentDataPrivacyPolicyBinding
 
+class DataPrivacyPolicyFragment : Fragment() {
 
-class DataPrivacyPolicyFragment : Fragment(R.layout.fragment_data_privacy_policy) {
-
-    private var _binding: FragmentDataPrivacyPolicyBinding?=null
-    private val binding get() = _binding!!
+    private var fragmentDataPrivacyPolicyBinding: FragmentDataPrivacyPolicyBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDataPrivacyPolicyBinding.inflate(inflater, container, false)
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_data_privacy_policy, container, false)
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentDataPrivacyPolicyBinding.bind(view)
+        fragmentDataPrivacyPolicyBinding = binding
 
         binding.closeLink.setOnClickListener {
-
+            view.findNavController().navigateUp()
         }
 
-        binding.feedbackButton.setOnClickListener {
-
-        }
+        return view
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+    override fun onDestroyView() {
+        super.onDestroyView()
+        fragmentDataPrivacyPolicyBinding = null
     }
 }
