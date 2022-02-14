@@ -12,6 +12,8 @@
 
 "DataPrivacyPolicyHantering" = "Hantering av data i appen";
 
-"DataPrivacyPolicyTextPart2" = "Information som du anger sparas bara i appen. Det är endast om du som användare aktivt väljer att exportera testresultat som information lämnar appen. Den skickas då bara till den e-postadress du angivit. Det finns ingen koppling mellan data i appen och Jordbruksverkets IT-system.";
+"DataPrivacyPolicyTextPart2" = "Information som du anger sparas bara i appen. Det är endast om du som användare aktivt väljer att exportera testresultat som information lämnar appen. Den skickas då bara till den e-postadress du angivit. Det finns ingen koppling mellan data i appen och Jordbruksverkets IT-system. \n
 
-"DataPrivacyPolicyTextPart3" = "Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.";
+Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information. ";
+
+
