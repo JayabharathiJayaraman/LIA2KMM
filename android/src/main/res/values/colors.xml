@@ -3,4 +3,15 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorWhite">#fffafa</color>
+    <color name="antiqueWhite">#edf1e2</color>
+    <color name="lightGreen">#acba82</color>
+    <color name="darkGreen">#2f651a</color>
+    <color name="dimGray">#d3d3d3</color>
+    <color name="lightOlive">#a1b171</color>
+    <color name="appBackgroundColor">#edf1e2</color>
+    <color name="aboutSectionTitleColor">#2f651a</color>
+    <color name="aboutSectionDescriptionColor">#2f651a</color>
+    <color name="toolbarBackgroundColor">#F7F8F5</color>
+    <color name="tree_green">#2f651a</color>
 </resources>

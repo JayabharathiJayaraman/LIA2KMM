@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edf1e2">
+
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="80dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jv_logo_black" />
+
+
+    <ImageButton
+        android:id="@+id/image_button_menu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/meny_m_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="64dp"
+        android:paddingBottom="36dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@id/curvedImage"
+        app:layout_constraintTop_toBottomOf="@id/logoImage">
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_semi_bold"
+            android:text="VÄLKOMMEN TILL"
+            android:textColor="#2f651a"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appIcon"
+            app:layout_constraintVertical_bias="0.569" />
+
+        <TextView
+            android:id="@+id/appNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Hur mår min jord?"
+            android:textColor="#2f651a"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appIcon"
+            app:layout_constraintVertical_bias="0.569" />
+
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="213dp"
+            android:layout_height="213dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcomeText"
+            app:layout_constraintVertical_bias="0.304"
+            app:srcCompat="@drawable/appikon1024" />
+
+        <TextView
+            android:id="@+id/aboutAppText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Läs mer om appen och testerna   >"
+            android:textColor="#2f651a"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appIcon"
+            app:layout_constraintVertical_bias="0.569" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/curvedImage"
+        app:layout_constraintVertical_bias="1.0">
+
+    </View>
+
+    <ImageView
+        android:id="@+id/curvedImage"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginBottom="48dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/curve_bottom"
+        app:layout_constraintBottom_toTopOf="@id/image_add_test_button" />
+
+    <ImageButton
+        android:id="@+id/image_add_test_button"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:background="@drawable/add_test_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.925"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/mina_test_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="Mina test"
+        android:textColor="#2f651a"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_test_done_button" />
+
+    <ImageButton
+        android:id="@+id/image_test_done_button"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:background="@drawable/test_done_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/nytt_test_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="Nytt test"
+        android:textColor="#2f651a"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_add_test_button" />
+
+    <ImageButton
+        android:id="@+id/image_plant_icon_button"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:background="@drawable/plant_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/plant_icon_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="Vårda"
+        android:textColor="#2f651a"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_plant_icon_button" />
+
+    <TextView
+        android:id="@+id/plant_icon_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="markstruktur"
+        android:textColor="#2f651a"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_plant_icon_button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
