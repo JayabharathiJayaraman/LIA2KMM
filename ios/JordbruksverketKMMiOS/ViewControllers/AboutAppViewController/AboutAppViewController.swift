@@ -74,7 +74,7 @@ class AboutAppViewController: UIViewController {
         
         for information in informations
         {
-            information.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customInfoFont)
+            information.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: customInfoFont)
             information.adjustsFontForContentSizeCategory = true
             information.adjustsFontSizeToFitWidth = true
         }
