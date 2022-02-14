@@ -10,17 +10,16 @@ import UIKit
 class DataPrivacyViewController: UIViewController {
  
     
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var text1: UILabel!
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
-        label1.text = "DataPrivacyPolicyApplikationen".localized
-        text1.text = "DataPrivacyPolicyTextPart1".localized
-        text1.numberOfLines = 0
+      //  label1.text = "DataPrivacyPolicyApplikationen".localized
+      //  text1.text = "DataPrivacyPolicyTextPart1".localized
+      //  text1.numberOfLines = 0
         /* feedBackButton.titleLabel = "DataPrivacyPolicyFeedbackButton".localized
       label2.text = "DataPrivacyPolicyHantering".localized
         text2.text = "DataPrivacyPolicyTextPart2".localized */
