@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AktivGroteskCorp-Medium.ttf">
-            <string>AktivGroteskCorp-Medium</string>
+        <array key="opensans_regular.ttf">
+            <string>OpenSans-Regular</string>
         </array>
-        <array key="AktivGroteskCorp-Regular.ttf">
-            <string>AktivGroteskCorp-Regular</string>
+        <array key="opensans_semi_bold.ttf">
+            <string>OpenSans-SemiBold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
+                <outlet property="label1" destination="rHl-6S-Iw5" id="0Oh-7T-kiq"/>
+                <outlet property="label2" destination="ZUV-h2-gUa" id="SOz-es-j2o"/>
+                <outlet property="text1" destination="26f-ba-QB4" id="D0V-Oq-a1c"/>
+                <outlet property="text2" destination="w23-1g-cRd" id="kFM-av-cGi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,506 +34,183 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-80-MRc">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1636"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mPO-GJ-ZnN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1636"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Xn3-yL-fcY" userLabel="Basic Information View">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLM-V2-837" userLabel="JV_View">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BASIC INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQh-hw-ihA">
-                                                    <rect key="frame" x="20" y="40" width="176" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Regular" family="Aktiv Grotesk" pointSize="18"/>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="report_details_basic_information"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmI-Pk-cbR" userLabel="Customer Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="86" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Che-dC-QgF">
+                                                    <rect key="frame" x="97" y="30" width="220" height="220"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jv-logga" translatesAutoresizingMaskIntoConstraints="NO" id="WcV-8o-qKW">
+                                                            <rect key="frame" x="-10" y="46" width="240" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="mx1-mR-sZ3"/>
+                                                        <constraint firstAttribute="width" constant="220" id="2cc-wW-tha"/>
+                                                        <constraint firstAttribute="height" constant="220" id="BZg-h2-ojg"/>
                                                     </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_basic_title_customer"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwP-S3-FOb" userLabel="SiteMine Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="140" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="PGq-U9-Sgb"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_basic_title_site_mine"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pDt-fh-uLb" userLabel="Country Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="194" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="ZAE-d1-h3E"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_basic_title_country"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="pDt-fh-uLb" firstAttribute="leading" secondItem="Xn3-yL-fcY" secondAttribute="leading" constant="20" id="4Zq-ro-CB7"/>
-                                                <constraint firstItem="fmI-Pk-cbR" firstAttribute="top" secondItem="zQh-hw-ihA" secondAttribute="bottom" constant="25" id="9gB-hp-dGX"/>
-                                                <constraint firstAttribute="trailing" secondItem="qwP-S3-FOb" secondAttribute="trailing" constant="20" id="9nE-cQ-INh"/>
-                                                <constraint firstAttribute="trailing" secondItem="pDt-fh-uLb" secondAttribute="trailing" constant="20" id="Eyz-G9-2Hb"/>
-                                                <constraint firstItem="zQh-hw-ihA" firstAttribute="leading" secondItem="Xn3-yL-fcY" secondAttribute="leading" constant="20" id="GSP-op-7ra"/>
-                                                <constraint firstAttribute="trailing" secondItem="fmI-Pk-cbR" secondAttribute="trailing" constant="20" id="LbP-dn-d6C"/>
-                                                <constraint firstItem="fmI-Pk-cbR" firstAttribute="leading" secondItem="Xn3-yL-fcY" secondAttribute="leading" constant="20" id="Uyd-nm-UqK"/>
-                                                <constraint firstItem="qwP-S3-FOb" firstAttribute="top" secondItem="fmI-Pk-cbR" secondAttribute="bottom" constant="20" id="nuP-Fs-pSC"/>
-                                                <constraint firstItem="pDt-fh-uLb" firstAttribute="top" secondItem="qwP-S3-FOb" secondAttribute="bottom" constant="20" id="pdj-ha-OqK"/>
-                                                <constraint firstItem="zQh-hw-ihA" firstAttribute="top" secondItem="Xn3-yL-fcY" secondAttribute="top" constant="40" id="r4o-oL-sGl"/>
-                                                <constraint firstAttribute="height" constant="270" id="rca-VG-k4p"/>
-                                                <constraint firstItem="qwP-S3-FOb" firstAttribute="leading" secondItem="Xn3-yL-fcY" secondAttribute="leading" constant="20" id="uGz-gw-thA"/>
+                                                <constraint firstItem="Che-dC-QgF" firstAttribute="centerY" secondItem="GLM-V2-837" secondAttribute="centerY" id="H8f-pr-XNU"/>
+                                                <constraint firstItem="Che-dC-QgF" firstAttribute="centerX" secondItem="GLM-V2-837" secondAttribute="centerX" id="nPs-Oi-duK"/>
+                                                <constraint firstAttribute="height" constant="280" id="qyu-tE-9KU"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqt-tg-xCi" userLabel="Product Information Title">
-                                            <rect key="frame" x="0.0" y="270" width="414" height="40"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-2H-WGY" userLabel="Text1_View">
+                                            <rect key="frame" x="0.0" y="280" width="414" height="128"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCT INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmS-Gf-UKS">
-                                                    <rect key="frame" x="20" y="10" width="208" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Regular" family="Aktiv Grotesk" pointSize="18"/>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="report_title_product_info"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-h5-Zxq">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="55"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHl-6S-Iw5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
+                                                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-wo-Xk8" userLabel="Spacer">
+                                                            <rect key="frame" x="0.0" y="25" width="374" height="8"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="8" id="dBx-Xw-xog"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26f-ba-QB4">
+                                                            <rect key="frame" x="0.0" y="33" width="374" height="22"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="rHl-6S-Iw5" firstAttribute="top" secondItem="oa4-h5-Zxq" secondAttribute="top" id="Fa2-px-Xc3"/>
+                                                        <constraint firstItem="rHl-6S-Iw5" firstAttribute="centerX" secondItem="oa4-h5-Zxq" secondAttribute="centerX" id="VR5-Ge-u8Y"/>
+                                                        <constraint firstItem="26f-ba-QB4" firstAttribute="centerX" secondItem="oa4-h5-Zxq" secondAttribute="centerX" id="aJy-na-Nuk"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="80Y-Qh-uVB"/>
-                                                <constraint firstItem="OmS-Gf-UKS" firstAttribute="top" secondItem="uqt-tg-xCi" secondAttribute="top" constant="10" id="LgA-Tq-lun"/>
-                                                <constraint firstItem="OmS-Gf-UKS" firstAttribute="leading" secondItem="uqt-tg-xCi" secondAttribute="leading" constant="20" id="k4q-or-MNF"/>
+                                                <constraint firstItem="oa4-h5-Zxq" firstAttribute="leading" secondItem="KOc-2H-WGY" secondAttribute="leading" constant="20" id="6ew-ha-8YE"/>
+                                                <constraint firstItem="oa4-h5-Zxq" firstAttribute="top" secondItem="KOc-2H-WGY" secondAttribute="top" id="Nnj-cR-4rM"/>
+                                                <constraint firstAttribute="trailing" secondItem="oa4-h5-Zxq" secondAttribute="trailing" constant="20" id="mbt-Wa-Yhp"/>
                                             </constraints>
                                         </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvE-mp-3uu" userLabel="Product Information Form">
-                                            <rect key="frame" x="0.0" y="310" width="414" height="240"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ6-zW-UH5" userLabel="Btn_View">
+                                            <rect key="frame" x="0.0" y="408" width="414" height="128"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mGv-Wj-qdX" userLabel="Part Number Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="16" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="wWJ-lt-m7X"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_part_number"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qF-QK-hLU" userLabel="Manufacturer* Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="70" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="hqL-M2-tB2"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_manufacturer"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnU-RQ-k6b" userLabel="Product Description Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="124" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="9XR-rf-tlM"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="product_description_title"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-1P-34B" userLabel="Product Type Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="178" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="eLW-sw-fZo"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="product_partnumber_title_type"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="6qF-QK-hLU" firstAttribute="top" secondItem="mGv-Wj-qdX" secondAttribute="bottom" constant="20" id="0qS-Yo-fz9"/>
-                                                <constraint firstItem="mGv-Wj-qdX" firstAttribute="top" secondItem="QvE-mp-3uu" secondAttribute="top" constant="16" id="0zD-vw-Drx"/>
-                                                <constraint firstItem="vnU-RQ-k6b" firstAttribute="leading" secondItem="QvE-mp-3uu" secondAttribute="leading" constant="20" id="2of-vj-fSw"/>
-                                                <constraint firstAttribute="trailing" secondItem="6qF-QK-hLU" secondAttribute="trailing" constant="20" id="B81-9M-B2W"/>
-                                                <constraint firstAttribute="height" constant="240" id="Bbq-af-gaS"/>
-                                                <constraint firstItem="LAf-1P-34B" firstAttribute="top" secondItem="vnU-RQ-k6b" secondAttribute="bottom" constant="20" id="GB7-5C-fNt"/>
-                                                <constraint firstAttribute="trailing" secondItem="vnU-RQ-k6b" secondAttribute="trailing" constant="20" id="d0V-Fq-zay"/>
-                                                <constraint firstItem="LAf-1P-34B" firstAttribute="leading" secondItem="QvE-mp-3uu" secondAttribute="leading" constant="20" id="dKV-3G-Swt"/>
-                                                <constraint firstAttribute="trailing" secondItem="LAf-1P-34B" secondAttribute="trailing" constant="20" id="ffh-s6-K7V"/>
-                                                <constraint firstItem="mGv-Wj-qdX" firstAttribute="leading" secondItem="QvE-mp-3uu" secondAttribute="leading" constant="20" id="hHj-Ep-sYF"/>
-                                                <constraint firstAttribute="trailing" secondItem="mGv-Wj-qdX" secondAttribute="trailing" constant="20" id="imJ-Qp-IJE"/>
-                                                <constraint firstItem="vnU-RQ-k6b" firstAttribute="top" secondItem="6qF-QK-hLU" secondAttribute="bottom" constant="20" id="sCU-OG-MBI"/>
-                                                <constraint firstItem="6qF-QK-hLU" firstAttribute="leading" secondItem="QvE-mp-3uu" secondAttribute="leading" constant="20" id="uII-wg-Fbt"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXa-n9-4PO" userLabel="Product Information Button">
-                                            <rect key="frame" x="0.0" y="310" width="414" height="90"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRm-Vk-MyM">
-                                                    <rect key="frame" x="20" y="10" width="374" height="50"/>
-                                                    <color key="backgroundColor" name="sandvikBlue"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="QQX-Ge-pge"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="16"/>
-                                                    <state key="normal" title="SELECT PRODUCT">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="action_select_product"/>
-                                                    </userDefinedRuntimeAttributes>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mg-BN-QKF">
+                                                    <rect key="frame" x="80.5" y="48" width="253.5" height="32"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" title="Skicka feedback eller rapportera fel">
+                                                        <color key="baseForegroundColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="90" id="Bin-y6-7Gy"/>
-                                                <constraint firstAttribute="trailing" secondItem="GRm-Vk-MyM" secondAttribute="trailing" constant="20" id="Zgb-Bx-aW6"/>
-                                                <constraint firstItem="GRm-Vk-MyM" firstAttribute="leading" secondItem="RXa-n9-4PO" secondAttribute="leading" constant="20" id="cxr-cR-dcR"/>
-                                                <constraint firstItem="GRm-Vk-MyM" firstAttribute="top" secondItem="RXa-n9-4PO" secondAttribute="top" constant="10" id="z7F-WF-0GB"/>
+                                                <constraint firstItem="0mg-BN-QKF" firstAttribute="top" secondItem="KJ6-zW-UH5" secondAttribute="top" constant="48" id="M2R-HS-Wxs"/>
+                                                <constraint firstItem="0mg-BN-QKF" firstAttribute="centerX" secondItem="KJ6-zW-UH5" secondAttribute="centerX" id="fjq-iI-Jlq"/>
+                                                <constraint firstItem="0mg-BN-QKF" firstAttribute="centerY" secondItem="KJ6-zW-UH5" secondAttribute="centerY" id="iPN-76-4XB"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS8-GZ-WQi" userLabel="Background Information View">
-                                            <rect key="frame" x="0.0" y="400" width="414" height="364"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upn-Fi-wCp" userLabel="2Images_View">
+                                            <rect key="frame" x="0.0" y="536" width="414" height="160"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BACKGROUND INFORMATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDr-wo-9SK">
-                                                    <rect key="frame" x="20" y="30" width="246" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Regular" family="Aktiv Grotesk Corp" pointSize="18"/>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="report_title_background_info"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-9J-2DF" userLabel="Serial Number Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="76" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="Re8-A3-Hkm"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_serial_number"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="225"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-6p-jZ5" userLabel="Total Meterage Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="130" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="u52-nm-brf"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Total Meterage"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="225"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0cH-kX-xkE" userLabel="Average rate of penetration Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="184" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="dru-B7-Pb1"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_avr_rop_ios"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="225"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghA-8M-SOs" userLabel="Date On" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="238" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="heG-He-fGi"/>
-                                                    </constraints>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_date_on"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="225"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="byr-Zq-eXs" userLabel="Date Off" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="292" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="nan-Au-gVP"/>
-                                                    </constraints>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_date_off"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="225"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-mx-cIh">
+                                                    <rect key="frame" x="67" y="20" width="280" height="120"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1w-zc-bDQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eu-logga" translatesAutoresizingMaskIntoConstraints="NO" id="0wL-eK-mLF">
+                                                                    <rect key="frame" x="-60" y="-4" width="240" height="128"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="1zT-2J-VSF"/>
+                                                                <constraint firstAttribute="height" constant="120" id="vyo-4X-hlk"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpO-GF-rdf">
+                                                            <rect key="frame" x="160" y="0.0" width="120" height="120"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="slu-logga" translatesAutoresizingMaskIntoConstraints="NO" id="omR-RS-vRQ">
+                                                                    <rect key="frame" x="-60" y="-4" width="240" height="128"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="1xB-BS-h9a"/>
+                                                                <constraint firstAttribute="height" constant="120" id="UWa-qI-jnO"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="byr-Zq-eXs" firstAttribute="top" secondItem="ghA-8M-SOs" secondAttribute="bottom" constant="20" id="0HG-oh-NAN"/>
-                                                <constraint firstAttribute="trailing" secondItem="ghA-8M-SOs" secondAttribute="trailing" constant="20" id="26A-Iv-9ce"/>
-                                                <constraint firstItem="JPi-6p-jZ5" firstAttribute="leading" secondItem="IS8-GZ-WQi" secondAttribute="leading" constant="20" id="2sw-l9-uKY"/>
-                                                <constraint firstItem="0cH-kX-xkE" firstAttribute="top" secondItem="JPi-6p-jZ5" secondAttribute="bottom" constant="20" id="3Gj-iW-xI2"/>
-                                                <constraint firstItem="ghA-8M-SOs" firstAttribute="top" secondItem="0cH-kX-xkE" secondAttribute="bottom" constant="20" id="95n-78-SBm"/>
-                                                <constraint firstItem="HDr-wo-9SK" firstAttribute="leading" secondItem="IS8-GZ-WQi" secondAttribute="leading" constant="20" id="FES-25-D14"/>
-                                                <constraint firstItem="DbT-9J-2DF" firstAttribute="top" secondItem="HDr-wo-9SK" secondAttribute="bottom" constant="25" id="HPU-4R-FPw"/>
-                                                <constraint firstItem="byr-Zq-eXs" firstAttribute="leading" secondItem="IS8-GZ-WQi" secondAttribute="leading" constant="20" id="Km2-ra-dUL"/>
-                                                <constraint firstItem="DbT-9J-2DF" firstAttribute="leading" secondItem="IS8-GZ-WQi" secondAttribute="leading" constant="20" id="PTm-SG-jBF"/>
-                                                <constraint firstItem="ghA-8M-SOs" firstAttribute="leading" secondItem="IS8-GZ-WQi" secondAttribute="leading" constant="20" id="Q4q-fj-ijV"/>
-                                                <constraint firstItem="JPi-6p-jZ5" firstAttribute="top" secondItem="DbT-9J-2DF" secondAttribute="bottom" constant="20" id="Xa8-Tr-bhP"/>
-                                                <constraint firstAttribute="trailing" secondItem="byr-Zq-eXs" secondAttribute="trailing" constant="20" id="a4m-gS-0zf"/>
-                                                <constraint firstAttribute="trailing" secondItem="JPi-6p-jZ5" secondAttribute="trailing" constant="20" id="aQD-Gj-zsV"/>
-                                                <constraint firstItem="HDr-wo-9SK" firstAttribute="top" secondItem="IS8-GZ-WQi" secondAttribute="top" constant="30" id="fLB-Ml-MCq"/>
-                                                <constraint firstAttribute="trailing" secondItem="0cH-kX-xkE" secondAttribute="trailing" constant="20" id="g1a-p3-iBl"/>
-                                                <constraint firstAttribute="height" constant="364" id="gvW-1d-H3C"/>
-                                                <constraint firstAttribute="trailing" secondItem="DbT-9J-2DF" secondAttribute="trailing" constant="20" id="qdg-6a-xWI"/>
-                                                <constraint firstItem="0cH-kX-xkE" firstAttribute="leading" secondItem="IS8-GZ-WQi" secondAttribute="leading" constant="20" id="toP-5c-4ls"/>
+                                                <constraint firstItem="f3V-mx-cIh" firstAttribute="centerX" secondItem="upn-Fi-wCp" secondAttribute="centerX" id="CDe-Of-AkK"/>
+                                                <constraint firstItem="f3V-mx-cIh" firstAttribute="centerY" secondItem="upn-Fi-wCp" secondAttribute="centerY" id="FHH-PZ-bB9"/>
+                                                <constraint firstAttribute="height" constant="160" id="WMy-2E-2JC"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBB-8N-f2w" userLabel="Rig Information View">
-                                            <rect key="frame" x="0.0" y="764" width="414" height="256"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1k-pF-CuL" userLabel="Text2_View">
+                                            <rect key="frame" x="0.0" y="696" width="414" height="128"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RIG INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjZ-64-Uth">
-                                                    <rect key="frame" x="20" y="20" width="152.5" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Regular" family="Aktiv Grotesk" pointSize="18"/>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="report_title_rig_info"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-MU-z7z" userLabel="Manufacturer Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="120" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wn2-FY-d5o">
+                                                    <rect key="frame" x="20" y="20" width="374" height="88"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUV-h2-gUa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="58"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
+                                                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vG-59-W2c" userLabel="Spacer">
+                                                            <rect key="frame" x="0.0" y="58" width="374" height="8"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="8" id="18G-jb-HVZ"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w23-1g-cRd">
+                                                            <rect key="frame" x="0.0" y="66" width="374" height="22"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="p5m-M9-yc9"/>
+                                                        <constraint firstItem="w23-1g-cRd" firstAttribute="centerX" secondItem="Wn2-FY-d5o" secondAttribute="centerX" id="p8o-fe-QAy"/>
+                                                        <constraint firstItem="ZUV-h2-gUa" firstAttribute="centerX" secondItem="Wn2-FY-d5o" secondAttribute="centerX" id="vXA-Xv-GKh"/>
                                                     </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_rig_manufacturer"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3dc-9J-lnm" userLabel="Model Text Field" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="174" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="9Vd-Fg-Mfn"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_rig_model"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jB1-Zf-cYz" userLabel="Rig ID" customClass="BasicTextFieldWithTitle" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="66" width="374" height="34"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="Jvu-Mo-xWC"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="report_filed_title_rig_id"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="titleWidth">
-                                                            <real key="value" value="160"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="3dc-9J-lnm" secondAttribute="trailing" constant="20" id="1ZV-5E-zvv"/>
-                                                <constraint firstItem="KjZ-64-Uth" firstAttribute="top" secondItem="zBB-8N-f2w" secondAttribute="top" constant="20" id="7b6-Xs-7gF"/>
-                                                <constraint firstItem="jB1-Zf-cYz" firstAttribute="leading" secondItem="zBB-8N-f2w" secondAttribute="leading" constant="20" id="Bxc-Hc-Kk1"/>
-                                                <constraint firstItem="KjZ-64-Uth" firstAttribute="leading" secondItem="zBB-8N-f2w" secondAttribute="leading" constant="20" id="HFV-1h-HtQ"/>
-                                                <constraint firstItem="0AF-MU-z7z" firstAttribute="leading" secondItem="zBB-8N-f2w" secondAttribute="leading" constant="20" id="Jzk-Wu-lBd"/>
-                                                <constraint firstItem="0AF-MU-z7z" firstAttribute="top" secondItem="jB1-Zf-cYz" secondAttribute="bottom" constant="20" id="Laa-mb-wgF"/>
-                                                <constraint firstItem="jB1-Zf-cYz" firstAttribute="top" secondItem="KjZ-64-Uth" secondAttribute="bottom" constant="25" id="VMR-NR-BkQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="0AF-MU-z7z" secondAttribute="trailing" constant="20" id="Wqh-ZP-0oD"/>
-                                                <constraint firstItem="3dc-9J-lnm" firstAttribute="leading" secondItem="zBB-8N-f2w" secondAttribute="leading" constant="20" id="ZGX-cc-8Lo"/>
-                                                <constraint firstItem="3dc-9J-lnm" firstAttribute="top" secondItem="0AF-MU-z7z" secondAttribute="bottom" constant="20" id="eHD-Ee-t3v"/>
-                                                <constraint firstAttribute="height" constant="256" id="f01-Cg-LNQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="jB1-Zf-cYz" secondAttribute="trailing" constant="20" id="z3u-b0-rgT"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZY-5K-rAY" userLabel="Capture Images Title View">
-                                            <rect key="frame" x="0.0" y="1020" width="414" height="46"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAPTURE IMAGES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ais-nW-Se9">
-                                                    <rect key="frame" x="20" y="10" width="151.5" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Regular" family="Aktiv Grotesk" pointSize="18"/>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="analysis_title_capture_images"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="46" id="WtU-QB-juz"/>
-                                                <constraint firstItem="ais-nW-Se9" firstAttribute="leading" secondItem="aZY-5K-rAY" secondAttribute="leading" constant="20" id="aKl-MB-vlO"/>
-                                                <constraint firstItem="ais-nW-Se9" firstAttribute="top" secondItem="aZY-5K-rAY" secondAttribute="top" constant="10" id="rKV-E8-Tew"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pg2-QF-7VH" userLabel="Capture Images Table Container View">
-                                            <rect key="frame" x="0.0" y="1066" width="414" height="200"/>
-                                            <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0y6-QB-XwF">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="200"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </tableView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="0y6-QB-XwF" secondAttribute="trailing" constant="20" id="8Dm-va-zbT"/>
-                                                <constraint firstAttribute="bottom" secondItem="0y6-QB-XwF" secondAttribute="bottom" id="GQ6-xg-DBf"/>
-                                                <constraint firstAttribute="height" constant="200" id="GZ0-bk-U5G"/>
-                                                <constraint firstItem="0y6-QB-XwF" firstAttribute="leading" secondItem="pg2-QF-7VH" secondAttribute="leading" constant="20" id="j3A-jB-5T4"/>
-                                                <constraint firstItem="0y6-QB-XwF" firstAttribute="top" secondItem="pg2-QF-7VH" secondAttribute="top" id="mBq-iI-wqS"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDM-Eo-dWF" userLabel="Additional Comments View">
-                                            <rect key="frame" x="0.0" y="1266" width="414" height="300"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADDITIONAL INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBa-ja-5ee">
-                                                    <rect key="frame" x="20" y="40" width="230" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Regular" family="Aktiv Grotesk" pointSize="18"/>
-                                                    <color key="textColor" name="sandvikOrange"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="report_title_additional_comments"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A6b-bB-m4W" customClass="CommentsTextView" customModule="MyRockToolsAnalyze" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="86" width="374" height="154"/>
-                                                    <color key="backgroundColor" name="veryDarkGray"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="BBa-ja-5ee" firstAttribute="leading" secondItem="dDM-Eo-dWF" secondAttribute="leading" constant="20" id="CVx-gQ-xd4"/>
-                                                <constraint firstAttribute="trailing" secondItem="A6b-bB-m4W" secondAttribute="trailing" constant="20" id="MQp-fz-yFO"/>
-                                                <constraint firstAttribute="height" constant="300" id="QWl-j8-b2q"/>
-                                                <constraint firstAttribute="bottom" secondItem="A6b-bB-m4W" secondAttribute="bottom" constant="60" id="VSt-GJ-JX4"/>
-                                                <constraint firstItem="A6b-bB-m4W" firstAttribute="leading" secondItem="dDM-Eo-dWF" secondAttribute="leading" constant="20" id="cx5-2f-hYO"/>
-                                                <constraint firstItem="BBa-ja-5ee" firstAttribute="top" secondItem="dDM-Eo-dWF" secondAttribute="top" constant="40" id="gZW-13-Ney"/>
-                                                <constraint firstItem="A6b-bB-m4W" firstAttribute="top" secondItem="BBa-ja-5ee" secondAttribute="bottom" constant="25" id="gpq-On-0IY"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ach-o9-94Z" userLabel="Send for analysis Button">
-                                            <rect key="frame" x="0.0" y="1566" width="414" height="70"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaD-vC-28k">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="50"/>
-                                                    <color key="backgroundColor" name="sandvikOrange"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="1G1-H6-X91"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AktivGroteskCorp-Medium" family="Aktiv Grotesk" pointSize="16"/>
-                                                    <state key="normal" title="SEND FOR ANALYSIS">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="action_submit_report"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="NaD-vC-28k" secondAttribute="trailing" constant="20" id="3po-3r-g5W"/>
-                                                <constraint firstAttribute="height" constant="70" id="5NJ-zs-UqT"/>
-                                                <constraint firstItem="NaD-vC-28k" firstAttribute="leading" secondItem="ach-o9-94Z" secondAttribute="leading" constant="20" id="Ifh-1S-6vk"/>
-                                                <constraint firstItem="NaD-vC-28k" firstAttribute="top" secondItem="ach-o9-94Z" secondAttribute="top" id="kPV-2e-RQc"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wn2-FY-d5o" secondAttribute="bottom" constant="20" id="8pM-7v-HgE"/>
+                                                <constraint firstAttribute="trailing" secondItem="Wn2-FY-d5o" secondAttribute="trailing" constant="20" id="aCE-Pw-nel"/>
+                                                <constraint firstItem="Wn2-FY-d5o" firstAttribute="top" secondItem="z1k-pF-CuL" secondAttribute="top" constant="20" id="c72-Af-0TE"/>
+                                                <constraint firstItem="Wn2-FY-d5o" firstAttribute="leading" secondItem="z1k-pF-CuL" secondAttribute="leading" constant="20" id="xn1-fR-DJF"/>
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KJ6-zW-UH5" firstAttribute="top" secondItem="mPO-GJ-ZnN" secondAttribute="top" constant="408" id="eys-0m-esO"/>
+                                    </constraints>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -558,7 +238,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.67450980390000004" green="0.72941176470000002" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="olw-gX-9S0" secondAttribute="top" id="XBE-NU-nGm"/>
                 <constraint firstItem="olw-gX-9S0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g5L-j8-Tww"/>
@@ -569,15 +249,9 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="sandvikBlue">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="sandvikOrange">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="veryDarkGray">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="eu-logga" width="236" height="225"/>
+        <image name="jv-logga" width="346" height="303"/>
+        <image name="slu-logga" width="157" height="157"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

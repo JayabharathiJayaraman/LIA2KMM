@@ -9,10 +9,20 @@ import UIKit
 
 class ScrollViewController: UIViewController {
 
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var text1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var text2: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        label1.text = "DataPrivacyPolicyApplikationen".localized
+        text1.text = "DataPrivacyPolicyTextPart1".localized
+        label2.text = "DataPrivacyPolicyHantering".localized
+        text2.text = "DataPrivacyPolicyTextPart2".localized
     }
 
 
