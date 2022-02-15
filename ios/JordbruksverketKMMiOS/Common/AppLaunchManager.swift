@@ -9,7 +9,7 @@ struct DefaultAppLaunchManager: AppLaunchManager {
     let rootViewController: UIViewController
     //let dataPrivacyViewController: UIViewController
     init() {
-        rootViewController = DataPViewController()//RootViewController()
+        rootViewController = ScrollViewController()//RootViewController()
         //dataPrivacyViewController = DataPrivacyViewController()
     }
 }

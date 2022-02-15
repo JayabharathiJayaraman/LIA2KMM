@@ -13,6 +13,12 @@
 		5143126727BBCEEA0097A009 /* DataPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5143126527BBCEEA0097A009 /* DataPViewController.xib */; };
 		51C7154927B281AE0005FE91 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */; };
 		51C7154A27B281AE0005FE91 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */; };
+		9D07BE0C27BBD57100FF1D55 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* ScrollViewController.swift */; };
+		9D07BE0D27BBD57100FF1D55 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* ScrollViewController.swift */; };
+		9D07BE0E27BBD57100FF1D55 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* ScrollViewController.swift */; };
+		9D07BE0F27BBD57100FF1D55 /* ScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* ScrollViewController.xib */; };
+		9D07BE1027BBD57100FF1D55 /* ScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* ScrollViewController.xib */; };
+		9D07BE1127BBD57100FF1D55 /* ScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* ScrollViewController.xib */; };
 		9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50C27A14C740043B5A1 /* AppDelegate.swift */; };
 		9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */; };
 		9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D34C51227A14C740043B5A1 /* Main.storyboard */; };
@@ -67,6 +73,8 @@
 		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51C7154727B281AE0005FE91 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
+		9D07BE0A27BBD57100FF1D55 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		9D07BE0B27BBD57100FF1D55 /* ScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollViewController.xib; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +153,8 @@
 				51C7154827B281AE0005FE91 /* DataPrivacyViewController.xib */,
 				5143126427BBCEEA0097A009 /* DataPViewController.swift */,
 				5143126527BBCEEA0097A009 /* DataPViewController.xib */,
+				9D07BE0A27BBD57100FF1D55 /* ScrollViewController.swift */,
+				9D07BE0B27BBD57100FF1D55 /* ScrollViewController.xib */,
 			);
 			path = DataPrivacyViewController;
 			sourceTree = "<group>";
@@ -364,6 +374,7 @@
 				51C7154A27B281AE0005FE91 /* DataPrivacyViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
 				5143126727BBCEEA0097A009 /* DataPViewController.xib in Resources */,
+				9D07BE0F27BBD57100FF1D55 /* ScrollViewController.xib in Resources */,
 				5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 			);
@@ -375,6 +386,7 @@
 			files = (
 				9D34C54927A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D07BE1027BBD57100FF1D55 /* ScrollViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +396,7 @@
 			files = (
 				9D34C54A27A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D07BE1127BBD57100FF1D55 /* ScrollViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +435,7 @@
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
+				9D07BE0C27BBD57100FF1D55 /* ScrollViewController.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
 				51C7154927B281AE0005FE91 /* DataPrivacyViewController.swift in Sources */,
@@ -435,6 +449,7 @@
 			files = (
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
+				9D07BE0D27BBD57100FF1D55 /* ScrollViewController.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54627A150180043B5A1 /* RootViewController.swift in Sources */,
 			);
@@ -445,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				9D07BE0E27BBD57100FF1D55 /* ScrollViewController.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54727A150180043B5A1 /* RootViewController.swift in Sources */,
