@@ -64,17 +64,17 @@
                                                 <constraint firstAttribute="height" constant="280" id="qyu-tE-9KU"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-2H-WGY" userLabel="Text1_View">
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-2H-WGY" userLabel="Text1_View">
                                             <rect key="frame" x="0.0" y="280" width="414" height="128"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHl-6S-Iw5">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="98"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="25"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                                     <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26f-ba-QB4">
-                                                    <rect key="frame" x="20" y="106" width="374" height="22"/>
+                                                    <rect key="frame" x="20" y="33" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -82,13 +82,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="26f-ba-QB4" firstAttribute="top" secondItem="rHl-6S-Iw5" secondAttribute="bottom" constant="8" id="Y7V-u8-OTd"/>
-                                                <constraint firstAttribute="bottom" secondItem="26f-ba-QB4" secondAttribute="bottom" id="hcd-Xi-ASH"/>
-                                                <constraint firstItem="rHl-6S-Iw5" firstAttribute="leading" secondItem="KOc-2H-WGY" secondAttribute="leading" constant="20" id="opA-CS-9Ic"/>
-                                                <constraint firstItem="26f-ba-QB4" firstAttribute="leading" secondItem="KOc-2H-WGY" secondAttribute="leading" constant="20" symbolic="YES" id="uwJ-zN-7Mg"/>
-                                                <constraint firstAttribute="trailing" secondItem="26f-ba-QB4" secondAttribute="trailing" constant="20" symbolic="YES" id="vED-eb-tnd"/>
-                                                <constraint firstItem="rHl-6S-Iw5" firstAttribute="top" secondItem="KOc-2H-WGY" secondAttribute="top" id="wZy-Md-P2o"/>
-                                                <constraint firstAttribute="trailing" secondItem="rHl-6S-Iw5" secondAttribute="trailing" constant="20" id="wuG-m8-72w"/>
+                                                <constraint firstAttribute="trailing" secondItem="rHl-6S-Iw5" secondAttribute="trailing" constant="20" symbolic="YES" id="Iy7-ja-NZi"/>
+                                                <constraint firstItem="26f-ba-QB4" firstAttribute="top" secondItem="rHl-6S-Iw5" secondAttribute="bottom" constant="8" id="LOL-nr-9No"/>
+                                                <constraint firstItem="rHl-6S-Iw5" firstAttribute="top" secondItem="KOc-2H-WGY" secondAttribute="top" id="Mcw-IF-h1b"/>
+                                                <constraint firstItem="rHl-6S-Iw5" firstAttribute="leading" secondItem="KOc-2H-WGY" secondAttribute="leading" constant="20" symbolic="YES" id="VEJ-2c-St3"/>
+                                                <constraint firstAttribute="trailing" secondItem="26f-ba-QB4" secondAttribute="trailing" constant="20" symbolic="YES" id="k3L-hB-la6"/>
+                                                <constraint firstItem="26f-ba-QB4" firstAttribute="leading" secondItem="KOc-2H-WGY" secondAttribute="leading" constant="20" symbolic="YES" id="pUJ-W9-N2i"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ6-zW-UH5" userLabel="Btn_View">
@@ -197,7 +196,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="KJ6-zW-UH5" firstAttribute="top" secondItem="mPO-GJ-ZnN" secondAttribute="top" constant="408" id="eys-0m-esO"/>
-                                        <constraint firstItem="KOc-2H-WGY" firstAttribute="top" secondItem="GLM-V2-837" secondAttribute="bottom" id="g01-lO-shX"/>
                                         <constraint firstItem="KJ6-zW-UH5" firstAttribute="top" secondItem="KOc-2H-WGY" secondAttribute="bottom" id="xZR-Ih-esI"/>
                                     </constraints>
                                 </stackView>
