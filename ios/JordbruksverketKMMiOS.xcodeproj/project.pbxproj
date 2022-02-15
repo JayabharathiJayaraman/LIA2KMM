@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
+		9D07BE0727BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */; };
+		9D07BE0827BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */; };
+		9D07BE0927BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */; };
 		9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50C27A14C740043B5A1 /* AppDelegate.swift */; };
 		9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */; };
 		9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D34C51227A14C740043B5A1 /* Main.storyboard */; };
@@ -58,6 +61,7 @@
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
+		9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSInterfaceGenerator.swift; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D07BE0527BBC37600FF1D55 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		9D34C50027A14C740043B5A1 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 		9D34C50B27A14C740043B5A1 /* JordbruksverketKMMiOS */ = {
 			isa = PBXGroup;
 			children = (
+				9D07BE0527BBC37600FF1D55 /* Tests */,
 				9D8E1E8327A7F9C1002E7D94 /* Resources */,
 				9D34C54127A14FD50043B5A1 /* ViewControllers */,
 				9D34C53C27A14DED0043B5A1 /* Common */,
@@ -392,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D07BE0727BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */,
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
@@ -407,6 +421,7 @@
 			files = (
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
+				9D07BE0827BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54627A150180043B5A1 /* RootViewController.swift in Sources */,
 			);
@@ -419,6 +434,7 @@
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
+				9D07BE0927BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */,
 				9D34C54727A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
 			);
