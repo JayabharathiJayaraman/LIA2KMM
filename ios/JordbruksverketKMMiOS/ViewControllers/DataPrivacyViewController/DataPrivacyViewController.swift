@@ -7,14 +7,23 @@
 
 import UIKit
 
+extension UIButton{
+
+     func setButtonRadius(){
+         self.layer.cornerRadius = self.bounds.size.height/2
+     }
+
+ }
+
 class DataPrivacyViewController: UIViewController {
  
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var text1: UILabel!
-
     @IBOutlet weak var label2: UILabel!
-    
     @IBOutlet weak var text2: UILabel!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
