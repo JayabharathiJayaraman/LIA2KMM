@@ -1,1 +1,8 @@
 "Hej" = "Hej!";
+"dummy"="dummy";
+"CheckList_Grundförbättringar_title" = "Grundförbättringar";
+"CheckList_Grundförbättringar_text" = "Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.";
+"CheckList_Odlingsåtgärder_title"="Odlingsåtgärder";
+"CheckList_Odlingsåtgärder_text"="Åtgärder i odlingssystemet med positiv effekt på markstrukturen";
+"CheckList_Undvikellerminimera_title"="Undvik eller minimera";
+ "CheckList_Undvikellerminimera_text"="Lika viktigt som det är att införa åtgärder som bygger upp markstrukturen lika viktigt är det att undvika att förstöra den goda markstruktur man byggt upp.";

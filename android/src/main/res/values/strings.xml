@@ -1,4 +1,11 @@
 <resources>
+    <string name="dummy">dummy</string>
+    <string name="CheckList_Grundförbättringar_title">Grundförbättringar</string>
+    <string name="CheckList_Grundförbättringar_text">Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.</string>
+    <string name="CheckList_Odlingsåtgärder_title">Odlingsåtgärder</string>
+    <string name="CheckList_Odlingsåtgärder_text">Åtgärder i odlingssystemet med positiv effekt på markstrukturen</string>
+    <string name="CheckList_Undvikellerminimera_title">Undvik eller minimera</string>
+    <string name="CheckList_Undvikellerminimera_text">Lika viktigt som det är att införa åtgärder som bygger upp markstrukturen lika viktigt är det att undvika att förstöra den goda markstruktur man byggt upp.</string>
     <string name="mina_uppgifter">Mina uppgifter</string>
     <string name="namn">Namn</string>
     <string name="emailadress">E-mailadress</string>
