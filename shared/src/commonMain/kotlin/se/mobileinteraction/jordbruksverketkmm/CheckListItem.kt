@@ -7,16 +7,8 @@ class CheckListItem(atgard : String, checked : Boolean, active : Boolean) {
     var active : Boolean =  active
 
     init {
-        when(atgard){
-            "Huvudavvattning" -> {
-                this.title = "dummy"
-                this.text = "dummy"
-            }
-            else -> {
-                this.title = "dummy"
-                this.text = "dummy"
-            }
-        }
+        this.title = "CheckList_" + atgard + "_title"
+        this.text = "CheckList_" + atgard + "_text"
     }
     fun switchChecked(){
         this.checked = !this.checked
