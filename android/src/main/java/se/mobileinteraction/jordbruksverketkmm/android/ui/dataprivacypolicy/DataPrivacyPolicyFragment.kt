@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.CheckList
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentDataPrivacyPolicyBinding
 
 class DataPrivacyPolicyFragment : Fragment() {
@@ -22,6 +23,8 @@ class DataPrivacyPolicyFragment : Fragment() {
         val binding = FragmentDataPrivacyPolicyBinding.bind(view)
         fragmentDataPrivacyPolicyBinding = binding
 
+        val checkList = CheckList("test")
+        binding.appInfoHeader.text = checkList.title
         binding.closeLink.setOnClickListener {
             view.findNavController().navigateUp()
         }

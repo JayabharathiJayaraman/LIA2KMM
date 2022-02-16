@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
+                <outlet property="testLabel" destination="6O3-XP-Z2N" id="wlc-QD-Ro4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +18,21 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-XP-Z2N">
+                    <rect key="frame" x="0.0" y="438" width="414" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="6O3-XP-Z2N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nDt-l4-r8O"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6O3-XP-Z2N" secondAttribute="trailing" id="sbt-Hh-mYY"/>
+                <constraint firstItem="6O3-XP-Z2N" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="w0M-Sy-Ul2"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="97"/>
         </view>
     </objects>
