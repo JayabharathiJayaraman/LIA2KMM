@@ -26,9 +26,14 @@ class StartScreenFragment : Fragment() {
         binding.imageButtonMenu.setOnClickListener{
             view.findNavController().navigate(R.id.navigateToMenu)
         }
+        binding.imagePlantIconButton.setOnClickListener{
+            view.findNavController().navigate(R.id.navigareToVardaMarkstruktur)
+        }
 
         return view
     }
+    //image_plant_icon_button
+
 
     override fun onDestroyView() {
         super.onDestroyView()

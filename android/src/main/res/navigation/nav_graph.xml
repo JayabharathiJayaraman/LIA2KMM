@@ -33,6 +33,9 @@
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/navigareToVardaMarkstruktur"
+            app:destination="@id/vardaMarkstrukturFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
@@ -60,4 +63,9 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/vardaMarkstrukturFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.vardamarkstruktur.VardaMarkstrukturFragment"
+        android:label="fragment_varda_markstruktur"
+        tools:layout="@layout/fragment_varda_markstruktur" />
 </navigation>
