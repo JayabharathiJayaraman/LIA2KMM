@@ -18,10 +18,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartScreenViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
                 <outlet property="appnamelabel" destination="0xy-L7-gGd" id="caa-Jr-igG"/>
-                <outlet property="myteslabel" destination="e7c-MN-h7c" id="amY-FW-o0y"/>
+                <outlet property="mytestlabel" destination="e7c-MN-h7c" id="MN4-eF-x9k"/>
                 <outlet property="newtestlabel" destination="Gfy-6R-CDe" id="7jR-5G-h7d"/>
-                <outlet property="planticonlabel1" destination="C6F-Xr-1ro" id="VEK-cT-hB6"/>
-                <outlet property="planticonlabel2" destination="fW7-0t-Agb" id="NA7-b1-69h"/>
+                <outlet property="planticonlabel" destination="C6F-Xr-1ro" id="Esg-o8-364"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomelabel" destination="cvf-x5-1Rb" id="fX4-Ro-3s4"/>
             </connections>
@@ -35,28 +34,22 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5c-8n-uB4">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5c-8n-uB4">
                             <rect key="frame" x="353" y="74" width="41" height="37"/>
                             <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="5oM-Nv-sWv"/>
                                 <constraint firstAttribute="height" constant="37" id="IcJ-vR-3jz"/>
                                 <constraint firstAttribute="width" constant="41" id="e5i-5U-qd9"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="guB-wY-AoO"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" backgroundImage="meny_m_text">
                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="appikon1024" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-CM-6a6">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="appikon1024" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-CM-6a6">
                             <rect key="frame" x="123" y="153" width="168" height="393"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VÄLKOMMEN TILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvf-x5-1Rb">
-                            <rect key="frame" x="135" y="188" width="139" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
-                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="botton_bar" translatesAutoresizingMaskIntoConstraints="NO" id="aLB-UG-w9V">
                             <rect key="frame" x="-100" y="693" width="622" height="299"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,29 +66,22 @@
                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mina test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-MN-h7c">
-                            <rect key="frame" x="20" y="779" width="68" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mina test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-MN-h7c">
+                            <rect key="frame" x="0.0" y="784" width="106" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                             <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vårda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-Xr-1ro">
-                            <rect key="frame" x="317" y="779" width="43" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vårda markstruktur" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-Xr-1ro">
+                            <rect key="frame" x="279" y="757" width="135" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                             <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Markstruktur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW7-0t-Agb">
-                            <rect key="frame" x="293" y="800" width="98" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nytt test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-6R-CDe">
-                            <rect key="frame" x="174" y="800" width="64" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nytt test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-6R-CDe">
+                            <rect key="frame" x="86" y="764" width="242" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                             <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,38 +103,55 @@
                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-Gn-gZT">
-                            <rect key="frame" x="60" y="452" width="295" height="38"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-Gn-gZT">
+                            <rect key="frame" x="0.0" y="387" width="414" height="122"/>
                             <buttonConfiguration key="configuration" style="plain" title="Läs mer om appen och testerna  &gt;">
-                                <fontDescription key="titleFontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                                <fontDescription key="titleFontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                 <color key="baseForegroundColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </buttonConfiguration>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hur mår min jord?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xy-L7-gGd">
-                            <rect key="frame" x="84" y="211" width="247" height="37"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="jv-logo-black" translatesAutoresizingMaskIntoConstraints="NO" id="6iY-SF-Tjp">
+                            <rect key="frame" x="165" y="44" width="84" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="27"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VÄLKOMMEN TILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvf-x5-1Rb">
+                            <rect key="frame" x="0.0" y="176" width="414" height="23"/>
+                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
                             <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="jv-logo-black" translatesAutoresizingMaskIntoConstraints="NO" id="6iY-SF-Tjp">
-                            <rect key="frame" x="170" y="44" width="68" height="78"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hur mår min jord?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xy-L7-gGd">
+                            <rect key="frame" x="0.0" y="194" width="414" height="35"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="26"/>
+                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="I3f-XK-Y1e"/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="b5c-8n-uB4" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="30" id="AEC-am-Xcd"/>
-                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="b5c-8n-uB4" secondAttribute="trailing" constant="25" id="Ows-Ej-8fN"/>
-                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="b5c-8n-uB4" secondAttribute="trailing" constant="20" id="bot-ww-ach"/>
+                        <constraint firstItem="tmd-CM-6a6" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" constant="123" id="2y6-Mg-nfr"/>
+                        <constraint firstItem="0xy-L7-gGd" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" id="Cdu-iR-VO2"/>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="bottom" secondItem="IWX-Gn-gZT" secondAttribute="bottom" constant="353" id="HQi-n6-1FR"/>
+                        <constraint firstItem="IWX-Gn-gZT" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" id="QAY-lb-WCk"/>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="bottom" secondItem="tmd-CM-6a6" secondAttribute="bottom" constant="316" id="Tkd-fl-dWP"/>
+                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" id="ax1-Wr-EDi"/>
+                        <constraint firstItem="b5c-8n-uB4" firstAttribute="top" secondItem="4f6-jS-GJR" secondAttribute="top" constant="74" id="bN9-qk-3Sv"/>
+                        <constraint firstItem="IWX-Gn-gZT" firstAttribute="trailing" secondItem="I3f-XK-Y1e" secondAttribute="trailing" id="cJd-IH-sxx"/>
+                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="top" secondItem="b5c-8n-uB4" secondAttribute="bottom" constant="65" id="cjx-Km-hvF"/>
+                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="trailing" secondItem="I3f-XK-Y1e" secondAttribute="trailing" id="i4d-Rr-uWG"/>
+                        <constraint firstAttribute="trailing" secondItem="b5c-8n-uB4" secondAttribute="trailing" constant="20" id="jVo-bb-20u"/>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="tmd-CM-6a6" secondAttribute="trailing" constant="123" id="lr9-EK-pOC"/>
+                        <constraint firstItem="0xy-L7-gGd" firstAttribute="trailing" secondItem="I3f-XK-Y1e" secondAttribute="trailing" id="mgd-ll-mnG"/>
+                        <constraint firstItem="tmd-CM-6a6" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="109" id="nr2-xs-QXd"/>
+                        <constraint firstItem="IWX-Gn-gZT" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="343" id="pd8-R8-bmv"/>
+                        <constraint firstItem="0xy-L7-gGd" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="150" id="sJV-wb-Gpl"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="136.23188405797103" y="77.008928571428569"/>
+            <point key="canvasLocation" x="134.78260869565219" y="76.339285714285708"/>
         </view>
     </objects>
     <resources>
