@@ -24,7 +24,7 @@ class StartScreenFragment : Fragment() {
         fragmentStartScreenBinding = binding
 
         binding.imageButtonMenu.setOnClickListener{
-            view.findNavController().navigate(R.id.navigateToMenu)
+            view.findNavController().navigate(R.id.navigateToCamera)
         }
 
         return view
