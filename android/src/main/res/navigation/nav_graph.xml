@@ -33,7 +33,12 @@
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/navigateToCamera"
+            app:destination="@id/cameraFragment" />
     </fragment>
+
+
     <fragment
         android:id="@+id/settingsFragment2"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.SettingsFragment"
@@ -60,4 +65,11 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.camera.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+
 </navigation>
