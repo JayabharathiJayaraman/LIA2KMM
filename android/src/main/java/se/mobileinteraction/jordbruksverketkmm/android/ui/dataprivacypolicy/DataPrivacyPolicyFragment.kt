@@ -26,9 +26,9 @@ class DataPrivacyPolicyFragment : Fragment() {
         val binding = FragmentDataPrivacyPolicyBinding.bind(view)
         fragmentDataPrivacyPolicyBinding = binding
 
-        val checkList = CheckList("Undvikellerminimera")
+        val checkList = CheckList("UndvikEllerMinimera")
 
-        binding.appInfoHeader.text = this.context?.let { getStringByIdName(it, checkList.title) }
+        binding.appInfoHeader.text = this.context?.let { getStringByIdName(it, checkList.text) }
 
 
         binding.closeLink.setOnClickListener {

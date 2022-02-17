@@ -8,7 +8,7 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
 
         print("Hello world!")
-        testLabel.text = CheckList(category:"Undvikellerminimera").text.localized
+        testLabel.text = CheckList(category:"UndvikEllerMinimera").itemList[0].text.localized  //.text.localized
         print("\(CheckList(category:"test").title)")
         print("HEJ".localized)
     }
