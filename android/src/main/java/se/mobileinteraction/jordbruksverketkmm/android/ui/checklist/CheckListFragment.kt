@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.CheckList
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
@@ -16,15 +19,26 @@ class CheckListFragment : Fragment() {
 
 
    private var fragmentCheckListBinding: FragmentCheckListBinding? = null
-
+    private lateinit var recyclerView: RecyclerView
+    private var adapter_active: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
-        val checkList = CheckList("Grundförbättringar")
+        val receivedCategory = arguments?.getString("amount")?: "dummy"
+        val checkList = CheckList(receivedCategory)
         fragmentCheckListBinding = binding
+
+        recyclerView = binding.checkListActiveRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        //adapter = ContactsAdapter()
+        recyclerView.adapter = adapter_active
+
+        binding.tmpBack.setOnClickListener {
+            view.findNavController().navigateUp()
+        }
 
         binding.testLabel.text = this.context?.let { getStringByIdName(it, checkList.title) }
         binding.testText.text = this.context?.let { getStringByIdName(it, checkList.text) }

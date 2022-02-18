@@ -71,6 +71,10 @@
         <action
             android:id="@+id/navigateTocheckList"
             app:destination="@id/checkListFragment">
+            <argument
+                android:name="category"
+                app:argType="string"
+                android:defaultValue="dummy" />
         </action>
 
 

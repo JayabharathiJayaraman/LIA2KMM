@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentVardaMarkstrukturBinding
@@ -28,7 +29,27 @@ class VardaMarkstrukturFragment : Fragment() {
         }
 
         binding.tempForward.setOnClickListener {
-            view.findNavController().navigate(R.id.navigateTocheckList)
+            val amount = "Grundförbättringar"
+            val bundle = bundleOf("amount" to amount)
+            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+        }
+
+        binding.grunforbattringarutton.setOnClickListener {
+            val amount = "Grundförbättringar"
+            val bundle = bundleOf("amount" to amount)
+            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+        }
+
+        binding.odlingsatgarderButton.setOnClickListener {
+            val amount = "Odlingsåtgärder"
+            val bundle = bundleOf("amount" to amount)
+            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+        }
+
+        binding.undvikEllerMinimeraButton.setOnClickListener {
+            val amount = "UndvikEllerMinimera"
+            val bundle = bundleOf("amount" to amount)
+            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
         }
 
         return view
