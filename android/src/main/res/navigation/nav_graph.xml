@@ -67,5 +67,17 @@
         android:id="@+id/vardaMarkstrukturFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.vardamarkstruktur.VardaMarkstrukturFragment"
         android:label="fragment_varda_markstruktur"
-        tools:layout="@layout/fragment_varda_markstruktur" />
+        tools:layout="@layout/fragment_varda_markstruktur" >
+        <action
+            android:id="@+id/navigateTocheckList"
+            app:destination="@id/checkListFragment">
+        </action>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkListFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.checklist.CheckListFragment"
+        android:label="fragment_check_list"
+        tools:layout="@layout/fragment_check_list" />
 </navigation>

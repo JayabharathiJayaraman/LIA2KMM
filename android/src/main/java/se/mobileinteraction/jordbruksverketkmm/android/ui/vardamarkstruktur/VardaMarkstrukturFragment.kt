@@ -22,6 +22,15 @@ class VardaMarkstrukturFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_varda_markstruktur, container, false)
         val binding = FragmentVardaMarkstrukturBinding.bind(view)
         fragmentVardaMarkstrukturBinding = binding
+
+        binding.tempBack.setOnClickListener {
+            view.findNavController().navigateUp()
+        }
+
+        binding.tempForward.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateTocheckList)
+        }
+
         return view
     }
 
