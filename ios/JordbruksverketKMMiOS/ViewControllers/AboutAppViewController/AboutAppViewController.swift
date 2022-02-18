@@ -7,18 +7,18 @@
 
 import UIKit
 
-class AboutAppViewController: UIViewController {
+final class AboutAppViewController: UIViewController {
     
-    @IBOutlet weak var about_title1: UILabel!
-    @IBOutlet weak var about_info1: UILabel!
-    @IBOutlet weak var about_title2: UILabel!
-    @IBOutlet weak var about_info2: UILabel!
-    @IBOutlet weak var about_title3: UILabel!
-    @IBOutlet weak var about_info3: UILabel!
-    @IBOutlet weak var about_title4: UILabel!
-    @IBOutlet weak var about_info4: UILabel!
-    @IBOutlet weak var about_title5: UILabel!
-    @IBOutlet weak var about_info5: UILabel!
+    @IBOutlet private weak var about_title1: UILabel!
+    @IBOutlet private weak var about_info1: UILabel!
+    @IBOutlet private weak var about_title2: UILabel!
+    @IBOutlet private weak var about_info2: UILabel!
+    @IBOutlet private weak var about_title3: UILabel!
+    @IBOutlet private weak var about_info3: UILabel!
+    @IBOutlet private weak var about_title4: UILabel!
+    @IBOutlet private weak var about_info4: UILabel!
+    @IBOutlet private weak var about_title5: UILabel!
+    @IBOutlet private weak var about_info5: UILabel!
     
     private var titles:[UILabel]!
     private var informations:[UILabel]!
@@ -80,15 +80,5 @@ class AboutAppViewController: UIViewController {
         }
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
