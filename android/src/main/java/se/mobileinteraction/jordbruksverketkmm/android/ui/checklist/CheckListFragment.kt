@@ -20,7 +20,7 @@ class CheckListFragment : Fragment() {
 
    private var fragmentCheckListBinding: FragmentCheckListBinding? = null
     private lateinit var recyclerView: RecyclerView
-    private var adapter_active: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
+    private var adapterActive: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,8 +33,9 @@ class CheckListFragment : Fragment() {
 
         recyclerView = binding.checkListActiveRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        //adapter = ContactsAdapter()
-        recyclerView.adapter = adapter_active
+        adapterActive = CheckListActiveAdapter(checkList)
+        recyclerView.adapter = adapterActive
+        recyclerView.adapter!!.notifyDataSetChanged()
 
         binding.tmpBack.setOnClickListener {
             view.findNavController().navigateUp()
@@ -50,7 +51,7 @@ class CheckListFragment : Fragment() {
         fragmentCheckListBinding = null
     }
 
-    fun getStringByIdName(context: Context, idName: String?): String? {
+    private fun getStringByIdName(context: Context, idName: String?): String? {
         val res: Resources = context.getResources()
         return res.getString(res.getIdentifier(idName, "string", context.getPackageName()))
     }

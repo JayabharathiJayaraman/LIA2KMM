@@ -43,8 +43,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/checkListActiveRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/colorAccent" />
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
