@@ -22,6 +22,11 @@
         <action
             android:id="@+id/navigateToAboutApp"
             app:destination="@id/aboutAppFragment" />
+        <action
+            android:id="@+id/navigateToPermissions"
+            app:destination="@id/permissionsFragment" />
+
+
     </fragment>
 
 
@@ -33,9 +38,7 @@
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
-        <action
-            android:id="@+id/navigateToCamera"
-            app:destination="@id/cameraFragment" />
+
     </fragment>
 
 
@@ -71,5 +74,21 @@
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.camera.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/permissionsFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.camera.PermissionsFragment"
+        android:label="PermissionsFragment" >
+        <action
+            android:id="@+id/navigateToCamera"
+            app:destination="@id/cameraFragment"
+            app:popUpTo="@id/permissionsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/navigateToMenu"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/permissionsFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
 
 </navigation>
