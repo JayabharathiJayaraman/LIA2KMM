@@ -1,10 +1,7 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.camera
 
-import android.Manifest
-import android.app.Activity
 import android.content.ContentValues
-import android.content.pm.PackageManager
-import android.os.Build
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -12,15 +9,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import se.mobileinteraction.jordbruksverketkmm.android.R
+import androidx.core.view.isVisible
+import se.mobileinteraction.jordbruksverketkmm.android.databinding.CameraUiContainerBinding
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCameraBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,34 +25,37 @@ import java.util.concurrent.Executors
 
 class CameraFragment : Fragment() {
 
-    private var fragmentCameraBinding: FragmentCameraBinding? = null
+    private var _fragmentCameraBinding: FragmentCameraBinding? = null
+    private val fragmentCameraBinding get() = _fragmentCameraBinding!!
+    private var cameraUiContainerBinding: CameraUiContainerBinding? = null
     private lateinit var cameraExecutor: ExecutorService
     private var imageCapture: ImageCapture? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requestPermissions()
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _fragmentCameraBinding = FragmentCameraBinding.inflate(inflater, container, false)
+        return fragmentCameraBinding.root
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_camera, container, false)
-        val binding = FragmentCameraBinding.bind(view)
-        fragmentCameraBinding = binding
-
-        binding.imageStartCamera.setOnClickListener { startCamera(binding) }
-
-        binding.imageCaptureButton.setOnClickListener { takePhoto() }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        return view
+        fragmentCameraBinding.viewFinder.post{
+
+            startCamera()
+            _fragmentCameraBinding?.imageCaptureButton?.setOnClickListener {
+                takePhoto()
+            }
+
+        }
+
     }
 
-    private fun startCamera(binding: FragmentCameraBinding) {
+    private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(activity?.applicationContext!!)
 
         cameraProviderFuture.addListener({
@@ -67,7 +66,7 @@ class CameraFragment : Fragment() {
             val preview = Preview.Builder()
                 .build()
                 .also {
-                    it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
+                    it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
                 }
             imageCapture = ImageCapture.Builder().build()
 
@@ -100,9 +99,9 @@ class CameraFragment : Fragment() {
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
-            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/CameraX-Image")
-            }
+            /*if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/Jordbruksverket-Image")
+            }*/
         }
 
         // Create output options object which contains file + metadata
@@ -125,48 +124,61 @@ class CameraFragment : Fragment() {
                 override fun
                         onImageSaved(output: ImageCapture.OutputFileResults){
                     val msg = "Photo capture succeeded: ${output.savedUri}"
+                   // Toast.makeText(activity?.applicationContext, msg, Toast.LENGTH_SHORT).show()
+                    updateUiForImagePreview(output.savedUri)
 
-                    Toast.makeText(activity?.applicationContext, msg, Toast.LENGTH_SHORT).show()
                     Log.d("DEBUG", msg)
                 }
             }
         )
     }
 
-    private fun requestPermissions() {
 
-         val requestMultiplePermissions =
-            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-                permissions.entries.forEach {
-                    Log.e("LOG_TAG", "${it.key} = ${it.value}")
-                }
-            }
 
-        requestMultiplePermissions.launch(
-            arrayOf(
-                Manifest.permission.CAMERA
-            ))
+    private fun updateUiForImagePreview(outputUri: Uri?) {
+
+        cameraUiContainerBinding = CameraUiContainerBinding.inflate(
+            LayoutInflater.from(requireContext()),
+            fragmentCameraBinding.root,
+            true
+        )
+
+        _fragmentCameraBinding?.imageCaptureButton?.isVisible = false
+        _fragmentCameraBinding?.viewFinder?.isVisible = false
+        cameraUiContainerBinding?.ivPreview?.setImageURI(outputUri)
+
+        cameraUiContainerBinding?.btnAcceptImage?.setOnClickListener {
+            updateUiForAcceptImage()
+        }
+        cameraUiContainerBinding?.btnDeclineImage?.setOnClickListener {
+            updateUiForDeclineImage()
+        }
+
+    }
+
+    private fun updateUiForDeclineImage() {
+        // Remove previous UI if any
+        cameraUiContainerBinding?.root?.let {
+            fragmentCameraBinding.root.removeView(it)
+            _fragmentCameraBinding?.imageCaptureButton?.isVisible = true
+            _fragmentCameraBinding?.viewFinder?.isVisible = true
+
+
+        }
+    }
+
+    private fun updateUiForAcceptImage() {
+        TODO("Implement sending Uri to fragment for viewing the image")
 
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        fragmentCameraBinding = null
+        _fragmentCameraBinding = null
         cameraExecutor.shutdown()
     }
 
     companion object {
-        private const val TAG = "CameraXApp"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
-        private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS =
-            mutableListOf (
-                Manifest.permission.CAMERA,
-                Manifest.permission.RECORD_AUDIO
-            ).apply {
-                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
-                    add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                }
-            }.toTypedArray()
     }
 }
