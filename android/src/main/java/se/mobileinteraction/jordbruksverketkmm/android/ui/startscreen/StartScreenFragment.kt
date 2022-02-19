@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentStartScreenBinding
 
-
 class StartScreenFragment : Fragment() {
 
     private var fragmentStartScreenBinding: FragmentStartScreenBinding? = null
@@ -24,7 +23,7 @@ class StartScreenFragment : Fragment() {
         fragmentStartScreenBinding = binding
 
         binding.imageButtonMenu.setOnClickListener{
-            view.findNavController().navigate(R.id.navigateToCamera)
+            view.findNavController().navigate(R.id.navigateToMenu)
         }
 
         return view
