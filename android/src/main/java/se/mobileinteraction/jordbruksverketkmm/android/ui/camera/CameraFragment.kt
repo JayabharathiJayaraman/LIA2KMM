@@ -11,8 +11,11 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import se.mobileinteraction.jordbruksverketkmm.android.databinding.CameraUiContainerBinding
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCameraBinding
+import se.mobileinteraction.jordbruksverketkmm.android.databinding.PreviewCameraContainerBinding
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,11 +24,19 @@ import java.util.concurrent.Executors
 
 class CameraFragment : Fragment() {
 
+    //Binding
     private var _fragmentCameraBinding: FragmentCameraBinding? = null
     private val fragmentCameraBinding get() = _fragmentCameraBinding!!
-    private var cameraUiContainerBinding: CameraUiContainerBinding? = null
+    private var previewCameraContainerBinding: PreviewCameraContainerBinding? = null
+
+    //CameraX
     private lateinit var cameraExecutor: ExecutorService
     private var imageCapture: ImageCapture? = null
+    private var cameraProvider: ProcessCameraProvider? = null
+
+    //File
+    private var savedImageFile: File? = null
+    private var savedImageUri: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,36 +59,33 @@ class CameraFragment : Fragment() {
     }
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(activity?.applicationContext!!)
-
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
         cameraProviderFuture.addListener({
             // Used to bind the lifecycle of cameras to the lifecycle owner
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            cameraProvider = cameraProviderFuture.get()
+            bindCameraUseCases()
 
-            // Preview
-            val preview = Preview.Builder()
-                .build()
-                .also {
-                    it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
-                }
-            imageCapture = ImageCapture.Builder().build()
+        }, ContextCompat.getMainExecutor(requireContext()))
+    }
 
-            // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+    private fun bindCameraUseCases() {
+        // Select back camera as a default
+        val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
-            try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview, imageCapture)
-
-            } catch(exc: Exception) {
-                Log.e("DEBUG", "Use case binding failed", exc)
+        // Provide a surface for preview
+        val preview = Preview.Builder()
+            .build()
+            .also {
+                it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
             }
 
-        }, ContextCompat.getMainExecutor(activity?.applicationContext!!))
+        imageCapture = ImageCapture.Builder().setJpegQuality(70).build()
+
+        // Unbind use cases before rebinding
+        cameraProvider?.unbindAll()
+        // Bind use cases to camera
+        cameraProvider?.bindToLifecycle(this, cameraSelector, preview, imageCapture)
+
     }
 
     private fun takePhoto() {
@@ -85,17 +93,18 @@ class CameraFragment : Fragment() {
         imageCapture ?: return
 
         // Create time stamped name and File entry.
-        val name = SimpleDateFormat(FILENAME_FORMAT,  Locale.US)
+        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
-        val photoFile = File(context?.filesDir, "$name.jpg")
+        val imageFile = File(context?.filesDir, "$name.jpg")
+
+        ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY
+
 
         // Create output options object which contains file + metadata
         val outputOptions = activity?.contentResolver?.let {
-            ImageCapture.OutputFileOptions.Builder(photoFile).build()
+            ImageCapture.OutputFileOptions.Builder(imageFile).build()
         }
 
-        // Set up image capture listener, which is triggered after photo has
-        // been taken
         outputOptions?.let {
             imageCapture?.takePicture(
                 it,
@@ -104,12 +113,14 @@ class CameraFragment : Fragment() {
                     override fun onError(exc: ImageCaptureException) {
                         Log.e("DEBUG", "Photo capture failed: ${exc.message}", exc)
                     }
-
                     override fun
                             onImageSaved(output: ImageCapture.OutputFileResults){
                         val msg = "Photo capture succeeded: ${output.savedUri}"
-                        // Toast.makeText(activity?.applicationContext, msg, Toast.LENGTH_SHORT).show()
-                        updateUiForImagePreview(output.savedUri)
+
+                        savedImageFile = imageFile
+                        savedImageUri = output.savedUri
+
+                        updateUiForImagePreview(savedImageUri)
                         Log.d("DEBUG", msg)
                     }
                 }
@@ -117,37 +128,46 @@ class CameraFragment : Fragment() {
         }
     }
 
-    private fun updateUiForImagePreview(outputUri: Uri?) {
-        cameraUiContainerBinding = CameraUiContainerBinding.inflate(
+    private fun updateUiForImagePreview(savedImageUri: Uri?) {
+        //Inflate container view used for rejecting or accepting image
+        previewCameraContainerBinding = PreviewCameraContainerBinding.inflate(
             LayoutInflater.from(requireContext()),
             fragmentCameraBinding.root,
             true
         )
+        //Hide image capture view
         _fragmentCameraBinding?.imageCaptureButton?.isVisible = false
         _fragmentCameraBinding?.viewFinder?.isVisible = false
-        cameraUiContainerBinding?.ivPreview?.setImageURI(outputUri)
 
-        cameraUiContainerBinding?.btnAcceptImage?.setOnClickListener {
+        previewCameraContainerBinding?.ivPreview?.setImageURI(savedImageUri)
+        previewCameraContainerBinding?.btnAcceptImage?.setOnClickListener {
             updateUiForAcceptImage()
         }
-        cameraUiContainerBinding?.btnDeclineImage?.setOnClickListener {
+        previewCameraContainerBinding?.btnDeclineImage?.setOnClickListener {
             updateUiForDeclineImage()
         }
     }
 
     private fun updateUiForDeclineImage() {
         // Remove previous UI if any
-        cameraUiContainerBinding?.root?.let {
+        previewCameraContainerBinding?.root?.let {
             fragmentCameraBinding.root.removeView(it)
             _fragmentCameraBinding?.imageCaptureButton?.isVisible = true
             _fragmentCameraBinding?.viewFinder?.isVisible = true
         }
+        savedImageFile?.delete()
+
     }
 
     private fun updateUiForAcceptImage() {
-        TODO("Implement sending Uri to fragment for viewing the image")
+
+        lifecycleScope.launchWhenStarted {
+            Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
+                CameraFragmentDirections.navigateFromCameraToMenu())
+        }
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _fragmentCameraBinding = null
