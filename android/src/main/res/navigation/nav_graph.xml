@@ -25,10 +25,7 @@
         <action
             android:id="@+id/navigateToPermissions"
             app:destination="@id/permissionsFragment" />
-
-
     </fragment>
-
 
     <fragment
         android:id="@+id/startScreenFragment"
@@ -63,7 +60,8 @@
     <fragment
         android:id="@+id/aboutAppFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.fragments.AboutAppFragment"
-        android:label="AboutAppFragment" >
+        android:label="AboutAppFragment"
+        tools:layout="@layout/fragment_about_app">
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
@@ -73,7 +71,12 @@
         android:id="@+id/cameraFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.camera.CameraFragment"
         android:label="fragment_camera"
-        tools:layout="@layout/fragment_camera" />
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/navigateFromCameraToMenu"
+            app:destination="@id/menuFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/permissionsFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.camera.PermissionsFragment"
