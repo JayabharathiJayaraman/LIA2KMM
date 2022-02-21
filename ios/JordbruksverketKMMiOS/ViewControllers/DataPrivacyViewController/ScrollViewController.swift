@@ -13,6 +13,12 @@ class ScrollViewController: UIViewController {
     @IBOutlet weak var text1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var text2: UILabel!
+    @IBOutlet weak var feedBackLabel: UILabel!
+    
+    @IBAction func feedBackButton(_ sender: UIButton) {
+        print("button pressed")
+    }
+    
     
     private var titles:[UILabel]!
     private var informations:[UILabel]!
@@ -20,12 +26,13 @@ class ScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titles = [label1, label2]
+        titles = [label1, label2, feedBackLabel]
         informations = [text1, text2]
         label1.text = "DataPrivacyPolicyApplikationen".localized
         text1.text = "DataPrivacyPolicyTextPart1".localized
         label2.text = "DataPrivacyPolicyHantering".localized
         text2.text = "DataPrivacyPolicyTextPart2".localized
+        feedBackLabel.text = "DataPrivacyPolicyFeedbackButton".localized
      
         setFontAccessibility()
     }
