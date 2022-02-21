@@ -1,6 +1,7 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.camera
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
@@ -8,13 +9,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.camera.core.*
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
+import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCameraBinding
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.PreviewCameraContainerBinding
@@ -23,6 +26,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+
 
 class CameraFragment : Fragment() {
 
@@ -37,7 +41,7 @@ class CameraFragment : Fragment() {
     private var cameraProvider: ProcessCameraProvider? = null
 
     //File
-    private var savedImageFile: File? = null
+    private var cachedImageFile: File? = null
     private var savedImageUri: Uri? = null
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -102,10 +106,10 @@ class CameraFragment : Fragment() {
         // Create time stamped name and File entry.
         val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
-        val imageFile = File(context?.filesDir, "$name.jpg")
-        savedImageFile = imageFile
 
-        ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY
+        val outputDir = context?.cacheDir
+        val imageFile = File.createTempFile(name, ".jpg", outputDir)
+        cachedImageFile = imageFile
 
         // Create output options object which contains file + metadata
         val outputOptions = requireActivity().contentResolver?.let {
@@ -130,7 +134,7 @@ class CameraFragment : Fragment() {
         }
     }
 
-    private fun updateUiForImagePreview(savedImageUri: Uri?) {
+    private fun updateUiForImagePreview(cachedImageUri: Uri?) {
         //Inflate container view used for rejecting or accepting image
         previewCameraContainerBinding = PreviewCameraContainerBinding.inflate(
             LayoutInflater.from(requireContext()),
@@ -141,7 +145,8 @@ class CameraFragment : Fragment() {
         _fragmentCameraBinding?.imageCaptureButton?.isVisible = false
         _fragmentCameraBinding?.viewFinder?.isVisible = false
 
-        previewCameraContainerBinding?.ivPreview?.setImageURI(savedImageUri)
+        previewCameraContainerBinding?.ivPreview?.setImageURI(cachedImageUri)
+
         previewCameraContainerBinding?.btnAcceptImage?.setOnClickListener {
             updateUiForAcceptImage()
         }
@@ -151,23 +156,39 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForDeclineImage() {
-        // Remove previous UI if any
-        previewCameraContainerBinding?.root?.let {
-            fragmentCameraBinding.root.removeView(it)
-            _fragmentCameraBinding?.imageCaptureButton?.isVisible = true
-            _fragmentCameraBinding?.viewFinder?.isVisible = true
-        }
-        savedImageFile?.delete()
+        // Remove preview container
+        previewCameraContainerBinding?.root?.let {fragmentCameraBinding.root.removeView(it)}
+
+        // Show camera-preview and image capture button
+        _fragmentCameraBinding?.imageCaptureButton?.isVisible = true
+        _fragmentCameraBinding?.viewFinder?.isVisible = true
+
+        // Delete temp file from cache
+        cachedImageFile?.delete()
 
     }
 
     private fun updateUiForAcceptImage() {
 
-        lifecycleScope.launchWhenStarted {
-            Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
-                CameraFragmentDirections.navigateFromCameraToMenu())
-        }
+        saveImageToPermanentFolder()
+        cachedImageFile?.delete()
+        view?.findNavController()?.navigate(R.id.navigateFromCameraToMenu)
 
+    }
+
+    private fun saveImageToPermanentFolder() {
+        val cacheDir = context?.cacheDir
+        val cachedFile = File(cacheDir,cachedImageFile?.name.toString())
+
+        val imageDirectory = context?.getDir("images", Context.MODE_PRIVATE)
+        val imageFile= File(imageDirectory,cachedImageFile?.name.toString())
+
+        if (imageFile.isDirectory) {
+            cachedFile.copyTo(imageFile, true)
+        } else {
+            imageFile.mkdirs()
+            cachedFile.copyTo(imageFile, true)
+        }
     }
 
     override fun onDestroyView() {
