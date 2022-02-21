@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
+                <outlet property="buttonShape" destination="49a-ng-gua" id="zUL-xc-fQN"/>
                 <outlet property="feedBackLabel" destination="fxl-fK-4zi" id="dJ2-O7-mJR"/>
                 <outlet property="label1" destination="rHl-6S-Iw5" id="0Oh-7T-kiq"/>
                 <outlet property="label2" destination="ZUV-h2-gUa" id="SOz-es-j2o"/>
@@ -99,8 +100,8 @@
                                                     <rect key="frame" x="20" y="20" width="374" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxl-fK-4zi">
-                                                            <rect key="frame" x="10" y="10" width="354" height="48"/>
-                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="18"/>
+                                                            <rect key="frame" x="0.0" y="10" width="374" height="48"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                             <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -118,12 +119,18 @@
                                                         <constraint firstItem="KVi-yM-KTa" firstAttribute="top" secondItem="49a-ng-gua" secondAttribute="top" id="2Ta-KE-mDV"/>
                                                         <constraint firstAttribute="trailing" secondItem="KVi-yM-KTa" secondAttribute="trailing" constant="20" id="A7B-T9-gVg"/>
                                                         <constraint firstAttribute="bottom" secondItem="fxl-fK-4zi" secondAttribute="bottom" constant="10" id="AgJ-kl-SSn"/>
-                                                        <constraint firstItem="fxl-fK-4zi" firstAttribute="leading" secondItem="49a-ng-gua" secondAttribute="leading" constant="10" id="CQD-H9-o5W"/>
+                                                        <constraint firstItem="fxl-fK-4zi" firstAttribute="leading" secondItem="49a-ng-gua" secondAttribute="leading" id="CQD-H9-o5W"/>
                                                         <constraint firstAttribute="bottom" secondItem="KVi-yM-KTa" secondAttribute="bottom" id="K6c-qj-69h"/>
                                                         <constraint firstItem="fxl-fK-4zi" firstAttribute="top" secondItem="49a-ng-gua" secondAttribute="top" constant="10" id="PUX-BU-Wwf"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fxl-fK-4zi" secondAttribute="trailing" constant="10" id="Srn-y9-xEK"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fxl-fK-4zi" secondAttribute="trailing" id="Srn-y9-xEK"/>
                                                         <constraint firstItem="KVi-yM-KTa" firstAttribute="leading" secondItem="49a-ng-gua" secondAttribute="leading" id="UCS-gx-4Hh"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
