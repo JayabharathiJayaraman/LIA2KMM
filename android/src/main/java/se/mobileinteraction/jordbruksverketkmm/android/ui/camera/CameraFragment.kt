@@ -1,5 +1,7 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.camera
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +39,12 @@ class CameraFragment : Fragment() {
     //File
     private var savedImageFile: File? = null
     private var savedImageUri: Uri? = null
+
+    @SuppressLint("SourceLockedOrientationActivity")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,7 +86,6 @@ class CameraFragment : Fragment() {
             .also {
                 it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
             }
-
         imageCapture = ImageCapture.Builder().setJpegQuality(70).build()
 
         // Unbind use cases before rebinding
@@ -96,12 +103,12 @@ class CameraFragment : Fragment() {
         val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
         val imageFile = File(context?.filesDir, "$name.jpg")
+        savedImageFile = imageFile
 
         ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY
 
-
         // Create output options object which contains file + metadata
-        val outputOptions = activity?.contentResolver?.let {
+        val outputOptions = requireActivity().contentResolver?.let {
             ImageCapture.OutputFileOptions.Builder(imageFile).build()
         }
 
@@ -115,13 +122,8 @@ class CameraFragment : Fragment() {
                     }
                     override fun
                             onImageSaved(output: ImageCapture.OutputFileResults){
-                        val msg = "Photo capture succeeded: ${output.savedUri}"
-
-                        savedImageFile = imageFile
                         savedImageUri = output.savedUri
-
                         updateUiForImagePreview(savedImageUri)
-                        Log.d("DEBUG", msg)
                     }
                 }
             )
