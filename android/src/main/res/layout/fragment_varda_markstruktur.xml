@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background='#EDF1E2'
     tools:context=".ui.vardamarkstruktur.VardaMarkstrukturFragment">
 
     <LinearLayout
@@ -34,6 +35,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/vardaMarkstruktur_label1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Beskrivning" />
+
+            <TextView
+                android:id="@+id/vardaMarkstruktur_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
             <Button
                 android:id="@+id/grunforbattringarutton"
