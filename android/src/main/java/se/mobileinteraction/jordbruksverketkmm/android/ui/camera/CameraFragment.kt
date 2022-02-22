@@ -67,8 +67,12 @@ class CameraFragment : Fragment() {
             _fragmentCameraBinding?.imageCaptureButton?.setOnClickListener {
                 takePhoto()
             }
+            _fragmentCameraBinding?.btnCameraClose?.setOnClickListener {
+                view.findNavController().navigateUp()
+            }
         }
     }
+
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
@@ -103,7 +107,6 @@ class CameraFragment : Fragment() {
         // Get a stable reference of the modifiable image capture use case
         imageCapture ?: return
 
-        // Create time stamped name and File entry.
         val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
 
@@ -111,7 +114,6 @@ class CameraFragment : Fragment() {
         val imageFile = File.createTempFile(name, ".jpg", outputDir)
         cachedImageFile = imageFile
 
-        // Create output options object which contains file + metadata
         val outputOptions = requireActivity().contentResolver?.let {
             ImageCapture.OutputFileOptions.Builder(imageFile).build()
         }
@@ -135,18 +137,20 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForImagePreview(cachedImageUri: Uri?) {
-        //Inflate container view used for rejecting or accepting image
+        //Inflate preview container
         previewCameraContainerBinding = PreviewCameraContainerBinding.inflate(
             LayoutInflater.from(requireContext()),
             fragmentCameraBinding.root,
             true
         )
-        //Hide image capture view
         _fragmentCameraBinding?.imageCaptureButton?.isVisible = false
         _fragmentCameraBinding?.viewFinder?.isVisible = false
-
         previewCameraContainerBinding?.ivPreview?.setImageURI(cachedImageUri)
 
+        previewCameraContainerBinding?.btnContainerClose?.setOnClickListener {
+            cachedImageFile?.delete()
+            view?.findNavController()?.navigateUp()
+        }
         previewCameraContainerBinding?.btnAcceptImage?.setOnClickListener {
             updateUiForAcceptImage()
         }
@@ -159,13 +163,10 @@ class CameraFragment : Fragment() {
         // Remove preview container
         previewCameraContainerBinding?.root?.let {fragmentCameraBinding.root.removeView(it)}
 
-        // Show camera-preview and image capture button
         _fragmentCameraBinding?.imageCaptureButton?.isVisible = true
         _fragmentCameraBinding?.viewFinder?.isVisible = true
 
-        // Delete temp file from cache
         cachedImageFile?.delete()
-
     }
 
     private fun updateUiForAcceptImage() {
@@ -173,7 +174,6 @@ class CameraFragment : Fragment() {
         saveImageToPermanentFolder()
         cachedImageFile?.delete()
         view?.findNavController()?.navigate(R.id.navigateFromCameraToMenu)
-
     }
 
     private fun saveImageToPermanentFolder() {
