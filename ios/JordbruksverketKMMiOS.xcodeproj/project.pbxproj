@@ -15,6 +15,13 @@
 		9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
 		9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
 		9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
+		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
+		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		2E846FC327B987D7004B2E9A /* opensans_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC227B987D7004B2E9A /* opensans_bold.ttf */; };
+		2E846FC527B987F8004B2E9A /* opensans_semi_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC427B987F8004B2E9A /* opensans_semi_bold.ttf */; };
+		2E846FC727B9880D004B2E9A /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC627B9880D004B2E9A /* opensans_regular.ttf */; };
+		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
+		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50C27A14C740043B5A1 /* AppDelegate.swift */; };
 		9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */; };
 		9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D34C51227A14C740043B5A1 /* Main.storyboard */; };
@@ -67,6 +74,14 @@
 		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
+		2E6FE47327B5511700BDD838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2E846FC227B987D7004B2E9A /* opensans_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_bold.ttf; sourceTree = "<group>"; };
+		2E846FC427B987F8004B2E9A /* opensans_semi_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_semi_bold.ttf; sourceTree = "<group>"; };
+		2E846FC627B9880D004B2E9A /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
+		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +127,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E82CA3C27BA4E0B007BAA7A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2E846FC627B9880D004B2E9A /* opensans_regular.ttf */,
+				2E846FC427B987F8004B2E9A /* opensans_semi_bold.ttf */,
+				2E846FC227B987D7004B2E9A /* opensans_bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2E846FBA27B84E82004B2E9A /* AboutAppViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */,
+				2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */,
+			);
+			path = AboutAppViewController;
+			sourceTree = "<group>";
+		};
+		2E55517C27B3BE3200AD461E /* StartScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E55518327B4579200AD461E /* StartScreenViewController.swift */,
+				2E55518427B4579200AD461E /* StartScreenViewController.xib */,
+			);
+			path = StartScreenViewController;
+			sourceTree = "<group>";
+		};
 		32FAC77D241BF838CC793F6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +257,8 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
+				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
 				51C7154627B281730005FE91 /* DataPrivacyViewController */,
 				9D34C54227A14FE40043B5A1 /* RootViewController */,
 			);
@@ -233,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				5133637F27BAAA5C00A1CF2D /* Fonts */,
+				2E82CA3C27BA4E0B007BAA7A /* Fonts */,
 				9D8E1E9127A7FA92002E7D94 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -356,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */,
@@ -363,6 +410,10 @@
 				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 				5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
+				2E846FC527B987F8004B2E9A /* opensans_semi_bold.ttf in Resources */,
+				2E846FC327B987D7004B2E9A /* opensans_bold.ttf in Resources */,
+				2E846FC727B9880D004B2E9A /* opensans_regular.ttf in Resources */,
+				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +471,7 @@
 			files = (
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
 				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
@@ -488,6 +540,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9D8E1E9227A7FAFC002E7D94 /* sv */,
+				2E6FE47327B5511700BDD838 /* en */,
 				51C3C2DE27B6A20F00454C9B /* en */,
 			);
 			name = Localizable.strings;
@@ -622,7 +675,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
