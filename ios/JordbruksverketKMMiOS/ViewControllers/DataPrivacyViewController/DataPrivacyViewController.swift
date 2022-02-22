@@ -7,11 +7,8 @@ final class DataPrivacyViewController: UIViewController {
     @IBOutlet private weak var text1: UILabel!
     @IBOutlet private weak var label2: UILabel!
     @IBOutlet private weak var text2: UILabel!
-
     @IBOutlet private weak var feedBackLabel: UILabel!
-    
     @IBOutlet private weak var buttonShape: UIView!
-
     
     private var titles:[UILabel]!
     private var informations:[UILabel]!
@@ -23,11 +20,9 @@ final class DataPrivacyViewController: UIViewController {
         setFontAccessibility()
     }
     
-
     @IBAction func feedbackButton(_ sender: UIButton) {
         print("button pressed")
     }
-    
     
     func setUpLabels(){
         
@@ -58,7 +53,6 @@ final class DataPrivacyViewController: UIViewController {
                          """)
                  }
 
-
              for title in titles
              {
                  title.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: customTitleFont)
@@ -72,8 +66,6 @@ final class DataPrivacyViewController: UIViewController {
                  information.adjustsFontForContentSizeCategory = true
                  information.adjustsFontSizeToFitWidth = true
              }
-
          }
-    
     
 }
