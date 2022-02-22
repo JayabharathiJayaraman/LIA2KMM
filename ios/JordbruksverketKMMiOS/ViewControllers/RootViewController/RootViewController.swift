@@ -9,4 +9,5 @@ class RootViewController: UIViewController {
         print("Hello world!")
         print("HEJ".localized)
     }
+    
 }

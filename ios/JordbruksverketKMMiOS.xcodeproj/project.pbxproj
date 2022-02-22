@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638027BAAB9600A1CF2D /* opensans_regular.ttf */; };
+		5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */; };
+		9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
+		9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
+		9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
+		9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
+		9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
+		9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
 		2E846FC327B987D7004B2E9A /* opensans_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC227B987D7004B2E9A /* opensans_bold.ttf */; };
@@ -61,6 +69,11 @@
 		13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.release.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.release.xcconfig"; sourceTree = "<group>"; };
 		177C7667C4A164A69D155271 /* Pods-JordbruksverketKMMiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.debug.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5133638027BAAB9600A1CF2D /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
+		5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_semi_bold.ttf; sourceTree = "<group>"; };
+		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
+		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
 		2E6FE47327B5511700BDD838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
@@ -159,6 +172,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5133637F27BAAA5C00A1CF2D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5133638027BAAB9600A1CF2D /* opensans_regular.ttf */,
+				5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */,
+				9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */,
+			);
+			path = DataPrivacyViewController;
+			sourceTree = "<group>";
+		};
 		9D34C50027A14C740043B5A1 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +259,7 @@
 			children = (
 				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
 				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
+				51C7154627B281730005FE91 /* DataPrivacyViewController */,
 				9D34C54227A14FE40043B5A1 /* RootViewController */,
 			);
 			path = ViewControllers;
@@ -245,6 +277,7 @@
 		9D8E1E8327A7F9C1002E7D94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5133637F27BAAA5C00A1CF2D /* Fonts */,
 				2E82CA3C27BA4E0B007BAA7A /* Fonts */,
 				9D8E1E9127A7FA92002E7D94 /* Localizable.strings */,
 			);
@@ -323,6 +356,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					DataPrivacyViewController,
+				);
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
@@ -369,7 +405,10 @@
 				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
+				5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
+				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
+				5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 				2E846FC527B987F8004B2E9A /* opensans_semi_bold.ttf in Resources */,
 				2E846FC327B987D7004B2E9A /* opensans_bold.ttf in Resources */,
@@ -384,6 +423,7 @@
 			files = (
 				9D34C54927A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +433,7 @@
 			files = (
 				9D34C54A27A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +473,7 @@
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
-				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,
+				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
 			);
@@ -444,6 +485,7 @@
 			files = (
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
+				9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54627A150180043B5A1 /* RootViewController.swift in Sources */,
 			);
@@ -454,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54727A150180043B5A1 /* RootViewController.swift in Sources */,
@@ -498,6 +541,7 @@
 			children = (
 				9D8E1E9227A7FAFC002E7D94 /* sv */,
 				2E6FE47327B5511700BDD838 /* en */,
+				51C3C2DE27B6A20F00454C9B /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -660,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7KDAWBCR66;
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -688,7 +732,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7KDAWBCR66;
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,7 +757,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7KDAWBCR66;
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -737,7 +781,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7KDAWBCR66;
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -760,7 +804,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7KDAWBCR66;
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
