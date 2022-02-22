@@ -16,10 +16,10 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataPrivacyViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
                 <outlet property="buttonShape" destination="49a-ng-gua" id="zUL-xc-fQN"/>
-                <outlet property="feedBackLabel" destination="fxl-fK-4zi" id="dJ2-O7-mJR"/>
+                <outlet property="feedBackLabel" destination="fxl-fK-4zi" id="mdV-Ag-k3M"/>
                 <outlet property="label1" destination="rHl-6S-Iw5" id="0Oh-7T-kiq"/>
                 <outlet property="label2" destination="ZUV-h2-gUa" id="SOz-es-j2o"/>
                 <outlet property="text1" destination="26f-ba-QB4" id="D0V-Oq-a1c"/>
@@ -110,11 +110,11 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain"/>
                                                             <connections>
-                                                                <action selector="feedBackButton:" destination="-1" eventType="touchUpInside" id="y7q-gw-VqH"/>
+                                                                <action selector="feedbackButton:" destination="-1" eventType="touchUpInside" id="Vi4-28-9Og"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="KVi-yM-KTa" firstAttribute="top" secondItem="49a-ng-gua" secondAttribute="top" id="2Ta-KE-mDV"/>
                                                         <constraint firstAttribute="trailing" secondItem="KVi-yM-KTa" secondAttribute="trailing" constant="20" id="A7B-T9-gVg"/>

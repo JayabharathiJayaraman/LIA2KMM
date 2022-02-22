@@ -1,46 +1,47 @@
-//
-//  ScrollViewController.swift
-//  JordbruksverketKMMiOS
-//
-//  Created by Erik Hedrenius on 2022-02-15.
-//
 
 import UIKit
 
-class ScrollViewController: UIViewController {
+final class DataPrivacyViewController: UIViewController {
 
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var text1: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var text2: UILabel!
-    @IBOutlet weak var feedBackLabel: UILabel!
+    @IBOutlet private weak var label1: UILabel!
+    @IBOutlet private weak var text1: UILabel!
+    @IBOutlet private weak var label2: UILabel!
+    @IBOutlet private weak var text2: UILabel!
+
+    @IBOutlet private weak var feedBackLabel: UILabel!
     
-    @IBOutlet weak var buttonShape: UIView!
-    @IBAction func feedBackButton(_ sender: UIButton) {
-        print("button pressed")
-    }
-    
+    @IBOutlet private weak var buttonShape: UIView!
+
     
     private var titles:[UILabel]!
     private var informations:[UILabel]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Hello ")
+        setUpLabels()
+        setFontAccessibility()
+    }
+    
 
+    @IBAction func feedbackButton(_ sender: UIButton) {
+        print("button pressed")
+    }
+    
+    
+    func setUpLabels(){
+        
         titles = [label1, label2]
         informations = [text1, text2, feedBackLabel]
+        
         label1.text = "DataPrivacyPolicyApplikationen".localized
         text1.text = "DataPrivacyPolicyTextPart1".localized
         label2.text = "DataPrivacyPolicyHantering".localized
         text2.text = "DataPrivacyPolicyTextPart2".localized
         feedBackLabel.text = "DataPrivacyPolicyFeedbackButton".localized
-   
-        setFontAccessibility()
     }
     
-    
-    func setFontAccessibility()
-         {
+    func setFontAccessibility(){
                  guard let customTitleFont = UIFont(name: "OpenSans-SemiBold", size: UIFont.labelFontSize)
                  else {
                      fatalError("""
