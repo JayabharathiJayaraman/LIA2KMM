@@ -6,6 +6,7 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManger = CLLocationManager()
+    
     let regionInMeters: Double = 200
     
     override func viewDidLoad() {
@@ -13,6 +14,17 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         checkLocationServices()
         mapView.mapType = .satellite
     }
+
+    @IBAction func infoButton(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder.", message: "", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Stäng", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    
+    }
+    
     
     override var shouldAutorotate: Bool{
         return false

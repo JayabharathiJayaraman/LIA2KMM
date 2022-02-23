@@ -67,6 +67,9 @@
                                             <buttonConfiguration key="configuration" style="plain" image="circle.fill" catalog="system">
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="infoButton:" destination="-1" eventType="touchUpInside" id="EDp-Nh-bha"/>
+                                            </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="info_button" translatesAutoresizingMaskIntoConstraints="NO" id="7ho-f8-zzs">
                                             <rect key="frame" x="329" y="-13" width="53" height="32"/>
