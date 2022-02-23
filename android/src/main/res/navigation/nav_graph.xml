@@ -74,7 +74,9 @@
         tools:layout="@layout/fragment_camera" >
         <action
             android:id="@+id/navigateFromCameraToMenu"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/cameraFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
