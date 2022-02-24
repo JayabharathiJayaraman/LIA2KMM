@@ -22,6 +22,10 @@
         <action
             android:id="@+id/navigateToAboutApp"
             app:destination="@id/aboutAppFragment" />
+        <action
+            android:id="@+id/navigateToMap"
+            app:destination="@id/mapFragment2" />
+
     </fragment>
 
 
@@ -60,4 +64,9 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment2"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.maps.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>

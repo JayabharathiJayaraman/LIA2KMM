@@ -38,6 +38,10 @@ class MenuFragment : Fragment() {
             view.findNavController().navigate(R.id.navigateToAboutApp)
         }
 
+        binding.textViewMap.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToMap)
+        }
+
         return view
     }
 
