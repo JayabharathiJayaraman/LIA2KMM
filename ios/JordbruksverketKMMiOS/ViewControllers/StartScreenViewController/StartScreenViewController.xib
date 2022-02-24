@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartScreenViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
+                <outlet property="aboutlabel" destination="t4u-ux-Jhv" id="TnP-F7-Kjp"/>
                 <outlet property="appnamelabel" destination="0xy-L7-gGd" id="caa-Jr-igG"/>
                 <outlet property="mytestlabel" destination="e7c-MN-h7c" id="MN4-eF-x9k"/>
                 <outlet property="newtestlabel" destination="Gfy-6R-CDe" id="7jR-5G-h7d"/>
@@ -50,118 +52,137 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="appikon1024" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-CM-6a6">
                             <rect key="frame" x="123" y="153" width="168" height="393"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="botton_bar" translatesAutoresizingMaskIntoConstraints="NO" id="aLB-UG-w9V">
-                            <rect key="frame" x="-100" y="693" width="622" height="299"/>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95t-Zw-0je">
+                            <rect key="frame" x="-1" y="588" width="429" height="338"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="curveBottom" translatesAutoresizingMaskIntoConstraints="NO" id="amc-wh-BS4">
-                            <rect key="frame" x="0.0" y="658" width="428" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16Z-Qr-WT3">
-                            <rect key="frame" x="36" y="718" width="35" height="47"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" backgroundImage="testDoneIcon">
-                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mina test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-MN-h7c">
-                            <rect key="frame" x="0.0" y="784" width="106" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vårda markstruktur" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-Xr-1ro">
-                            <rect key="frame" x="279" y="757" width="135" height="97"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nytt test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-6R-CDe">
-                            <rect key="frame" x="86" y="764" width="242" height="97"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXQ-Pp-7hh">
-                            <rect key="frame" x="190" y="736" width="35" height="47"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" backgroundImage="addTestIcon">
-                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slx-F3-Syr">
-                            <rect key="frame" x="329" y="718" width="35" height="47"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" backgroundImage="plantIcon">
-                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-Gn-gZT">
-                            <rect key="frame" x="0.0" y="387" width="414" height="122"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Läs mer om appen och testerna  &gt;">
-                                <fontDescription key="titleFontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
-                                <color key="baseForegroundColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </buttonConfiguration>
-                        </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="jv-logo-black" translatesAutoresizingMaskIntoConstraints="NO" id="6iY-SF-Tjp">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXQ-Pp-7hh">
+                                    <rect key="frame" x="190" y="65" width="35" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="addTestIcon">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slx-F3-Syr">
+                                    <rect key="frame" x="319" y="35" width="35" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="plantIcon">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nytt test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-6R-CDe">
+                                    <rect key="frame" x="131" y="95" width="152" height="109"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16Z-Qr-WT3">
+                                    <rect key="frame" x="56" y="35" width="35" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" backgroundImage="testDoneIcon">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vårda markstruktur" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-Xr-1ro">
+                                    <rect key="frame" x="273" y="25" width="126" height="228"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mina test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-MN-h7c">
+                                    <rect key="frame" x="5" y="71" width="137" height="113"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="jv-logo-black" translatesAutoresizingMaskIntoConstraints="NO" id="6iY-SF-Tjp">
                             <rect key="frame" x="165" y="44" width="84" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="wmh-1f-7Cu"/>
+                                <constraint firstAttribute="width" constant="84" id="zwb-Rg-A7R"/>
+                            </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VÄLKOMMEN TILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvf-x5-1Rb">
-                            <rect key="frame" x="0.0" y="176" width="414" height="23"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hur mår min jord?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xy-L7-gGd">
-                            <rect key="frame" x="0.0" y="194" width="414" height="35"/>
+                            <rect key="frame" x="0.0" y="194" width="414" height="35.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="26"/>
                             <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="curveBottom" translatesAutoresizingMaskIntoConstraints="NO" id="amc-wh-BS4">
+                            <rect key="frame" x="0.0" y="553" width="428" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VÄLKOMMEN TILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvf-x5-1Rb">
+                            <rect key="frame" x="20" y="170" width="374" height="23.5"/>
+                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Läs mer om appen och testerna  &gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4u-ux-Jhv">
+                            <rect key="frame" x="6" y="429" width="402" height="20.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <color key="textColor" red="0.1843137255" green="0.39607843139999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2e-qI-MHq">
+                            <rect key="frame" x="6" y="428" width="400" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Läs mer om appen och testerna  &gt;">
+                                <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                        </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="I3f-XK-Y1e"/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="6iY-SF-Tjp" secondAttribute="trailing" constant="165" id="0f2-35-1HH"/>
+                        <constraint firstItem="t4u-ux-Jhv" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="385" id="2r8-ts-eCU"/>
                         <constraint firstItem="tmd-CM-6a6" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" constant="123" id="2y6-Mg-nfr"/>
                         <constraint firstItem="0xy-L7-gGd" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" id="Cdu-iR-VO2"/>
-                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="bottom" secondItem="IWX-Gn-gZT" secondAttribute="bottom" constant="353" id="HQi-n6-1FR"/>
-                        <constraint firstItem="IWX-Gn-gZT" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" id="QAY-lb-WCk"/>
+                        <constraint firstItem="6iY-SF-Tjp" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" id="G44-dl-JtQ"/>
+                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" constant="20" id="Gsp-mt-QEQ"/>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="t4u-ux-Jhv" secondAttribute="trailing" constant="6" id="J41-DU-l3J"/>
+                        <constraint firstItem="s2e-qI-MHq" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="384" id="NNd-rh-KDv"/>
                         <constraint firstItem="I3f-XK-Y1e" firstAttribute="bottom" secondItem="tmd-CM-6a6" secondAttribute="bottom" constant="316" id="Tkd-fl-dWP"/>
-                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" id="ax1-Wr-EDi"/>
                         <constraint firstItem="b5c-8n-uB4" firstAttribute="top" secondItem="4f6-jS-GJR" secondAttribute="top" constant="74" id="bN9-qk-3Sv"/>
-                        <constraint firstItem="IWX-Gn-gZT" firstAttribute="trailing" secondItem="I3f-XK-Y1e" secondAttribute="trailing" id="cJd-IH-sxx"/>
-                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="top" secondItem="b5c-8n-uB4" secondAttribute="bottom" constant="65" id="cjx-Km-hvF"/>
-                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="trailing" secondItem="I3f-XK-Y1e" secondAttribute="trailing" id="i4d-Rr-uWG"/>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="cvf-x5-1Rb" secondAttribute="trailing" constant="20" id="gAP-aq-D8e"/>
                         <constraint firstAttribute="trailing" secondItem="b5c-8n-uB4" secondAttribute="trailing" constant="20" id="jVo-bb-20u"/>
+                        <constraint firstItem="t4u-ux-Jhv" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" constant="6" id="lUr-Sj-cl6"/>
+                        <constraint firstItem="cvf-x5-1Rb" firstAttribute="top" secondItem="6iY-SF-Tjp" secondAttribute="bottom" constant="66" id="lke-2r-Unj"/>
                         <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="tmd-CM-6a6" secondAttribute="trailing" constant="123" id="lr9-EK-pOC"/>
                         <constraint firstItem="0xy-L7-gGd" firstAttribute="trailing" secondItem="I3f-XK-Y1e" secondAttribute="trailing" id="mgd-ll-mnG"/>
                         <constraint firstItem="tmd-CM-6a6" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="109" id="nr2-xs-QXd"/>
-                        <constraint firstItem="IWX-Gn-gZT" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="343" id="pd8-R8-bmv"/>
                         <constraint firstItem="0xy-L7-gGd" firstAttribute="top" secondItem="I3f-XK-Y1e" secondAttribute="top" constant="150" id="sJV-wb-Gpl"/>
+                        <constraint firstItem="I3f-XK-Y1e" firstAttribute="trailing" secondItem="s2e-qI-MHq" secondAttribute="trailing" constant="8" id="sQL-an-5Dw"/>
+                        <constraint firstItem="s2e-qI-MHq" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" constant="6" id="vx7-Id-3g9"/>
+                        <constraint firstItem="6iY-SF-Tjp" firstAttribute="leading" secondItem="I3f-XK-Y1e" secondAttribute="leading" constant="165" id="wSW-jF-pgf"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="134.78260869565219" y="76.339285714285708"/>
+            <point key="canvasLocation" x="128.97196261682242" y="73.21814254859612"/>
         </view>
     </objects>
     <resources>
         <image name="addTestIcon" width="138" height="180"/>
         <image name="appikon1024" width="1024" height="1024"/>
-        <image name="botton_bar" width="426.66665649414062" height="260.66665649414062"/>
         <image name="curveBottom" width="1040" height="77"/>
         <image name="jv-logo-black" width="118" height="94"/>
         <image name="meny_m_text" width="68" height="59"/>
         <image name="plantIcon" width="144" height="189"/>
         <image name="testDoneIcon" width="138" height="180"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
