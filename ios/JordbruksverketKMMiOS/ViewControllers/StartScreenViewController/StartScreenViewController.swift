@@ -71,29 +71,22 @@ extension UILabel {
   }
 }
 
-class StartScreenViewController: UIViewController {
+final class StartScreenViewController: UIViewController {
     
-    @IBOutlet weak var welcomelabel: UILabel!
-    @IBOutlet weak var appnamelabel: UILabel!
-    @IBOutlet weak var aboutlabel: UILabel!
-    @IBOutlet weak var mytestlabel: UILabel!
-    @IBOutlet weak var newtestlabel: UILabel!
-    @IBOutlet weak var planticonlabel: UILabel!
+    @IBOutlet private weak var welcomelabel: UILabel!
+    @IBOutlet private weak var appnamelabel: UILabel!
+    @IBOutlet private weak var aboutlabel: UILabel!
+    @IBOutlet private weak var mytestlabel: UILabel!
+    @IBOutlet private weak var newtestlabel: UILabel!
+    @IBOutlet private weak var planticonlabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         welcomelabel.dynamicFontSemiBoldWelcome()
+        aboutlabel.dynamicFontRegular()
         mytestlabel.dynamicFontSemiBold()
         newtestlabel.dynamicFontSemiBold()
         planticonlabel.dynamicFontSemiBold()
-        
-        func localized(){
-            welcomelabel.text = "WelcomeLabel".localized
-            appnamelabel.text = "AppNameLabel".localized
-            mytestlabel.text = "MyTestLabel".localized
-            newtestlabel.text = "NewTestLabel".localized
-            planticonlabel.text = "PlantLabel1".localized
-        }
     }
     
     override var shouldAutorotate: Bool{

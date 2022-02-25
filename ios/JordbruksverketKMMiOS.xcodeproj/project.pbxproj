@@ -11,8 +11,8 @@
 		2E4437D727BBCBE400C0042F /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437D227BBC9FA00C0042F /* opensans_regular.ttf */; };
 		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
-		2EF08F2B27BC0720005C583F /* Localizable_eng.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EF08F2927BC0720005C583F /* Localizable_eng.strings */; };
-		2EF08F3127BC0800005C583F /* Localizable_swe.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EF08F2F27BC0800005C583F /* Localizable_swe.strings */; };
+		2E88139E27C8E28A00D04D83 /* LocalizableSv.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8813A027C8E28A00D04D83 /* LocalizableSv.strings */; };
+		2E8813A127C8E28F00D04D83 /* LocalizableEn.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8813A327C8E28F00D04D83 /* LocalizableEn.strings */; };
 		2EF08F3227BD1BA4005C583F /* opensans_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437D327BBCA0900C0042F /* opensans_bold.ttf */; };
 		2EF08F3327BD1BA7005C583F /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437D227BBC9FA00C0042F /* opensans_regular.ttf */; };
 		2EF08F3427BD1BAB005C583F /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437DA27BBD40400C0042F /* OpenSans-SemiBold.ttf */; };
@@ -66,8 +66,8 @@
 		2E4437DA27BBD40400C0042F /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
-		2EF08F2A27BC0720005C583F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable_eng.strings; sourceTree = "<group>"; };
-		2EF08F3027BC0800005C583F /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localizable_swe.strings; sourceTree = "<group>"; };
+		2E88139F27C8E28A00D04D83 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LocalizableSv.strings; sourceTree = "<group>"; };
+		2E8813A227C8E28F00D04D83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableEn.strings; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D34C50C27A14C740043B5A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +112,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E22F6C427C8E758005C893A /* en.Iproj */ = {
+			isa = PBXGroup;
+			children = (
+				2E8813A327C8E28F00D04D83 /* LocalizableEn.strings */,
+			);
+			path = en.Iproj;
+			sourceTree = "<group>";
+		};
+		2E22F6C627C8E780005C893A /* sv.Iproj */ = {
+			isa = PBXGroup;
+			children = (
+				2E8813A027C8E28A00D04D83 /* LocalizableSv.strings */,
+			);
+			path = sv.Iproj;
+			sourceTree = "<group>";
+		};
 		2E4437D127BBC9B500C0042F /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,24 +145,6 @@
 				2E55518427B4579200AD461E /* StartScreenViewController.xib */,
 			);
 			path = StartScreenViewController;
-			sourceTree = "<group>";
-		};
-		2E8490CE27BBF63400537693 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				2EF08F2927BC0720005C583F /* Localizable_eng.strings */,
-			);
-			name = en.lproj;
-			path = Font/sv.lproj/en.lproj;
-			sourceTree = "<group>";
-		};
-		2E8490CF27BBF66B00537693 /* sv.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				2EF08F2F27BC0800005C583F /* Localizable_swe.strings */,
-			);
-			name = sv.lproj;
-			path = Font/sv.lproj;
 			sourceTree = "<group>";
 		};
 		32FAC77D241BF838CC793F6B /* Frameworks */ = {
@@ -251,8 +249,8 @@
 		9D8E1E8327A7F9C1002E7D94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2E8490CE27BBF63400537693 /* en.lproj */,
-				2E8490CF27BBF66B00537693 /* sv.lproj */,
+				2E22F6C627C8E780005C893A /* sv.Iproj */,
+				2E22F6C427C8E758005C893A /* en.Iproj */,
 				2E4437D127BBC9B500C0042F /* Font */,
 			);
 			path = Resources;
@@ -376,12 +374,12 @@
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				2EF08F3427BD1BAB005C583F /* OpenSans-SemiBold.ttf in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
+				2E8813A127C8E28F00D04D83 /* LocalizableEn.strings in Resources */,
 				2E4437D727BBCBE400C0042F /* opensans_regular.ttf in Resources */,
-				2EF08F3127BC0800005C583F /* Localizable_swe.strings in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 				2E4437D627BBCBDF00C0042F /* opensans_bold.ttf in Resources */,
+				2E88139E27C8E28A00D04D83 /* LocalizableSv.strings in Resources */,
 				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
-				2EF08F2B27BC0720005C583F /* Localizable_eng.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,20 +482,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2EF08F2927BC0720005C583F /* Localizable_eng.strings */ = {
+		2E8813A027C8E28A00D04D83 /* LocalizableSv.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2EF08F2A27BC0720005C583F /* en */,
+				2E88139F27C8E28A00D04D83 /* sv */,
 			);
-			name = Localizable_eng.strings;
+			name = LocalizableSv.strings;
 			sourceTree = "<group>";
 		};
-		2EF08F2F27BC0800005C583F /* Localizable_swe.strings */ = {
+		2E8813A327C8E28F00D04D83 /* LocalizableEn.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2EF08F3027BC0800005C583F /* sv */,
+				2E8813A227C8E28F00D04D83 /* en */,
 			);
-			name = Localizable_swe.strings;
+			name = LocalizableEn.strings;
 			sourceTree = "<group>";
 		};
 		9D34C51227A14C740043B5A1 /* Main.storyboard */ = {
@@ -644,9 +642,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
@@ -677,9 +675,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7KDAWBCR66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
