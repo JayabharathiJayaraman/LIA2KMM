@@ -82,6 +82,10 @@ final class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initView()
+    }
+    
+    func initView(){
         welcomelabel.dynamicFontSemiBoldWelcome()
         aboutlabel.dynamicFontRegular()
         mytestlabel.dynamicFontSemiBold()
