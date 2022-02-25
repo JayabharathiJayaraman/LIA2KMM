@@ -87,6 +87,13 @@ final class StartScreenViewController: UIViewController {
         mytestlabel.dynamicFontSemiBold()
         newtestlabel.dynamicFontSemiBold()
         planticonlabel.dynamicFontSemiBold()
+        
+        welcomelabel.text = "WelcomeLabel".localized
+        appnamelabel.text = "AppNameLabel".localized
+        aboutlabel.text = "Aboutlabel".localized
+        mytestlabel.text = "MyTestLabel".localized
+        newtestlabel.text = "NewTestLabel".localized
+        planticonlabel.text = "PlantLabel".localized
     }
     
     override var shouldAutorotate: Bool{
