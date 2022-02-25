@@ -12,9 +12,6 @@ class RootViewController: UIViewController {
         let test1 = Test1()
         let viewModel = TestViewModel(interfaceGenerator: interfaceGenerator, test: test1)
         self.viewModel = viewModel
-        interfaceGenerator.setValueHandler = { key, value in
-            viewModel.setValue(key: key, value: value)
-        }
         self.interfaceGenerator = interfaceGenerator
         
         let nibName = String(describing: RootViewController.self)

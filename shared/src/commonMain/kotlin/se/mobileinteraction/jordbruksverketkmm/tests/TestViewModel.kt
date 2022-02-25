@@ -17,8 +17,7 @@ class TestViewModel(val interfaceGenerator: InterfaceGenerator, val test: Test) 
                 ComponentType.BODY -> interfaceGenerator.drawBodyLabel(text = (it as InterfaceComponentText).text)
                 ComponentType.TEXTFIELD -> interfaceGenerator.drawTextField(
                     text = (it as InterfaceComponentTextAndPlaceholder).text,
-                    placeholder = (it as InterfaceComponentTextAndPlaceholder).placeholder,
-                    key = (it as InterfaceComponentTextAndPlaceholder).key )
+                    placeholder = (it as InterfaceComponentTextAndPlaceholder).placeholder)
             }
         }
     }
@@ -29,13 +28,5 @@ class TestViewModel(val interfaceGenerator: InterfaceGenerator, val test: Test) 
 
     fun previousScreen() {
         if (currentScreen > 0) currentScreen -= 1
-    }
-
-    fun setValue(key: TestValueKey, value: Any) {
-        when (key) {
-            TestValueKey.FARM_NAME -> test.setValue(key = key, value = value)
-            TestValueKey.FARM_LAND -> test.setValue(key = key, value = value)
-            TestValueKey.DATE -> test.setValue(key = key, value = value)
-        }
     }
 }

@@ -38,12 +38,16 @@ class IOSInterfaceGenerator: InterfaceGenerator {
         mainView.addArrangedSubview(label)
     }
     
-    func drawTextField(text: String, placeholder: String, key: TestValueKey) {
+    func drawTextField(text: String, placeholder: String) {
         let textField = UITextField()
         textField.placeholder = placeholder
         textField.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .body)
         
         mainView.addArrangedSubview(textField)
+    }
+    
+    func drawMap() {
+        
     }
 }
 

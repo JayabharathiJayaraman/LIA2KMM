@@ -6,9 +6,7 @@ import se.mobileinteraction.jordbruksverketkmm.tests.testDataModels.TestData
 interface Test {
     val screens: List<InterfaceScreen>
     val type: TestType
-    var data: TestData
-
-    fun setValue(key: TestValueKey, value: Any)
+    val data: TestData
 }
 
 enum class TestType {

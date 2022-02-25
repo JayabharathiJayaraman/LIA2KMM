@@ -16,6 +16,6 @@ class InterfaceComponentText(override val type: ComponentType, val text: String)
 
 }
 
-class InterfaceComponentTextAndPlaceholder(override val type: ComponentType, val text: String, val placeholder: String, val key: TestValueKey): InterfaceComponent {
+class InterfaceComponentTextAndPlaceholder(override val type: ComponentType, val text: String, val placeholder: String): InterfaceComponent {
 
 }
