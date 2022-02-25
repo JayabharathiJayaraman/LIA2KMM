@@ -12,6 +12,19 @@
 		2E22F6D427C92277005C893A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E22F6CB27C9079F005C893A /* Localizable.strings */; };
 		2E4437D627BBCBDF00C0042F /* opensans_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437D327BBCA0900C0042F /* opensans_bold.ttf */; };
 		2E4437D727BBCBE400C0042F /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437D227BBC9FA00C0042F /* opensans_regular.ttf */; };
+		5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638027BAAB9600A1CF2D /* opensans_regular.ttf */; };
+		5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */; };
+		9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
+		9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
+		9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
+		9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
+		9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
+		9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */; };
+		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
+		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		2E846FC327B987D7004B2E9A /* opensans_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC227B987D7004B2E9A /* opensans_bold.ttf */; };
+		2E846FC527B987F8004B2E9A /* opensans_semi_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC427B987F8004B2E9A /* opensans_semi_bold.ttf */; };
+		2E846FC727B9880D004B2E9A /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC627B9880D004B2E9A /* opensans_regular.ttf */; };
 		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2EF08F3227BD1BA4005C583F /* opensans_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E4437D327BBCA0900C0042F /* opensans_bold.ttf */; };
@@ -38,6 +51,9 @@
 		9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
+		9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E1E9127A7FA92002E7D94 /* Localizable.strings */; };
+		9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E1E9127A7FA92002E7D94 /* Localizable.strings */; };
+		9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E1E9127A7FA92002E7D94 /* Localizable.strings */; };
 		A2E3C9C42D84B45B91E6638A /* Pods_JordbruksverketKMMiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +83,17 @@
 		2E4437D227BBC9FA00C0042F /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
 		2E4437D327BBCA0900C0042F /* opensans_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_bold.ttf; sourceTree = "<group>"; };
 		2E4437DA27BBD40400C0042F /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		5133638027BAAB9600A1CF2D /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
+		5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_semi_bold.ttf; sourceTree = "<group>"; };
+		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
+		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
+		2E6FE47327B5511700BDD838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2E846FC227B987D7004B2E9A /* opensans_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_bold.ttf; sourceTree = "<group>"; };
+		2E846FC427B987F8004B2E9A /* opensans_semi_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_semi_bold.ttf; sourceTree = "<group>"; };
+		2E846FC627B9880D004B2E9A /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
 		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		9D34C50927A14C740043B5A1 /* JordbruksverketKMMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JordbruksverketKMMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +112,7 @@
 		9D34C54327A150180043B5A1 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		9D34C54427A150180043B5A1 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9D8E1E9227A7FAFC002E7D94 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +151,25 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		2E82CA3C27BA4E0B007BAA7A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2E846FC627B9880D004B2E9A /* opensans_regular.ttf */,
+				2E846FC427B987F8004B2E9A /* opensans_semi_bold.ttf */,
+				2E846FC227B987D7004B2E9A /* opensans_bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2E846FBA27B84E82004B2E9A /* AboutAppViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */,
+				2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */,
+			);
+			path = AboutAppViewController;
+			sourceTree = "<group>";
+		};
 		2E55517C27B3BE3200AD461E /* StartScreenViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +194,24 @@
 				13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5133637F27BAAA5C00A1CF2D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5133638027BAAB9600A1CF2D /* opensans_regular.ttf */,
+				5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */,
+				9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */,
+			);
+			path = DataPrivacyViewController;
 			sourceTree = "<group>";
 		};
 		9D34C50027A14C740043B5A1 = {
@@ -216,7 +281,9 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
 				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
+				51C7154627B281730005FE91 /* DataPrivacyViewController */,
 				9D34C54227A14FE40043B5A1 /* RootViewController */,
 			);
 			path = ViewControllers;
@@ -234,6 +301,9 @@
 		9D8E1E8327A7F9C1002E7D94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5133637F27BAAA5C00A1CF2D /* Fonts */,
+				2E82CA3C27BA4E0B007BAA7A /* Fonts */,
+				9D8E1E9127A7FA92002E7D94 /* Localizable.strings */,
 				2E4437D127BBC9B500C0042F /* Font */,
 				2E22F6CB27C9079F005C893A /* Localizable.strings */,
 			);
@@ -312,6 +382,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					DataPrivacyViewController,
+				);
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
@@ -354,14 +427,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				2EF08F3427BD1BAB005C583F /* OpenSans-SemiBold.ttf in Resources */,
+				5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
 				2E22F6D227C92275005C893A /* Localizable.strings in Resources */,
 				2E4437D727BBCBE400C0042F /* opensans_regular.ttf in Resources */,
+				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
+				5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 				2E4437D627BBCBDF00C0042F /* opensans_bold.ttf in Resources */,
+				2E846FC527B987F8004B2E9A /* opensans_semi_bold.ttf in Resources */,
+				2E846FC327B987D7004B2E9A /* opensans_bold.ttf in Resources */,
+				2E846FC727B9880D004B2E9A /* opensans_regular.ttf in Resources */,
 				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +456,8 @@
 				2EF08F3227BD1BA4005C583F /* opensans_bold.ttf in Resources */,
 				9D34C54927A150180043B5A1 /* RootViewController.xib in Resources */,
 				2EF08F3327BD1BA7005C583F /* opensans_regular.ttf in Resources */,
+				9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +466,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D34C54A27A150180043B5A1 /* RootViewController.xib in Resources */,
+				9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 				2E22F6D427C92277005C893A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,8 +506,9 @@
 			files = (
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
-				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,
+				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
 			);
@@ -434,6 +520,7 @@
 			files = (
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
+				9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54627A150180043B5A1 /* RootViewController.swift in Sources */,
 			);
@@ -444,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
 				9D34C54727A150180043B5A1 /* RootViewController.swift in Sources */,
@@ -490,6 +578,16 @@
 				9D34C51827A14C760043B5A1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9D8E1E9127A7FA92002E7D94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D8E1E9227A7FAFC002E7D94 /* sv */,
+				2E6FE47327B5511700BDD838 /* en */,
+				51C3C2DE27B6A20F00454C9B /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -656,6 +754,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
@@ -687,6 +786,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -714,6 +814,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -742,6 +843,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,6 +871,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
