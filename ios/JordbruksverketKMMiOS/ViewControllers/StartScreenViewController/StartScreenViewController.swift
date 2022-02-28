@@ -3,9 +3,9 @@ import UIKit
 extension UILabel {
     
   func dynamicFontBold(){
-    guard let customFont = UIFont(name: "OpenSans-Bold", size: UIFont.labelFontSize) else {
+    guard let customFont = UIFont(name: "opensans-bold", size: UIFont.labelFontSize) else {
       fatalError("""
-        Failed to load the "OpenSans-Bold" font.
+        Failed to load the "opensans-bold" font.
         Make sure the font file is included in the project and the font name is spelled correctly.
         """
       )
@@ -17,9 +17,9 @@ extension UILabel {
 
 extension UILabel {
   func dynamicFontSemiBoldWelcome(){
-    guard let customFont = UIFont(name: "OpenSans-SemiBold", size: 16) else {
+    guard let customFont = UIFont(name: "opensans-semibold", size: 16) else {
       fatalError("""
-        Failed to load the "OpenSans-SemiBold" font.
+        Failed to load the "opensans-semibold" font.
         Make sure the font file is included in the project and the font name is spelled correctly.
         """
       )
@@ -31,9 +31,9 @@ extension UILabel {
 
 extension UILabel {
   func dynamicFontSemiBold(){
-      guard let customFont = UIFont(name: "OpenSans-SemiBold", size: 14) else {
+      guard let customFont = UIFont(name: "opensans-semibold", size: 14) else {
       fatalError("""
-        Failed to load the "OpenSans-SemiBold" font.
+        Failed to load the "opensans-semibold" font.
         Make sure the font file is included in the project and the font name is spelled correctly.
         """
       )
@@ -45,9 +45,9 @@ extension UILabel {
 
 extension UILabel {
   func dynamicFontSemiBoldAbout(){
-      guard let customFont = UIFont(name: "OpenSans-SemiBold", size: 16.5) else {
+      guard let customFont = UIFont(name: "opensans-semibold", size: 16.5) else {
       fatalError("""
-        Failed to load the "OpenSans-SemiBold" font.
+        Failed to load the "opensans-semibold" font.
         Make sure the font file is included in the project and the font name is spelled correctly.
         """
       )
@@ -59,9 +59,9 @@ extension UILabel {
 
 extension UILabel {
   func dynamicFontRegular(){
-    guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
+    guard let customFont = UIFont(name: "opensans-regular", size: UIFont.labelFontSize) else {
       fatalError("""
-        Failed to load the "OpenSans-Regular" font.
+        Failed to load the "opensans-regular" font.
         Make sure the font file is included in the project and the font name is spelled correctly.
         """
       )
@@ -92,12 +92,12 @@ final class StartScreenViewController: UIViewController {
         newtestlabel.dynamicFontSemiBold()
         planticonlabel.dynamicFontSemiBold()
         
-        welcomelabel.text = "WelcomeLabel".localized
-        appnamelabel.text = "AppNameLabel".localized
-        aboutlabel.text = "Aboutlabel".localized
-        mytestlabel.text = "MyTestLabel".localized
-        newtestlabel.text = "NewTestLabel".localized
-        planticonlabel.text = "PlantLabel".localized
+        welcomelabel.text = "StartScreenWelcomeLabel".localized
+        appnamelabel.text = "StartScreenAppNameLabel".localized
+        aboutlabel.text = "StartScreenAboutlabel".localized
+        mytestlabel.text = "StartScreenMyTestLabel".localized
+        newtestlabel.text = "StartScreenNewTestLabel".localized
+        planticonlabel.text = "StartScreenPlantLabel".localized
     }
     
     override var shouldAutorotate: Bool{
