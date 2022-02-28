@@ -4,14 +4,14 @@ import UIKit
 class RootViewController: UIViewController {
     @IBOutlet private weak var containerView: UIView!
     
-    private var viewModel: TestViewModel
-    private var interfaceGenerator: IOSInterfaceGenerator
+    private var viewModel: FormViewModel
+    private var interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
     
     init() {
-        let interfaceGenerator = IOSInterfaceGenerator()
-        let test = JVTestFactory().createTest1()
-        let viewModel = TestViewModel(test: test)
+        let interfaceGenerator = IOSFormGenerator()
+        let test = FormFactory().createForm()
+        let viewModel = FormViewModel(test: test)
         self.viewModel = viewModel
         self.interfaceGenerator = interfaceGenerator
         interfaceGenerator.viewModel = viewModel
@@ -45,7 +45,7 @@ class RootViewController: UIViewController {
 }
 
 private extension RootViewController {
-    func displayComponents(components: [InterfaceComponent]) {
+    func displayComponents(components: [FormComponent]) {
         guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false

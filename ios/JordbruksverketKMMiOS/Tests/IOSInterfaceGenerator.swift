@@ -2,9 +2,9 @@ import Foundation
 import shared
 import UIKit
 
-class IOSInterfaceGenerator: InterfaceGenerator {
+class IOSFormGenerator: FormGenerator {
     var mainView: UIStackView
-    var viewModel: TestViewModel?
+    var viewModel: FormViewModel?
     
     init() {
         mainView = UIStackView()
@@ -12,28 +12,28 @@ class IOSInterfaceGenerator: InterfaceGenerator {
         mainView.distribution = .fillProportionally
     }
     
-    func getInterface(components: [InterfaceComponent]) -> Any {
+    func getInterface(components: [FormComponent]) -> Any {
         if mainView.subviews.count == 0 {
             for component in components {
                 switch component.type {
                 case .body:
-                    if let body = component as? InterfaceComponentText {
+                    if let body = component as? FormComponentText {
                         addBodyLabel(text: body.text)
                     }
                 case .titlebig:
-                    if let title = component as? InterfaceComponentText {
+                    if let title = component as? FormComponentText {
                         addBigTitleLabel(text: title.text)
                     }
                 case .titlesmall:
-                    if let title = component as? InterfaceComponentText {
+                    if let title = component as? FormComponentText {
                         addSmallTitleLabel(text: title.text)
                     }
                 case .textfield:
-                    if let textfield = component as? InterfaceComponentTextField {
+                    if let textfield = component as? FormComponentTextField {
                         addTextField(id: textfield.id, text: textfield.text, placeholder: textfield.placeholder)
                     }
                 case .buttonlist:
-                    if let buttonlist = component as? InterfaceComponentButtonList {
+                    if let buttonlist = component as? FormComponentButtonList {
                         addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
                     }
                 default:
@@ -122,7 +122,7 @@ class IOSInterfaceGenerator: InterfaceGenerator {
     }
 }
 
-private extension IOSInterfaceGenerator {
+private extension IOSFormGenerator {
     func getDefaultLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
@@ -142,7 +142,7 @@ private extension IOSInterfaceGenerator {
     }
 }
 
-private extension IOSInterfaceGenerator {
+private extension IOSFormGenerator {
     struct LocalConstants {
         static let fontNameRegular = "OpenSans-Regular"
         static let fontNameBold = "OpenSans-Bold"
