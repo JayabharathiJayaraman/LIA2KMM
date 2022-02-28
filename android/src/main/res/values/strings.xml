@@ -79,4 +79,8 @@
     <string name="data_privacy_policy_hanteringText2">Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.</string>
     <string name="data_privacy_policy_header_close">TILLBAKA</string>
     <string name="data_privacy_policy_header">UTVECKLARE</string>
+    <string name="varda_markstruktur_beskrivning">Beskrivning</string>
+    <string name="varda_markstruktur_text1">Markstrukturen påverkas på kort och lång sikt av de grundförbättrings- och odlingsåtgärder som brukaren gör. \n Här får du tips om olika markvårdande åtgärder och vad man bör undvika och minimera för att uppnå en bra markstruktur och kan göra en egen, översiktlig, åtgärdslista.</string>
+    <string name="varda_markstruktur_bold_text">Kom ihåg att allt som gynnar grödan gynnar markstrukturen!</string>
+    <string name="varda_markstruktur_Atgarder">Åtgärder</string>
 </resources>

@@ -42,19 +42,25 @@
                 android:id="@+id/vardaMarkstruktur_label1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Beskrivning" />
+                android:text="@string/varda_markstruktur_beskrivning" />
 
             <TextView
                 android:id="@+id/vardaMarkstruktur_text1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/varda_markstruktur_text1" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/vardaMarkstruktur_text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/varda_markstruktur_bold_text" />
+
+            <TextView
+                android:id="@+id/vardaMarkstruktur_label2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/varda_markstruktur_Atgarder" />
 
             <Button
                 android:id="@+id/grunforbattringarutton"
