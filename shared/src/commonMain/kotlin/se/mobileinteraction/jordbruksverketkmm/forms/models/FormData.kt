@@ -36,3 +36,9 @@ data class Coordinates(
 data class SoilCondition(
     var condition: Int? = null
 )
+
+enum class QuestionnaireAnswer {
+    Good,
+    Mediocre,
+    Poor,
+}

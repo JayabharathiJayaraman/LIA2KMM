@@ -8,7 +8,7 @@ data class FormDataSoilStructure(
     val soilCondition: SoilCondition = SoilCondition(),
     val photoData: PhotoData = PhotoData(),
     val stompData: StompData = StompData(),
-    val questionaireWithPhotos: QuestionaireWithPhotos = QuestionaireWithPhotos(),
+    val questionnaireWithPhotos: QuestionnaireWithPhotos = QuestionnaireWithPhotos(),
     var comment: String? = null,
 ) : FormData
 
@@ -34,12 +34,12 @@ data class StompData(
     val showLevel3: Boolean = false,
 )
 
-data class QuestionaireWithPhotos(
+data class QuestionnaireWithPhotos(
     val answers: List<AnswerWithPhoto>? = null,
 )
 
 data class AnswerWithPhoto(
-    val answer: Int? = null,
+    val answer: QuestionnaireAnswer? = null,
     val photoUri: String? = null,
     val comment: String? = null,
 )
