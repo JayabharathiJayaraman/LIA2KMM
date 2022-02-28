@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.MenuFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -21,13 +21,21 @@
             app:destination="@id/dataPrivacyPolicyFragment" />
         <action
             android:id="@+id/navigateToAboutApp"
-            app:destination="@id/aboutAppFragment" />
+            app:destination="@id/vmTest" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/vmTest"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.jvtest.JVTestFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
     </fragment>
 
 
     <fragment
         android:id="@+id/startScreenFragment"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.StartScreenFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.startscreen.StartScreenFragment"
         android:label="fragment_start_screen"
         tools:layout="@layout/fragment_start_screen" >
         <action
@@ -36,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.SettingsFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -45,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/dataPrivacyPolicyFragment"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.DataPrivacyPolicyFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.dataprivacypolicy.DataPrivacyPolicyFragment"
         android:label="fragment_data_privacy_policy"
         tools:layout="@layout/fragment_data_privacy_policy" >
         <action
@@ -54,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutAppFragment"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.fragments.AboutAppFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.aboutapp.AboutAppFragment"
         android:label="AboutAppFragment" >
         <action
             android:id="@+id/navigateToMenu"

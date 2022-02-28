@@ -1,10 +1,10 @@
-package se.mobileinteraction.jordbruksverketkmm.tests.testDataModels
+package se.mobileinteraction.jordbruksverketkmm.jvtests.jvtestmodels
 
 data class Test1Data(
     override val commonData: Common = Common(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val questionaire: Questionaire = Questionaire(),
-    val comment: String = ""
+    var comment: String? = null,
 ): TestData
 
 // Only used by test 1

@@ -6,13 +6,15 @@ class RootViewController: UIViewController {
     
     private var viewModel: TestViewModel
     private var interfaceGenerator: IOSInterfaceGenerator
+    private var listeningJob: Closeable?
     
     init() {
         let interfaceGenerator = IOSInterfaceGenerator()
-        let test1 = Test1()
-        let viewModel = TestViewModel(interfaceGenerator: interfaceGenerator, test: test1)
+        let test = JVTestFactory().createTest1()
+        let viewModel = TestViewModel(test: test)
         self.viewModel = viewModel
         self.interfaceGenerator = interfaceGenerator
+        interfaceGenerator.viewModel = viewModel
         
         let nibName = String(describing: RootViewController.self)
         super.init(nibName: nibName, bundle: nil)
@@ -24,19 +26,27 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listeningJob = viewModel.wrappedState.onChange { newState in
+            print("iOS, new state recieved: \(newState)")
+            self.displayComponents(components: newState.components)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
-        displayCurrentScreen()
+        listeningJob?.close()
     }
 }
 
 private extension RootViewController {
-    func displayCurrentScreen() {
-        viewModel.drawCurrentScreen()
-        guard let mainView = interfaceGenerator.getInterface() as? UIStackView else { return }
+    func displayComponents(components: [InterfaceComponent]) {
+        guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -47,11 +57,9 @@ private extension RootViewController {
     
     func nextScreen() {
         viewModel.nextScreen()
-        displayCurrentScreen()
     }
     
     func previousScreen() {
         viewModel.previousScreen()
-        displayCurrentScreen()
     }
 }

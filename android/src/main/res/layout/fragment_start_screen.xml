@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#edf1e2"
-    tools:context=".StartScreenFragment"
+    tools:context=".ui.startscreen.StartScreenFragment"
     >
 
 
