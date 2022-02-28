@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
+        android:background='#fff'
         android:orientation="horizontal">
 
         <Button
@@ -31,54 +32,104 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/vardaMarkstruktur_label1"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/varda_markstruktur_beskrivning" />
+                android:layout_height="match_parent"
+                android:paddingHorizontal="20dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/vardaMarkstruktur_text1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/varda_markstruktur_text1" />
+                <TextView
+                    android:id="@+id/vardaMarkstruktur_label1"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/open_sans_semi_bold"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_beskrivning" />
 
-            <TextView
-                android:id="@+id/vardaMarkstruktur_text2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/varda_markstruktur_bold_text" />
+                <TextView
+                    android:id="@+id/vardaMarkstruktur_text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_text1" />
 
-            <TextView
-                android:id="@+id/vardaMarkstruktur_label2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/varda_markstruktur_Atgarder" />
+                <TextView
+                    android:id="@+id/vardaMarkstruktur_text2"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/open_sans_semi_bold"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_bold_text" />
 
-            <Button
-                android:id="@+id/grunforbattringarutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Grundförbättringar" />
+                <TextView
+                    android:id="@+id/vardaMarkstruktur_label2"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_Atgarder" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/odlingsatgarderButton"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Odlingsåtgärder" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/undvikEllerMinimeraButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Undvik eller minimera" />
+                <Button
+                    android:id="@+id/grunforbattringarutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:drawableEnd="@color/material_on_background_emphasis_high_type"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/data_privacy_btn"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_grundforbattringar" />
+
+                <Button
+                    android:id="@+id/odlingsatgarderButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/data_privacy_btn"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_odlingsatgarder" />
+
+                <Button
+                    android:id="@+id/undvikEllerMinimeraButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/data_privacy_btn"
+                    android:textColor="#2f651a"
+                    android:text="@string/varda_markstruktur_undvik_eller_minimera" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
@@ -86,6 +137,11 @@
         android:id="@+id/export_checkList_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button" />
+        android:textSize="18sp"
+        android:fontFamily="@font/opensans_bold"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/varda_markstruktur_btn_export"
+        android:textColor="#2f651a"
+        android:text="@string/varda_markstruktur_export_button" />
 </LinearLayout>
