@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm
+package se.mobileinteraction.jordbruksverketkmm.utilities
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

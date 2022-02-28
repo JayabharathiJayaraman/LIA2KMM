@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents
+package se.mobileinteraction.jordbruksverketkmm.forms.components
 
 enum class ComponentType {
     TITLEBIG,
@@ -20,7 +20,7 @@ class FormComponentTextField(
     val id: String,
     val text: String,
     val placeholder: String,
-): FormComponent
+) : FormComponent
 
 class FormComponentButtonList(
     override val type: ComponentType,
@@ -29,4 +29,4 @@ class FormComponentButtonList(
     val list: List<String>,
     val value: String,
     val placeholder: String,
-): FormComponent
+) : FormComponent

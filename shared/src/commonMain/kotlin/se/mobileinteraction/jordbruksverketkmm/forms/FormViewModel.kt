@@ -1,9 +1,10 @@
-package se.mobileinteraction.jordbruksverketkmm.jvforms
+package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.ViewModelState
-import se.mobileinteraction.jordbruksverketkmm.ViewModelStateImpl
-import se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents.FormComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
+import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
+import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
+import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 
 class FormViewModel constructor(
     test: FormGeneralQuestions = FormGeneralQuestions()

@@ -1,11 +1,12 @@
-package se.mobileinteraction.jordbruksverketkmm.jvforms
+package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
-import se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents.*
-import se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels.FormDataGeneralQuestions
-import se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
+import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 
 data class FormGeneralQuestions(
-    override val type: TestType = TestType.TEST1,
+    override val type: FormType = FormType.GeneralQuestions,
     override val data: FormData = FormDataGeneralQuestions(),
 ) : Form {
     override val screens: List<FormScreen> = listOf(
@@ -13,8 +14,8 @@ data class FormGeneralQuestions(
             components = listOf<FormComponent>(
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
-                    text = "Beskrivning")
-                ,
+                    text = "Beskrivning"
+                ),
                 FormComponentText(
                     type = ComponentType.BODY,
                     text = "Detta test består av allmänna frågor om hur skiftet brukar fungera för din växtodling och om det finns tydliga problem med koppling till markstruktur."

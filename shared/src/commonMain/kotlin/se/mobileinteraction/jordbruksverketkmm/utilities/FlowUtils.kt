@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm
+package se.mobileinteraction.jordbruksverketkmm.utilities
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

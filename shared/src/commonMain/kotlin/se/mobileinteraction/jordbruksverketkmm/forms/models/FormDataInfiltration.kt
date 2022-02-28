@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels
+package se.mobileinteraction.jordbruksverketkmm.forms.models
 
 data class FormDataInfiltration(
     override val commonData: Common = Common(),
@@ -7,7 +7,7 @@ data class FormDataInfiltration(
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val infiltrationTest: List<InfiltrationTest>? = null,
     var comment: String? = null,
-): FormData
+) : FormData
 
 // Only used by test 3
 

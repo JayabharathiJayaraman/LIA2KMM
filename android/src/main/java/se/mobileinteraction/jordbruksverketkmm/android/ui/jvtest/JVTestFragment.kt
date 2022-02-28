@@ -11,8 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentJvtestBinding
-import se.mobileinteraction.jordbruksverketkmm.jvforms.FormGeneralQuestions
-import se.mobileinteraction.jordbruksverketkmm.jvforms.FormViewModel
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 
 class JVTestFragment : Fragment() {
 

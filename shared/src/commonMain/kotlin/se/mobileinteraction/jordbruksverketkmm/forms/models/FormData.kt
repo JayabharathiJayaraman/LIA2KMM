@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels
+package se.mobileinteraction.jordbruksverketkmm.forms.models
 
 interface FormData {
     val commonData: Common
