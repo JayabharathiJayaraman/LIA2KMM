@@ -11,12 +11,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentJvtestBinding
-import se.mobileinteraction.jordbruksverketkmm.jvtests.JVTest1
-import se.mobileinteraction.jordbruksverketkmm.jvtests.TestViewModel
+import se.mobileinteraction.jordbruksverketkmm.jvforms.FormGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.jvforms.FormViewModel
 
 class JVTestFragment : Fragment() {
 
-    private val viewModel: TestViewModel = TestViewModel(test = JVTest1())
+    private val viewModel: FormViewModel = FormViewModel(test = FormGeneralQuestions())
     private var binding: FragmentJvtestBinding? = null
 
     init {
@@ -53,7 +53,7 @@ class JVTestFragment : Fragment() {
         binding = null
     }
 
-    private fun updateView(state: TestViewModel.State) {
+    private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
     }
 }

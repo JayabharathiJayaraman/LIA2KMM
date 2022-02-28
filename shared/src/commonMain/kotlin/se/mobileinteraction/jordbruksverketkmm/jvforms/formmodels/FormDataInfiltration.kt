@@ -1,13 +1,13 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests.jvtestmodels
+package se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels
 
-data class Test3Data(
+data class FormDataInfiltration(
     override val commonData: Common = Common(),
     val placeAssesment: PlaceAssesment = PlaceAssesment(),
     val coordinates: Coordinates = Coordinates(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val infiltrationTest: List<InfiltrationTest>? = null,
     var comment: String? = null,
-): TestData
+): FormData
 
 // Only used by test 3
 

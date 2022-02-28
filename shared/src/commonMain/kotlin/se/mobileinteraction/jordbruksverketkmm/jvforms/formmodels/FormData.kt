@@ -1,6 +1,6 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests.jvtestmodels
+package se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels
 
-interface TestData {
+interface FormData {
     val commonData: Common
 }
 

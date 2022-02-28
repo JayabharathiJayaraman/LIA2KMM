@@ -95,7 +95,7 @@ class IOSInterfaceGenerator: InterfaceGenerator {
     @objc
     func textFieldChange(_ sender: TextFieldWithId) {
         guard let viewModel = viewModel, let id = sender.idString else { return }
-        viewModel.addTextFieldData(id: id, text: sender.text ?? "")
+        viewModel.setTextData(id: id, text: sender.text ?? "")
     }
     
     func addButtonList(id: String, title: String, list: [String], value: String, placeholder: String) {

@@ -1,67 +1,67 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests
+package se.mobileinteraction.jordbruksverketkmm.jvforms
 
-import se.mobileinteraction.jordbruksverketkmm.jvtests.formcomponents.*
-import se.mobileinteraction.jordbruksverketkmm.jvtests.jvtestmodels.Test1Data
-import se.mobileinteraction.jordbruksverketkmm.jvtests.jvtestmodels.TestData
+import se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents.*
+import se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels.FormDataGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels.FormData
 
-data class JVTest1(
+data class FormGeneralQuestions(
     override val type: TestType = TestType.TEST1,
-    override val data: TestData = Test1Data(),
-) : JVTest {
-    override val screens: List<InterfaceScreen> = listOf(
-        InterfaceScreen(
-            components = listOf<InterfaceComponent>(
-                InterfaceComponentText(
+    override val data: FormData = FormDataGeneralQuestions(),
+) : Form {
+    override val screens: List<FormScreen> = listOf(
+        FormScreen(
+            components = listOf<FormComponent>(
+                FormComponentText(
                     type = ComponentType.TITLESMALL,
                     text = "Beskrivning")
                 ,
-                InterfaceComponentText(
+                FormComponentText(
                     type = ComponentType.BODY,
                     text = "Detta test består av allmänna frågor om hur skiftet brukar fungera för din växtodling och om det finns tydliga problem med koppling till markstruktur."
                 ),
             )
         ),
-        InterfaceScreen(
-            components = listOf<InterfaceComponent>(
-                InterfaceComponentText(
+        FormScreen(
+            components = listOf<FormComponent>(
+                FormComponentText(
                     type = ComponentType.TITLESMALL,
                     text = "Uppgifter om gård och skifte"
                 ),
-                InterfaceComponentTextField(
+                FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
                     id = ID_FARMNAME,
                     text = "",
                     placeholder = "Gårdsnamn",
                 ),
-                InterfaceComponentTextField(
+                FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
                     id = ID_FARMLAND,
                     text = "",
                     placeholder = "Skifte",
                 ),
-                InterfaceComponentTextField(
+                FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
                     id = ID_DATE,
                     text = "",
                     placeholder = "Datum",
                 ),
-                InterfaceComponentText(
+                FormComponentText(
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
-                InterfaceComponentText(
+                FormComponentText(
                     type = ComponentType.BODY,
                     text = "Om du har ett stort skifte..."
                 ),
             ),
         ),
-        InterfaceScreen(
-            components = listOf<InterfaceComponent>(
-                InterfaceComponentText(
+        FormScreen(
+            components = listOf<FormComponent>(
+                FormComponentText(
                     type = ComponentType.TITLEBIG,
                     text = "Grundförutsättningar"
                 ),
-                InterfaceComponentButtonList(
+                FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
                     title = "Jordart",
@@ -69,11 +69,11 @@ data class JVTest1(
                     value = "ett",
                     placeholder = "Välj...",
                 ),
-                InterfaceComponentText(
+                FormComponentText(
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
-                InterfaceComponentText(
+                FormComponentText(
                     type = ComponentType.BODY,
                     text = "Om det finns en.."
                 ),
@@ -81,13 +81,13 @@ data class JVTest1(
         ),
     )
 
-    fun setTextField(id: String, text: String, state: TestViewModel.State): TestViewModel.State {
+    fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
         with(state.test.data) {
             when (id) {
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
                 ID_DATE -> commonData.date = text
-                ID_SOILTYPE -> (this as Test1Data).soilAssesment.soilType = text
+                ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
             }
         }
 

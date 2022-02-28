@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests.formcomponents
+package se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents
 
 enum class ComponentType {
     TITLEBIG,
@@ -8,25 +8,25 @@ enum class ComponentType {
     BUTTONLIST,
 }
 
-interface InterfaceComponent {
+interface FormComponent {
     val type: ComponentType
 }
 
-class InterfaceComponentText(override val type: ComponentType, val text: String) :
-    InterfaceComponent
+class FormComponentText(override val type: ComponentType, val text: String) :
+    FormComponent
 
-class InterfaceComponentTextField(
+class FormComponentTextField(
     override val type: ComponentType,
     val id: String,
     val text: String,
     val placeholder: String,
-): InterfaceComponent
+): FormComponent
 
-class InterfaceComponentButtonList(
+class FormComponentButtonList(
     override val type: ComponentType,
     val id: String,
     val title: String,
     val list: List<String>,
     val value: String,
     val placeholder: String,
-): InterfaceComponent
+): FormComponent

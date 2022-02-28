@@ -1,6 +1,6 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests.jvtestmodels
+package se.mobileinteraction.jordbruksverketkmm.jvforms.formmodels
 
-data class Test2Data(
+data class FormDataSoilStructure(
     override val commonData: Common = Common(),
     val placeAssesment: PlaceAssesment = PlaceAssesment(),
     val coordinates: Coordinates = Coordinates(),
@@ -10,7 +10,7 @@ data class Test2Data(
     val stompData: StompData = StompData(),
     val questionaireWithPhotos: QuestionaireWithPhotos = QuestionaireWithPhotos(),
     var comment: String? = null,
-): TestData
+): FormData
 
 // Only used by test 2
 

@@ -1,13 +1,13 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests
+package se.mobileinteraction.jordbruksverketkmm.jvforms
 
 import se.mobileinteraction.jordbruksverketkmm.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.ViewModelStateImpl
-import se.mobileinteraction.jordbruksverketkmm.jvtests.formcomponents.InterfaceComponent
-import se.mobileinteraction.jordbruksverketkmm.jvtests.formcomponents.InterfaceComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents.FormComponent
+import se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents.FormComponentTextField
 
-class TestViewModel constructor(
-    test: JVTest1 = JVTest1()
-) : ViewModelState<TestViewModel.State> by ViewModelStateImpl(State(test)) {
+class FormViewModel constructor(
+    test: FormGeneralQuestions = FormGeneralQuestions()
+) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(test)) {
     fun nextScreen() {
         updateStateAndSave {
             copy(currentScreen = currentScreen + 1)
@@ -29,18 +29,18 @@ class TestViewModel constructor(
     }
 
     data class State(
-        val test: JVTest1,
+        val test: FormGeneralQuestions,
         val currentScreen: Int = 2,
         val counter: Int = 0,
     ) {
-        val components: List<InterfaceComponent> = test.screens[currentScreen].components
+        val components: List<FormComponent> = test.screens[currentScreen].components
     }
 
-    fun addTextFieldData(id: String, text: String) {
+    fun setTextData(id: String, text: String) {
         state.value.components.firstOrNull {
-            it is InterfaceComponentTextField
+            it is FormComponentTextField
         }.let {
-            updateStateAndSave { test.setTextField(id, text, state.value).copy(counter = counter + 1) }
+            updateStateAndSave { test.setText(id, text, state.value).copy(counter = counter + 1) }
         }
     }
 }

@@ -1,6 +1,6 @@
-package se.mobileinteraction.jordbruksverketkmm.jvtests.formcomponents
+package se.mobileinteraction.jordbruksverketkmm.jvforms.formcomponents
 
-interface InterfaceGenerator {
+interface FormGenerator {
     fun addBigTitleLabel(text: String)
     fun addSmallTitleLabel(text: String)
     fun addBodyLabel(text: String)
@@ -8,5 +8,5 @@ interface InterfaceGenerator {
     fun addButtonList(id: String, title: String, list: List<String>, value: String, placeholder: String)
 
     fun clear()
-    fun getInterface(components: List<InterfaceComponent>): Any
+    fun getInterface(components: List<FormComponent>): Any
 }
