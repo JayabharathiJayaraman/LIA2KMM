@@ -13,8 +13,7 @@ class IOSFormGenerator: FormGenerator {
     }
     
     func getInterface(components: [FormComponent]) -> Any {
-        clear()
-        //if mainView.subviews.count == 0 {
+        if mainView.subviews.count == 0 {
             for component in components {
                 switch component.type {
                 case .body:
@@ -41,7 +40,7 @@ class IOSFormGenerator: FormGenerator {
                     print("unknown component")
                 }
             }
-        //}
+        }
         
         return mainView
     }
