@@ -13,7 +13,8 @@ class IOSFormGenerator: FormGenerator {
     }
     
     func getInterface(components: [FormComponent]) -> Any {
-        if mainView.subviews.count == 0 {
+        clear()
+        //if mainView.subviews.count == 0 {
             for component in components {
                 switch component.type {
                 case .body:
@@ -40,7 +41,7 @@ class IOSFormGenerator: FormGenerator {
                     print("unknown component")
                 }
             }
-        }
+        //}
         
         return mainView
     }
@@ -84,6 +85,7 @@ class IOSFormGenerator: FormGenerator {
         mainView.addArrangedSubview(verticalSpacing)
         
         let textField = TextFieldWithId()
+        textField.text = text
         textField.placeholder = placeholder
         textField.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .body)
         textField.idString = id

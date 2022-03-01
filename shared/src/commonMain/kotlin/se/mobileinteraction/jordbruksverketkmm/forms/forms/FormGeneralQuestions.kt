@@ -1,9 +1,11 @@
 package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
+import kotlinx.datetime.LocalDateTime
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormGeneralQuestions(
     override val type: FormType = FormType.GeneralQuestions,
@@ -31,19 +33,19 @@ data class FormGeneralQuestions(
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
                     id = ID_FARMNAME,
-                    text = "",
+                    text = data.commonData.farmInformation.farmName ?: "",
                     placeholder = "Gårdsnamn",
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
                     id = ID_FARMLAND,
-                    text = "",
+                    text = data.commonData.farmInformation.farmLand ?: "",
                     placeholder = "Skifte",
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
                     id = ID_DATE,
-                    text = "",
+                    text = DateUtils().instantToString(data.commonData.date),
                     placeholder = "Datum",
                 ),
                 FormComponentText(
@@ -87,7 +89,6 @@ data class FormGeneralQuestions(
             when (id) {
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
-                ID_DATE -> commonData.date = text
                 ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
             }
         }

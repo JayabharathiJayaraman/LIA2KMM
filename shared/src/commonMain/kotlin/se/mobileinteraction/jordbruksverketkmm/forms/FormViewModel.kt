@@ -31,7 +31,7 @@ class FormViewModel constructor(
 
     data class State(
         val test: FormGeneralQuestions,
-        val currentScreen: Int = 2,
+        val currentScreen: Int = 1,
         val counter: Int = 0,
     ) {
         val components: List<FormComponent> = test.screens[currentScreen].components

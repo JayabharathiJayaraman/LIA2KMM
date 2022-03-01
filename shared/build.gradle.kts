@@ -26,6 +26,7 @@ kotlin {
         val coroutines = "1.6.0-native-mt"
         val commonMain by getting {
             dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines}") {
                     version {
                         strictly(coroutines)
