@@ -16,9 +16,9 @@
 		2E846FC727B9880D004B2E9A /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FC627B9880D004B2E9A /* opensans_regular.ttf */; };
 		5133638127BAAB9600A1CF2D /* opensans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638027BAAB9600A1CF2D /* opensans_regular.ttf */; };
 		5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */; };
-		9D07BE0727BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */; };
-		9D07BE0827BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */; };
-		9D07BE0927BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */; };
+		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
+		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
+		9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
 		9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
 		9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */; };
@@ -122,7 +122,7 @@
 		5133638027BAAB9600A1CF2D /* opensans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_regular.ttf; sourceTree = "<group>"; };
 		5133638227BAABA400A1CF2D /* opensans_semi_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_semi_bold.ttf; sourceTree = "<group>"; };
 		51C3C2DE27B6A20F00454C9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSInterfaceGenerator.swift; sourceTree = "<group>"; };
+		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
 		9D07BE1227BBFE7A00FF1D55 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -246,13 +246,13 @@
 			path = DataPrivacyViewController;
 			sourceTree = "<group>";
 		};
-		9D07BE0527BBC37600FF1D55 /* Tests */ = {
+		9D07BE0527BBC37600FF1D55 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
-				9D07BE0627BBC39B00FF1D55 /* IOSInterfaceGenerator.swift */,
+				9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */,
 				9D07BE3F27BC376D00FF1D55 /* TextFieldDelegate.swift */,
 			);
-			path = Tests;
+			path = Forms;
 			sourceTree = "<group>";
 		};
 		9D07BE1427BBFED600FF1D55 /* Fonts */ = {
@@ -297,7 +297,7 @@
 		9D34C50B27A14C740043B5A1 /* JordbruksverketKMMiOS */ = {
 			isa = PBXGroup;
 			children = (
-				9D07BE0527BBC37600FF1D55 /* Tests */,
+				9D07BE0527BBC37600FF1D55 /* Forms */,
 				9D8E1E8327A7F9C1002E7D94 /* Resources */,
 				9D34C54127A14FD50043B5A1 /* ViewControllers */,
 				9D34C53C27A14DED0043B5A1 /* Common */,
@@ -593,7 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D07BE0727BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */,
+				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D07BE4027BC376D00FF1D55 /* TextFieldDelegate.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
@@ -616,7 +616,7 @@
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
 				9D07BE3D27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE4127BC376D00FF1D55 /* TextFieldDelegate.swift in Sources */,
-				9D07BE0827BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */,
+				9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
@@ -633,7 +633,7 @@
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
 				9D07BE3E27BC1E4500FF1D55 /* UIFont.swift in Sources */,
-				9D07BE0927BBC39B00FF1D55 /* IOSInterfaceGenerator.swift in Sources */,
+				9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D34C54727A150180043B5A1 /* RootViewController.swift in Sources */,
 				9D07BE4227BC376D00FF1D55 /* TextFieldDelegate.swift in Sources */,
 				9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,

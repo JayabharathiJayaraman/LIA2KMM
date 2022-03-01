@@ -1,26 +1,32 @@
-package se.mobileinteraction.jordbruksverketkmm.android.ui.jvtest
+package se.mobileinteraction.jordbruksverketkmm.android.ui.form
 
-
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import se.mobileinteraction.jordbruksverketkmm.android.R
-import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentJvtestBinding
+import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentFormBinding
+import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
+import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 
-class JVTestFragment : Fragment() {
+class FormFragment : Fragment() {
 
     private val viewModel: FormViewModel = FormViewModel(test = FormGeneralQuestions())
-    private var binding: FragmentJvtestBinding? = null
+    private var binding: FragmentFormBinding? = null
+    private var formGenerator: AndroidFormGenerator? = null
 
-    init {
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
 
+        this.formGenerator = AndroidFormGenerator(context)
     }
 
     override fun onCreateView(
@@ -28,8 +34,8 @@ class JVTestFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_jvtest, container, false)
-        binding = FragmentJvtestBinding.bind(view)
+        val view = inflater.inflate(R.layout.fragment_form, container, false)
+        binding = FragmentFormBinding.bind(view)
 
         return view
     }
@@ -41,10 +47,6 @@ class JVTestFragment : Fragment() {
                 viewModel.state.collect(::updateView)
             }
         }
-
-        binding?.button?.setOnClickListener {
-            viewModel.nextScreen()
-        }
     }
 
     override fun onDestroyView() {
@@ -55,5 +57,12 @@ class JVTestFragment : Fragment() {
 
     private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
+
+        addForm(state.components)
+    }
+
+    private fun addForm(components: List<FormComponent>) {
+        val mainView = formGenerator?.getInterface(components) as LinearLayout
+        binding?.scrollView?.addView(mainView)
     }
 }

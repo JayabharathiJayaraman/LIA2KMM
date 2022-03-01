@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/vmTest"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.jvtest.JVTestFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.form.FormFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
     </fragment>
