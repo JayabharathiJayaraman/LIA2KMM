@@ -50,5 +50,4 @@ class PermissionsFragment : Fragment() {
                 PermissionsFragmentDirections.navigateToMenu())
         }
     }
-
 }
