@@ -22,18 +22,16 @@ class PermissionsFragment : Fragment() {
         ) {
             requestPermission.launch(Manifest.permission.CAMERA)
         } else {
-            Log.e("DEBUG", "Navigating to camera")
             navigateToCamera()
         }
     }
 
     private val requestPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-            if (isGranted) { // permission is granted
+            if (isGranted) {
                 Log.e("DEBUG", "Permission is: $isGranted")
                 navigateToCamera()
             } else {
-                // permission is denied
                 Log.e("DEBUG", "Permission is: $isGranted")
                 navigateBack()
             }
