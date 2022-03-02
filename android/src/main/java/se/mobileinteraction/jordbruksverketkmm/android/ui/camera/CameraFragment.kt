@@ -27,22 +27,14 @@ import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-
 class CameraFragment : Fragment() {
-
-    //Binding
-    private var _fragmentCameraBinding: FragmentCameraBinding? = null
-    private val fragmentCameraBinding get() = _fragmentCameraBinding!!
-    private var previewCameraContainerBinding: PreviewCameraContainerBinding? = null
-
-    //CameraX
-    private lateinit var cameraExecutor: ExecutorService
+    private var cameraBinding: FragmentCameraBinding? = null
+    private val fragmentCameraBinding get() = cameraBinding!!
+    private var previewBinding: PreviewCameraContainerBinding? = null
     private var imageCapture: ImageCapture? = null
     private var cameraProvider: ProcessCameraProvider? = null
-
-    //File
     private var cachedImageFile: File? = null
-    private var savedImageUri: Uri? = null
+    private lateinit var cameraExecutor: ExecutorService
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +47,7 @@ class CameraFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _fragmentCameraBinding = FragmentCameraBinding.inflate(inflater, container, false)
+        cameraBinding = FragmentCameraBinding.inflate(inflater, container, false)
         return fragmentCameraBinding.root
     }
 
@@ -64,58 +56,40 @@ class CameraFragment : Fragment() {
         cameraExecutor = Executors.newSingleThreadExecutor()
         fragmentCameraBinding.viewFinder.post{
             startCamera()
-            _fragmentCameraBinding?.imageCaptureButton?.setOnClickListener {
+            cameraBinding?.imageCaptureButton?.setOnClickListener {
                 takePhoto()
             }
-            _fragmentCameraBinding?.btnCameraClose?.setOnClickListener {
+            cameraBinding?.btnCameraClose?.setOnClickListener {
                 view.findNavController().navigateUp()
             }
         }
     }
 
-
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
         cameraProviderFuture.addListener({
-            // Used to bind the lifecycle of cameras to the lifecycle owner
             cameraProvider = cameraProviderFuture.get()
             bindCameraUseCases()
-
         }, ContextCompat.getMainExecutor(requireContext()))
     }
 
     private fun bindCameraUseCases() {
-        // Select back camera as a default
         val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-        // Provide a surface for preview
         val preview = Preview.Builder()
             .build()
             .also {
                 it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
             }
         imageCapture = ImageCapture.Builder().setJpegQuality(70).build()
-
-        // Unbind use cases before rebinding
         cameraProvider?.unbindAll()
-        // Bind use cases to camera
         cameraProvider?.bindToLifecycle(this, cameraSelector, preview, imageCapture)
-
     }
 
     private fun takePhoto() {
-        // Get a stable reference of the modifiable image capture use case
         imageCapture ?: return
 
-        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
-            .format(System.currentTimeMillis())
-
-        val outputDir = context?.cacheDir
-        val imageFile = File.createTempFile(name, ".jpg", outputDir)
-        cachedImageFile = imageFile
-
         val outputOptions = requireActivity().contentResolver?.let {
-            ImageCapture.OutputFileOptions.Builder(imageFile).build()
+            ImageCapture.OutputFileOptions.Builder(file()).build()
         }
 
         outputOptions?.let {
@@ -128,43 +102,52 @@ class CameraFragment : Fragment() {
                     }
                     override fun
                             onImageSaved(output: ImageCapture.OutputFileResults){
-                        savedImageUri = output.savedUri
-                        updateUiForImagePreview(savedImageUri)
+                        updateUiForImagePreview(output.savedUri)
                     }
                 }
             )
         }
     }
 
-    private fun updateUiForImagePreview(cachedImageUri: Uri?) {
-        //Inflate preview container
-        previewCameraContainerBinding = PreviewCameraContainerBinding.inflate(
-            LayoutInflater.from(requireContext()),
-            fragmentCameraBinding.root,
-            true
-        )
-        _fragmentCameraBinding?.imageCaptureButton?.isVisible = false
-        _fragmentCameraBinding?.viewFinder?.isVisible = false
-        previewCameraContainerBinding?.ivPreview?.setImageURI(cachedImageUri)
+    private fun file(): File {
+        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
+            .format(System.currentTimeMillis())
+        val outputDir = context?.cacheDir
+        cachedImageFile = File.createTempFile(name, ".jpg", outputDir)
+        return cachedImageFile as File
+    }
 
-        previewCameraContainerBinding?.btnContainerClose?.setOnClickListener {
+    private fun updateUiForImagePreview(cachedImageUri: Uri?) {
+        previewBinding = PreviewCameraContainerBinding.inflate(
+            LayoutInflater.from(requireContext()),
+            fragmentCameraBinding.root, true)
+
+        cameraBinding?.imageCaptureButton?.isVisible = false
+        cameraBinding?.viewFinder?.isVisible = false
+
+        previewBinding?.ivPreview?.setImageURI(cachedImageUri)
+        previewOnClick()
+    }
+
+    private fun previewOnClick() {
+        previewBinding?.btnContainerClose?.setOnClickListener {
             cachedImageFile?.delete()
             view?.findNavController()?.navigateUp()
         }
-        previewCameraContainerBinding?.btnAcceptImage?.setOnClickListener {
+        previewBinding?.btnAcceptImage?.setOnClickListener {
             updateUiForAcceptImage()
         }
-        previewCameraContainerBinding?.btnDeclineImage?.setOnClickListener {
+        previewBinding?.btnDeclineImage?.setOnClickListener {
             updateUiForDeclineImage()
         }
     }
 
     private fun updateUiForDeclineImage() {
         // Remove preview container
-        previewCameraContainerBinding?.root?.let {fragmentCameraBinding.root.removeView(it)}
+        previewBinding?.root?.let {fragmentCameraBinding.root.removeView(it)}
 
-        _fragmentCameraBinding?.imageCaptureButton?.isVisible = true
-        _fragmentCameraBinding?.viewFinder?.isVisible = true
+        cameraBinding?.imageCaptureButton?.isVisible = true
+        cameraBinding?.viewFinder?.isVisible = true
 
         cachedImageFile?.delete()
     }
@@ -193,7 +176,7 @@ class CameraFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _fragmentCameraBinding = null
+        cameraBinding = null
         cameraExecutor.shutdown()
     }
 
