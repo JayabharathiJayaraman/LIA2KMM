@@ -6,7 +6,6 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManger = CLLocationManager()
-    
     let regionInMeters: Double = 200
     
     override func viewDidLoad() {
@@ -22,9 +21,7 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         alert.addAction(UIAlertAction(title: "Stäng", style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
-    
     }
-    
     
     override var shouldAutorotate: Bool{
         return false
@@ -86,4 +83,19 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationServices()
     }
+    
+    @IBAction func addPin(_ sender: UITapGestureRecognizer) {
+        
+        let location = sender.location(in: self.mapView)
+        
+        let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = locCoord
+        annotation.subtitle = "My mark"
+        
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotation(annotation)
 }
+   }
