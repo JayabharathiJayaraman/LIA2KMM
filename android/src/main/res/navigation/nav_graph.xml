@@ -38,7 +38,6 @@
 
     </fragment>
 
-
     <fragment
         android:id="@+id/settingsFragment2"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.SettingsFragment"
@@ -48,6 +47,7 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/dataPrivacyPolicyFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.DataPrivacyPolicyFragment"
@@ -94,6 +94,5 @@
             app:popUpTo="@id/permissionsFragment"
             app:popUpToInclusive="true"/>
     </fragment>
-
 
 </navigation>
