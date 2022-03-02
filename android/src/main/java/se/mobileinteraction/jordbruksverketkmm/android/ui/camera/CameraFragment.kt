@@ -143,9 +143,7 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForDeclineImage() {
-        // Remove preview container
         previewBinding?.root?.let {fragmentCameraBinding.root.removeView(it)}
-
         cameraBinding?.imageCaptureButton?.isVisible = true
         cameraBinding?.viewFinder?.isVisible = true
 
@@ -153,7 +151,6 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForAcceptImage() {
-
         saveImageToPermanentFolder()
         cachedImageFile?.delete()
         view?.findNavController()?.navigate(R.id.navigateFromCameraToMenu)
