@@ -30,18 +30,18 @@ class FormViewModel constructor(
     }
 
     data class State(
-        val test: FormGeneralQuestions,
+        val form: FormGeneralQuestions,
         val currentScreen: Int = 0,
         val counter: Int = 0,
     ) {
-        val components: List<FormComponent> = test.screens[currentScreen].components
+        val components: List<FormComponent> = form.screens[currentScreen].components
     }
 
     fun setTextData(id: String, text: String) {
         state.value.components.firstOrNull {
             it is FormComponentTextField
         }.let {
-            updateStateAndSave { test.setText(id, text, state.value).copy(counter = counter + 1) }
+            updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
         }
     }
 }

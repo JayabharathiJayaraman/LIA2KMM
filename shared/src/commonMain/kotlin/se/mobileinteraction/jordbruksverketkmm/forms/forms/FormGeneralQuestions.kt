@@ -1,6 +1,5 @@
 package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
-import kotlinx.datetime.LocalDateTime
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
@@ -85,7 +84,7 @@ data class FormGeneralQuestions(
     )
 
     fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
-        with(state.test.data) {
+        with(state.form.data) {
             when (id) {
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
