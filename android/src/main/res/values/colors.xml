@@ -15,4 +15,5 @@
     <color name="toolbarBackgroundColor">#F7F8F5</color>
     <color name="tree_green">#2f651a</color>
     <color name="black">#000000</color>
+    <color name="darkGray">#3B3B3B</color>
 </resources>
