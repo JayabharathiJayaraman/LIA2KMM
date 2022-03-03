@@ -35,6 +35,7 @@ class FormViewModel constructor(
         val counter: Int = 0,
     ) {
         val components: List<FormComponent> = form.screens[currentScreen].components
+        val totalScreens: Int = form.screens.size
     }
 
     fun setTextData(id: String, text: String) {
