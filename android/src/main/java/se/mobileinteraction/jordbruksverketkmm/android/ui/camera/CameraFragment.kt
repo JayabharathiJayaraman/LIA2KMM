@@ -89,7 +89,7 @@ class CameraFragment : Fragment() {
         imageCapture ?: return
 
         val outputOptions = requireActivity().contentResolver?.let {
-            ImageCapture.OutputFileOptions.Builder(file()).build()
+            ImageCapture.OutputFileOptions.Builder(createFile()).build()
         }
 
         outputOptions?.let {
@@ -109,7 +109,7 @@ class CameraFragment : Fragment() {
         }
     }
 
-    private fun file(): File {
+    private fun createFile(): File {
         val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
         val outputDir = context?.cacheDir
