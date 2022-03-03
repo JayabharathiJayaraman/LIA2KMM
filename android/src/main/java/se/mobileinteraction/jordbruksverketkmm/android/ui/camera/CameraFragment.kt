@@ -6,13 +6,12 @@ import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.util.Rational
 import android.view.LayoutInflater
+import android.view.Surface.ROTATION_0
 import android.view.View
 import android.view.ViewGroup
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -80,9 +79,17 @@ class CameraFragment : Fragment() {
             .also {
                 it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
             }
-        imageCapture = ImageCapture.Builder().setJpegQuality(70).build()
+        imageCapture = ImageCapture.Builder().setJpegQuality(70).setTargetRotation(ROTATION_0).build()
+        val viewPort = ViewPort.Builder(Rational(fragmentCameraBinding.viewFinder.width, fragmentCameraBinding.viewFinder.height), ROTATION_0).build()
+        val useCaseGroup = imageCapture?.let {
+            UseCaseGroup.Builder()
+                .addUseCase(preview)
+                .addUseCase(it)
+                .setViewPort(viewPort)
+                .build()
+        }
         cameraProvider?.unbindAll()
-        cameraProvider?.bindToLifecycle(this, cameraSelector, preview, imageCapture)
+        useCaseGroup?.let { cameraProvider?.bindToLifecycle(this, cameraSelector, it) }
     }
 
     private fun takePhoto() {
