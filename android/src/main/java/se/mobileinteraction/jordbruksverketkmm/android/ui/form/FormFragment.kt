@@ -20,8 +20,6 @@ import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 
 class FormFragment : Fragment() {
-
-    private val viewModel: FormViewModel = FormViewModel(test = FormGeneralQuestions())
     private var binding: FragmentFormBinding? = null
     private var formGenerator: AndroidFormGenerator? = null
 
@@ -44,14 +42,14 @@ class FormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val application = (activity?.application as MainApplicationDagger)
+
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.state.collect(::updateView)
+                application.formViewModel.state.collect(::updateView)
             }
         }
-
-        //val application = (activity?.application as MainApplicationDagger)
-        //application.formViewModel
     }
 
     override fun onDestroyView() {
