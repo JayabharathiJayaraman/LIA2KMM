@@ -11,13 +11,21 @@ class FormViewModel constructor(
 ) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(test)) {
     fun nextScreen() {
         updateStateAndSave {
-            copy(currentScreen = currentScreen + 1)
+            if (currentScreen < totalScreens - 1){
+                copy(currentScreen = currentScreen + 1)
+            }else{
+                copy(currentScreen = currentScreen)
+            }
         }
     }
 
     fun previousScreen() {
         updateStateAndSave {
-            copy(currentScreen = currentScreen - 1)
+            if (currentScreen > 0){
+                copy(currentScreen = currentScreen - 1)
+            }else{
+                copy(currentScreen = currentScreen)
+            }
         }
     }
 
@@ -37,6 +45,10 @@ class FormViewModel constructor(
         val components: List<FormComponent> = form.screens[currentScreen].components
         val totalScreens: Int = form.screens.size
     }
+
+
+
+
 
     fun setTextData(id: String, text: String) {
         state.value.components.firstOrNull {

@@ -19,8 +19,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBotto
 class BottomNavBarFragment : Fragment() {
 
     private var fragmentBottomNavBarBinding: FragmentBottomNavBarBinding? = null
-    private val tmpInt1 = 1
-    private val tmpInt2 = 10
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +34,8 @@ class BottomNavBarFragment : Fragment() {
         val binding = FragmentBottomNavBarBinding.bind(view)
 
         val application = (activity?.application as MainApplicationDagger)
+        var totalScreens:Int = application.formViewModel.state.value.totalScreens
+        var currentScreen:Int = application.formViewModel.state.value.currentScreen
 
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -42,30 +43,33 @@ class BottomNavBarFragment : Fragment() {
             }
         }
 
-        setContent(binding)
+        setContent(binding, totalScreens, currentScreen)
 
         binding.bottomNavbarBack.setOnClickListener {
-            setContent(binding)
+            application.formViewModel.nextScreen()
+            setContent(binding, totalScreens, currentScreen)
         }
 
         binding.bottomNavbarForward.setOnClickListener {
-            setContent(binding)
+            application.formViewModel.previousScreen()
+            setContent(binding, totalScreens, currentScreen)
         }
 
         return view
     }
 
-    private fun setContent(binding: FragmentBottomNavBarBinding){
-        setProgress(binding)
-        setText(binding)
+    private fun setContent(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+        setProgress(binding, totalScreens, currentScreen)
+        setText(binding, totalScreens, currentScreen)
     }
 
-    private fun setProgress(binding: FragmentBottomNavBarBinding){
+    private fun setProgress(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+
         binding.progressLayout.removeAllViews()
-        for (i in 0 until tmpInt2){
+        for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
-            progressItem.layoutParams = LinearLayout.LayoutParams(500/tmpInt2, 50)
-            if(i <= tmpInt1){
+            progressItem.layoutParams = LinearLayout.LayoutParams(500/totalScreens, 50)
+            if(i <= currentScreen){
                 progressItem.setBackgroundResource(R.drawable.bottom_navbar_progress_filed)
             } else{
                 progressItem.setBackgroundResource(R.drawable.bottom_navbar_progress_unfiled)
@@ -75,8 +79,9 @@ class BottomNavBarFragment : Fragment() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setText(binding: FragmentBottomNavBarBinding){
-        binding.bottomNavbarProgressText.text = "$tmpInt1 av $tmpInt2"
+    private fun setText(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+
+        binding.bottomNavbarProgressText.text = "$currentScreen av $totalScreens"
     }
 
     override fun onDestroyView() {
