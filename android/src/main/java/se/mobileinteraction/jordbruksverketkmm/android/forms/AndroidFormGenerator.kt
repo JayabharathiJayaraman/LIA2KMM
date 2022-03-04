@@ -1,18 +1,41 @@
 package se.mobileinteraction.jordbruksverketkmm.android.forms
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import se.mobileinteraction.jordbruksverketkmm.forms.components.ComponentType
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentText
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormGenerator
+import se.mobileinteraction.jordbruksverketkmm.android.R
+import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+
 
 class AndroidFormGenerator(val context: Context) : FormGenerator {
     var mainView: LinearLayout
 
     init {
-        this.mainView = LinearLayout(context)
+        val linearLayout = LinearLayout(context)
+        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+        linearLayout.layoutParams = params
+
+        this.mainView = linearLayout
+    }
+
+    override fun getInterface(components: List<FormComponent>): Any {
+        for (component in components) {
+            when (component.type) {
+                ComponentType.BODY -> {
+                    val body = (component as FormComponentText)
+                    addBodyLabel(body.text)
+                }
+                ComponentType.IMAGE -> {
+                    val image = (component as FormComponentImage)
+                    addImage(image.image, image.caption)
+                }
+                else -> println("unknown")
+            }
+        }
+
+        return mainView
     }
 
     override fun addBigTitleLabel(text: String) {
@@ -40,22 +63,27 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
     ) {
     }
 
-    override fun clear() {
+    fun addImage(imageName: String, caption: String) {
+        val imageView = ImageView(context)
+        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        params.setMargins(0,30,0,0)
+        imageView.layoutParams = params
+        // radiobutton.text = text
+        imageView.setPadding(60,0,0,0);
+        imageView.setImageResource(getImageResource(imageName))
+
+        mainView.addView(imageView)
+
+        val textView = TextView(context)
+        textView.text = caption
+
+        mainView.addView(textView)
     }
 
-    override fun getInterface(components: List<FormComponent>): Any {
-        mainView = LinearLayout(context)
+    fun getImageResource(name: String): Int {
+        return context.resources.getIdentifier("drawable/$name", null, context.packageName)
+    }
 
-        for (component in components) {
-            when (component.type) {
-                ComponentType.BODY -> {
-                    val body = (component as FormComponentText)
-                    addBodyLabel(body.text)
-                }
-                else -> println("unknown")
-            }
-        }
-
-        return mainView
+    override fun clear() {
     }
 }

@@ -21,6 +21,11 @@ data class FormGeneralQuestions(
                     type = ComponentType.BODY,
                     text = "Detta test består av allmänna frågor om hur skiftet brukar fungera för din växtodling och om det finns tydliga problem med koppling till markstruktur."
                 ),
+                FormComponentImage(
+                    type = ComponentType.IMAGE,
+                    image = "plant_icon",
+                    caption = "Jordbruksverket",
+                ),
             )
         ),
         FormScreen(

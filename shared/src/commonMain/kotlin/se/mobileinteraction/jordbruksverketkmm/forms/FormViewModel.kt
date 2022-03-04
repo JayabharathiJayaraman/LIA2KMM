@@ -7,8 +7,8 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTex
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 
 class FormViewModel constructor(
-    test: FormGeneralQuestions = FormGeneralQuestions()
-) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(test)) {
+    form: FormGeneralQuestions = FormGeneralQuestions()
+) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(form)) {
     fun nextScreen() {
         updateStateAndSave {
             copy(currentScreen = currentScreen + 1)

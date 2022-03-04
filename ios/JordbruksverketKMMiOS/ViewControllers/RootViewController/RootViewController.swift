@@ -10,8 +10,8 @@ class RootViewController: UIViewController {
     
     init() {
         let interfaceGenerator = IOSFormGenerator()
-        let test = FormFactory().createForm()
-        let viewModel = FormViewModel(test: test)
+        let form = FormFactory().createForm()
+        let viewModel = FormViewModel(form: form)
         self.viewModel = viewModel
         self.interfaceGenerator = interfaceGenerator
         interfaceGenerator.viewModel = viewModel

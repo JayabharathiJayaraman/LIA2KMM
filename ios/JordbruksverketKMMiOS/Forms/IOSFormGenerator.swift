@@ -36,6 +36,10 @@ class IOSFormGenerator: FormGenerator {
                     if let buttonlist = component as? FormComponentButtonList {
                         addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
                     }
+                case .image:
+                    if let image = component as? FormComponentImage {
+                        addImage(imageName: image.image, caption: image.caption)
+                    }
                 default:
                     print("unknown component")
                 }
@@ -47,6 +51,21 @@ class IOSFormGenerator: FormGenerator {
     
     func clear() {
         mainView.subviews.forEach { $0.removeFromSuperview() }
+    }
+    
+    func addImage(imageName: String, caption: String) {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: imageName)
+        
+        let label = getDefaultLabel()
+        label.text = caption
+        label.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .callout)
+        
+        let verticalSpace = getVerticalSpacingView(withHeight: 3)
+        
+        mainView.addArrangedSubview(imageView)
+        mainView.addArrangedSubview(verticalSpace)
+        mainView.addArrangedSubview(label)
     }
     
     func addBigTitleLabel(text: String) {
