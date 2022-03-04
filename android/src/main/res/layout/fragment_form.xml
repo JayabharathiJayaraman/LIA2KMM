@@ -12,19 +12,11 @@
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
         </ScrollView>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container_view"
-            android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.aboutapp.AboutAppFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4">
 
-        </androidx.fragment.app.FragmentContainerView>
 
     </LinearLayout>
 

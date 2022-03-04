@@ -14,13 +14,17 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
 
     init {
         val linearLayout = LinearLayout(context)
-        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-        linearLayout.layoutParams = params
-
         this.mainView = linearLayout
     }
 
     override fun getInterface(components: List<FormComponent>): Any {
+        val linearLayout = LinearLayout(context)
+        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        linearLayout.layoutParams = params
+        linearLayout.orientation = LinearLayout.VERTICAL
+
+        mainView = linearLayout
+
         for (component in components) {
             when (component.type) {
                 ComponentType.BODY -> {
@@ -65,11 +69,6 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
 
     fun addImage(imageName: String, caption: String) {
         val imageView = ImageView(context)
-        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        params.setMargins(0,30,0,0)
-        imageView.layoutParams = params
-        // radiobutton.text = text
-        imageView.setPadding(60,0,0,0);
         imageView.setImageResource(getImageResource(imageName))
 
         mainView.addView(imageView)
