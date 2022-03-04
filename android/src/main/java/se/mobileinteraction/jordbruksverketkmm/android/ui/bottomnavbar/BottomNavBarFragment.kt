@@ -38,7 +38,7 @@ class BottomNavBarFragment : Fragment() {
 
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                application.formViewModel.state.collect(::updateView)
+                //application.formViewModel.state.collect(::updateView)
             }
         }
 
@@ -76,7 +76,7 @@ class BottomNavBarFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setText(binding: FragmentBottomNavBarBinding){
-        binding.bottomNavbarProgressText.text = "$tmpInt1 ${R.string.bottom_navbar_text.toString()} $tmpInt2"
+        binding.bottomNavbarProgressText.text = "$tmpInt1 av $tmpInt2"
     }
 
     override fun onDestroyView() {

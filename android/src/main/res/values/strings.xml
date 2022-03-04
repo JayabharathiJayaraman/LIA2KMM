@@ -42,5 +42,5 @@
     <string name="data_privacy_policy_hanteringText2">Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.</string>
     <string name="data_privacy_policy_header_close">TILLBAKA</string>
     <string name="data_privacy_policy_header">UTVECKLARE</string>
-    <string name="bottom_navbar_text">TextView</string>
+    <string name="bottom_navbar_text">av</string>
 </resources>
