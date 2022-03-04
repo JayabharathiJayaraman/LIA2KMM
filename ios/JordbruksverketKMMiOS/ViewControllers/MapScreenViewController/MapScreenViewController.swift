@@ -3,6 +3,10 @@ import MapKit
 
 class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManger = CLLocationManager()
@@ -12,6 +16,7 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         checkLocationServices()
         mapView.mapType = .satellite
+        initView()
     }
 
     @IBAction func infoButton(_ sender: UIButton) {
@@ -84,11 +89,26 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         checkLocationServices()
     }
     
+    func initView(){
+        
+        titleLabel.text = "TitleNameLabel".localized
+        descriptionLabel.text = "DescriptionLabel".localized
+        
+    }
+    
+    @IBOutlet weak var txtLat: UITextField!
+    
+    @IBOutlet weak var txtLng: UITextField!
+    
     @IBAction func addPin(_ sender: UITapGestureRecognizer) {
         
         let location = sender.location(in: self.mapView)
-        
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
+        let lat:Double = locCoord.latitude
+        let lng:Double = locCoord.longitude
+        
+        txtLat.text = ("  lat: \(lat)")
+        txtLng.text = ("  lon: \(lng)")
         
         let annotation = MKPointAnnotation()
         

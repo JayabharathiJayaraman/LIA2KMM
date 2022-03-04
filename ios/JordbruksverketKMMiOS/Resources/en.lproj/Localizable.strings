@@ -1,7 +1,3 @@
-/* 
-  Localizable.strings
-  JordbruksverketKMMiOS
-
-  Created by Erik Hedrenius on 2022-01-31.
-  
-*/
+"HeaderNameLabel" = "MARKSTRUKTURTEST";
+"TitleNameLabel" = "Place";
+"DescriptionLabel" = "Tap the map to select your exact location";
