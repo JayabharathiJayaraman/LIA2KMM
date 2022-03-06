@@ -11,6 +11,10 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         
     @IBOutlet weak var infoView: UIView!
     
+    @IBOutlet weak var infoViewBackground: UIView!
+    
+    @IBOutlet weak var navigationTitleView: UIView!
+    
     let locationManger = CLLocationManager()
     let regionInMeters: Double = 200
     
@@ -30,9 +34,18 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             infoView.isHidden = true
         }
+        if (infoViewBackground.isHidden == true) {
+            infoViewBackground.isHidden = false
+        } else {
+            infoViewBackground.isHidden = true
+        }
+        if (navigationTitleView.isHidden == true) {
+            navigationTitleView.isHidden = false
+        } else {
+            navigationTitleView.isHidden = true
+        }
     }
     
-
     @IBOutlet weak var closeInfoButton: UIButton!
     
     @IBAction func closeInfoButtonPressed(_ sender: Any) {
@@ -41,6 +54,16 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
             infoView.isHidden = false
         } else {
             infoView.isHidden = true
+        }
+        if (infoViewBackground.isHidden == true) {
+            infoViewBackground.isHidden = false
+        } else {
+            infoViewBackground.isHidden = true
+        }
+        if (navigationTitleView.isHidden == true) {
+            navigationTitleView.isHidden = false
+        } else {
+            navigationTitleView.isHidden = true
         }
     }
     
@@ -55,7 +78,6 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
            
            guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
-           
            
            return MKAnnotationView()
        }
