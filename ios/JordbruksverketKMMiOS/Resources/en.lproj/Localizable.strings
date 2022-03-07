@@ -1,3 +1,4 @@
 "HeaderNameLabel" = "MARKSTRUKTURTEST";
 "TitleNameLabel" = "Place";
-"DescriptionLabel" = "Tap the map to select your exact location";
+"DescriptionLabel" = "Tap the map to select your exact location.";
+"InfoLabel" = "The location of the test is saved in the app together with the results of the tests you performed. Partly as an aid to memory, so that you can more easily know where you were. Partly so that you can return to the same place later, to do new tests and follow up on your actions.";

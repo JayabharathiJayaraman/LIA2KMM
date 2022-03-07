@@ -11,6 +11,9 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
         
     @IBOutlet weak var infoView: UIView!
     
+    @IBOutlet weak var infoViewLabel: UILabel!
+    
+    
     @IBOutlet weak var infoViewBackground: UIView!
     
     @IBOutlet weak var navigationTitleView: UIView!
@@ -129,6 +132,7 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
            
            titleLabel.text = "TitleNameLabel".localized
            descriptionLabel.text = "DescriptionLabel".localized
+           infoViewLabel.text = "InfoLabel".localized
            
        }
        

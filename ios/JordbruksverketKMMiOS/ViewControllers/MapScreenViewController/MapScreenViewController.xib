@@ -15,6 +15,7 @@
                 <outlet property="infoButton" destination="t72-u9-09i" id="YGN-BG-9Hz"/>
                 <outlet property="infoView" destination="nJ5-IU-kKD" id="Hhd-DV-3d0"/>
                 <outlet property="infoViewBackground" destination="VTr-OQ-jF5" id="hrl-yb-jbA"/>
+                <outlet property="infoViewLabel" destination="qEv-iz-Gzi" id="Yzt-SO-G1c"/>
                 <outlet property="mapView" destination="32L-VM-cQo" id="bXM-hS-DI6"/>
                 <outlet property="navigationTitleView" destination="x5U-Uh-s2j" id="NUW-bg-C1P"/>
                 <outlet property="titleLabel" destination="g4W-xL-1wu" id="qrr-aQ-uBq"/>
