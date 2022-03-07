@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.android.ui.bottomnavbar
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,8 +20,6 @@ import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBotto
 class BottomNavBarFragment : Fragment() {
 
     private var fragmentBottomNavBarBinding: FragmentBottomNavBarBinding? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,24 +33,27 @@ class BottomNavBarFragment : Fragment() {
         val binding = FragmentBottomNavBarBinding.bind(view)
 
         val application = (activity?.application as MainApplicationDagger)
+        var currentScreen: Int = application.formViewModel.state.value.currentScreen
         var totalScreens:Int = application.formViewModel.state.value.totalScreens
-        var currentScreen:Int = application.formViewModel.state.value.currentScreen
 
-        lifecycleScope.launchWhenStarted {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                //application.formViewModel.state.collect(::updateView)
-            }
-        }
-
+        Log.d("222", totalScreens.toString())
+        Log.d("222", currentScreen.toString())
         setContent(binding, totalScreens, currentScreen)
 
         binding.bottomNavbarBack.setOnClickListener {
-            application.formViewModel.nextScreen()
+
+            application.formViewModel.previousScreen()
+            currentScreen = application.formViewModel.state.value.currentScreen
+            Log.d("111", totalScreens.toString())
+            Log.d("111", currentScreen.toString())
             setContent(binding, totalScreens, currentScreen)
         }
 
         binding.bottomNavbarForward.setOnClickListener {
-            application.formViewModel.previousScreen()
+            application.formViewModel.nextScreen()
+            currentScreen = application.formViewModel.state.value.currentScreen
+            Log.d("333", totalScreens.toString())
+            Log.d("333", currentScreen.toString())
             setContent(binding, totalScreens, currentScreen)
         }
 
@@ -81,7 +83,7 @@ class BottomNavBarFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setText(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
 
-        binding.bottomNavbarProgressText.text = "$currentScreen av $totalScreens"
+        binding.bottomNavbarProgressText.text = "${currentScreen + 1} ${R.string.bottom_navbar_text} $totalScreens"
     }
 
     override fun onDestroyView() {

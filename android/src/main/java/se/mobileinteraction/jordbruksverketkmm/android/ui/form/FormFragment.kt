@@ -60,12 +60,12 @@ class FormFragment : Fragment() {
 
     private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
-
         addForm(state.components)
     }
 
     private fun addForm(components: List<FormComponent>) {
         val mainView = formGenerator?.getInterface(components) as LinearLayout
+        binding?.scrollView?.removeAllViews();
         binding?.scrollView?.addView(mainView)
     }
 }
