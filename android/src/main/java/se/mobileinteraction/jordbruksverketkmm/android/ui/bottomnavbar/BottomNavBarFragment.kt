@@ -83,7 +83,7 @@ class BottomNavBarFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setText(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
 
-        binding.bottomNavbarProgressText.text = "${currentScreen + 1} ${R.string.bottom_navbar_text} $totalScreens"
+        binding.bottomNavbarProgressText.text = "${currentScreen + 1} av $totalScreens"
     }
 
     override fun onDestroyView() {
