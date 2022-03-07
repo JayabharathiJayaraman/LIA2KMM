@@ -33,6 +33,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
+                <Button
+                    android:id="@+id/testbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:drawableStart="@drawable/shovel"
+                    android:text="Button" />
+
                 <LinearLayout
                     android:id="@+id/btn_container_1"
                     android:layout_width="match_parent"
@@ -60,13 +67,21 @@
                         android:id="@+id/about_the_tests_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:textColor="#2f651a"
+                        android:textSize="16sp"
+                        android:padding="20dp"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/new_test_title" />
 
                     <TextView
                         android:id="@+id/about_the_tests_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:textColor="#2f651a"
+                        android:textSize="16sp"
+                        android:paddingHorizontal="20dp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/new_test_text" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

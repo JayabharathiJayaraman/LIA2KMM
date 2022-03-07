@@ -42,4 +42,6 @@
     <string name="data_privacy_policy_hanteringText2">Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.</string>
     <string name="data_privacy_policy_header_close">TILLBAKA</string>
     <string name="data_privacy_policy_header">UTVECKLARE</string>
+    <string name="new_test_title">Om testerna</string>
+    <string name="new_test_text">Du har tre deltester att välja på. Testerna går att göra var för sig men bäst koll på ditt skifte får du om du gör alla tre. Resultaten från de tre deltesten kan summeras i Mina test. \n\nAllmänna frågor om skiftet ger dig en översiktlig bild av skiftets generella status och om det finns strukturproblem som kan behöva åtgärdas. Detta test kan göras inomhus. \n\nMarkstrukturtest i fält och Infiltrationstest hjälper dig att lära känna dina odlingsjordar bättre. Dessa två tester görs ute i fält och ger en beskrivning av markens strukturtillstånd på platsen. Fälttesterna fungerar bäst när marken är fuktig och rötter studeras bäst på hösten. \n\nAlla uppgifter sparas löpande i appen. Du kan bläddra framåt och tillbaka, gå ur ett påbörjat test eller tappa uppkopplingen, utan att förlora data. Testen hittar du under Mina Test.</string>
 </resources>
