@@ -3,6 +3,20 @@ import shared
 import UIKit
 
 class IOSFormGenerator: FormGenerator {
+    func addButton(text: String) {
+    }
+    
+    func addChecklistRemark(text: String, image: String) {
+    }
+    
+    func addImageWithCaption(text: String, image: String) {
+
+    }
+    
+    func addTextFieldNotes(id: String, text: String, placeholder: String) {
+
+    }
+    
     var mainView: UIStackView
     var viewModel: FormViewModel?
     
@@ -38,7 +52,7 @@ class IOSFormGenerator: FormGenerator {
                     }
                 case .image:
                     if let image = component as? FormComponentImage {
-                        addImage(imageName: image.image, caption: image.caption)
+                        addImage(text: image.text, image: image.image)
                     }
                 default:
                     print("unknown component")
@@ -53,12 +67,12 @@ class IOSFormGenerator: FormGenerator {
         mainView.subviews.forEach { $0.removeFromSuperview() }
     }
     
-    func addImage(imageName: String, caption: String) {
+    func addImage(text: String, image:String) {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: imageName)
+        imageView.image = UIImage(named: text)
         
         let label = getDefaultLabel()
-        label.text = caption
+        label.text = text
         label.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .callout)
         
         let verticalSpace = getVerticalSpacingView(withHeight: 3)

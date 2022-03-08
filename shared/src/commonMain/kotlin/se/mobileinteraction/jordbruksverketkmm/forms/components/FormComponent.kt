@@ -9,6 +9,7 @@ enum class ComponentType {
     BUTTON,
     TEXTFIELDNOTES,
     REMARK,
+    IMAGE,
     IMAGECAPTION
 }
 
@@ -45,6 +46,13 @@ class FormComponentChecklist(
     val text: String,
     val image: String,
 ) : FormComponent
+
+class FormComponentImage(
+    override val type: ComponentType,
+    val text: String,
+    val image: String
+) : FormComponent
+
 class FormComponentImageCaption(
     override val type: ComponentType,
     val text: String,

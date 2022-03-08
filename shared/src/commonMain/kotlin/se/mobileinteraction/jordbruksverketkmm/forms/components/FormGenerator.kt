@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.components
 
 interface FormGenerator {
     fun addChecklistRemark(text: String, image: String)
+    fun addImage(text: String, image: String)
     fun addImageWithCaption(text: String, image: String)
     fun addButton(text: String)
     fun addBigTitleLabel(text: String)

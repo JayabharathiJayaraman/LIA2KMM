@@ -62,6 +62,9 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
                     val remark = (component as FormComponentChecklist)
                     addChecklistRemark(remark.text, remark.image)
                 }
+                ComponentType.IMAGE -> {
+                    val image = (component as FormComponentImage)
+                }
                 ComponentType.IMAGECAPTION -> {
                     val imageWithCaption = (component as FormComponentImageCaption)
                     addImageWithCaption(imageWithCaption.text, imageWithCaption.image)
@@ -74,6 +77,10 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
     }
 
     override fun addBigTitleLabel(text: String) {
+    }
+
+    override fun addImage(text: String, image: String) {
+
     }
 
     override fun addSmallTitleLabel(text: String) {

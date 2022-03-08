@@ -21,7 +21,7 @@ data class FormGeneralQuestions(
                     type = ComponentType.BODY,
                     text = "Detta test består av allmänna frågor om hur skiftet brukar fungera för din växtodling och om det finns tydliga problem med koppling till markstruktur."
                 ),
-            )
+            ),
         ),
         FormScreen(
             components = listOf<FormComponent>(
@@ -313,17 +313,17 @@ data class FormGeneralQuestions(
                 FormComponentImageCaption(
                     type = ComponentType.IMAGECAPTION,
                     text = "Nytt test",
-                    image = "add_test_icon.png"
+                    image = "add_test_icon"
                 ),
                 FormComponentImageCaption(
                     type = ComponentType.IMAGECAPTION,
                     text = "Vårda markstruktur",
-                    image = "plant_icon.png"
+                    image = "plant_icon"
                 ),
                 FormComponentImageCaption(
                     type = ComponentType.IMAGECAPTION,
                     text = "klar",
-                    image = "switch_checked.png"
+                    image = "switch_checked"
                 ),
                 FormComponentImageCaption(
                     type = ComponentType.IMAGECAPTION,
