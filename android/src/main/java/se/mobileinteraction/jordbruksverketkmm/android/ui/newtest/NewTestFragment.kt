@@ -9,7 +9,6 @@ import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentNewTestBinding
 
-
 class NewTestFragment : Fragment() {
 
     private var fragmentNewTestBinding: FragmentNewTestBinding? = null
@@ -29,6 +28,19 @@ class NewTestFragment : Fragment() {
         binding.gobackBtn.setOnClickListener {
             view.findNavController().navigateUp()
         }
+
+        binding.test1Container.setOnClickListener {
+
+        }
+
+        binding.test2Container.setOnClickListener {
+
+        }
+
+        binding.test3Container.setOnClickListener {
+
+        }
+
         return view
     }
 
@@ -39,5 +51,4 @@ class NewTestFragment : Fragment() {
         super.onDestroy()
         fragmentNewTestBinding = null
     }
-
 }

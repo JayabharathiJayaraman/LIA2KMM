@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,32 +32,135 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <Button
-                    android:id="@+id/testbtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:drawableStart="@drawable/shovel"
-                    android:text="Button" />
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/btn_container_1"
+                    android:id="@+id/test1_container"
+                    android:background='#FFF'
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="2dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/questionmark" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:gravity="center|left"
+                        android:orientation="vertical"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:text="@string/newtest_test_1_title"
+                            android:textColor="#2f651a"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:text="@string/newtest_test_1_text"
+                            android:textColor="#2f651a"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/test2_container"
+                android:background='#FFF'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/shovel" />
 
                 <LinearLayout
-                    android:id="@+id/btn_container_2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:layout_weight="4"
+                    android:gravity="center|left"
+                    android:orientation="vertical"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/newtest_test_2_title"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/newtest_test_2_text"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/test3_container"
+                android:background='#FFF'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/waterdrops" />
 
                 <LinearLayout
-                    android:id="@+id/btn_container_3"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:layout_weight="4"
+                    android:gravity="center|left"
+                    android:orientation="vertical"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/newtest_test_3_title"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/newtest_test_3_text"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,21 +171,22 @@
                         android:id="@+id/about_the_tests_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#2f651a"
-                        android:textSize="16sp"
-                        android:padding="20dp"
                         android:fontFamily="@font/open_sans_semi_bold"
-                        android:text="@string/new_test_title" />
+                        android:padding="20dp"
+                        android:text="@string/new_test_title"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/about_the_tests_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#2f651a"
-                        android:textSize="16sp"
-                        android:paddingHorizontal="20dp"
                         android:fontFamily="@font/open_sans_regular"
-                        android:text="@string/new_test_text" />
+                        android:paddingHorizontal="20dp"
+                        android:paddingBottom="40dp"
+                        android:text="@string/new_test_text"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
