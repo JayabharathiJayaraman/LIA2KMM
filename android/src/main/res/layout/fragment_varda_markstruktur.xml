@@ -98,12 +98,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:fontFamily="@font/open_sans_regular"
-                    android:drawableEnd="@color/material_on_background_emphasis_high_type"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_green"
+                    android:paddingHorizontal="20dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginVertical="5dp"
                     android:background="@drawable/data_privacy_btn"
                     android:textColor="#2f651a"
-                    android:text="@string/varda_markstruktur_grundforbattringar" />
+                    android:text="@string/varda_markstruktur_grundforbattringar"
+                    android:gravity="left|center_vertical"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
 
                 <Button
                     android:id="@+id/odlingsatgarderButton"
@@ -111,11 +114,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:fontFamily="@font/open_sans_regular"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_green"
+                    android:paddingHorizontal="20dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginVertical="5dp"
                     android:background="@drawable/data_privacy_btn"
                     android:textColor="#2f651a"
-                    android:text="@string/varda_markstruktur_odlingsatgarder" />
+                    android:text="@string/varda_markstruktur_odlingsatgarder"
+                    android:gravity="left|center_vertical"
+                    tools:ignore="RtlHardcoded" />
 
                 <Button
                     android:id="@+id/undvikEllerMinimeraButton"
@@ -123,11 +130,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:fontFamily="@font/open_sans_regular"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_green"
+                    android:paddingHorizontal="20dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginVertical="5dp"
                     android:background="@drawable/data_privacy_btn"
                     android:textColor="#2f651a"
-                    android:text="@string/varda_markstruktur_undvik_eller_minimera" />
+                    android:text="@string/varda_markstruktur_undvik_eller_minimera"
+                    android:gravity="left|center_vertical"
+                    tools:ignore="RtlHardcoded" />
             </LinearLayout>
 
         </LinearLayout>

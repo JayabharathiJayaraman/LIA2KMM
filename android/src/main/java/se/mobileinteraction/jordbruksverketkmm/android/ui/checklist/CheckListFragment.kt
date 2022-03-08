@@ -1,5 +1,6 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.checklist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
@@ -21,6 +22,7 @@ class CheckListFragment : Fragment() {
    private var fragmentCheckListBinding: FragmentCheckListBinding? = null
     private lateinit var recyclerView: RecyclerView
     private var adapterActive: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,7 +54,7 @@ class CheckListFragment : Fragment() {
     }
 
     private fun getStringByIdName(context: Context, idName: String?): String? {
-        val res: Resources = context.getResources()
-        return res.getString(res.getIdentifier(idName, "string", context.getPackageName()))
+        val res: Resources = context.resources
+        return res.getString(res.getIdentifier(idName, "string", context.packageName))
     }
 }
