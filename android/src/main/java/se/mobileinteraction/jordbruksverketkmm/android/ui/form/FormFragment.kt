@@ -24,7 +24,8 @@ class FormFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        this.formGenerator = AndroidFormGenerator(context)
+        val viewModel = (activity?.application as MainApplication).formViewModel
+        this.formGenerator = AndroidFormGenerator(context, viewModel)
     }
 
     override fun onCreateView(
@@ -42,10 +43,11 @@ class FormFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val application = (activity?.application as MainApplication)
+        val viewModel = application.formViewModel
 
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                application.formViewModel.state.collect(::updateView)
+                viewModel.state.collect(::updateView)
             }
         }
 
