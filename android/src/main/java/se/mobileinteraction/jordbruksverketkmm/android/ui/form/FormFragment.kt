@@ -10,12 +10,10 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import se.mobileinteraction.jordbruksverketkmm.android.MainApplicationDagger
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentFormBinding
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
-import se.mobileinteraction.jordbruksverketkmm.android.ui.menu.MenuFragment
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 
@@ -43,7 +41,7 @@ class FormFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val application = (activity?.application as MainApplicationDagger)
+        val application = (activity?.application as MainApplication)
 
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -65,7 +63,6 @@ class FormFragment : Fragment() {
     }
 
     private fun displayComponents(components: List<FormComponent>) {
-        val mainView = formGenerator?.getInterface(components) as LinearLayout
-        binding?.scrollView?.addView(mainView)
+        binding?.scrollView?.addView(formGenerator?.generateInterface(components))
     }
 }

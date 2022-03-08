@@ -4,8 +4,8 @@ import UIKit
 class RootViewController: UIViewController {
     @IBOutlet private weak var containerView: UIView!
     
-    private var viewModel: FormViewModel
-    private var interfaceGenerator: IOSFormGenerator
+    private let viewModel: FormViewModel
+    private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
     
     init() {
@@ -46,7 +46,7 @@ class RootViewController: UIViewController {
 
 private extension RootViewController {
     func displayComponents(components: [FormComponent]) {
-        guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
+        guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true

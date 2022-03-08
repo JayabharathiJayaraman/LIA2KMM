@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.android.forms
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -17,7 +18,7 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
         this.mainView = linearLayout
     }
 
-    override fun getInterface(components: List<FormComponent>): Any {
+    override fun generateInterface(components: List<FormComponent>): View {
         val linearLayout = LinearLayout(context)
         val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         linearLayout.layoutParams = params
@@ -42,23 +43,23 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
         return mainView
     }
 
-    override fun addBigTitleLabel(text: String) {
+    fun addBigTitleLabel(text: String) {
     }
 
-    override fun addSmallTitleLabel(text: String) {
+    fun addSmallTitleLabel(text: String) {
     }
 
-    override fun addBodyLabel(text: String) {
+    fun addBodyLabel(text: String) {
         val textView = TextView(context)
         textView.text = text
 
         mainView.addView(textView)
     }
 
-    override fun addTextField(id: String, text: String, placeholder: String) {
+    fun addTextField(id: String, text: String, placeholder: String) {
     }
 
-    override fun addButtonList(
+    fun addButtonList(
         id: String,
         title: String,
         list: List<String>,
@@ -83,6 +84,6 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
         return context.resources.getIdentifier("drawable/$name", null, context.packageName)
     }
 
-    override fun clear() {
+    fun clear() {
     }
 }
