@@ -15,9 +15,7 @@ import se.mobileinteraction.jordbruksverketkmm.CheckList
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
 
-
 class CheckListFragment : Fragment() {
-
 
    private var fragmentCheckListBinding: FragmentCheckListBinding? = null
     private lateinit var recyclerView: RecyclerView

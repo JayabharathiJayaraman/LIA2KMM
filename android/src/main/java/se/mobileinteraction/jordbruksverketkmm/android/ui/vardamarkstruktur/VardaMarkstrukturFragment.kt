@@ -10,11 +10,9 @@ import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentVardaMarkstrukturBinding
 
-
 class VardaMarkstrukturFragment : Fragment() {
 
     private var fragmentVardaMarkstrukturBinding: FragmentVardaMarkstrukturBinding? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

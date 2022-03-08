@@ -34,7 +34,6 @@ class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckLi
             _checkList.itemList.filter { it.active }[position].switchActive()
             Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -46,12 +45,10 @@ class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckLi
         var itemText: TextView = itemView.findViewById(R.id.checklist_active_item_text)
         var itemAdd: ImageButton = itemView.findViewById(R.id.checkList_item_add)
         var itemSwitch: Switch = itemView.findViewById(R.id.checklist_active_item_switch)
-
-
         }
+
     private fun getStringByIdName(context: Context, idName: String?): String? {
         val res: Resources = context.resources
         return res.getString(res.getIdentifier(idName, "string", context.packageName))
     }
-
 }
