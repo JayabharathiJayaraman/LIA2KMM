@@ -39,9 +39,6 @@ class NewTestFragment : Fragment() {
         return view
     }
 
-    private fun addTestButtons(){
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         fragmentNewTestBinding = null
