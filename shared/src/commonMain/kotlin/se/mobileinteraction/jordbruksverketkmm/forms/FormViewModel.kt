@@ -5,9 +5,11 @@ import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
 
-class FormViewModel constructor(
-    form: FormGeneralQuestions = FormGeneralQuestions()
+class FormViewModel(
+    //form: FormGeneralQuestions = FormGeneralQuestions()
+    form: FormInfiltrations = FormInfiltrations()
 ) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(form)) {
     fun nextScreen() {
         updateStateAndSave {
@@ -30,7 +32,8 @@ class FormViewModel constructor(
     }
 
     data class State(
-        val form: FormGeneralQuestions,
+        //val form: FormGeneralQuestions,
+        val form: FormInfiltrations,
         val currentScreen: Int = 0,
         val counter: Int = 0,
     ) {

@@ -6,6 +6,7 @@ enum class ComponentType {
     BODY,
     TEXTFIELD,
     BUTTONLIST,
+    BUTTON,
     IMAGE,
 }
 
@@ -13,8 +14,9 @@ interface FormComponent {
     val type: ComponentType
 }
 
-class FormComponentText(override val type: ComponentType, val text: String) :
-    FormComponent
+class FormComponentText(override val type: ComponentType, val text: String) : FormComponent
+
+class FormComponentButton(override val type: ComponentType, val text: String) : FormComponent
 
 class FormComponentTextField(
     override val type: ComponentType,

@@ -10,22 +10,21 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import se.mobileinteraction.jordbruksverketkmm.android.MainApplicationDagger
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentFormBinding
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
-import se.mobileinteraction.jordbruksverketkmm.android.ui.menu.MenuFragment
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
 
 class FormFragment : Fragment() {
+
+    private val viewModel: FormViewModel = FormViewModel(form = FormInfiltrations())
     private var binding: FragmentFormBinding? = null
     private var formGenerator: AndroidFormGenerator? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
         this.formGenerator = AndroidFormGenerator(context)
     }
 
@@ -42,13 +41,17 @@ class FormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val application = (activity?.application as MainApplicationDagger)
-
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                application.formViewModel.state.collect(::updateView)
+                viewModel.state.collect(::updateView)
             }
+        }
+        binding?.btnNextScreen?.setOnClickListener {
+            viewModel.nextScreen()
+        }
+
+        binding?.btnPreviousScreen?.setOnClickListener {
+            viewModel.previousScreen()
         }
     }
 
@@ -61,11 +64,12 @@ class FormFragment : Fragment() {
     private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
 
-        displayComponents(state.components)
+        addForm(state.components)
     }
 
-    private fun displayComponents(components: List<FormComponent>) {
+    private fun addForm(components: List<FormComponent>) {
         val mainView = formGenerator?.getInterface(components) as LinearLayout
+        binding?.scrollView?.removeAllViewsInLayout()
         binding?.scrollView?.addView(mainView)
     }
 }
