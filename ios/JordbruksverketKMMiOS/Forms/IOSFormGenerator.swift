@@ -2,7 +2,7 @@ import Foundation
 import shared
 import UIKit
 
-class IOSFormGenerator: FormGenerator {
+class IOSFormGenerator: FormGenerator {  
     func generateInterface(components: [FormComponent]) -> Any {
         let mainView = UIStackView()
         mainView.axis = .vertical

@@ -25,7 +25,7 @@ class FormViewController: UIViewController {
         
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            self.displayComponents(components: newState.components)
+            self.updateOrGenerateNewComponents(components: newState.components)
         }
     }
     
@@ -41,6 +41,20 @@ class FormViewController: UIViewController {
 }
 
 private extension FormViewController {
+    func updateOrGenerateNewComponents(components: [FormComponent]) {
+        var generateNewComponents = true
+        
+        if let mainView = containerView.subviews.first {
+            mainView.subviews.forEach { componentView in
+                
+            }
+        }
+        
+        if generateNewComponents {
+            displayComponents(components: components)
+        }
+    }
+    
     func displayComponents(components: [FormComponent]) {
         guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
         containerView.addSubview(mainView)

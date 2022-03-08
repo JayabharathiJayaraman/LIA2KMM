@@ -48,6 +48,10 @@ class FormFragment : Fragment() {
                 application.formViewModel.state.collect(::updateView)
             }
         }
+
+        binding?.next?.setOnClickListener { application.formViewModel.nextScreen() }
+        binding?.back?.setOnClickListener { application.formViewModel.previousScreen() }
+
     }
 
     override fun onDestroyView() {
@@ -63,6 +67,11 @@ class FormFragment : Fragment() {
     }
 
     private fun displayComponents(components: List<FormComponent>) {
-        binding?.scrollView?.addView(formGenerator?.generateInterface(components))
+        println("logg: DISPLAY COMPONENTS")
+        if (binding?.scrollView?.childCount == 0) {
+            binding?.scrollView?.addView(formGenerator?.generateInterface(components))
+        } else {
+            formGenerator?.generateInterface(components)
+        }
     }
 }

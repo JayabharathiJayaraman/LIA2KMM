@@ -14,14 +14,17 @@ data class FormGeneralQuestions(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "beskrivningTitleScreen1",
                     type = ComponentType.TITLESMALL,
                     text = "Beskrivning"
                 ),
                 FormComponentText(
+                    id = "beskrivningBodyScreen1",
                     type = ComponentType.BODY,
                     text = "Detta test består av allmänna frågor om hur skiftet brukar fungera för din växtodling och om det finns tydliga problem med koppling till markstruktur."
                 ),
                 FormComponentImage(
+                    id = "exempelImage",
                     type = ComponentType.IMAGE,
                     image = "plant_icon",
                     caption = "Jordbruksverket",
@@ -31,6 +34,7 @@ data class FormGeneralQuestions(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "uppgifterTitleScreen2",
                     type = ComponentType.TITLESMALL,
                     text = "Uppgifter om gård och skifte"
                 ),
@@ -53,10 +57,12 @@ data class FormGeneralQuestions(
                     placeholder = "Datum",
                 ),
                 FormComponentText(
+                    id = "tipsTitleScreen2",
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
                 FormComponentText(
+                    id = "tipsBodyScreen2",
                     type = ComponentType.BODY,
                     text = "Om du har ett stort skifte..."
                 ),
@@ -65,6 +71,7 @@ data class FormGeneralQuestions(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "grundförutsättningarTitleScreen3",
                     type = ComponentType.TITLEBIG,
                     text = "Grundförutsättningar"
                 ),
@@ -77,10 +84,12 @@ data class FormGeneralQuestions(
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
+                    id = "tipsTitleScreen3",
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
                 FormComponentText(
+                    id = "tipsBodyScreen3",
                     type = ComponentType.BODY,
                     text = "Om det finns en.."
                 ),
