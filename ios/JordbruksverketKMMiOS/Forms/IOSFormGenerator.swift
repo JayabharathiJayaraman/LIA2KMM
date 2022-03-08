@@ -3,42 +3,37 @@ import shared
 import UIKit
 
 class IOSFormGenerator: FormGenerator {
-    var mainView: UIStackView
-    var viewModel: FormViewModel?
-    
-    init() {
-        mainView = UIStackView()
+    func generateInterface(components: [FormComponent]) -> Any {
+        let mainView = UIStackView()
         mainView.axis = .vertical
         mainView.distribution = .fillProportionally
-    }
-    
-    func generateInterface(components: [FormComponent]) -> Any {
+        
         if mainView.subviews.count == 0 {
             for component in components {
                 switch component.type {
                 case .body:
                     if let body = component as? FormComponentText {
-                        addBodyLabel(text: body.text)
+                        mainView.addBodyLabel(text: body.text)
                     }
                 case .titlebig:
                     if let title = component as? FormComponentText {
-                        addBigTitleLabel(text: title.text)
+                        mainView.addBigTitleLabel(text: title.text)
                     }
                 case .titlesmall:
                     if let title = component as? FormComponentText {
-                        addSmallTitleLabel(text: title.text)
+                        mainView.addSmallTitleLabel(text: title.text)
                     }
                 case .textfield:
                     if let textfield = component as? FormComponentTextField {
-                        addTextField(id: textfield.id, text: textfield.text, placeholder: textfield.placeholder)
+                        mainView.addTextField(id: textfield.id, text: textfield.text, placeholder: textfield.placeholder)
                     }
                 case .buttonlist:
                     if let buttonlist = component as? FormComponentButtonList {
-                        addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
+                        mainView.addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
                     }
                 case .image:
                     if let image = component as? FormComponentImage {
-                        addImage(imageName: image.image, caption: image.caption)
+                        mainView.addImage(imageName: image.image, caption: image.caption)
                     }
                 default:
                     print("unknown component")
@@ -48,81 +43,79 @@ class IOSFormGenerator: FormGenerator {
         
         return mainView
     }
-    
-    func clear() {
-        mainView.subviews.forEach { $0.removeFromSuperview() }
-    }
-    
+}
+
+extension UIStackView {
     func addImage(imageName: String, caption: String) {
         let imageView = UIImageView()
         imageView.image = UIImage(named: imageName)
         
         let label = getDefaultLabel()
         label.text = caption
-        label.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .callout)
+        label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
         
         let verticalSpace = getVerticalSpacingView(withHeight: 3)
         
-        mainView.addArrangedSubview(imageView)
-        mainView.addArrangedSubview(verticalSpace)
-        mainView.addArrangedSubview(label)
+        self.addArrangedSubview(imageView)
+        self.addArrangedSubview(verticalSpace)
+        self.addArrangedSubview(label)
     }
     
     func addBigTitleLabel(text: String) {
         let label = getDefaultLabel()
         label.text = text
-        label.font = UIFont.scaledFont(name: LocalConstants.fontNameBold, textStyle: .title2)
+        label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
         
-        mainView.addArrangedSubview(label)
+        self.addArrangedSubview(label)
     }
     
     func addSmallTitleLabel(text: String) {
         var verticalSpacing = getVerticalSpacingView(withHeight: 20)
-        mainView.addArrangedSubview(verticalSpacing)
+        self.addArrangedSubview(verticalSpacing)
         
         let label = getDefaultLabel()
         label.text = text
-        label.font = UIFont.scaledFont(name: LocalConstants.fontNameBold, textStyle: .body)
+        label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
         
-        mainView.addArrangedSubview(label)
+        self.addArrangedSubview(label)
         
         verticalSpacing = getVerticalSpacingView(withHeight: 3)
-        mainView.addArrangedSubview(verticalSpacing)
+        self.addArrangedSubview(verticalSpacing)
     }
     
     func addBodyLabel(text: String) {
         let label = getDefaultLabel()
         label.text = text
-        label.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .body)
+        label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         
-        mainView.addArrangedSubview(label)
+        self.addArrangedSubview(label)
     }
     
     func addTextField(id: String, text: String, placeholder: String) {
         let verticalSpacing = getVerticalSpacingView(withHeight: 10)
-        mainView.addArrangedSubview(verticalSpacing)
+        self.addArrangedSubview(verticalSpacing)
         
         let textField = TextFieldWithId()
         textField.text = text
         textField.placeholder = placeholder
-        textField.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .body)
+        textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         textField.idString = id
         textField.addTarget(self, action: #selector(textFieldChange), for: .allEditingEvents)
         
-        mainView.addArrangedSubview(textField)
+        self.addArrangedSubview(textField)
     }
     
     @objc
     func textFieldChange(_ sender: TextFieldWithId) {
-        guard let viewModel = viewModel, let id = sender.idString else { return }
-        viewModel.setTextData(id: id, text: sender.text ?? "")
+        guard let id = sender.idString else { return }
+        IOSFormViewModel.shared.setTextData(id: id, text: sender.text ?? "")
     }
     
     func addButtonList(id: String, title: String, list: [String], value: String, placeholder: String) {
         addSmallTitleLabel(text: title)
         
         let verticalSpacing = getVerticalSpacingView(withHeight: 5)
-        mainView.addArrangedSubview(verticalSpacing)
+        self.addArrangedSubview(verticalSpacing)
         
         let button = UIButton()
         button.setTitle(placeholder, for: .normal)
@@ -135,14 +128,12 @@ class IOSFormGenerator: FormGenerator {
         button.layer.shadowRadius = 5
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.titleLabel?.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .body)
+        button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         
-        mainView.addArrangedSubview(button)
+        self.addArrangedSubview(button)
     }
-}
-
-private extension IOSFormGenerator {
+    
     func getDefaultLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
@@ -159,12 +150,5 @@ private extension IOSFormGenerator {
         view.heightAnchor.constraint(equalToConstant: height).isActive = true
         
         return view
-    }
-}
-
-private extension IOSFormGenerator {
-    struct LocalConstants {
-        static let fontNameRegular = "OpenSans-Regular"
-        static let fontNameBold = "OpenSans-Bold"
     }
 }
