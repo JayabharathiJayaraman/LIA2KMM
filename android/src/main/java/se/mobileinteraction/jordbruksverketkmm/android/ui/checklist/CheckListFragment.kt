@@ -41,8 +41,14 @@ class CheckListFragment : Fragment() {
             view.findNavController().navigateUp()
         }
 
+        if(receivedCategory == "UndvikEllerMinimera"){
+            binding.testLabelEjAktuellaAtgarder.visibility = View.GONE
+            binding.testText3.visibility = View.GONE
+            binding.testText4.visibility = View.GONE
+        }
+
         binding.testLabel.text = this.context?.let { getStringByIdName(it, checkList.title) }
-        binding.testText.text = this.context?.let { getStringByIdName(it, checkList.text) }
+        binding.testText1.text = this.context?.let { getStringByIdName(it, checkList.text) }
 
         return view
     }
