@@ -139,7 +139,7 @@ extension UIStackView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontForContentSizeCategory = true
-        label.textColor = UIColor(red: 58/255, green: 84/255, blue: 40/255, alpha: 1.0)
+        label.textColor = UIColor.Jordbruksverket.defaultTextColor
 
         return label
     }

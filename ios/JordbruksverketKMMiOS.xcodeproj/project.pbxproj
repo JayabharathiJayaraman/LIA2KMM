@@ -78,6 +78,9 @@
 		9D5A8C5627D75DFD00239E45 /* IOSFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */; };
 		9D5A8C5727D75DFD00239E45 /* IOSFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */; };
 		9D5A8C5827D75DFD00239E45 /* IOSFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */; };
+		9D5A8C5A27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
+		9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
+		9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
@@ -152,6 +155,7 @@
 		9D34C54327A150180043B5A1 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		9D34C54427A150180043B5A1 /* FormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormViewController.xib; sourceTree = "<group>"; };
 		9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormViewModel.swift; sourceTree = "<group>"; };
+		9D5A8C5927D762FB00239E45 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9D8E1E9227A7FAFC002E7D94 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		9D07BE0527BBC37600FF1D55 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				9D65F40827CCFE7700646C73 /* Views */,
 				9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */,
 				9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */,
 			);
@@ -331,7 +336,6 @@
 		9D34C53C27A14DED0043B5A1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9D65F40827CCFE7700646C73 /* Form */,
 				9D8E1E8827A7FA00002E7D94 /* Extensions */,
 				9D34C53D27A14E090043B5A1 /* AppLaunchManager.swift */,
 			);
@@ -358,12 +362,12 @@
 			path = FormViewController;
 			sourceTree = "<group>";
 		};
-		9D65F40827CCFE7700646C73 /* Form */ = {
+		9D65F40827CCFE7700646C73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
 			);
-			path = Form;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9D8E1E8327A7F9C1002E7D94 /* Resources */ = {
@@ -382,6 +386,7 @@
 			children = (
 				9D8E1E8927A7FA12002E7D94 /* String.swift */,
 				9D07BE1227BBFE7A00FF1D55 /* UIFont.swift */,
+				9D5A8C5927D762FB00239E45 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -602,6 +607,7 @@
 				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,
 				9D5A8C5627D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
+				9D5A8C5A27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
@@ -621,6 +627,7 @@
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D34C54627A150180043B5A1 /* FormViewController.swift in Sources */,
+				9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +642,7 @@
 				9D07BE3E27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D34C54727A150180043B5A1 /* FormViewController.swift in Sources */,
+				9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D5A8C5827D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
