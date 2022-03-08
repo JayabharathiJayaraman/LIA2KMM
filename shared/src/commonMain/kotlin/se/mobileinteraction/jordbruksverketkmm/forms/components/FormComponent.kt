@@ -6,7 +6,10 @@ enum class ComponentType {
     BODY,
     TEXTFIELD,
     BUTTONLIST,
-    IMAGE,
+    BUTTON,
+    TEXTFIELDNOTES,
+    REMARK,
+    IMAGECAPTION
 }
 
 interface FormComponent {
@@ -32,8 +35,18 @@ class FormComponentButtonList(
     val placeholder: String,
 ) : FormComponent
 
-class FormComponentImage(
+class FormComponentButton(
     override val type: ComponentType,
+    val text: String
+) : FormComponent
+
+class FormComponentChecklist(
+    override val type: ComponentType,
+    val text: String,
     val image: String,
-    val caption: String,
+) : FormComponent
+class FormComponentImageCaption(
+    override val type: ComponentType,
+    val text: String,
+    val image: String
 ) : FormComponent
