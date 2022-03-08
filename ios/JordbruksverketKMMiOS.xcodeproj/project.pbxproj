@@ -11,6 +11,7 @@
 		2E22F6D327C92276005C893A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E22F6CB27C9079F005C893A /* Localizable.strings */; };
 		2E22F6D427C92277005C893A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E22F6CB27C9079F005C893A /* Localizable.strings */; };
 		2E22F6D527CCD275005C893A /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
+		2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F3EAE27D76E21008A336C /* UILabel.swift */; };
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
@@ -74,6 +75,7 @@
 		2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JordbruksverketKMMiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E22F6CA27C9079F005C893A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E22F6D127C91FE3005C893A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2E4F3EAE27D76E21008A336C /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		2E6FE47327B5511700BDD838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				9D8E1E8927A7FA12002E7D94 /* String.swift */,
+				2E4F3EAE27D76E21008A336C /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
+				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
@@ -693,9 +697,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7KDAWBCR66;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
@@ -710,7 +714,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mobileinteraction.jordbruksverketkmm.JordbruksverketKMMiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverketkmm.JordbruksverketKMMiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
