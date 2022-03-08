@@ -35,8 +35,6 @@ class CheckList(category : String) {
             this.text = "dummy"
             this.itemList = listOf<CheckListItem>()
         }
-
-
     }
 
     private fun createItemList(listForCategory : List<String>): List<CheckListItem>{

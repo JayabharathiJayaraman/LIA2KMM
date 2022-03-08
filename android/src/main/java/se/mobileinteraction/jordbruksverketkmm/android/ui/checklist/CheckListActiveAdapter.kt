@@ -1,7 +1,6 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.checklist
 
 import android.content.Context
-import android.content.Intent
 import android.content.res.Resources
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +12,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.CheckList
 import se.mobileinteraction.jordbruksverketkmm.android.R
-import se.mobileinteraction.jordbruksverketkmm.android.databinding.RecyclerItemChecklistActiveBinding
 
 class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>() {
     private var _checkList = checkList
@@ -33,7 +31,7 @@ class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckLi
         holder.itemAdd.setOnClickListener {
             val tmpName = _checkList.itemList.filter { it.active }[position].title
             Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
-            _checkList.itemList.filter { it.active }[position].switchactive()
+            _checkList.itemList.filter { it.active }[position].switchActive()
             Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
         }
 
