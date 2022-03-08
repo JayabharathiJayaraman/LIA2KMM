@@ -9,21 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplicationDagger
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBottomNavBarBinding
 
-
 class BottomNavBarFragment : Fragment() {
 
     private var fragmentBottomNavBarBinding: FragmentBottomNavBarBinding? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,24 +28,18 @@ class BottomNavBarFragment : Fragment() {
         var currentScreen: Int = application.formViewModel.state.value.currentScreen
         var totalScreens:Int = application.formViewModel.state.value.totalScreens
 
-        Log.d("222", totalScreens.toString())
-        Log.d("222", currentScreen.toString())
         setContent(binding, totalScreens, currentScreen)
 
         binding.bottomNavbarBack.setOnClickListener {
 
             application.formViewModel.previousScreen()
             currentScreen = application.formViewModel.state.value.currentScreen
-            Log.d("111", totalScreens.toString())
-            Log.d("111", currentScreen.toString())
             setContent(binding, totalScreens, currentScreen)
         }
 
         binding.bottomNavbarForward.setOnClickListener {
             application.formViewModel.nextScreen()
             currentScreen = application.formViewModel.state.value.currentScreen
-            Log.d("333", totalScreens.toString())
-            Log.d("333", currentScreen.toString())
             setContent(binding, totalScreens, currentScreen)
         }
 
