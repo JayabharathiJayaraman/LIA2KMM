@@ -2,7 +2,6 @@ package se.mobileinteraction.jordbruksverketkmm.android.ui.bottomnavbar
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -57,11 +56,7 @@ class BottomNavBarFragment : Fragment() {
         for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
             progressItem.layoutParams = LinearLayout.LayoutParams(500/totalScreens, 50)
-            if(i <= currentScreen){
-                progressItem.setBackgroundResource(R.drawable.bottom_navbar_progress_filed)
-            } else{
-                progressItem.setBackgroundResource(R.drawable.bottom_navbar_progress_unfiled)
-            }
+            progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
             binding.progressLayout.addView(progressItem)
         }
     }
