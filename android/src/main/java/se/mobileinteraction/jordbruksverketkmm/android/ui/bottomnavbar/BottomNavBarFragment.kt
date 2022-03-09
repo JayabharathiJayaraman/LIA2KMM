@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import se.mobileinteraction.jordbruksverketkmm.android.MainApplicationDagger
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBottomNavBarBinding
 
@@ -24,7 +24,7 @@ class BottomNavBarFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bottom_nav_bar, container, false)
         val binding = FragmentBottomNavBarBinding.bind(view)
 
-        val application = (activity?.application as MainApplicationDagger)
+        val application = (activity?.application as MainApplication)
         var currentScreen: Int = application.formViewModel.state.value.currentScreen
         var totalScreens:Int = application.formViewModel.state.value.totalScreens
 
