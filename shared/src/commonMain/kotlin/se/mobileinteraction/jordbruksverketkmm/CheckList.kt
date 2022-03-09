@@ -4,6 +4,7 @@ class CheckList(category : String) {
 
     val title : String
     val text : String
+    val id : String = category
     val itemList: List<CheckListItem>
 
     private val categoryList = listOf("Grundförbättringar",

@@ -34,6 +34,9 @@ class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckLi
             _checkList.itemList.filter { it.active }[position].switchActive()
             Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
         }
+        if(_checkList.id == "UndvikEllerMinimera"){
+            holder.itemAdd.visibility = View.INVISIBLE
+        }
     }
 
     override fun getItemCount(): Int {
