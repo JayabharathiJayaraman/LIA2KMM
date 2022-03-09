@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/form_imageview_caption_container"
     android:orientation="horizontal"
+    android:layout_weight="1"
     >
 
     <LinearLayout
