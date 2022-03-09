@@ -1,22 +1,18 @@
 import shared
 import UIKit
 
-class RootViewController: UIViewController {
+class FormViewController: UIViewController {
     @IBOutlet private weak var containerView: UIView!
     
-    private var viewModel: FormViewModel
-    private var interfaceGenerator: IOSFormGenerator
+    private var viewModel = IOSFormViewModel.shared
+    private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
     
     init() {
         let interfaceGenerator = IOSFormGenerator()
-        let test = FormFactory().createForm()
-        let viewModel = FormViewModel(test: test)
-        self.viewModel = viewModel
         self.interfaceGenerator = interfaceGenerator
-        interfaceGenerator.viewModel = viewModel
         
-        let nibName = String(describing: RootViewController.self)
+        let nibName = String(describing: FormViewController.self)
         super.init(nibName: nibName, bundle: nil)
     }
 
@@ -29,7 +25,7 @@ class RootViewController: UIViewController {
         
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            self.displayComponents(components: newState.components)
+            self.updateOrGenerateNewComponents(components: newState.components)
         }
     }
     
@@ -44,9 +40,23 @@ class RootViewController: UIViewController {
     }
 }
 
-private extension RootViewController {
+private extension FormViewController {
+    func updateOrGenerateNewComponents(components: [FormComponent]) {
+        var generateNewComponents = true
+        
+        if let mainView = containerView.subviews.first {
+            mainView.subviews.forEach { componentView in
+                
+            }
+        }
+        
+        if generateNewComponents {
+            displayComponents(components: components)
+        }
+    }
+    
     func displayComponents(components: [FormComponent]) {
-        guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
+        guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true

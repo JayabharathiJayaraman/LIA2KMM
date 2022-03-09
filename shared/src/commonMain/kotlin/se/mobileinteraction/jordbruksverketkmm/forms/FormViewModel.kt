@@ -7,24 +7,20 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTex
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 
 class FormViewModel constructor(
-    test: FormGeneralQuestions = FormGeneralQuestions()
-) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(test)) {
+    form: FormGeneralQuestions = FormGeneralQuestions()
+) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(form)) {
     fun nextScreen() {
-        updateStateAndSave {
-            if (currentScreen < totalScreens - 1){
+        if (state.value.currentScreen < state.value.form.screens.size - 1) {
+            updateStateAndSave {
                 copy(currentScreen = currentScreen + 1)
-            }else{
-                copy(currentScreen = currentScreen)
             }
         }
     }
 
     fun previousScreen() {
-        updateStateAndSave {
-            if (currentScreen > 0){
+        if (state.value.currentScreen > 0) {
+            updateStateAndSave {
                 copy(currentScreen = currentScreen - 1)
-            }else{
-                copy(currentScreen = currentScreen)
             }
         }
     }
@@ -45,10 +41,6 @@ class FormViewModel constructor(
         val components: List<FormComponent> = form.screens[currentScreen].components
         val totalScreens: Int = form.screens.size
     }
-
-
-
-
 
     fun setTextData(id: String, text: String) {
         state.value.components.firstOrNull {

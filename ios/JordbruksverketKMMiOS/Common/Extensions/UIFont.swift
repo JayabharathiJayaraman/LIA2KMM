@@ -12,3 +12,8 @@ extension UIFont {
         return UIFontMetrics.default.scaledFont(for: customFont)
     }
 }
+
+extension UIFont {
+    static let fontNameRegular = "OpenSans-Regular"
+    static let fontNameBold = "OpenSans-Bold"
+}
