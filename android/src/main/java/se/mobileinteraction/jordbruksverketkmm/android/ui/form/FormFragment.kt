@@ -61,14 +61,14 @@ class FormFragment : Fragment() {
     private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
 
-        displayComponents(state.components)
+        displayComponents(state.components, state.currentScreen)
     }
 
-    private fun displayComponents(components: List<FormComponent>) {
+    private fun displayComponents(components: List<FormComponent>, currentScreen: Int) {
         if (binding?.scrollView?.childCount == 0) {
             binding?.scrollView?.addView(formGenerator?.createInterface(components))
         } else {
-            formGenerator?.updateInterface(components)
+            formGenerator?.updateInterface(components, currentScreen)
         }
     }
 }
