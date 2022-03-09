@@ -11,7 +11,7 @@ class IOSFormGenerator: FormGenerator {
     }
     
     func updateInterface(components: [FormComponent]) {
-       generateInterface(components: components)
+        generateInterface(components: components)
     }
     
     func createInterface(components: [FormComponent]) -> Any {
@@ -63,17 +63,17 @@ class IOSFormGenerator: FormGenerator {
         if mainView.subviews.count > 0 {
         outerLoop: for component in components {
         innerLoop: for view in mainView.subviews {
-                    if let view = view as? LabelWithId {
-                        if view.idString == component.id {
-                            shouldClearScreen = false
-                            break innerLoop
-                        }
-                    }
+            if let view = view as? LabelWithId {
+                if view.idString == component.id {
+                    shouldClearScreen = false
+                    break innerLoop
                 }
-            break outerLoop
             }
         }
-                
+            break outerLoop
+        }
+        }
+        
         if shouldClearScreen { mainView.subviews.forEach { $0.removeFromSuperview() }}
     }
 }
@@ -186,7 +186,7 @@ extension UIStackView {
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontForContentSizeCategory = true
         label.textColor = UIColor.Jordbruksverket.defaultTextColor
-
+        
         return label
     }
     

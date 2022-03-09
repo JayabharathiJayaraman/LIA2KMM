@@ -573,7 +573,6 @@
 				9D07BE2427BBFF1C00FF1D55 /* OpenSans-BoldItalic.ttf in Resources */,
 				9D07BE2127BBFF1C00FF1D55 /* OpenSans-LightItalic.ttf in Resources */,
 				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
-				2E22F6D427C92277005C893A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
