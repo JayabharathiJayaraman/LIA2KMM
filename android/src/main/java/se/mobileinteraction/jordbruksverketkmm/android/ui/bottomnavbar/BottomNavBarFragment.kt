@@ -13,7 +13,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBottomNavBarBinding
 
 class BottomNavBarFragment : Fragment() {
-    
+
     private var fragmentBottomNavBarBinding: FragmentBottomNavBarBinding? = null
 
     override fun onCreateView(
@@ -54,7 +54,7 @@ class BottomNavBarFragment : Fragment() {
         binding.progressLayout.removeAllViews()
         for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
-            progressItem.layoutParams = LinearLayout.LayoutParams(500/totalScreens, 50)
+            progressItem.layoutParams = LinearLayout.LayoutParams(progressItem.layoutParams.width/totalScreens, R.dimen.form_progressbar_height)
             progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
             binding.progressLayout.addView(progressItem)
         }
