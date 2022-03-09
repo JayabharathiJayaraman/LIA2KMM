@@ -12,14 +12,18 @@ class FormViewModel(
     form: FormInfiltrations = FormInfiltrations()
 ) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(form)) {
     fun nextScreen() {
-        updateStateAndSave {
-            copy(currentScreen = currentScreen + 1)
+        if (state.value.currentScreen < state.value.form.screens.size - 1) {
+            updateStateAndSave {
+                copy(currentScreen = currentScreen + 1)
+            }
         }
     }
 
     fun previousScreen() {
-        updateStateAndSave {
-            copy(currentScreen = currentScreen - 1)
+        if (state.value.currentScreen > 0) {
+            updateStateAndSave {
+                copy(currentScreen = currentScreen - 1)
+            }
         }
     }
 

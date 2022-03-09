@@ -17,20 +17,20 @@ data class Common(
 )
 
 data class FarmInformation(
-    var farmName: String? = null,
-    var farmLand: String? = null,
+    var farmName: String = "",
+    var farmLand: String = "",
 )
 
 data class SoilAssesment(
-    var soilType: String? = null,
-    var crop: String? = null,
-    var precedingCrop: String? = null,
-    var soilHandling: String? = null,
+    var soilType: String = "",
+    var crop: String = "",
+    var precedingCrop: String = "",
+    var soilHandling: String = "",
 )
 
 data class PlaceAssesment(
     var rating: Int? = null,
-    var other: String? = null,
+    var other: String = "",
 )
 
 data class Coordinates(

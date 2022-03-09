@@ -6,11 +6,6 @@ import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormType
 
-class MainApplicationDagger : Application() {
-   // val formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
-   val formViewModel: FormViewModel = FormViewModel(FormInfiltrations(FormType.Infiltration))
-
-    override fun onCreate() {
-        super.onCreate()
-    }
+class MainApplication : Application() {
+    val formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
 }

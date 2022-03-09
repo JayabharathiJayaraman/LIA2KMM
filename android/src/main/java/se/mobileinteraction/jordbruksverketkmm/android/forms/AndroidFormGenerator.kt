@@ -1,12 +1,23 @@
 package se.mobileinteraction.jordbruksverketkmm.android.forms
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.*
+import android.graphics.drawable.Drawable
+import android.view.View
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
+import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 
 
@@ -17,6 +28,14 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
     init {
         val linearLayout = LinearLayout(context)
         this.mainView = linearLayout
+class AndroidFormGenerator(private val context: Context, private val viewModel: FormViewModel) : FormGenerator {
+    private var mainView: LinearLayout = LinearLayout(context).also {
+        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        it.layoutParams = params
+        it.orientation = LinearLayout.VERTICAL
     }
 
     private fun getDrawable(image: String): Int {
@@ -30,6 +49,8 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
         linearLayout.layoutParams = params
         linearLayout.orientation = LinearLayout.VERTICAL
         mainView = linearLayout
+    override fun generateInterface(components: List<FormComponent>) {
+        clearScreenIfNecessary(components)
 
         val innerImageLayoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
         innerImageLayout.layoutParams = innerImageLayoutParams
@@ -48,7 +69,7 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
                 }
                 ComponentType.BODY -> {
                     val body = (component as FormComponentText)
-                    addBodyLabel(body.text)
+                    mainView.createOrUpdateBodyLabel(body.text, body.id)
                 }
                 ComponentType.TEXTFIELD -> {
                     val textField = (component as FormComponentTextField)
@@ -64,7 +85,11 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
                 }
                 ComponentType.IMAGE -> {
                     val image = (component as FormComponentImage)
-                    addImage(image.image, image.caption)
+                    mainView.addImage(image.image, image.caption)
+                }
+                ComponentType.TEXTFIELD -> {
+                    val textField = (component as FormComponentTextField)
+                    mainView.addTextField(textField.id, textField.text, textField.placeholder)
                 }
                 ComponentType.CAPTIONEDIMAGE -> {
                     val image = (component as FormComponentImage)
@@ -93,21 +118,37 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
                 else -> println("unknown")
             }
         }
+    }
+
+    override fun createInterface(components: List<FormComponent>): View {
+        generateInterface(components)
 
         return mainView
     }
 
+    override fun updateInterface(components: List<FormComponent>) {
+        generateInterface(components)
     override fun addBigTitleLabel(text: String) {
         val binding: FormBigTitleLabelBinding = FormBigTitleLabelBinding.inflate(LayoutInflater.from(context))
         binding.bigTitleLabelTextview.text = text
         mainView.addView(binding.formBigTitleLabelContainer.rootView)
     }
 
+    private fun clearScreenIfNecessary(components: List<FormComponent>) {
+        if (mainView.childCount > 0) {
+            val shouldClearScreen = components.none { it.id == mainView.getChildAt(0).tag }
+            if (shouldClearScreen) mainView.removeAllViews()
+        }
+    }
+}
+
     override fun addSmallTitleLabel(text: String) {
         val binding: FormSmallTitleLabelBinding = FormSmallTitleLabelBinding.inflate(LayoutInflater.from(context))
         binding.bigTitleLabelTextview.text = text
         mainView.addView(binding.formBigTitleLabelContainer.rootView)
     }
+private fun ViewGroup.addBigTitleLabel(text: String) {
+}
 
     override fun addBodyLabel(text: String) {
         val binding: FormBodyLabelBinding = FormBodyLabelBinding.inflate(LayoutInflater.from(context))
@@ -136,12 +177,41 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
         binding.spinner.adapter = dataAdapter
         mainView.addView(binding.formButtonlistContainer.rootView)
     }
+private fun ViewGroup.addSmallTitleLabel(text: String) {
+}
+
+private fun ViewGroup.createOrUpdateBodyLabel(text: String, id: String) {
+    val textView = this.findViewWithTag<TextView>(id) ?: TextView(context).apply { tag = id }
+        .also { this.addView(it) }
+    textView.text = text
+}
+
+private fun ViewGroup.addTextField(id: String, text: String, placeholder: String) {
+    println("logg: addTextField: $text")
+    val editText = this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
+        .also {
+            it.setText(text)
+            it.addTextChangedListener { editable ->
+                println("logg: TEXT LISTENER: ${editable.toString()}")
+                if (text != editable.toString()) getApplication().formViewModel.setTextData(id, editable.toString())
+            }
+            this.addView(it)
+        }
+}
 
     fun addCheckListItem(text: String, image: String){
         val binding: FormChecklistitemBinding = FormChecklistitemBinding.inflate(LayoutInflater.from(context))
         binding.formRadiobtn.text = text
         mainView.addView(binding.formRadiobtnContainer.rootView)
     }
+private fun ViewGroup.addButtonList(
+    id: String,
+    title: String,
+    list: List<String>,
+    value: String,
+    placeholder: String
+) {
+}
 
     fun addImage(imageName: String, caption: String) {
         val binding: FormImageViewBinding = FormImageViewBinding.inflate(LayoutInflater.from(context))
@@ -205,9 +275,18 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
         val imageView = ImageView(context)
         imageView.layoutParams = LinearLayout.LayoutParams(150,150)
         imageView.setImageResource(getDrawable(imageName))
+private fun ViewGroup.addImage(imageName: String, caption: String) {
+    val imageView = ImageView(context)
+    imageView.setImageResource(getImageResource(imageName))
 
+    this.addView(imageView)
         innerVerticalLayout.addView(imageView)
 
+    val textView = TextView(context)
+    textView.text = caption
+
+    this.addView(textView)
+}
         val imageCaption= TextView(context)
         imageCaption.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         imageCaption.text = caption
@@ -218,11 +297,14 @@ class AndroidFormGenerator(val context: Context) : FormGenerator {
             mainView.addView(innerImageLayout)
         }
 
+private fun ViewGroup.getImageResource(name: String): Int {
+    return context.resources.getIdentifier("drawable/$name", null, context.packageName)
+}
 //        binding.imageview.setImageResource(getDrawable(imageName))
 //        binding.textviewCaption.text = caption
 //        mainView.addView(binding.formImageviewCaptionContainer.rootView)
     }
 
-    override fun clear() {
-    }
+private fun ViewGroup.getApplication(): MainApplication {
+    return context.applicationContext as MainApplication
 }

@@ -21,18 +21,8 @@
             app:destination="@id/dataPrivacyPolicyFragment" />
         <action
             android:id="@+id/navigateToAboutApp"
-            app:destination="@id/vmTest" />
+            app:destination="@id/aboutAppFragment" />
     </fragment>
-
-
-    <fragment
-        android:id="@+id/vmTest"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.form.FormFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-    </fragment>
-
-
     <fragment
         android:id="@+id/startScreenFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.startscreen.StartScreenFragment"
@@ -41,6 +31,9 @@
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/navigate_from_startScreenFragment_to_newTestFragment"
+            app:destination="@id/newTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
@@ -68,4 +61,9 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/newTestFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.newtest.NewTestFragment"
+        android:label="fragment_new_test"
+        tools:layout="@layout/fragment_new_test" />
 </navigation>

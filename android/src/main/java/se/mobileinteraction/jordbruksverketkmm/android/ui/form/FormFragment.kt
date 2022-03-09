@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentFormBinding
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
@@ -25,7 +26,10 @@ class FormFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        this.formGenerator = AndroidFormGenerator(context)
+
+        val viewModel = (activity?.application as MainApplication).formViewModel
+        //this.formGenerator = AndroidFormGenerator(context)
+        this.formGenerator = AndroidFormGenerator(context, viewModel)
     }
 
     override fun onCreateView(
@@ -41,6 +45,10 @@ class FormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val application = (activity?.application as MainApplication)
+        val viewModel = application.formViewModel
+
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect(::updateView)
@@ -63,10 +71,16 @@ class FormFragment : Fragment() {
 
     private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
-
-        addForm(state.components)
+        //addForm(state.components)
+        displayComponents(state.components)
     }
 
+    private fun displayComponents(components: List<FormComponent>) {
+        if (binding?.scrollView?.childCount == 0) {
+            binding?.scrollView?.addView(formGenerator?.createInterface(components))
+        } else {
+            formGenerator?.updateInterface(components)
+        }
     private fun addForm(components: List<FormComponent>) {
         val mainView = formGenerator?.getInterface(components) as LinearLayout
         binding?.scrollView?.removeAllViewsInLayout()
