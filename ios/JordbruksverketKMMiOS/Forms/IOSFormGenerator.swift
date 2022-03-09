@@ -4,13 +4,19 @@ import UIKit
 
 class IOSFormGenerator: FormGenerator {
     private var mainView = UIStackView()
+    private var currentScreenRendered: Int32 = 0
     
     init() {
         mainView.axis = .vertical
         mainView.distribution = .fillProportionally
     }
     
-    func updateInterface(components: [FormComponent]) {
+    func updateInterface(components: [FormComponent], currentScreen: Int32) {
+        if currentScreen != currentScreenRendered {
+            mainView.subviews.forEach { $0.removeFromSuperview() }
+            currentScreenRendered = currentScreen
+        }
+        
         generateInterface(components: components)
     }
     
@@ -21,22 +27,20 @@ class IOSFormGenerator: FormGenerator {
     }
     
     func generateInterface(components: [FormComponent]) {
-        clearScreenIfNecessary(components: components)
-        
         if mainView.subviews.count == 0 {
             for component in components {
                 switch component.type {
                 case .body:
                     if let body = component as? FormComponentText {
-                        mainView.addBodyLabel(id: body.id, text: body.text)
+                        mainView.addBodyLabel(text: body.text)
                     }
                 case .titlebig:
                     if let title = component as? FormComponentText {
-                        mainView.addBigTitleLabel(id: title.id, text: title.text)
+                        mainView.addBigTitleLabel(text: title.text)
                     }
                 case .titlesmall:
                     if let title = component as? FormComponentText {
-                        mainView.addSmallTitleLabel(id: title.id, text: title.text)
+                        mainView.addSmallTitleLabel(text: title.text)
                     }
                 case .textfield:
                     if let textfield = component as? FormComponentTextField {
@@ -56,26 +60,6 @@ class IOSFormGenerator: FormGenerator {
             }
         }
     }
-    
-    private func clearScreenIfNecessary(components: [FormComponent]) {
-        var shouldClearScreen = true
-        
-        if mainView.subviews.count > 0 {
-        outerLoop: for component in components {
-        innerLoop: for view in mainView.subviews {
-            if let view = view as? LabelWithId {
-                if view.idString == component.id {
-                    shouldClearScreen = false
-                    break innerLoop
-                }
-            }
-        }
-            break outerLoop
-        }
-        }
-        
-        if shouldClearScreen { mainView.subviews.forEach { $0.removeFromSuperview() }}
-    }
 }
 
 extension UIStackView {
@@ -94,21 +78,19 @@ extension UIStackView {
         self.addArrangedSubview(label)
     }
     
-    func addBigTitleLabel(id: String, text: String) {
+    func addBigTitleLabel(text: String) {
         let label = getDefaultLabel()
-        label.idString = id
         label.text = text
         label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
         
         self.addArrangedSubview(label)
     }
     
-    func addSmallTitleLabel(id: String, text: String) {
+    func addSmallTitleLabel(text: String) {
         var verticalSpacing = getVerticalSpacingView(withHeight: 20)
         self.addArrangedSubview(verticalSpacing)
         
         let label = getDefaultLabel()
-        label.idString = id
         label.text = text
         label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
         
@@ -118,9 +100,8 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpacing)
     }
     
-    func addBodyLabel(id: String, text: String) {
+    func addBodyLabel(text: String) {
         let label = getDefaultLabel()
-        label.idString = id
         label.text = text
         label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         
@@ -158,7 +139,7 @@ extension UIStackView {
     }
     
     func addButtonList(id: String, title: String, list: [String], value: String, placeholder: String) {
-        addSmallTitleLabel(id: id, text: title)
+        addSmallTitleLabel(text: title)
         
         let verticalSpacing = getVerticalSpacingView(withHeight: 5)
         self.addArrangedSubview(verticalSpacing)
@@ -180,8 +161,8 @@ extension UIStackView {
         self.addArrangedSubview(button)
     }
     
-    func getDefaultLabel() -> LabelWithId {
-        let label = LabelWithId()
+    func getDefaultLabel() -> UILabel {
+        let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontForContentSizeCategory = true

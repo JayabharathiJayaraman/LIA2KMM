@@ -25,7 +25,7 @@ class FormViewController: UIViewController {
         
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            self.displayComponents(components: newState.components)
+            self.displayComponents(components: newState.components, currentScreen: newState.currentScreen)
         }
     }
     
@@ -45,7 +45,7 @@ class FormViewController: UIViewController {
 }
 
 private extension FormViewController {
-    func displayComponents(components: [FormComponent]) {
+    func displayComponents(components: [FormComponent], currentScreen: Int32) {
         if containerView.subviews.count == 0 {
             guard let mainView = interfaceGenerator.createInterface(components: components) as? UIStackView else { return }
             containerView.addSubview(mainView)
@@ -55,7 +55,7 @@ private extension FormViewController {
             mainView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
             mainView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: -40).isActive = true
         } else {
-            interfaceGenerator.updateInterface(components: components)
+            interfaceGenerator.updateInterface(components: components, currentScreen: currentScreen)
         }
     }
     
