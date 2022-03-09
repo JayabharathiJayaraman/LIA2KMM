@@ -123,14 +123,14 @@ extension UIStackView {
             (view as? TextFieldWithId)?.idString == id
         } as? TextFieldWithId
         
+        var textField = TextFieldWithId()
+        
         if let existingView = existingView {
-            existingView.text = text
+            textField = existingView
         } else {
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
             
-            let textField = TextFieldWithId()
-            textField.text = text
             textField.placeholder = placeholder
             textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             textField.idString = id
@@ -138,6 +138,8 @@ extension UIStackView {
             
             self.addArrangedSubview(textField)
         }
+        
+        textField.text = text
     }
     
     @objc
