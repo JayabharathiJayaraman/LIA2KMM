@@ -10,7 +10,17 @@ class IOSFormGenerator: FormGenerator {
         mainView.distribution = .fillProportionally
     }
     
-    func generateInterface(components: [FormComponent]) -> Any {
+    func updateInterface(components: [FormComponent]) {
+       generateInterface(components: components)
+    }
+    
+    func createInterface(components: [FormComponent]) -> Any {
+        generateInterface(components: components)
+        
+        return mainView
+    }
+    
+    func generateInterface(components: [FormComponent]) {
         clearScreenIfNecessary(components: components)
         
         if mainView.subviews.count == 0 {
@@ -45,8 +55,6 @@ class IOSFormGenerator: FormGenerator {
                 }
             }
         }
-        
-        return mainView
     }
     
     private func clearScreenIfNecessary(components: [FormComponent]) {

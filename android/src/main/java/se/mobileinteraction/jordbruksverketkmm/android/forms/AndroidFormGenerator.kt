@@ -25,7 +25,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         it.orientation = LinearLayout.VERTICAL
     }
 
-    override fun generateInterface(components: List<FormComponent>): View {
+    override fun generateInterface(components: List<FormComponent>) {
         clearScreenIfNecessary(components)
 
         for (component in components) {
@@ -45,8 +45,16 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 else -> println("unknown")
             }
         }
+    }
+
+    override fun createInterface(components: List<FormComponent>): View {
+        generateInterface(components)
 
         return mainView
+    }
+
+    override fun updateInterface(components: List<FormComponent>) {
+        generateInterface(components)
     }
 
     private fun clearScreenIfNecessary(components: List<FormComponent>) {

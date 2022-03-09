@@ -47,7 +47,7 @@ class FormViewController: UIViewController {
 private extension FormViewController {
     func displayComponents(components: [FormComponent]) {
         if containerView.subviews.count == 0 {
-            guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
+            guard let mainView = interfaceGenerator.createInterface(components: components) as? UIStackView else { return }
             containerView.addSubview(mainView)
             mainView.translatesAutoresizingMaskIntoConstraints = false
             mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -55,7 +55,7 @@ private extension FormViewController {
             mainView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
             mainView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: -40).isActive = true
         } else {
-            _ = interfaceGenerator.generateInterface(components: components)
+            interfaceGenerator.updateInterface(components: components)
         }
     }
     

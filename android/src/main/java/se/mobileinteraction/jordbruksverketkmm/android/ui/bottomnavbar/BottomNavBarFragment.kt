@@ -13,7 +13,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBottomNavBarBinding
 
 class BottomNavBarFragment : Fragment() {
-
+    
     private var fragmentBottomNavBarBinding: FragmentBottomNavBarBinding? = null
 
     override fun onCreateView(
@@ -51,7 +51,6 @@ class BottomNavBarFragment : Fragment() {
     }
 
     private fun setProgress(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
-
         binding.progressLayout.removeAllViews()
         for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
@@ -63,7 +62,6 @@ class BottomNavBarFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setText(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
-
         binding.bottomNavbarProgressText.text = "${currentScreen + 1} av $totalScreens"
     }
 

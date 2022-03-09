@@ -65,11 +65,10 @@ class FormFragment : Fragment() {
     }
 
     private fun displayComponents(components: List<FormComponent>) {
-        println("logg: DISPLAY COMPONENTS")
         if (binding?.scrollView?.childCount == 0) {
-            binding?.scrollView?.addView(formGenerator?.generateInterface(components))
+            binding?.scrollView?.addView(formGenerator?.createInterface(components))
         } else {
-            formGenerator?.generateInterface(components)
+            formGenerator?.updateInterface(components)
         }
     }
 }
