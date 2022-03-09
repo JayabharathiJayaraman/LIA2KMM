@@ -24,7 +24,7 @@ class FormComponentText(override val type: ComponentType, override val id: Strin
 class FormComponentTextField(
     override val type: ComponentType,
     override val id: String,
-    val text: String,
+    var text: String,
     val placeholder: String,
 ) : FormComponent
 

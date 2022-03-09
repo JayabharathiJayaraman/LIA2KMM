@@ -17,6 +17,15 @@
 
         </ScrollView>
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container_view"
+            android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.bottomnavbar.BottomNavBarFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6">
+
+        </androidx.fragment.app.FragmentContainerView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

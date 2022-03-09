@@ -3,11 +3,30 @@ import shared
 import UIKit
 
 class IOSFormGenerator: FormGenerator {
-    func generateInterface(components: [FormComponent]) -> Any {
-        let mainView = UIStackView()
+    private var mainView = UIStackView()
+    private var currentScreenRendered: Int32 = 0
+
+    init() {
         mainView.axis = .vertical
         mainView.distribution = .fillProportionally
+    }
 
+    func updateInterface(components: [FormComponent], currentScreen: Int32) {
+        if currentScreen != currentScreenRendered {
+            mainView.subviews.forEach { $0.removeFromSuperview() }
+            currentScreenRendered = currentScreen
+        }
+
+        generateInterface(components: components)
+    }
+
+    func createInterface(components: [FormComponent]) -> Any {
+        generateInterface(components: components)
+
+        return mainView
+    }
+
+    func generateInterface(components: [FormComponent]) {
         if mainView.subviews.count == 0 {
             for component in components {
                 switch component.type {
@@ -40,8 +59,6 @@ class IOSFormGenerator: FormGenerator {
                 }
             }
         }
-        
-        return mainView
     }
 }
 
@@ -87,22 +104,32 @@ extension UIStackView {
         let label = getDefaultLabel()
         label.text = text
         label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-
+        
         self.addArrangedSubview(label)
     }
     
-    func addTextField(id: String, text: String, placeholder: String) {
-        let verticalSpacing = getVerticalSpacingView(withHeight: 10)
-        self.addArrangedSubview(verticalSpacing)
-        
-        let textField = TextFieldWithId()
+    func createOrUpdateTextField(id: String, text: String, placeholder: String) {
+        let existingView = self.subviews.first { view in
+            (view as? TextFieldWithId)?.idString == id
+        } as? TextFieldWithId
+
+        var textField = TextFieldWithId()
+
+        if let existingView = existingView {
+            textField = existingView
+        } else {
+            let verticalSpacing = getVerticalSpacingView(withHeight: 10)
+            self.addArrangedSubview(verticalSpacing)
+
+            textField.placeholder = placeholder
+            textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+            textField.idString = id
+            textField.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+
+            self.addArrangedSubview(textField)
+        }
+
         textField.text = text
-        textField.placeholder = placeholder
-        textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-        textField.idString = id
-        textField.addTarget(self, action: #selector(textFieldChange), for: .allEditingEvents)
-        
-        self.addArrangedSubview(textField)
     }
     
     @objc
@@ -133,7 +160,7 @@ extension UIStackView {
         
         self.addArrangedSubview(button)
     }
-
+    
     func getDefaultLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0

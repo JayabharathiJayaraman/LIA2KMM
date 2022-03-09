@@ -21,18 +21,8 @@
             app:destination="@id/dataPrivacyPolicyFragment" />
         <action
             android:id="@+id/navigateToAboutApp"
-            app:destination="@id/vmTest" />
+            app:destination="@id/aboutAppFragment" />
     </fragment>
-
-
-    <fragment
-        android:id="@+id/vmTest"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.form.FormFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-    </fragment>
-
-
     <fragment
         android:id="@+id/startScreenFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.startscreen.StartScreenFragment"

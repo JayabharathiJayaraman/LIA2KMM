@@ -1,11 +1,16 @@
 package se.mobileinteraction.jordbruksverketkmm.android.forms
-
 import android.R
+import android.app.Application
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.*
 import androidx.core.widget.addTextChangedListener
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
@@ -24,10 +29,9 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         it.layoutParams = params
         it.orientation = LinearLayout.VERTICAL
     }
+    private var currentScreenRendered: Int = 0
 
-    override fun generateInterface(components: List<FormComponent>): View {
-        clearScreenIfNecessary(components)
-
+    override fun generateInterface(components: List<FormComponent>) {
         for (component in components) {
             when (component.type) {
                 ComponentType.TITLESMALL -> {
@@ -73,14 +77,20 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 else -> println("unknown")
             }
         }
+    }
+
+    override fun createInterface(components: List<FormComponent>): View {
+        generateInterface(components)
+
         return mainView
     }
 
-    private fun clearScreenIfNecessary(components: List<FormComponent>) {
-        if (mainView.childCount > 0) {
-            val shouldClearScreen = components.none { it.id == mainView.getChildAt(0).tag }
-            if (shouldClearScreen) mainView.removeAllViews()
+    override fun updateInterface(components: List<FormComponent>, currentScreen: Int) {
+        if (currentScreen != currentScreenRendered) {
+            mainView.removeAllViews()
+            currentScreenRendered = currentScreen
         }
+        generateInterface(components)
     }
 }
 

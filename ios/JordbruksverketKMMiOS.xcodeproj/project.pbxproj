@@ -19,6 +19,7 @@
 		2E22F6D427C92277005C893A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E22F6CB27C9079F005C893A /* Localizable.strings */; };
 		2E22F6D527CCD275005C893A /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
 		2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F3EAE27D76E21008A336C /* UILabel.swift */; };
+		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
@@ -92,15 +93,15 @@
 		9D5A8C5A27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
 		9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
 		9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
+		9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C6927D8D7C800239E45 /* Localizable.strings */; };
+		9D5A8C6627D8D7C800239E45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C6927D8D7C800239E45 /* Localizable.strings */; };
+		9D5A8C6727D8D7C800239E45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C6927D8D7C800239E45 /* Localizable.strings */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
-		9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E1E9127A7FA92002E7D94 /* Localizable.strings */; };
-		9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E1E9127A7FA92002E7D94 /* Localizable.strings */; };
-		9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D8E1E9127A7FA92002E7D94 /* Localizable.strings */; };
 		A2E3C9C42D84B45B91E6638A /* Pods_JordbruksverketKMMiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,7 +133,6 @@
 		2E4F3EAE27D76E21008A336C /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
-		2E6FE47327B5511700BDD838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
 		2E846FC227B987D7004B2E9A /* opensans_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = opensans_bold.ttf; sourceTree = "<group>"; };
@@ -177,9 +177,10 @@
 		9D34C54427A150180043B5A1 /* FormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormViewController.xib; sourceTree = "<group>"; };
 		9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormViewModel.swift; sourceTree = "<group>"; };
 		9D5A8C5927D762FB00239E45 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9D5A8C6827D8D7C800239E45 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D5A8C6A27D8D7CF00239E45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		9D8E1E9227A7FAFC002E7D94 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,8 +398,7 @@
 				9D07BE1427BBFED600FF1D55 /* Fonts */,
 				5133637F27BAAA5C00A1CF2D /* Fonts */,
 				2E82CA3C27BA4E0B007BAA7A /* Fonts */,
-				9D8E1E9127A7FA92002E7D94 /* Localizable.strings */,
-				2E22F6CB27C9079F005C893A /* Localizable.strings */,
+				9D5A8C6927D8D7C800239E45 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -523,7 +523,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D8E1E8D27A7FA92002E7D94 /* Localizable.strings in Resources */,
 				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D07BE3427BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
@@ -534,6 +533,9 @@
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* RootViewController.xib in Resources */,
 				2E22F6D227C92275005C893A /* Localizable.strings in Resources */,
+				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
+				9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */,
+				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 				5133638327BAABA400A1CF2D /* opensans_semi_bold.ttf in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
@@ -558,6 +560,7 @@
 				9D07BE3827BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
 				9D07BE2927BBFF1C00FF1D55 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				9D07BE2F27BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
+				9D5A8C6627D8D7C800239E45 /* Localizable.strings in Resources */,
 				9D07BE3527BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D07BE3227BBFF1C00FF1D55 /* OpenSans-ExtraBold.ttf in Resources */,
 				9D07BE2C27BBFF1C00FF1D55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
@@ -567,6 +570,7 @@
 				2E22F6D327C92276005C893A /* Localizable.strings in Resources */,
 				9D34C54927A150180043B5A1 /* RootViewController.xib in Resources */,
 				9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D07BE2327BBFF1C00FF1D55 /* OpenSans-BoldItalic.ttf in Resources */,
 				9D07BE2027BBFF1C00FF1D55 /* OpenSans-LightItalic.ttf in Resources */,
 				9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
@@ -586,11 +590,10 @@
 				9D07BE3C27BBFF1C00FF1D55 /* OpenSans-Light.ttf in Resources */,
 				9D07BE2727BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
 				9D34C54A27A150180043B5A1 /* FormViewController.xib in Resources */,
-				9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */,
+				9D5A8C6727D8D7C800239E45 /* Localizable.strings in Resources */,
 				9D07BE2427BBFF1C00FF1D55 /* OpenSans-BoldItalic.ttf in Resources */,
 				9D07BE2127BBFF1C00FF1D55 /* OpenSans-LightItalic.ttf in Resources */,
 				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
-				2E22F6D427C92277005C893A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +632,10 @@
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D34C54527A150180043B5A1 /* RootViewController.swift in Sources */,
+				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
+				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
@@ -696,15 +703,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2E22F6CB27C9079F005C893A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E22F6CA27C9079F005C893A /* sv */,
-				2E22F6D127C91FE3005C893A /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		9D34C51227A14C740043B5A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -721,12 +719,11 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		9D8E1E9127A7FA92002E7D94 /* Localizable.strings */ = {
+		9D5A8C6927D8D7C800239E45 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9D8E1E9227A7FAFC002E7D94 /* sv */,
-				2E6FE47327B5511700BDD838 /* en */,
-				51C3C2DE27B6A20F00454C9B /* en */,
+				9D5A8C6827D8D7C800239E45 /* sv */,
+				9D5A8C6A27D8D7CF00239E45 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -859,10 +856,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8QSKY9M895;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
@@ -877,7 +875,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverketkmm.JordbruksverketKMMiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverket.kmm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -893,7 +891,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
