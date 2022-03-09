@@ -28,6 +28,10 @@ class StartScreenFragment : Fragment() {
             view.findNavController().navigate(R.id.navigateToMenu)
         }
 
+        binding.imageNewTestButton.setOnClickListener {
+            view.findNavController().navigate(R.id.navigate_from_startScreenFragment_to_newTestFragment)
+        }
+
         return view
     }
 

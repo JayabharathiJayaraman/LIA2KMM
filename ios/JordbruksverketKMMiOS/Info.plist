@@ -4,6 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>OpenSans_SemiBold.ttf</string>
+		<string>opensans_regular.ttf</string>
+		<string>opensans_bold.ttf</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
 		<string>OpenSans-Bold.ttf</string>
 		<string>OpenSans-Regular.ttf</string>
 		<string>OpenSans-Medium.ttf</string>
@@ -28,5 +34,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 </dict>
 </plist>
