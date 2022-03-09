@@ -3,58 +3,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:paddingBottom="20dp"
     tools:context=".ui.bottomnavbar.BottomNavBarFragment">
 
-    <ImageView
-        android:id="@+id/bottom_navbar_back"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="left"
-        android:paddingBottom="20dp"
-        android:contentDescription="@string/navigation_back"
-        android:src="@drawable/ic_baseline_arrow_back_green"
-        tools:ignore="RtlHardcoded" />
-
-    <ImageView
-        android:id="@+id/bottom_navbar_forward"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="right"
-        android:paddingBottom="20dp"
-        android:contentDescription="@string/navigation_forward"
-        android:src="@drawable/ic_baseline_arrow_forward_green"
-        tools:ignore="RtlHardcoded" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toStartOf="@id/bottom_navbar_forward"
-        android:layout_toEndOf="@+id/bottom_navbar_back"
-        android:orientation="vertical">
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:paddingBottom="20dp"
+        >
+
+
+        <ImageView
+            android:id="@+id/bottom_navbar_back"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_gravity="left"
+            android:paddingBottom="20dp"
+            android:paddingRight="10dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_baseline_arrow_back_green"
+            tools:ignore="RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/bottom_navbar_forward"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_baseline_arrow_forward_green"
+            tools:ignore="RtlHardcoded" />
 
         <LinearLayout
-            android:id="@+id/progress_layout"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/bottom_navbar_back"
+            android:layout_toStartOf="@id/bottom_navbar_forward"
+            android:orientation="vertical">
 
+
+            <LinearLayout
+                android:id="@+id/progress_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bottom_navbar_progress_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/bottom_navbar_text"
+                android:textColor="#2f651a"
+                android:textSize="16sp" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/bottom_navbar_progress_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/bottom_navbar_text"
-            android:textColor="#2f651a"
-            android:textSize="16sp" />
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

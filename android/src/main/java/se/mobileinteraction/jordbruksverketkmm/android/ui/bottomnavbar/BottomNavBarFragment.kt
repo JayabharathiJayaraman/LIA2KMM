@@ -22,15 +22,11 @@ class BottomNavBarFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_bottom_nav_bar, container, false)
         val binding = FragmentBottomNavBarBinding.bind(view)
-
         val application = (activity?.application as MainApplication)
         var currentScreen: Int = application.formViewModel.state.value.currentScreen
         var totalScreens:Int = application.formViewModel.state.value.totalScreens
 
-        setContent(binding, totalScreens, currentScreen)
-
         binding.bottomNavbarBack.setOnClickListener {
-
             application.formViewModel.previousScreen()
             currentScreen = application.formViewModel.state.value.currentScreen
             setContent(binding, totalScreens, currentScreen)
@@ -39,6 +35,10 @@ class BottomNavBarFragment : Fragment() {
         binding.bottomNavbarForward.setOnClickListener {
             application.formViewModel.nextScreen()
             currentScreen = application.formViewModel.state.value.currentScreen
+            setContent(binding, totalScreens, currentScreen)
+        }
+
+        view.post {
             setContent(binding, totalScreens, currentScreen)
         }
 
@@ -52,9 +52,10 @@ class BottomNavBarFragment : Fragment() {
 
     private fun setProgress(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
         binding.progressLayout.removeAllViews()
+        val containerWidth = binding.progressLayout.measuredWidth
         for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
-            progressItem.layoutParams = LinearLayout.LayoutParams(progressItem.layoutParams.width/totalScreens, R.dimen.form_progressbar_height)
+            progressItem.layoutParams = LinearLayout.LayoutParams(containerWidth/totalScreens, 50)
             progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
             binding.progressLayout.addView(progressItem)
         }
