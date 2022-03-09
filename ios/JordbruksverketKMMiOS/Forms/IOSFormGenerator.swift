@@ -58,6 +58,7 @@ class IOSFormGenerator: FormGenerator {
                     if let view = view as? LabelWithId {
                         if view.idString == component.id {
                             shouldClearScreen = false
+                            break
                         }
                     }
                 }
