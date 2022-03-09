@@ -63,9 +63,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             }
         }
-        
-        print("SHOULD REFRESH: \(shouldClearScreen)")
-        
+                
         if shouldClearScreen { mainView.subviews.forEach { $0.removeFromSuperview() }}
     }
 }
@@ -126,9 +124,7 @@ extension UIStackView {
         
         if let existingView = existingView {
             existingView.text = text
-            print("logg: SETTING EXISTING")
         } else {
-            print("logg: CREATING")
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
             
