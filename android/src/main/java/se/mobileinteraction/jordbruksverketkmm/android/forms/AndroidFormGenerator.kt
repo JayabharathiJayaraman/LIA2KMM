@@ -51,7 +51,6 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
 
     private fun clearScreenIfNecessary(components: List<FormComponent>) {
         if (mainView.childCount > 0) {
-            println("logg: CHILD COUNT > 0 in clearScreen")
             val shouldClearScreen = components.none { it.id == mainView.getChildAt(0).tag }
             if (shouldClearScreen) mainView.removeAllViews()
         }
