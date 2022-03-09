@@ -573,6 +573,7 @@
 				9D07BE2427BBFF1C00FF1D55 /* OpenSans-BoldItalic.ttf in Resources */,
 				9D07BE2127BBFF1C00FF1D55 /* OpenSans-LightItalic.ttf in Resources */,
 				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
+				2E22F6D427C92277005C893A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +682,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2E22F6CB27C9079F005C893A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E22F6CA27C9079F005C893A /* sv */,
+				2E22F6D127C91FE3005C893A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9D34C51227A14C740043B5A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
