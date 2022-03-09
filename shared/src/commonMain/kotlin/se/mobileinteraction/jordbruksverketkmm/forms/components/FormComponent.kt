@@ -39,11 +39,12 @@ class FormComponentButtonList(
 
 class FormComponentButton(
     override val type: ComponentType,
+    override val id: String,
     val text: String
 ) : FormComponent
-
 class FormComponentChecklist(
     override val type: ComponentType,
+    override val id: String,
     val text: String,
     val image: String,
 ) : FormComponent
@@ -57,6 +58,7 @@ class FormComponentImage(
 
 class FormComponentImageCaption(
     override val type: ComponentType,
+    override val id: String,
     val text: String,
     val image: String
 ) : FormComponent
