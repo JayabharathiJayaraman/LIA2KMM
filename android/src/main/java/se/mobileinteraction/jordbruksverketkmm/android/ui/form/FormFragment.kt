@@ -50,10 +50,6 @@ class FormFragment : Fragment() {
                 viewModel.state.collect(::updateView)
             }
         }
-
-        binding?.next?.setOnClickListener { application.formViewModel.nextScreen() }
-        binding?.back?.setOnClickListener { application.formViewModel.previousScreen() }
-
     }
 
     override fun onDestroyView() {
