@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,22 +19,49 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="tjS-Lt-bKk">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="tjS-Lt-bKk">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwF-Yg-fLj">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WwF-Yg-fLj">
+                            <rect key="frame" x="0.0" y="128" width="414" height="379"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nkt-Kl-zWc">
+                            <rect key="frame" x="310" y="694" width="67" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="l4n-cH-VDB"/>
+                                <constraint firstAttribute="height" constant="31" id="yUx-42-ob0"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                            <connections>
+                                <action selector="nextViewButton:" destination="-1" eventType="touchUpInside" id="HOL-cS-lfQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNO-UM-HKq">
+                            <rect key="frame" x="39" y="694" width="67" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="VrN-ER-2iD"/>
+                                <constraint firstAttribute="height" constant="31" id="gl2-Og-zLd"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                            <connections>
+                                <action selector="previousViewButton:" destination="-1" eventType="touchUpInside" id="lvH-P3-ipG"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="WwF-Yg-fLj" firstAttribute="width" secondItem="tjS-Lt-bKk" secondAttribute="width" id="8lh-br-j5b"/>
-                        <constraint firstItem="WwF-Yg-fLj" firstAttribute="centerY" secondItem="tjS-Lt-bKk" secondAttribute="centerY" priority="250" id="91o-9q-KK7"/>
+                        <constraint firstItem="WwF-Yg-fLj" firstAttribute="centerY" secondItem="tjS-Lt-bKk" secondAttribute="centerY" priority="250" constant="-82.5" id="91o-9q-KK7"/>
+                        <constraint firstItem="Nkt-Kl-zWc" firstAttribute="centerX" secondItem="tjS-Lt-bKk" secondAttribute="centerX" constant="136.5" id="MNJ-Nv-HqP"/>
                         <constraint firstItem="WwF-Yg-fLj" firstAttribute="trailing" secondItem="OkV-xO-4yU" secondAttribute="trailing" id="NcA-xt-7aC"/>
-                        <constraint firstItem="WwF-Yg-fLj" firstAttribute="bottom" secondItem="OkV-xO-4yU" secondAttribute="bottom" id="QlJ-h0-mPL"/>
+                        <constraint firstItem="eNO-UM-HKq" firstAttribute="centerX" secondItem="tjS-Lt-bKk" secondAttribute="centerX" constant="-134.5" id="QSU-CL-OBR"/>
+                        <constraint firstItem="Nkt-Kl-zWc" firstAttribute="centerY" secondItem="tjS-Lt-bKk" secondAttribute="centerY" constant="322.5" id="XAS-Fp-I68"/>
                         <constraint firstItem="WwF-Yg-fLj" firstAttribute="centerX" secondItem="tjS-Lt-bKk" secondAttribute="centerX" priority="250" id="XvC-ul-ulz"/>
                         <constraint firstItem="WwF-Yg-fLj" firstAttribute="leading" secondItem="OkV-xO-4yU" secondAttribute="leading" id="oZZ-6d-Iky"/>
-                        <constraint firstItem="WwF-Yg-fLj" firstAttribute="top" secondItem="OkV-xO-4yU" secondAttribute="top" id="psf-hC-RdQ"/>
+                        <constraint firstItem="WwF-Yg-fLj" firstAttribute="top" secondItem="OkV-xO-4yU" secondAttribute="top" constant="128" id="psf-hC-RdQ"/>
+                        <constraint firstItem="eNO-UM-HKq" firstAttribute="centerY" secondItem="tjS-Lt-bKk" secondAttribute="centerY" constant="322.5" id="uPK-QO-bCP"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="OkV-xO-4yU"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="qzK-gC-xtu"/>
@@ -48,12 +75,12 @@
                 <constraint firstItem="tjS-Lt-bKk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XU7-Gy-ydH"/>
                 <constraint firstItem="tjS-Lt-bKk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kli-PA-kAe"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="97"/>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </view>
     </objects>
     <resources>
         <namedColor name="defaultBackground">
-            <color red="0.67177054586765628" green="1" blue="0.63744996350991212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.67199999094009399" green="1" blue="0.63700002431869507" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

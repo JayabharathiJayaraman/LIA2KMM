@@ -2,11 +2,13 @@ import shared
 import UIKit
 
 class FormViewController: UIViewController {
+    
     @IBOutlet private weak var containerView: UIView!
     
     private var viewModel = IOSFormViewModel.shared
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
+   
     
     init() {
         let interfaceGenerator = IOSFormGenerator()
@@ -33,12 +35,24 @@ class FormViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
+    
+    @IBAction func nextViewButton(_ sender: Any) {
+        nextScreen()
+    }
+    
+    @IBAction func previousViewButton(_ sender: Any) {
+        previousScreen()
+    }
+    
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         listeningJob?.close()
     }
 }
+
+
 
 private extension FormViewController {
     func updateOrGenerateNewComponents(components: [FormComponent]) {
@@ -55,8 +69,9 @@ private extension FormViewController {
         }
     }
     
-    func displayComponents(components: [FormComponent]) {
+   func displayComponents(components: [FormComponent]) {
         guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
+        mainView.tag = 100
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -66,10 +81,20 @@ private extension FormViewController {
     }
     
     func nextScreen() {
+        if let viewWithTag = self.view.viewWithTag(100) {
+               viewWithTag.removeFromSuperview()
+           }else{
+               print("")
+           }
         viewModel.nextScreen()
     }
     
     func previousScreen() {
+        if let viewWithTag = self.view.viewWithTag(100) {
+               viewWithTag.removeFromSuperview()
+           }else{
+               print("")
+           }
         viewModel.previousScreen()
     }
 }
