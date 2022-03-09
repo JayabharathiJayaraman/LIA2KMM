@@ -137,7 +137,7 @@ extension UIStackView {
             textField.placeholder = placeholder
             textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             textField.idString = id
-            textField.addTarget(self, action: #selector(textFieldChange), for: .allEditingEvents)
+            textField.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
             
             self.addArrangedSubview(textField)
         }
