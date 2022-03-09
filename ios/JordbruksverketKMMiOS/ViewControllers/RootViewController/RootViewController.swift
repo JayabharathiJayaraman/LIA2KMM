@@ -33,20 +33,31 @@ class RootViewController: UIViewController {
         }
     }
     
+    @IBAction func previousButton(_ sender: Any) {
+        previousScreen()
+    }
+    
+    @IBAction func nextButton(_ sender: Any) {
+        nextScreen()
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("viewDidAppear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         listeningJob?.close()
+        print("viewDidDisAppear")
     }
 }
 
 private extension RootViewController {
     func displayComponents(components: [FormComponent]) {
         guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
+        containerView.willRemoveSubview(mainView)
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -56,10 +67,14 @@ private extension RootViewController {
     }
     
     func nextScreen() {
+        print("iOS, new state recieved: nextScreen")
         viewModel.nextScreen()
+       // navigationController?.pushViewController(nextScreen(), animated: true)
     }
     
     func previousScreen() {
         viewModel.previousScreen()
+       // navigationController?.pushViewController(viewModel.previousScreen(), animated: true)
+        print("iOS, new state recieved: previousScreen")
     }
 }

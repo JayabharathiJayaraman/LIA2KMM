@@ -108,7 +108,6 @@ class IOSFormGenerator: FormGenerator {
         let label = getDefaultLabel()
         label.text = text
         label.font = UIFont.scaledFont(name: LocalConstants.fontNameRegular, textStyle: .body)
-        
         mainView.addArrangedSubview(label)
     }
     
@@ -133,6 +132,7 @@ class IOSFormGenerator: FormGenerator {
     }
     
     func addButtonList(id: String, title: String, list: [String], value: String, placeholder: String) {
+        print("iOS, new state recieved: buttonlist")
         addSmallTitleLabel(text: title)
         
         let verticalSpacing = getVerticalSpacingView(withHeight: 5)
