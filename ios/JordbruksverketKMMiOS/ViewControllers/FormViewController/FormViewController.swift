@@ -9,7 +9,6 @@ class FormViewController: UIViewController {
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
    
-    
     init() {
         let interfaceGenerator = IOSFormGenerator()
         self.interfaceGenerator = interfaceGenerator
@@ -51,8 +50,6 @@ class FormViewController: UIViewController {
         listeningJob?.close()
     }
 }
-
-
 
 private extension FormViewController {
     func updateOrGenerateNewComponents(components: [FormComponent]) {
