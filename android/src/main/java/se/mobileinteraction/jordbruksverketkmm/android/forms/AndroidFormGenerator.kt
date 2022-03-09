@@ -36,7 +36,11 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
             when (component.type) {
                 ComponentType.TITLESMALL -> {
                     val titleSmall = (component as FormComponentText)
-                    mainView.addSmallTitleLabel(titleSmall.text)
+                    mainView.createOrUpdateSmallTitleLabel(titleSmall.text, titleSmall.id)
+                }
+                ComponentType.TITLEBIG -> {
+                    val bigTitle = (component as FormComponentText)
+                    mainView.createOrUpdateBigTitleLabel(bigTitle.text, bigTitle.id)
                 }
                 ComponentType.BODY -> {
                     val body = (component as FormComponentText)
@@ -48,31 +52,35 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.TEXTFIELDNOTES -> {
                     val textFieldNotes = (component as FormComponentTextField)
-                    mainView.addTextFieldNotes(textFieldNotes.id, textFieldNotes.text, textFieldNotes.placeholder)
+                    mainView.createOrUpdateTextFieldNotes(
+                        textFieldNotes.id,
+                        textFieldNotes.text,
+                        textFieldNotes.placeholder
+                    )
                 }
                 ComponentType.BUTTON -> {
                     val button = (component as FormComponentButton)
-                    mainView.addButton(button.text)
-                }
+                    mainView.createOrUpdateButton(button.text, button.id)                }
                 ComponentType.BUTTONLIST -> {
                     val buttonList = (component as FormComponentButtonList)
-                    mainView.addButtonList(buttonList.id, buttonList.title, buttonList.list,buttonList.value,buttonList.placeholder)
+                    mainView.createOrUpdateButtonList(
+                        buttonList.id,
+                        buttonList.list,
+                        buttonList.value,
+                        buttonList.placeholder
+                    )
                 }
                 ComponentType.REMARK -> {
-                    val remark = (component as FormComponentChecklist)
-                    mainView.addChecklistRemark(remark.text, remark.image)
+                    val remark = (component as FormComponentRemark)
+                    mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
                 }
                 ComponentType.IMAGE -> {
                     val image = (component as FormComponentImage)
-                    mainView.addImage(image.image, image.caption)
+                    mainView.createOrUpdateImage(image.image, image.caption)
                 }
                 ComponentType.TEXTFIELD -> {
                     val textField = (component as FormComponentTextField)
                     mainView.addTextField(textField.id, textField.text, textField.placeholder)
-                }
-                ComponentType.IMAGECAPTION -> {
-                    val imageWithCaption = (component as FormComponentImageCaption)
-                    mainView.addImageWithCaption(imageWithCaption.text, imageWithCaption.image)
                 }
                 else -> println("unknown")
             }
@@ -94,20 +102,29 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
     }
 }
 
-private fun ViewGroup.addBigTitleLabel(text: String) {
+
+private fun ViewGroup.createOrUpdateBigTitleLabel(text: String, id: String) {
+    val binding: FormBigTitleLabelBinding =
+        FormBigTitleLabelBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formBigTitleLabelContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+    binding.bigTitleLabelTextview.text = text
 }
 
-private fun ViewGroup.addSmallTitleLabel(text: String) {
+private fun ViewGroup.createOrUpdateSmallTitleLabel(text: String, id: String) {
     val binding: FormSmallTitleLabelBinding =
         FormSmallTitleLabelBinding.inflate(LayoutInflater.from(context))
+
     this.findViewWithTag(id) ?: binding.formSmallTitleLabelContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
+
     binding.smallTitleLabelTextview.text = text
 }
 
 private fun ViewGroup.createOrUpdateBodyLabel(text: String, id: String) {
     val binding: FormBodyLabelBinding = FormBodyLabelBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formBodyLabelContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
     binding.bodyLabelTextview.text = text
 }
 
@@ -124,51 +141,56 @@ private fun ViewGroup.addTextField(id: String, text: String, placeholder: String
         }
     val binding: FormTextfieldBinding = FormTextfieldBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formTextfieldContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
     binding.formTextfield.hint = placeholder
+
 }
 
-private  fun ViewGroup.addTextFieldNotes(id: String, text: String, placeholder: String) {
+private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, placeholder: String) {
+    println("logg: addTextField: $text")
     val binding: FormTextfieldNotesBinding =
         FormTextfieldNotesBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formTextfieldnotesContainer.rootView.apply { tag = id }
+    this.findViewWithTag<EditText>(id) ?: binding.formTextfieldnotesContainer.apply { tag = id }
+        .also { this.addView(it) }
     binding.textfield.hint = placeholder
 }
 
-private fun ViewGroup.addButtonList(
+private fun ViewGroup.createOrUpdateButtonList(
     id: String,
-    title: String,
     list: List<String>,
     value: String,
     placeholder: String
 ) {
     val binding: FormButtonListBinding = FormButtonListBinding.inflate(LayoutInflater.from(context))
-    val dataAdapter: ArrayAdapter<String> =
-        ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, list)
     this.findViewWithTag(id) ?: binding.formButtonlistContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+    val dataAdapter: ArrayAdapter<String> =
+        ArrayAdapter<String>(context, R.layout.simple_dropdown_item_1line, list)
+
     binding.spinner.adapter = dataAdapter
 }
 
-private fun ViewGroup.addImage(imageName: String, caption: String) {
-    val imageView = ImageView(context)
-    imageView.setImageResource(getImageResource(imageName))
+private fun ViewGroup.createOrUpdateImage(imageName: String, caption: String) {
+    val binding: FormImageBinding = FormImageBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formImageviewContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
 
-    this.addView(imageView)
-
-    val textView = TextView(context)
-    textView.text = caption
-
-    this.addView(textView)
+    binding.imageview.setImageResource(getImageResource(imageName))
+    binding.textView.text = caption
 }
-private fun ViewGroup.addButton(text: String){
+
+private fun ViewGroup.createOrUpdateButton(text: String, id: String) {
     val binding: FormButtonBinding = FormButtonBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formButtonContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
     binding.button.text = text
 }
-private fun ViewGroup.addChecklistRemark(text: String, image: String){
-    val binding: FormChecklistRemarkBinding = FormChecklistRemarkBinding.inflate(LayoutInflater.from(context))
+private fun ViewGroup.createOrUpdateRemark(text: String, id: String, image: String) {
+    val binding: FormRemarkBinding = FormRemarkBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formRemarkContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
     binding.textview.text = text
     binding.imageview.setImageResource(getImageResource(image))
-    this.findViewWithTag(id) ?: binding.formChecklistremarkContainer.rootView.apply { tag = id }
 }
 
 private fun ViewGroup.addImageWithCaption(text: String, image: String) {

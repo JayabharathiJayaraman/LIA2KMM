@@ -18,7 +18,11 @@ interface FormComponent {
     val id: String
 }
 
-class FormComponentText(override val type: ComponentType, override val id: String, val text: String) :
+class FormComponentText(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String
+    ) :
     FormComponent
 
 class FormComponentTextField(
@@ -31,7 +35,6 @@ class FormComponentTextField(
 class FormComponentButtonList(
     override val type: ComponentType,
     override val id: String,
-    val title: String,
     val list: List<String>,
     val value: String,
     val placeholder: String,
@@ -42,7 +45,8 @@ class FormComponentButton(
     override val id: String,
     val text: String
 ) : FormComponent
-class FormComponentChecklist(
+
+class FormComponentRemark(
     override val type: ComponentType,
     override val id: String,
     val text: String,
