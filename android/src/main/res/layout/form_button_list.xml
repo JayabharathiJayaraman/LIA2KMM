@@ -5,13 +5,24 @@
     android:layout_height="match_parent"
     android:id="@+id/form_buttonlist_container">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/open_sans_semi_bold"
+        android:textStyle="normal"
+        android:textSize="16sp"
+        android:textColor="@color/green">
+    </TextView>
+
     <Spinner
-        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/spinner"
         android:background="@drawable/spinner_background"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp">
+        >
     </Spinner>
 
 </LinearLayout>

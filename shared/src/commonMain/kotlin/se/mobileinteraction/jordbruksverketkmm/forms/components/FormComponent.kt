@@ -13,7 +13,8 @@ enum class ComponentType {
     CHECKLIST,
     TIMEFIELD,
     EMPTYLINE,
-    FACESBUTTON
+    REMARK,
+    WHATNEXT,
 }
 
 interface FormComponent {
@@ -21,11 +22,9 @@ interface FormComponent {
     val id: String
 }
 
-class FormComponentText(override val type: ComponentType, override val id: String, val text: String) :
-    FormComponent
-class FormComponentText(override val type: ComponentType, val text: String) : FormComponent
+class FormComponentText(override val type: ComponentType, override val id: String, val text: String) : FormComponent
 
-class FormComponentButton(override val type: ComponentType, val text: String) : FormComponent
+class FormComponentButton(override val type: ComponentType, override val id: String, val text: String) : FormComponent
 
 class FormComponentTextField(
     override val type: ComponentType,
@@ -43,6 +42,13 @@ class FormComponentButtonList(
     val placeholder: String,
 ) : FormComponent
 
+class FormComponentRemark(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String,
+    val image: String,
+) : FormComponent
+
 class FormComponentImage(
     override val type: ComponentType,
     override val id: String,
@@ -52,22 +58,27 @@ class FormComponentImage(
 
 class FormComponentChecklist(
     override val type: ComponentType,
+    override val id: String,
     val text: String,
     val image: String,
 ) : FormComponent
 
 class FormComponentTime(
     override val type: ComponentType,
+    override val id: String,
     val start: String,
     val stopp: String,
 ) : FormComponent
 
 class FormComponentLine(
-    override val type: ComponentType, val text: String
+    override val type: ComponentType,
+    override val id: String,
+    val text: String
 ): FormComponent
 
 class FormComponentFacesButton(
     override val type: ComponentType,
+    override val id: String,
     val faceImage: String,
     val text: String,
 ) : FormComponent

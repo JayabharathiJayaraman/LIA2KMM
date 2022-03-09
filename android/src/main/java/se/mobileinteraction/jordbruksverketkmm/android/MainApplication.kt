@@ -7,5 +7,6 @@ import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormType
 
 class MainApplication : Application() {
-    val formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
+    //val formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
+    val formViewModel: FormViewModel = FormViewModel(FormInfiltrations(FormType.Infiltration))
 }

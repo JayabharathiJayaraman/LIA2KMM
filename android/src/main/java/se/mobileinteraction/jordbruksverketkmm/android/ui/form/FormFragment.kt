@@ -19,8 +19,6 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
 
 class FormFragment : Fragment() {
-
-    private val viewModel: FormViewModel = FormViewModel(form = FormInfiltrations())
     private var binding: FragmentFormBinding? = null
     private var formGenerator: AndroidFormGenerator? = null
 
@@ -28,7 +26,6 @@ class FormFragment : Fragment() {
         super.onAttach(context)
 
         val viewModel = (activity?.application as MainApplication).formViewModel
-        //this.formGenerator = AndroidFormGenerator(context)
         this.formGenerator = AndroidFormGenerator(context, viewModel)
     }
 
@@ -54,13 +51,6 @@ class FormFragment : Fragment() {
                 viewModel.state.collect(::updateView)
             }
         }
-        binding?.btnNextScreen?.setOnClickListener {
-            viewModel.nextScreen()
-        }
-
-        binding?.btnPreviousScreen?.setOnClickListener {
-            viewModel.previousScreen()
-        }
     }
 
     override fun onDestroyView() {
@@ -71,7 +61,7 @@ class FormFragment : Fragment() {
 
     private fun updateView(state: FormViewModel.State) {
         println("StateJV: $state")
-        //addForm(state.components)
+
         displayComponents(state.components)
     }
 
@@ -81,9 +71,5 @@ class FormFragment : Fragment() {
         } else {
             formGenerator?.updateInterface(components)
         }
-    private fun addForm(components: List<FormComponent>) {
-        val mainView = formGenerator?.getInterface(components) as LinearLayout
-        binding?.scrollView?.removeAllViewsInLayout()
-        binding?.scrollView?.addView(mainView)
     }
 }

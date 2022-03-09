@@ -16,52 +16,63 @@ data class FormInfiltrations(
             (
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "beskrivningTitleScreen1",
                     type = ComponentType.TITLESMALL,
                     text = "Beskrivning"
                 ),
                 FormComponentText(
+                    id = "beskrivningBodyScreen1",
                     type = ComponentType.BODY,
                     text = "I detta test mäter du hur vatten infiltrerar i marken. Hur vatten kan röra sig i marken är ett mycket bra mått på strukturen. Testet tar cirka 30 minuter. " +
                             "\n\nMät i första hand i matjorden. Om du vill kan du även mäta i andra skikt, som bearbetningssula och alv. Vägledning för hur du hittar skikten finns i markstrukturtestet."
                 ),
                 FormComponentText(
+                    id = "utrustningTitleScreen1",
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
                 FormComponentImage(
+                    id = "braGrävspadeImage",
                     type = ComponentType.CAPTIONEDIMAGE,
                     image = "shovel",
                     caption = "Bra grävspade",
                 ),
                 FormComponentImage(
+                    id = "cylinderImage",
                     type = ComponentType.CAPTIONEDIMAGE,
                     image = "cylinder",
                     caption = "Cylinder",
                 ),
                 FormComponentImage(
+                    id = "vattenImage",
                     type = ComponentType.CAPTIONEDIMAGE,
                     image = "waterdrops",
                     caption = "Vatten",
                 ),
                 FormComponentImage(
+                    id = "litermåttImage",
                     type = ComponentType.CAPTIONEDIMAGE,
                     image = "litre",
                     caption = "Litermått",
                 ),
                 FormComponentImage(
+                    id = "tumstockImage",
                     type = ComponentType.CAPTIONEDIMAGE,
                     image = "ruler",
                     caption = "Tumstock",
                 ),
                 FormComponentText(
+                    id = "utrustningBodyScreen1",
                     type = ComponentType.BODY,
                     text = "Räkna med 3 liter vatten för ett test (med en cylinder på cirka 20 cm i diameter). Cylindern tillverkar du enkelt själv. Läs mer under info-knappen."
                 ),
                 FormComponentText(
+                    id = "tipsTitleScreen1",
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
                 FormComponentText(
+                    id  = "tipsBodyScreen1",
                     type = ComponentType.BODY,
                     text = "Använd brädlapp och gummiklubba för att få ner cylindern om det är hårt i marken."
                 ),
@@ -71,6 +82,7 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "uppgifterTitleScreen2",
                     type = ComponentType.TITLESMALL,
                     text = "Uppgifter om gård och skifte"
                 ),
@@ -93,71 +105,49 @@ data class FormInfiltrations(
                     placeholder = "Datum",
                 ),
                 FormComponentButton(
+                    id = "hämtaUppgifterButtonTextScreen2",
                     type = ComponentType.BUTTON,
                     text = "Hämta uppgifter från annat test",
                 ),
                 FormComponentText(
+                    id = "tipsTitleScreen2",
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
                 FormComponentText(
+                    id = "tipsBodyScreen2",
                     type = ComponentType.BODY,
                     text = "Om du har ett stort skifte med stora olikheter i jordat och brukningsegenskaper så kan du dela upp skiftet. Det kan göra det enklare att svara på frågorna i testen, bedöma markstrukturen och möjliga åtgärder."
                 ),
             ),
         ),
-
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
-                    type = ComponentType.TITLESMALL,
-                    text = "Grundförutsättningar"
-                ),
-                FormComponentText(
-                    type = ComponentType.TITLESMALL,
-                    text = "Jordat"
-                ),
-                FormComponentButtonList(
-                    type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
-                    title = "Jordat",
-                    list = listOf("Sand, grovmo", "Finmo, mjäla", "Leriga jordar (5-15%)", "Lättlera (15-25%)", "Mellanlera (25-40%)", "Styv lera (40-60%)", "Mycket styv lera (>60%)",
-                        "Moränlera", "Mulljord (torvjord under)", "Mulljord (gyttjejord under)"),
-                    value = "ett",
-                    placeholder = "Välj...",
-                ),
-                FormComponentText(
-                    type = ComponentType.TITLESMALL,
-                    text = "Tips!"
-                ),
-                FormComponentText(
-                    type = ComponentType.BODY,
-                    text = "Om det finns en markkartering så kan du titta på den för att få en uppfattning om vilken jordart som dominerar på skiftet."
-                ),
-            ),
-        ),
-        FormScreen(
-            components = listOf<FormComponent>(
-                FormComponentText(
+                    id = "testetsPlatsScreen3",
                     type = ComponentType.TITLESMALL,
                     text = "Testets plats"
                 ),
                 FormComponentChecklist(
+                    id = "radioButton1Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Representativ",
                     image = "src"
                 ),
                 FormComponentChecklist(
+                    id = "radioButton2Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Bra plats",
                     image = "src"
                 ),
                 FormComponentChecklist(
+                    id = "radioButton3Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Dålig plats",
                     image = "src"
                 ),
                 FormComponentChecklist(
+                    id = "radioButton4Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Annan",
                     image = "src"
@@ -169,10 +159,12 @@ data class FormInfiltrations(
                     placeholder = "Ange annan typ av plats",
                 ),
                 FormComponentText(
+                    id = "väljaPlatsTitleScreen3",
                     type = ComponentType.TITLESMALL,
                     text = "Att välja plats"
                 ),
                 FormComponentText(
+                    id = "väljaPlatsBodyScreen3",
                     type = ComponentType.BODY,
                     text = "Välj i första hand en plats som är representativ för skiftet. Den ger en bild av hur fältet ser ut och fungerar i största allmänhet. " +
                             "\n\nFör att lära dig mer om just din jord så kan du gå vidare och utföra testet på fler platser på fältet. Välj då gärna en plats som är bättre än din representativa plats och eventuellt en plats som är sämre. Då kan du jämföra hur markstrukturen i fältet ser ut i förhållande till hur den kan vara som bäst och som sämst. " +
@@ -185,10 +177,12 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "platsTitleScreen4",
                     type = ComponentType.TITLESMALL,
                     text = "Plats"
                 ),
                 FormComponentText(
+                    id = "platsBodyScreen4",
                     type = ComponentType.BODY,
                     text = "Tryck på kartan för att välja din exakta position"
                 ),
@@ -197,27 +191,31 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "grundförutsättningarTitleScreen5",
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
                 FormComponentText(
+                    id = "jordatTitleScreen5",
                     type = ComponentType.TITLESMALL,
                     text = "Jordat"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
-                    title = "Jordat",
+                    id = ID_SOILTYPE,
+                    title = "",
                     list = listOf("Sand, grovmo", "Finmo, mjäla", "Leriga jordar (5-15%)", "Lättlera (15-25%)", "Mellanlera (25-40%)", "Styv lera (40-60%)", "Mycket styv lera (>60%)",
                         "Moränlera", "Mulljord (torvjord under)", "Mulljord (gyttjejord under)"),
                     value = "ett",
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
+                    id = "tipsTitleScreen5",
                     type = ComponentType.TITLESMALL,
                     text = "Tips!"
                 ),
                 FormComponentText(
+                    id = "tipsBodyScreen5",
                     type = ComponentType.BODY,
                     text = "Om det finns en markkartering så kan du titta på den för att få en uppfattning om vilken jordart som dominerar på skiftet." +
                             "\n\nEn grov bedömning av jordarten kan göras ute i fält, utifrån jordens utseende och formbarhet. For mineraljordar gör du det genom ett utrullningsprov. Se hur du gör det i info-bubblan uppe till höger."
@@ -227,17 +225,19 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "grundförutsättningarTitleScreen6",
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
                 FormComponentText(
+                    id = "grödaTitleScreen6",
                     type = ComponentType.TITLESMALL,
                     text = "Gröda"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
-                    title = "Gröda",
+                    id = ID_SOILTYPE,
+                    title = "",
                     list = listOf("Vårstråsäd", "Höststråsäd", "Våroljeväxter", "Höstoljeväxter", "Vall", "Potatis", "Majs",
                         "Åkerbönor", "Ärter", "Sockerbetor", "Frilandsgrönsaker", "Frukt och Bär", "Övriga grödor",
                         "Mellangröda Fånggröda", "Bevuxen träda", "Stubb", "Ingen gröda - öppen jord"),
@@ -245,13 +245,14 @@ data class FormInfiltrations(
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
+                    id = "förfuktrsgrödaTitleScreen6",
                     type = ComponentType.TITLESMALL,
                     text = "Förfuktrsgröda"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
-                    title = "Förfuktrsgröda",
+                    id = ID_SOILTYPE,
+                    title = "",
                     list = listOf("Vårstråsäd", "Höststråsäd", "Våroljeväxter", "Höstoljeväxter", "Vall", "Potatis", "Majs",
                         "Åkerbönor", "Ärter", "Sockerbetor", "Frilandsgrönsaker", "Frukt och Bär", "Övriga grödor",
                         "Mellangröda Fånggröda", "Bevuxen träda", "Stubb", "Ingen gröda - öppen jord"),
@@ -259,13 +260,14 @@ data class FormInfiltrations(
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
+                    id = "jordbearbetningTitleScreen6",
                     type = ComponentType.TITLESMALL,
                     text = "Jordbearbetning"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
-                    title = "Jordbearbetning",
+                    id = ID_SOILTYPE,
+                    title = "",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
                     value = "ett",
                     placeholder = "Välj...",
@@ -275,19 +277,23 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "infiltrationsmätningTitleScreen7",
                     type = ComponentType.TITLESMALL,
                     text = "Infiltrationsmätning"
                 ),
                 FormComponentImage(
+                    id = "infiltrationsTestImage",
                     type = ComponentType.IMAGE,
                     image = "infiltrationstest_prep",
                     caption = ""
                 ),
                 FormComponentText(
+                    id = "görSåHärTitleScreen7",
                     type = ComponentType.TITLESMALL,
                     text = "Gör så här"
                 ),
                 FormComponentText(
+                    id = "görSåHärBodyScreen7",
                     type = ComponentType.BODY,
                     text = "1. Tryck ner cylindern 2-3 cm i marken. Undvik stora sprickor." +
                             "\n\n2. Häll försiktigt i vattnet till cirka 10 cm vattenhöjd. Häll mot handen så minskar risken att vattnet slammar igen porer. Titta så det inte läcker längs cylinderns nedre kant." +
@@ -298,14 +304,17 @@ data class FormInfiltrations(
                             "\n\nOm infiltrationen går mycket långsamt kan du mäta längre än 30 minuter om du vill."
                 ),
                 FormComponentText(
+                    id = "infiltrationsTestTitleScreen7",
                     type = ComponentType.TITLESMALL,
                     text = "Infiltrationstest i flera skikt"
                 ),
                 FormComponentText(
+                    id = "infiltrationsTestBodyScreen7",
                     type = ComponentType.BODY,
                     text = "Om du vill göra infiltrationstestet i flera skikt i marken så gör inte nästa test precis under det föregående. Då blir nya testet påverkat av vattnet från det förra testet. Gräv istället till nästa nivå lite bredvid det förra testet och utför ditt nya test där."
                 ),
                 FormComponentImage(
+                    id = "test3LevelsImage",
                     type = ComponentType.IMAGE,
                     image = "test3_levels",
                     caption = ""
@@ -315,17 +324,19 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "infiltrationstestTitleScreen8",
                     type = ComponentType.TITLESMALL,
-                    text = "Infiltrationsmätning"
+                    text = "Infiltrationstest"
                 ),
                 FormComponentText(
+                    id = "vilketSkiktTitleScreen8",
                     type = ComponentType.TITLESMALL,
                     text = "På vilket skikt mäter du infiltrationen?"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
-                    title = "På vilket skikt mäter du infiltrationen?",
+                    id = ID_SOILTYPE,
+                    title = "",
                     list = listOf("Markyta/Matjord", "Bearbetningssula 1", "Bearbetningssula 2", "Alv"),
                     value = "ett",
                     placeholder = "Välj...",
@@ -343,19 +354,23 @@ data class FormInfiltrations(
                     placeholder = "mm till vattenytan (stopp)",
                 ),
                 FormComponentText(
+                    id = "tidsåtgångTitleScreen8",
                     type = ComponentType.TITLESMALL,
                     text = "Tidsåtgång:"
                 ),
                FormComponentTime(
+                   id = "timeScreen8",
                    type = ComponentType.TIMEFIELD,
                    start = "",
                    stopp = ""
                ),
                 FormComponentLine(
+                    id = "dividerScreen8",
                     type = ComponentType.EMPTYLINE,
                     text = "-"
                 ),
                 FormComponentText(
+                    id = "nymätningTitleScreen8",
                     type = ComponentType.TITLESMALL,
                     text = "Ny mätning +"
                 ),
@@ -364,6 +379,7 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "noteringarTitleScreen9",
                     type = ComponentType.TITLESMALL,
                     text = "Noteringar och kommentarer"
                 ),
@@ -378,9 +394,62 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
+                    id = "resultatTitleScreen10",
                     type = ComponentType.TITLEBIG,
                     text = "Resultat"
                 ),
+                FormComponentText(
+                    id = "resultatBodyScreen10",
+                    type = ComponentType.BODY,
+                    text = "Genomsläppligheten för vatten bör överstiga 4 mm per timme för att du ska få en god effekt av din dränering. Intensiteten i ett sommarregn är ofta ca 3 mm per timme."
+                ),
+                FormComponentText(
+                    id = "vadSymbolenTitleScreen10",
+                    type = ComponentType.TITLESMALL,
+                    text = "Vad betyder symbolen?"
+                ),
+                FormComponentRemark(
+                    id = "structureSadRemarkScreen10",
+                    type = ComponentType.REMARK,
+                    text = "<4 mm/tim" +
+                            "Oj, här behövs det krafttag för att förbättra markstrukturen!",
+                    image = "sad_face"
+                ),
+                FormComponentRemark(
+                    id = "structureIndifferentRemarkScreen10",
+                    type = ComponentType.REMARK,
+                    text = "4-12 mm/tim" +
+                            "Här finns det en del att göra åt markstrukturen!",
+                    image = "indifferent_face"
+                ),
+                FormComponentRemark(
+                    id = "structureHappyRemarkScreen10",
+                    type = ComponentType.REMARK,
+                    text = ">12 mm/tim" +
+                            "Mycket bra markstruktur!Vårda den!",
+                    image = "happy_face"
+                ),
+                FormComponentText(
+                    id = "tipsTitleScreen10",
+                    type = ComponentType.TITLESMALL,
+                    text = "Tips!"
+                ),
+                FormComponentText(
+                    id = "tipsBodyScreen10",
+                    type = ComponentType.TITLESMALL,
+                    text = "Gå till \"\\\"Mina test\\\"\" och exportera testet som datafil direkt när du är klar!Då har du ditt arbete tryggt sparat även på annan plats. Annars finns det bara i appen i din mobil."
+                ),
+                FormComponentText(
+                    id = "vadNuTitleScreen10",
+                    type = ComponentType.TITLESMALL,
+                    text = "Vad vill du göra nu?"
+                ),
+                FormComponentText(
+                    id = "vadNuImagesScreen10",
+                    type = ComponentType.WHATNEXT,
+                    text = ""
+                ),
+
             ),
         ),
     )

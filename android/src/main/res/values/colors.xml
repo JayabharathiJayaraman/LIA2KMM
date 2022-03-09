@@ -15,4 +15,6 @@
     <color name="toolbarBackgroundColor">#F7F8F5</color>
     <color name="testButtonColor">#FFFF</color>
     <color name="tree_green">#2f651a</color>
+    <color name="white">#fffafa</color>
+    <color name="green">#2f651a</color>
 </resources>
