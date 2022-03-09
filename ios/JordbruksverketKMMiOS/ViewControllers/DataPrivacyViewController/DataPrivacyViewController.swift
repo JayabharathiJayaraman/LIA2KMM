@@ -67,5 +67,4 @@ final class DataPrivacyViewController: UIViewController {
                  information.adjustsFontSizeToFitWidth = true
              }
          }
-    
 }
