@@ -25,7 +25,7 @@ class FormViewController: UIViewController {
         
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            self.updateOrGenerateNewComponents(components: newState.components)
+            self.displayComponents(components: newState.components)
         }
     }
     
@@ -38,31 +38,29 @@ class FormViewController: UIViewController {
         
         listeningJob?.close()
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        viewModel.previousScreen()
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        viewModel.nextScreen()
+    }
 }
 
 private extension FormViewController {
-    func updateOrGenerateNewComponents(components: [FormComponent]) {
-        var generateNewComponents = true
-        
-        if let mainView = containerView.subviews.first {
-            mainView.subviews.forEach { componentView in
-                
-            }
-        }
-        
-        if generateNewComponents {
-            displayComponents(components: components)
-        }
-    }
-    
     func displayComponents(components: [FormComponent]) {
-        guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
-        containerView.addSubview(mainView)
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-        mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        mainView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        mainView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
-        mainView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: -40).isActive = true
+        if containerView.subviews.count == 0 {
+            guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
+            containerView.addSubview(mainView)
+            mainView.translatesAutoresizingMaskIntoConstraints = false
+            mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+            mainView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+            mainView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
+            mainView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: -40).isActive = true
+        } else {
+            _ = interfaceGenerator.generateInterface(components: components)
+        }
     }
     
     func nextScreen() {

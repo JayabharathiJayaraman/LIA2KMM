@@ -81,6 +81,9 @@
 		9D5A8C5A27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
 		9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
 		9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5927D762FB00239E45 /* UIColor.swift */; };
+		9D5A8C5E27D8B77800239E45 /* LabelWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5D27D8B77800239E45 /* LabelWithId.swift */; };
+		9D5A8C5F27D8B77800239E45 /* LabelWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5D27D8B77800239E45 /* LabelWithId.swift */; };
+		9D5A8C6027D8B77800239E45 /* LabelWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C5D27D8B77800239E45 /* LabelWithId.swift */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
@@ -156,6 +159,7 @@
 		9D34C54427A150180043B5A1 /* FormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormViewController.xib; sourceTree = "<group>"; };
 		9D5A8C5527D75DFD00239E45 /* IOSFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormViewModel.swift; sourceTree = "<group>"; };
 		9D5A8C5927D762FB00239E45 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9D5A8C5D27D8B77800239E45 /* LabelWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithId.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9D8E1E9227A7FAFC002E7D94 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
+				9D5A8C5D27D8B77800239E45 /* LabelWithId.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,
 				9D5A8C5627D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
+				9D5A8C5E27D8B77800239E45 /* LabelWithId.swift in Sources */,
 				9D5A8C5A27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
@@ -620,6 +626,7 @@
 			files = (
 				9D5A8C5727D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				9D5A8C5F27D8B77800239E45 /* LabelWithId.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
 				9D07BE3D27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
@@ -636,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
+				9D5A8C6027D8B77800239E45 /* LabelWithId.swift in Sources */,
 				9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,

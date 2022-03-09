@@ -107,6 +107,7 @@ data class FormGeneralQuestions(
             }
         }
 
+        println("ID $id")
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text = text
 
         return state
