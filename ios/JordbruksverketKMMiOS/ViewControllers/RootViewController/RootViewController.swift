@@ -29,7 +29,7 @@ class RootViewController: UIViewController {
         
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            self.displayComponents(components: newState.components)
+            self.updateOrGenerateNewComponents(components: newState.components)
         }
     }
     
@@ -43,21 +43,33 @@ class RootViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("viewDidAppear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         listeningJob?.close()
-        print("viewDidDisAppear")
     }
 }
 
 private extension RootViewController {
+    func updateOrGenerateNewComponents(components: [FormComponent]) {
+            var generateNewComponents = true
+            
+            if let mainView = containerView.subviews.first {
+                mainView.subviews.forEach { componentView in
+                    
+                }
+            }
+            
+            if generateNewComponents {
+                displayComponents(components: components)
+            }
+        }
+    
     func displayComponents(components: [FormComponent]) {
         guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
-        containerView.willRemoveSubview(mainView)
+        mainView.tag = 100
         containerView.addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -67,14 +79,20 @@ private extension RootViewController {
     }
     
     func nextScreen() {
-        print("iOS, new state recieved: nextScreen")
+        if let viewWithTag = self.view.viewWithTag(100) {
+                       viewWithTag.removeFromSuperview()
+                   }else{
+                       print("")
+                   }
         viewModel.nextScreen()
-       // navigationController?.pushViewController(nextScreen(), animated: true)
     }
     
     func previousScreen() {
+        if let viewWithTag = self.view.viewWithTag(100) {
+                       viewWithTag.removeFromSuperview()
+                   }else{
+                       print("")
+                   }
         viewModel.previousScreen()
-       // navigationController?.pushViewController(viewModel.previousScreen(), animated: true)
-        print("iOS, new state recieved: previousScreen")
     }
 }
