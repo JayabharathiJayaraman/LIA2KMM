@@ -1,22 +1,18 @@
 import shared
 import UIKit
 
-class RootViewController: UIViewController {
+class FormViewController: UIViewController {
     @IBOutlet private weak var containerView: UIView!
     
-    private var viewModel: FormViewModel
-    private var interfaceGenerator: IOSFormGenerator
+    private var viewModel = IOSFormViewModel.shared
+    private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
     
     init() {
         let interfaceGenerator = IOSFormGenerator()
-        let form = FormFactory().createForm()
-        let viewModel = FormViewModel(form: form)
-        self.viewModel = viewModel
         self.interfaceGenerator = interfaceGenerator
-        interfaceGenerator.viewModel = viewModel
         
-        let nibName = String(describing: RootViewController.self)
+        let nibName = String(describing: FormViewController.self)
         super.init(nibName: nibName, bundle: nil)
     }
 
@@ -32,14 +28,14 @@ class RootViewController: UIViewController {
             self.updateOrGenerateNewComponents(components: newState.components)
         }
     }
-    
+
     @IBAction func previousButton(_ sender: Any) {
         previousScreen()
     }
-    
+
     @IBAction func nextButton(_ sender: Any) {
         nextScreen()
-        
+
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -52,22 +48,38 @@ class RootViewController: UIViewController {
     }
 }
 
+private extension FormViewController {
+    func updateOrGenerateNewComponents(components: [FormComponent]) {
+        var generateNewComponents = true
+
+        if let mainView = containerView.subviews.first {
+            mainView.subviews.forEach { componentView in
+
+            }
+        }
+
+        if generateNewComponents {
+            displayComponents(components: components)
+        }
+    }
+
 private extension RootViewController {
     func updateOrGenerateNewComponents(components: [FormComponent]) {
             var generateNewComponents = true
-            
+
             if let mainView = containerView.subviews.first {
                 mainView.subviews.forEach { componentView in
-                    
+
                 }
             }
-            
+
             if generateNewComponents {
                 displayComponents(components: components)
             }
         }
-    
+
     func displayComponents(components: [FormComponent]) {
+        guard let mainView = interfaceGenerator.generateInterface(components: components) as? UIStackView else { return }
         guard let mainView = interfaceGenerator.getInterface(components: components) as? UIStackView else { return }
         mainView.tag = 100
         containerView.addSubview(mainView)
