@@ -1,3 +1,3 @@
 package se.mobileinteraction.jordbruksverketkmm.checklists.models
 
-data class ChecklistItem()
+//data class ChecklistItem()

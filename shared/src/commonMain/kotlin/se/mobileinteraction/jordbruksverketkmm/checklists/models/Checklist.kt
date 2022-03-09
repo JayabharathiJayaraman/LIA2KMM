@@ -12,6 +12,6 @@ data class Checklist(
     val title: String,
     val description: String,
     val type: ChecklistType,
-    val list: List<ChecklistItem>,
+    //val list: List<ChecklistItem>,
     val commonData: Common,
 )
