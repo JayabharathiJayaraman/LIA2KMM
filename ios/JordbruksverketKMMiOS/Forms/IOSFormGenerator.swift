@@ -53,15 +53,16 @@ class IOSFormGenerator: FormGenerator {
         var shouldClearScreen = true
         
         if mainView.subviews.count > 0 {
-            components.forEach { component in
-                mainView.subviews.forEach { view in
+        outerLoop: for component in components {
+        innerLoop: for view in mainView.subviews {
                     if let view = view as? LabelWithId {
                         if view.idString == component.id {
                             shouldClearScreen = false
-                            break
+                            break innerLoop
                         }
                     }
                 }
+            break outerLoop
             }
         }
                 
