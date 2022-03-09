@@ -16,7 +16,7 @@ data class FormDataSoilStructure(
 
 data class PhotoData(
     val photoUri: String? = null,
-    val photoLines: List<PhotoLine>? = null
+    val photoLines: List<PhotoLine> = emptyList()
 )
 
 data class PhotoLine(
@@ -35,11 +35,11 @@ data class StompData(
 )
 
 data class QuestionnaireWithPhotos(
-    val answers: List<AnswerWithPhoto>? = null,
+    val answers: List<AnswerWithPhoto> = emptyList()
 )
 
 data class AnswerWithPhoto(
     val answer: QuestionnaireAnswer? = null,
     val photoUri: String? = null,
-    val comment: String? = null,
+    val comment: String = "",
 )
