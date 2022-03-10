@@ -7,7 +7,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuest
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
-data class FormSoilStructureQuestions(
+data class FormSoilStructure(
     override val type: FormType = FormType.SoilStructure,
     override val data: FormData = FormDataSoilStructure(),
 ) : Form {
@@ -895,7 +895,7 @@ data class FormSoilStructureQuestions(
         ),
     )
 
-    fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
+    override fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
         println("logg: FORMDEF $text")
         with(state.form.data) {
             when (id) {
