@@ -60,7 +60,7 @@ class BottomNavBarFragment : Fragment() {
         for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
             progressItem.layoutParams = LinearLayout.LayoutParams(containerWidth/totalScreens, 50)
-            (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(1, 0, 1, 0);
+            (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(2, 0, 2, 0);
             progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
             if(i==0){
                 progressItem.background = getFirstDrawableWithRadius();
@@ -84,7 +84,7 @@ class BottomNavBarFragment : Fragment() {
     private fun getFirstDrawableWithRadius(): Drawable? {
         val gradientDrawable = GradientDrawable()
         gradientDrawable.cornerRadii = floatArrayOf(20f, 20f, 0f, 0f, 0f, 0f, 20f, 20f)
-        gradientDrawable.setColor(Color.parseColor("#2f651a"))
+        gradientDrawable.setColor(Color.parseColor("#CED7B2"))
         return gradientDrawable
     }
 
@@ -98,7 +98,7 @@ class BottomNavBarFragment : Fragment() {
     private fun getLastColoredDrawableWithRadius(): Drawable? {
         val gradientDrawable = GradientDrawable()
         gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
-        gradientDrawable.setColor(Color.parseColor("#2f651a"))
+        gradientDrawable.setColor(Color.parseColor("#CED7B2"))
         return gradientDrawable
     }
 
