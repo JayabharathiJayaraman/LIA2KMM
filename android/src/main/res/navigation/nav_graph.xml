@@ -9,7 +9,7 @@
         android:id="@+id/menuFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.menu.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu">
+        tools:layout="@layout/fragment_menu" >
         <action
             android:id="@+id/navigateToStart"
             app:destination="@id/startScreenFragment" />
@@ -23,19 +23,11 @@
             android:id="@+id/navigateToAboutApp"
             app:destination="@id/aboutAppFragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/formFragment"
-        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.form.FormFragment"
-        android:label="fragment_form"
-        tools:layout="@layout/fragment_form">
-    </fragment>
-
     <fragment
         android:id="@+id/startScreenFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.startscreen.StartScreenFragment"
         android:label="fragment_start_screen"
-        tools:layout="@layout/fragment_start_screen">
+        tools:layout="@layout/fragment_start_screen" >
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
@@ -43,22 +35,20 @@
             android:id="@+id/navigate_from_startScreenFragment_to_newTestFragment"
             app:destination="@id/newTestFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/settingsFragment2"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings">
+        tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/dataPrivacyPolicyFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.dataprivacypolicy.DataPrivacyPolicyFragment"
         android:label="fragment_data_privacy_policy"
-        tools:layout="@layout/fragment_data_privacy_policy">
+        tools:layout="@layout/fragment_data_privacy_policy" >
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
@@ -66,7 +56,7 @@
     <fragment
         android:id="@+id/aboutAppFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.aboutapp.AboutAppFragment"
-        android:label="AboutAppFragment">
+        android:label="AboutAppFragment" >
         <action
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
@@ -75,10 +65,5 @@
         android:id="@+id/newTestFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.newtest.NewTestFragment"
         android:label="fragment_new_test"
-        tools:layout="@layout/fragment_new_test">
-        <action
-            android:id="@+id/navigate_from_startScreenFragment_to_formFragment"
-            app:destination="@id/formFragment" />
-    </fragment>
-
+        tools:layout="@layout/fragment_new_test" />
 </navigation>

@@ -24,10 +24,9 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         it.layoutParams = params
         it.orientation = LinearLayout.VERTICAL
     }
+    private var currentScreenRendered: Int = 0
 
-    override fun generateInterface(components: List<FormComponent>): View {
-        clearScreenIfNecessary(components)
-
+    override fun generateInterface(components: List<FormComponent>, currentScreen: Int?) {
         for (component in components) {
             when (component.type) {
                 ComponentType.TITLEBIG -> {
@@ -87,16 +86,20 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 else -> println("unknown")
             }
         }
+    }
+
+    fun createInterface(components: List<FormComponent>): View {
+        generateInterface(components)
 
         return mainView
     }
 
-    private fun clearScreenIfNecessary(components: List<FormComponent>) {
-        if (mainView.childCount > 0) {
-            println("logg: CHILD COUNT > 0 in clearScreen")
-            val shouldClearScreen = components.none { it.id == mainView.getChildAt(0).tag }
-            if (shouldClearScreen) mainView.removeAllViews()
+    fun updateInterface(components: List<FormComponent>, currentScreen: Int) {
+        if (currentScreen != currentScreenRendered) {
+            mainView.removeAllViews()
+            currentScreenRendered = currentScreen
         }
+        generateInterface(components)
     }
 }
 

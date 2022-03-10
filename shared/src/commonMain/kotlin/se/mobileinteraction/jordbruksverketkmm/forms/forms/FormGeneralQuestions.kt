@@ -97,7 +97,7 @@ data class FormGeneralQuestions(
         ),
     )
 
-    fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
+    override fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
         println("logg: FORMDEF $text")
         with(state.form.data) {
             when (id) {
@@ -107,6 +107,7 @@ data class FormGeneralQuestions(
             }
         }
 
+        println("ID $id")
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text = text
 
         return state

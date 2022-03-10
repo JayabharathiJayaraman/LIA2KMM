@@ -51,4 +51,6 @@
     <string name="newtest_test_2_text">Markstrukturtest</string>
     <string name="newtest_test_3_title">Test 3</string>
     <string name="newtest_test_3_text">Infiltrationstest</string>
+    <string name="navigation_back">Gå bakåt till testets förra sida</string>
+    <string name="navigation_forward">Gå framåt till testets nästa sida</string>
 </resources>

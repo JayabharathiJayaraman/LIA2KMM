@@ -4,11 +4,11 @@ import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructureQuestions
 
 class FormViewModel constructor(
-    form: FormSoilStructureQuestions = FormSoilStructureQuestions()
+    val form: Form
 ) : ViewModelState<FormViewModel.State> by ViewModelStateImpl(State(form)) {
     fun nextScreen() {
         if (state.value.currentScreen < state.value.form.screens.size - 1) {
@@ -35,7 +35,7 @@ class FormViewModel constructor(
     }
 
     data class State(
-        val form: FormSoilStructureQuestions,
+        val form: Form,
         val currentScreen: Int = 0,
         val counter: Int = 0,
     ) {

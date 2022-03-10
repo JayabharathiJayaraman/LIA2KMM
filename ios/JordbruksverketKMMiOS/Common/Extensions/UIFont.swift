@@ -16,4 +16,5 @@ extension UIFont {
 extension UIFont {
     static let fontNameRegular = "OpenSans-Regular"
     static let fontNameBold = "OpenSans-Bold"
+    static let fontNameSemiBold = "OpenSans-SemiBold"
 }
