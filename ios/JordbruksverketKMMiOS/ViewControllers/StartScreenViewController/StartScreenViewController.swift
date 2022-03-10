@@ -12,10 +12,11 @@ final class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initView()
     }
     
-    func initView(){
+    func initView() {
         welcomelabel.dynamicFontSemiBoldWelcome()
         aboutlabel.dynamicFontRegular()
         mytestlabel.dynamicFontSemiBold()
@@ -30,11 +31,30 @@ final class StartScreenViewController: UIViewController {
         planticonlabel.text = "StartScreenPlantLabel".localized
     }
     
-    override var shouldAutorotate: Bool{
-         return false
-     }
+    override var shouldAutorotate: Bool {
+        return false
+    }
     
-     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-         return .portrait
-     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        let menuViewController = MenuViewController()
+        navigationController?.pushViewController(menuViewController, animated: true)
+    }
+    
+    @IBAction func aboutAppButtonTapped(_ sender: Any) {
+        let aboutViewController = AboutAppViewController()
+        navigationController?.pushViewController(aboutViewController, animated: true)
+    }
+    
+    @IBAction func myTestButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func newTestButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func checklistsButtonTapped(_ sender: Any) {
+    }
 }

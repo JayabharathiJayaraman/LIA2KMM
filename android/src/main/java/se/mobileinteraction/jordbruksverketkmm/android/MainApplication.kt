@@ -6,5 +6,13 @@ import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormType
 
 class MainApplication : Application() {
-    val formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
+    var formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
+
+    fun setViewModel(formType: FormType) {
+        formViewModel = when (formType) {
+            FormType.GeneralQuestions -> FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
+            FormType.SoilStructure -> FormViewModel(FormGeneralQuestions(FormType.SoilStructure))
+            FormType.Infiltration -> FormViewModel(FormGeneralQuestions(FormType.Infiltration))
+        }
+    }
 }

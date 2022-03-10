@@ -51,7 +51,7 @@ class FormViewController: UIViewController {
 private extension FormViewController {
     func displayComponents(components: [FormComponent], currentScreen: Int32) {
         if containerView.subviews.count == 0 {
-            guard let mainView = interfaceGenerator.createInterface(components: components) as? UIStackView else { return }
+            guard let mainView = interfaceGenerator.createInterface(components: components, currentScreen: currentScreen) as? UIStackView else { return }
             containerView.addSubview(mainView)
             mainView.translatesAutoresizingMaskIntoConstraints = false
             mainView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -61,13 +61,5 @@ private extension FormViewController {
         } else {
             interfaceGenerator.updateInterface(components: components, currentScreen: currentScreen)
         }
-    }
-    
-    func nextScreen() {
-        viewModel.nextScreen()
-    }
-    
-    func previousScreen() {
-        viewModel.previousScreen()
     }
 }
