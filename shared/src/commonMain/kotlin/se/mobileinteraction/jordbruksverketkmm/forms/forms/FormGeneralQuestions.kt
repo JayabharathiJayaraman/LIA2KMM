@@ -97,7 +97,7 @@ data class FormGeneralQuestions(
         ),
     )
 
-    fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
+    override fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
         println("logg: FORMDEF $text")
         with(state.form.data) {
             when (id) {
