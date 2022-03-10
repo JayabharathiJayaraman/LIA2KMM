@@ -22,7 +22,6 @@ final class AboutAppViewController: UIViewController {
         titles = [about_title1,about_title2,about_title3,about_title4,about_title5]
         informations = [about_info1,about_info2,about_info3,about_info4,about_info5]
         
-        
         about_title1.text = "about_app_section1_title".localized
         about_title2.text = "about_app_section2_title".localized
         about_title3.text = "about_app_section3_title".localized
@@ -39,39 +38,13 @@ final class AboutAppViewController: UIViewController {
     }
 
     
-    func setFontAccessibility()
-    {
-            guard let customTitleFont = UIFont(name: "OpenSans-SemiBold", size: UIFont.labelFontSize)
-            else {
-                fatalError("""
-                    Failed to load the "Opensans-SemiBold" font.
-                    Make sure the font file is included in the project and the font name is spelled correctly.
-                    """)
-            }
-            
-            guard let customInfoFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize)
-            else {
-                fatalError("""
-                    Failed to load the "Opensans-Regular" font.
-                    Make sure the font file is included in the project and the font name is spelled correctly.
-                    """)
-            }
-            
-            
-        for title in titles
-        {
-            title.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: customTitleFont)
-            title.adjustsFontForContentSizeCategory = true
-            title.adjustsFontSizeToFitWidth = true
+    func setFontAccessibility() {
+        for title in titles {
+            title.font = UIFont.scaledFont(name: UIFont.fontNameSemiBold, textStyle: .body)
         }
         
-        for information in informations
-        {
-            information.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customInfoFont)
-            information.adjustsFontForContentSizeCategory = true
-            information.adjustsFontSizeToFitWidth = true
+        for information in informations {
+            information.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         }
-        
     }
-
 }

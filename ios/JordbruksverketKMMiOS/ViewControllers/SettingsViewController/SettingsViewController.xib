@@ -132,6 +132,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="AppBgColor"/>
             <constraints>
+                <constraint firstItem="26W-zV-RQa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="2PO-zb-Ht4"/>
                 <constraint firstAttribute="bottom" secondItem="26W-zV-RQa" secondAttribute="bottom" id="aLL-ZA-tdG"/>
                 <constraint firstItem="26W-zV-RQa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ao9-jK-7uW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="26W-zV-RQa" secondAttribute="trailing" id="hUz-Pf-4JO"/>
