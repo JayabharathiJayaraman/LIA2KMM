@@ -27,7 +27,9 @@ class NewTestFragment : Fragment() {
         }
 
         binding.test1Container.setOnClickListener {
-            view.findNavController().navigate(R.id.navigate_from_startScreenFragment_to_formFragment)
+            val application = (activity?.application as MainApplication)
+            application.setViewModel(formType = FormType.GeneralQuestions)
+            view.findNavController().navigate(R.id.navigateToFormFragment)
         }
 
         binding.test2Container.setOnClickListener {
