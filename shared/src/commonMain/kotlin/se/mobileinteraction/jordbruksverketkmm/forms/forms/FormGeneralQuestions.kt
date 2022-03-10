@@ -2,8 +2,8 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormGeneralQuestions(
@@ -95,6 +95,7 @@ data class FormGeneralQuestions(
                         "Mulljord (torvjord under)",
                         "Mulljord (gyttjejord under)"
                     ),
+                    title = "Title",
                     value = "ett",
                     placeholder = "Välj...",
                 ),
@@ -372,24 +373,6 @@ data class FormGeneralQuestions(
                         id ="vadGöraNuTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "Vad vill du göra nu?"
-                    ),
-                    FormComponentImage(
-                        id ="nyttTestImageCaptionScreen11",
-                        type = ComponentType.IMAGE,
-                        caption = "Nytt test",
-                        image = "add_test_icon"
-                    ),
-                    FormComponentImage(
-                        id ="vårdaMarkstrukturImageCaptionScreen11",
-                        type = ComponentType.IMAGE,
-                        caption = "Vårda markstruktur",
-                        image = "plant_icon"
-                    ),
-                    FormComponentImage(
-                        id ="klarImageCaptionScreen11",
-                        type = ComponentType.IMAGE,
-                        caption = "klar",
-                        image = "switch_checked"
                     ),
                 ),
             ),
