@@ -17,29 +17,32 @@ class IOSFormGenerator: FormGenerator {
             currentScreenRendered = currentScreen
         }
         
-        generateInterface(components: components)
+        generateInterface(components: components, currentScreen: currentScreen.asKotlinInt)
     }
     
-    func createInterface(components: [FormComponent]) -> Any {
-        generateInterface(components: components)
+    func createInterface(components: [FormComponent], currentScreen: Int32) -> Any {
+        generateInterface(components: components, currentScreen: currentScreen.asKotlinInt)
         
         return mainView
     }
     
-    func generateInterface(components: [FormComponent]) {
+    func generateInterface(components: [FormComponent], currentScreen: KotlinInt?) {
+        guard let currentScreen = currentScreen else { return }
+        let screenTag = Int(truncating: currentScreen)
+        
         for component in components {
             switch component.type {
             case .body:
                 if let body = component as? FormComponentText {
-                    mainView.addBodyLabel(text: body.text)
+                    mainView.creatBodyLabel(screenTag: screenTag, text: body.text)
                 }
             case .titlebig:
                 if let title = component as? FormComponentText {
-                    mainView.addBigTitleLabel(text: title.text)
+                    mainView.addBigTitleLabel(screenTag: screenTag, text: title.text)
                 }
             case .titlesmall:
                 if let title = component as? FormComponentText {
-                    mainView.addSmallTitleLabel(text: title.text)
+                    mainView.addSmallTitleLabel(screenTag: screenTag, text: title.text)
                 }
             case .textfield:
                 if let textfield = component as? FormComponentTextField {
@@ -47,7 +50,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .buttonlist:
                 if let buttonlist = component as? FormComponentButtonList {
-                    mainView.addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
+                    mainView.addButtonList(screenTag: screenTag, id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
                 }
             case .image:
                 if let image = component as? FormComponentImage {
@@ -76,41 +79,49 @@ extension UIStackView {
         self.addArrangedSubview(label)
     }
     
-    func addBigTitleLabel(text: String) {
-        let label = getDefaultLabel()
-        label.text = text
-        label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
-        
-        self.addArrangedSubview(label)
+    func addBigTitleLabel(screenTag: Int,text: String) {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+            let label = getDefaultLabel()
+            label.text = text
+            label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
+            
+            self.addArrangedSubview(label)
+        }
     }
     
-    func addSmallTitleLabel(text: String) {
-        var verticalSpacing = getVerticalSpacingView(withHeight: 20)
-        self.addArrangedSubview(verticalSpacing)
-        
-        let label = getDefaultLabel()
-        label.text = text
-        label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
-        
-        self.addArrangedSubview(label)
-        
-        verticalSpacing = getVerticalSpacingView(withHeight: 3)
-        self.addArrangedSubview(verticalSpacing)
+    func addSmallTitleLabel(screenTag: Int,text: String) {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+            var verticalSpacing = getVerticalSpacingView(withHeight: 20)
+            self.addArrangedSubview(verticalSpacing)
+            
+            let label = getDefaultLabel()
+            label.text = text
+            label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
+            
+            self.addArrangedSubview(label)
+            
+            verticalSpacing = getVerticalSpacingView(withHeight: 3)
+            self.addArrangedSubview(verticalSpacing)
+        }
     }
     
-    func addBodyLabel(text: String) {
-        let label = getDefaultLabel()
-        label.text = text
-        label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-        
-        self.addArrangedSubview(label)
+    func creatBodyLabel(screenTag: Int, text: String) {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+            let label = getDefaultLabel()
+            label.tag = screenTag
+            label.text = text
+            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+            
+            self.addArrangedSubview(label)
+        }
     }
     
     func createOrUpdateTextField(id: String, text: String, placeholder: String) {
-        if (self.subviews.first(where: { view in
+        if let existingView = (self.subviews.first(where: { view in
             (view as? TextFieldWithId)?.idString == id
-        }) as? TextFieldWithId) == nil {
-            print("NEW VIEWW")
+        }) as? TextFieldWithId) {
+            existingView.text = text
+        } else {
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
             
@@ -118,6 +129,7 @@ extension UIStackView {
             textField.text = text
             textField.placeholder = placeholder
             textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+            textField.textColor = UIColor.Jordbruksverket.defaultTextColor
             textField.idString = id
             textField.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
             
@@ -131,8 +143,8 @@ extension UIStackView {
         IOSFormViewModel.shared.setTextData(id: id, text: sender.text ?? "")
     }
     
-    func addButtonList(id: String, title: String, list: [String], value: String, placeholder: String) {
-        addSmallTitleLabel(text: title)
+    func addButtonList(screenTag: Int, id: String, title: String, list: [String], value: String, placeholder: String) {
+        addSmallTitleLabel(screenTag: screenTag, text: title)
         
         let verticalSpacing = getVerticalSpacingView(withHeight: 5)
         self.addArrangedSubview(verticalSpacing)
