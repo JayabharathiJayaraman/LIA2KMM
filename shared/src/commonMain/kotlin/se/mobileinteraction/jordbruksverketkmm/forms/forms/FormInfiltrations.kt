@@ -251,7 +251,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = ID_SOILTYPE,
+                    id = "CropButtonListScreen6",
                     title = "",
                     list = listOf("Vårstråsäd", "Höststråsäd", "Våroljeväxter", "Höstoljeväxter", "Vall", "Potatis", "Majs",
                         "Åkerbönor", "Ärter", "Sockerbetor", "Frilandsgrönsaker", "Frukt och Bär", "Övriga grödor",
@@ -266,7 +266,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = ID_SOILTYPE,
+                    id = "soilBearbetningScreen6",
                     title = "",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
                     value = "ett",
@@ -353,14 +353,10 @@ data class FormInfiltrations(
                     text = "",
                     placeholder = "mm till vattenytan (stopp)",
                 ),
-                FormComponentText(
-                    id = "tidsåtgångTitleScreen8",
-                    type = ComponentType.TITLESMALL,
-                    text = "Tidsåtgång:"
-                ),
                FormComponentTime(
                    id = "timeScreen8",
                    type = ComponentType.TIMEFIELD,
+                   timeLabel = "Tidsåtgång:",
                    start = "",
                    stopp = ""
                ),
@@ -398,9 +394,9 @@ data class FormInfiltrations(
                     type = ComponentType.TITLEBIG,
                     text = "Resultat"
                 ),
-                FormComponentText(
-                    id = "resultatBodyScreen10",
-                    type = ComponentType.BODY,
+                FormComponentResultatInfoBody(
+                    id = "resultatInfoBodyScreen10",
+                    type = ComponentType.RESULTATINFOBODY,
                     text = "Genomsläppligheten för vatten bör överstiga 4 mm per timme för att du ska få en god effekt av din dränering. Intensiteten i ett sommarregn är ofta ca 3 mm per timme."
                 ),
                 FormComponentText(
@@ -408,26 +404,29 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Vad betyder symbolen?"
                 ),
-                FormComponentRemark(
+                FormComponentResultatRemark(
                     id = "structureSadRemarkScreen10",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.RESULTATREMARKSFACE,
                     text = "<4 mm/tim" +
                             "Oj, här behövs det krafttag för att förbättra markstrukturen!",
-                    image = "sad_face"
+                    image = "sad_face",
+                    color = "red_round_background"
                 ),
-                FormComponentRemark(
+                FormComponentResultatRemark(
                     id = "structureIndifferentRemarkScreen10",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.RESULTATREMARKSFACE,
                     text = "4-12 mm/tim" +
                             "Här finns det en del att göra åt markstrukturen!",
-                    image = "indifferent_face"
+                    image = "indifferent_face",
+                    color = "orange_round_background"
                 ),
-                FormComponentRemark(
+                FormComponentResultatRemark(
                     id = "structureHappyRemarkScreen10",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.RESULTATREMARKSFACE,
                     text = ">12 mm/tim" +
                             "Mycket bra markstruktur!Vårda den!",
-                    image = "happy_face"
+                    image = "happy_face",
+                    color = "green_round_background"
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen10",
@@ -436,24 +435,26 @@ data class FormInfiltrations(
                 ),
                 FormComponentText(
                     id = "tipsBodyScreen10",
-                    type = ComponentType.TITLESMALL,
-                    text = "Gå till \"\\\"Mina test\\\"\" och exportera testet som datafil direkt när du är klar!Då har du ditt arbete tryggt sparat även på annan plats. Annars finns det bara i appen i din mobil."
+                    type = ComponentType.BODY,
+                    text = "Gå till 'Mina test' och exportera testet som datafil direkt när du är klar!Då har du ditt arbete tryggt sparat även på annan plats. Annars finns det bara i appen i din mobil."
                 ),
                 FormComponentText(
                     id = "vadNuTitleScreen10",
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?"
                 ),
-                FormComponentText(
+                FormComponentResultatImages(
                     id = "vadNuImagesScreen10",
-                    type = ComponentType.WHATNEXT,
-                    text = ""
+                    type = ComponentType.RESULTATIMAGES,
+                    text1 = "Nytt test",
+                    text2 = "Vårda",
+                    text3 = "markstruktur",
+                    text4 = "Klar"
                 ),
 
             ),
         ),
     )
-
         fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
         {
             with(state.form.data) {

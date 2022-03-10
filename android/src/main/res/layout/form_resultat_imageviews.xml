@@ -5,27 +5,30 @@
     android:layout_height="match_parent"
     android:id="@+id/whatNext_images_container"
     android:orientation="horizontal"
+    android:layout_weight="1"
+    android:layout_gravity="center"
     android:padding="30dp">
 
     <LinearLayout
         android:id="@+id/newTestImage_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:padding="10dp">
         <ImageView
             android:id="@+id/newTest_Image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/add_test_icon"
-            android:padding="10dp"
-            android:background="@drawable/infoicon_round_background"/>
+            android:padding="20dp"
+            android:background="@drawable/round_background"/>
         <TextView
+            android:id="@+id/newTest_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/darkGreen"
-            android:text="Nytt test"
             android:textSize="16sp"
+            android:padding="5dp"
             android:layout_gravity="center"/>
     </LinearLayout>
 
@@ -33,27 +36,30 @@
         android:id="@+id/plantImage_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:padding="10dp">
         <ImageView
             android:id="@+id/markstruktur_Image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/plant_icon"
-            android:padding="10dp"
-            android:background="@drawable/infoicon_round_background"/>
+            android:padding="20dp"
+            android:background="@drawable/round_background"/>
         <TextView
+            android:id="@+id/vårda_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/darkGreen"
-            android:text="Vårda"
+            android:text=""
             android:textSize="16sp"
+            android:padding="5dp"
             android:layout_gravity="center"/>
         <TextView
+            android:id="@+id/markstruktur_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/darkGreen"
-            android:text="markstruktur"
+            android:text=""
             android:textSize="16sp"
             android:layout_gravity="center"/>
     </LinearLayout>
@@ -62,22 +68,24 @@
         android:id="@+id/checkImage_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:padding="10dp">
         <ImageView
             android:id="@+id/check_Image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/check"
-            android:background="@drawable/infoicon_round_background"/>
+            android:padding="20dp"
+            android:background="@drawable/round_background"/>
         <TextView
+            android:id="@+id/klar_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/darkGreen"
-            android:text="Klar"
+            android:text=""
             android:textSize="16sp"
+            android:padding="5dp"
             android:layout_gravity="center"/>
     </LinearLayout>
-
-
 </LinearLayout>
+
