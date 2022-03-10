@@ -52,6 +52,14 @@ class FormViewController: UIViewController {
         
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
+            
+            print("totalScreens: \(newState.totalScreens)")
+            print("currentScreen: \(newState.currentScreen)")
+            print("Kalla på funktion för att uppdatera progressBar-vyn")
+            print("updateProgress(totalScreens, currentScreen) - Den ska ta bort alla subviews ur UIStackView och slänga in nya, så många som totalScreens, och upp till och me currentScreen ska ha en annan bakgrund, stackView.addArrangedSubview(kolumn-vy)")
+            print("pilknapparna ska enbart kalla på viewModel.nextScreen() och viewModel.previousScreen()")
+            print("Progressbaren ska vara en UIStackView")
+            
             self.updateOrGenerateNewComponents(components: newState.components)
         }
     }
