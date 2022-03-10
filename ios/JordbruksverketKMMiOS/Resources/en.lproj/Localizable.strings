@@ -29,3 +29,7 @@ Om du behöver ominstallera appen och har utförda test du vill spara; exportera
 "menu_knowledgebank" = "Knowledgebank";
 "menu_about" = "About the app";
 "menu_data" = "Developers & data policy";
+"settings_mina_uppgifter" = "My information";
+"settings_namn" = "Name";
+"settings_emailadress" = "E-mail";
+"settings_spara" = "Save";

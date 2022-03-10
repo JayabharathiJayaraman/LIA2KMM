@@ -33,6 +33,8 @@ final class MenuViewController: UIViewController {
     }
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
+        let settingsViewController = SettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     @IBAction func knowledgebankButtonTapped(_ sender: Any) {
