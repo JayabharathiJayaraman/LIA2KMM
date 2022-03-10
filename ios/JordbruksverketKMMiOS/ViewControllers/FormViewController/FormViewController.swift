@@ -4,32 +4,9 @@ import UIKit
 class FormViewController: UIViewController {
     
     @IBOutlet private weak var containerView: UIView!
-    
-    @IBOutlet weak var screenCounter: UILabel!
-    
-    @IBOutlet weak var column1: UIView!
-    
-    @IBOutlet weak var column2: UIView!
-    
-    @IBOutlet weak var column3: UIView!
-    
-    @IBOutlet weak var column4: UIView!
-    
-    @IBOutlet weak var column5: UIView!
-    
-    @IBOutlet weak var column6: UIView!
-    
-    @IBOutlet weak var column7: UIView!
-    
-    @IBOutlet weak var column8: UIView!
-    
-    @IBOutlet weak var column9: UIView!
-    
-    @IBOutlet weak var column10: UIView!
-    
-    @IBOutlet weak var column11: UIView!
-
-    var count = 1
+    @IBOutlet weak var CurrentScreenView: UILabel!
+    @IBOutlet weak var totalScreensView: UILabel!
+    @IBOutlet weak var progressBarStackView: UIStackView!
     
     private var viewModel = IOSFormViewModel.shared
     private let interfaceGenerator: IOSFormGenerator
@@ -49,10 +26,18 @@ class FormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
+            
+            self.progressBarStackView.layer.cornerRadius = 6.0
+            self.progressBarStackView.clipsToBounds = true
+
             self.updateOrGenerateNewComponents(components: newState.components)
+            
+            self.updateProgress(totalScreens: Int(newState.totalScreens), currentScreen: Int(newState.currentScreen))
+            
+            self.CurrentScreenView.text = "\(newState.currentScreen + 1)"
+            self.totalScreensView.text = "\(newState.totalScreens)"
         }
     }
     
@@ -60,108 +45,18 @@ class FormViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    
     @IBOutlet weak var nextButton: UIButton!
-    
-    
     @IBOutlet weak var nextButtonImageRight: NSLayoutConstraint!
     
     @IBAction func nextViewButton(_ sender: Any) {
-        count = count + 1
-        if (count > 1 ) {
-            previousButton.isHidden = false
-            previousButtonImageLeft.isHidden = false
-        }
-        screenCounter.text = "\(count)"
         nextScreen()
-        
-        if (count == 11 ) {
-            nextButton.isHidden = true
-        }
-        
-        if (count == 2 ) {
-            column2.isHidden = false
-        }
-        if (count == 3 ) {
-            column3.isHidden = false
-        }
-        if (count == 4 ) {
-            column4.isHidden = false
-        }
-        if (count == 5 ) {
-            column5.isHidden = false
-        }
-        if (count == 6 ) {
-            column6.isHidden = false
-        }
-        if (count == 7 ) {
-            column7.isHidden = false
-        }
-        if (count == 8 ) {
-            column8.isHidden = false
-        }
-        if (count == 9 ) {
-            column9.isHidden = false
-        }
-        if (count == 10 ) {
-            column10.isHidden = false
-        }
-        if (count == 11 ) {
-            column11.isHidden = false
-        }
     }
     
-    @IBOutlet weak var counterLabel: UILabel!
-    
     @IBOutlet weak var previousButton: UIButton!
-    
     @IBOutlet weak var previousButtonImageLeft: UIImageView!
     
-    
-    
     @IBAction func previousViewButton(_ sender: Any) {
-        count = count - 1
-        if (count == 1 ) {
-            previousButtonImageLeft.isHidden = true
-            previousButton.isHidden = true
-            screenCounter.text = "\(1)"
-        }
-        screenCounter.text = "\(count)"
         previousScreen()
-        
-        if (count < 11 ) {
-            nextButton.isHidden = false
-        }
-        if (count < 2 ) {
-            column2.isHidden = true
-        }
-        if (count < 3 ) {
-            column3.isHidden = true
-        }
-        if (count < 4 ) {
-            column4.isHidden = true
-        }
-        if (count < 5 ) {
-            column5.isHidden = true
-        }
-        if (count < 6 ) {
-            column6.isHidden = true
-        }
-        if (count < 7 ) {
-            column7.isHidden = true
-        }
-        if (count < 8 ) {
-            column8.isHidden = true
-        }
-        if (count < 9 ) {
-            column9.isHidden = true
-        }
-        if (count < 10 ) {
-            column10.isHidden = true
-        }
-        if (count < 11 ) {
-            column11.isHidden = true
-        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -169,11 +64,19 @@ class FormViewController: UIViewController {
         
         listeningJob?.close()
     }
+    func updateProgress (totalScreens: Int, currentScreen: Int ) {
+        progressBarStackView.subviews.forEach { $0.removeFromSuperview() }
+        for i in 0...totalScreens - 1{
+            let customView = UILabel()
+            print("la till")
+            customView.backgroundColor = i <= currentScreen ? getUIColor(hex: "#CED7B2") : getUIColor(hex: "#EDF1E2")
+            progressBarStackView.addArrangedSubview(customView)
+        }
+    }
 }
-
 private extension FormViewController {
     func updateOrGenerateNewComponents(components: [FormComponent]) {
-        var generateNewComponents = true
+        let generateNewComponents = true
         
         if let mainView = containerView.subviews.first {
             mainView.subviews.forEach { componentView in
@@ -212,5 +115,27 @@ private extension FormViewController {
                print("")
            }
         viewModel.previousScreen()
+    }
+    
+    func getUIColor(hex: String, alpha: Double = 1.0) -> UIColor? {
+        var cleanString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cleanString.hasPrefix("#")) {
+            cleanString.remove(at: cleanString.startIndex)
+        }
+
+        if ((cleanString.count) != 6) {
+            return nil
+        }
+        
+        var rgbValue: UInt32 = 0
+        Scanner(string: cleanString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }
