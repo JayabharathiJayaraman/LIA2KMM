@@ -12,6 +12,12 @@ enum class ComponentType {
     VIDEO,
     BUTTON,
     REMARK,
+    CAPTIONEDIMAGE,
+    TIMEFIELD,
+    EMPTYLINE,
+    RESULTATINFOBODY,
+    RESULTATIMAGES,
+    RESULTATREMARKSFACE,
 }
 
 interface FormComponent {
@@ -19,11 +25,7 @@ interface FormComponent {
     val id: String
 }
 
-class FormComponentText(
-    override val type: ComponentType,
-    override val id: String,
-    val text: String
-) :
+class FormComponentText(override val type: ComponentType, override val id: String, val text: String) :
     FormComponent
 
 class FormComponentButton(
@@ -66,6 +68,42 @@ class FormComponentImage(
     override val id: String,
     val image: String,
     val caption: String,
+) : FormComponent
+
+class FormComponentTime(
+    override val type: ComponentType,
+    override val id: String,
+    val timeLabel:String,
+    val start: String,
+    val stopp: String,
+) : FormComponent
+
+class FormComponentLine(
+    override val type: ComponentType,
+    override val id: String,
+   val text: String
+): FormComponent
+
+class FormComponentResultatInfoBody(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String) : FormComponent
+
+class FormComponentResultatImages(
+    override val type: ComponentType,
+    override val id: String,
+    val text1: String,
+    val text2: String,
+    val text3: String,
+    val text4: String
+): FormComponent
+
+class FormComponentResultatRemark(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String,
+    val image: String,
+    val color: String
 ) : FormComponent
 
 class FormComponentVideo(
