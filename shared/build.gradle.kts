@@ -23,14 +23,28 @@ kotlin {
     }*/
     
     sourceSets {
-        val commonMain by getting
+        val coroutines = "1.6.0-native-mt"
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines}") {
+                    version {
+                        strictly(coroutines)
+                    }
+                }
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines}")
+            }
+        }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
