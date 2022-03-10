@@ -40,6 +40,9 @@ final class StartScreenViewController: UIViewController {
     }
     
     @IBAction func menuButtonTapped(_ sender: Any) {
+        let menuViewController = MenuViewController()
+        //menuViewController.modalPresentationStyle = .overFullScreen
+        navigationController?.present(menuViewController, animated: true)
     }
     
     @IBAction func aboutAppButtonTapped(_ sender: Any) {

@@ -1,7 +1,7 @@
 
 import UIKit
 
-final class DataPrivacyViewController: UIViewController {
+final class DataPrivacyViewController: NavigationBarViewController {
 
     @IBOutlet private weak var label1: UILabel!
     @IBOutlet private weak var text1: UILabel!

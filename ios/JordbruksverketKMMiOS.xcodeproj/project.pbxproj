@@ -84,6 +84,12 @@
 		9D5A8C8827DA261400239E45 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8727DA261400239E45 /* UIView.swift */; };
 		9D5A8C8927DA261400239E45 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8727DA261400239E45 /* UIView.swift */; };
 		9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8727DA261400239E45 /* UIView.swift */; };
+		9D5A8C8E27DA2AEC00239E45 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8C27DA2AEC00239E45 /* MenuViewController.swift */; };
+		9D5A8C8F27DA2AEC00239E45 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8C27DA2AEC00239E45 /* MenuViewController.swift */; };
+		9D5A8C9027DA2AEC00239E45 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8C27DA2AEC00239E45 /* MenuViewController.swift */; };
+		9D5A8C9127DA2AEC00239E45 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8D27DA2AEC00239E45 /* MenuViewController.xib */; };
+		9D5A8C9227DA2AEC00239E45 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8D27DA2AEC00239E45 /* MenuViewController.xib */; };
+		9D5A8C9327DA2AEC00239E45 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8D27DA2AEC00239E45 /* MenuViewController.xib */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
@@ -153,6 +159,8 @@
 		9D5A8C7F27DA258D00239E45 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		9D5A8C8027DA258D00239E45 /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		9D5A8C8727DA261400239E45 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		9D5A8C8C27DA2AEC00239E45 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		9D5A8C8D27DA2AEC00239E45 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -317,6 +325,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D5A8C8B27DA2A8D00239E45 /* MenuViewController */,
 				9D5A8C7827DA252100239E45 /* NavigationBarViewController */,
 				9D5A8C6F27DA23D900239E45 /* MainNavigationController */,
 				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
@@ -367,6 +376,15 @@
 				9D5A8C8027DA258D00239E45 /* NavigationBar.xib */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		9D5A8C8B27DA2A8D00239E45 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D5A8C8C27DA2AEC00239E45 /* MenuViewController.swift */,
+				9D5A8C8D27DA2AEC00239E45 /* MenuViewController.xib */,
+			);
+			path = MenuViewController;
 			sourceTree = "<group>";
 		};
 		9D65F40827CCFE7700646C73 /* Views */ = {
@@ -516,6 +534,7 @@
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */,
+				9D5A8C9127DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
@@ -537,6 +556,7 @@
 				9D07BE3527BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D07BE2627BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
 				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
+				9D5A8C9227DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 			);
@@ -550,6 +570,7 @@
 				9D07BE3027BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				9D07BE3627BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D07BE2727BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
+				9D5A8C9327DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54A27A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8C6727D8D7C800239E45 /* Localizable.strings in Resources */,
 				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
@@ -611,6 +632,7 @@
 				9D5A8C6C27DA0DE700239E45 /* Int32.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
 				2E22F6D527CCD275005C893A /* StartScreenViewController.swift in Sources */,
+				9D5A8C8E27DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +651,7 @@
 				9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */,
 				9D5A8C7227DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
+				9D5A8C8F27DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D34C54627A150180043B5A1 /* FormViewController.swift in Sources */,
@@ -654,6 +677,7 @@
 				9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D5A8C5827D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
+				9D5A8C9027DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 				9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */,
 				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
