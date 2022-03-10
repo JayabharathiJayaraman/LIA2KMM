@@ -5,6 +5,32 @@ class FormViewController: UIViewController {
     
     @IBOutlet private weak var containerView: UIView!
     
+    @IBOutlet weak var screenCounter: UILabel!
+    
+    @IBOutlet weak var column1: UIView!
+    
+    @IBOutlet weak var column2: UIView!
+    
+    @IBOutlet weak var column3: UIView!
+    
+    @IBOutlet weak var column4: UIView!
+    
+    @IBOutlet weak var column5: UIView!
+    
+    @IBOutlet weak var column6: UIView!
+    
+    @IBOutlet weak var column7: UIView!
+    
+    @IBOutlet weak var column8: UIView!
+    
+    @IBOutlet weak var column9: UIView!
+    
+    @IBOutlet weak var column10: UIView!
+    
+    @IBOutlet weak var column11: UIView!
+
+    var count = 1
+    
     private var viewModel = IOSFormViewModel.shared
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
@@ -35,14 +61,108 @@ class FormViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var nextButton: UIButton!
+    
+    
+    @IBOutlet weak var nextButtonImageRight: NSLayoutConstraint!
+    
     @IBAction func nextViewButton(_ sender: Any) {
+        count = count + 1
+        if (count > 1 ) {
+            previousButton.isHidden = false
+            previousButtonImageLeft.isHidden = false
+        }
+        screenCounter.text = "\(count)"
         nextScreen()
+        
+        if (count == 11 ) {
+            nextButton.isHidden = true
+        }
+        
+        if (count == 2 ) {
+            column2.isHidden = false
+        }
+        if (count == 3 ) {
+            column3.isHidden = false
+        }
+        if (count == 4 ) {
+            column4.isHidden = false
+        }
+        if (count == 5 ) {
+            column5.isHidden = false
+        }
+        if (count == 6 ) {
+            column6.isHidden = false
+        }
+        if (count == 7 ) {
+            column7.isHidden = false
+        }
+        if (count == 8 ) {
+            column8.isHidden = false
+        }
+        if (count == 9 ) {
+            column9.isHidden = false
+        }
+        if (count == 10 ) {
+            column10.isHidden = false
+        }
+        if (count == 11 ) {
+            column11.isHidden = false
+        }
     }
+    
+    @IBOutlet weak var counterLabel: UILabel!
+    
+    @IBOutlet weak var previousButton: UIButton!
+    
+    @IBOutlet weak var previousButtonImageLeft: UIImageView!
+    
+    
     
     @IBAction func previousViewButton(_ sender: Any) {
+        count = count - 1
+        if (count == 1 ) {
+            previousButtonImageLeft.isHidden = true
+            previousButton.isHidden = true
+            screenCounter.text = "\(1)"
+        }
+        screenCounter.text = "\(count)"
         previousScreen()
+        
+        if (count < 11 ) {
+            nextButton.isHidden = false
+        }
+        if (count < 2 ) {
+            column2.isHidden = true
+        }
+        if (count < 3 ) {
+            column3.isHidden = true
+        }
+        if (count < 4 ) {
+            column4.isHidden = true
+        }
+        if (count < 5 ) {
+            column5.isHidden = true
+        }
+        if (count < 6 ) {
+            column6.isHidden = true
+        }
+        if (count < 7 ) {
+            column7.isHidden = true
+        }
+        if (count < 8 ) {
+            column8.isHidden = true
+        }
+        if (count < 9 ) {
+            column9.isHidden = true
+        }
+        if (count < 10 ) {
+            column10.isHidden = true
+        }
+        if (count < 11 ) {
+            column11.isHidden = true
+        }
     }
-    
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -57,7 +177,6 @@ private extension FormViewController {
         
         if let mainView = containerView.subviews.first {
             mainView.subviews.forEach { componentView in
-                
             }
         }
         
