@@ -41,14 +41,12 @@ final class StartScreenViewController: UIViewController {
     
     @IBAction func menuButtonTapped(_ sender: Any) {
         let menuViewController = MenuViewController()
-        //menuViewController.modalPresentationStyle = .overFullScreen
-        navigationController?.present(menuViewController, animated: true)
+        navigationController?.pushViewController(menuViewController, animated: true)
     }
     
     @IBAction func aboutAppButtonTapped(_ sender: Any) {
         let aboutViewController = AboutAppViewController()
-        aboutViewController.modalPresentationStyle = .overFullScreen
-        navigationController?.present(aboutViewController, animated: true)
+        navigationController?.pushViewController(aboutViewController, animated: true)
     }
     
     @IBAction func myTestButtonTapped(_ sender: Any) {

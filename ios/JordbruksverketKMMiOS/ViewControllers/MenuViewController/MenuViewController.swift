@@ -39,12 +39,12 @@ final class MenuViewController: UIViewController {
     }
     
     @IBAction func aboutButtonTapped(_ sender: Any) {
+        let aboutViewController = AboutAppViewController()
+        navigationController?.pushViewController(aboutViewController, animated: true)
     }
     
     @IBAction func dataButonTapped(_ sender: Any) {
-        print("goto data: \(navigationController == nil)")
         let dataPolicyViewController = DataPrivacyViewController()
-        dataPolicyViewController.modalPresentationStyle = .overFullScreen
-        navigationController?.present(dataPolicyViewController, animated: true)
+        navigationController?.pushViewController(dataPolicyViewController, animated: true)
     }
 }

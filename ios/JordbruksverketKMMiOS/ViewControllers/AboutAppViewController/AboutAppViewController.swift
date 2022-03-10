@@ -1,6 +1,6 @@
 import UIKit
 
-final class AboutAppViewController: NavigationBarViewController {
+final class AboutAppViewController: UIViewController {
     
     @IBOutlet private weak var about_title1: UILabel!
     @IBOutlet private weak var about_info1: UILabel!
