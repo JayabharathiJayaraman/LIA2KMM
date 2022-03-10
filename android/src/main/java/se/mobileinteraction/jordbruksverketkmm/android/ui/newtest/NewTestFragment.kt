@@ -1,13 +1,15 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.newtest
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentNewTestBinding
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormType
 
 class NewTestFragment : Fragment() {
 
@@ -29,7 +31,9 @@ class NewTestFragment : Fragment() {
         }
 
         binding.test2Container.setOnClickListener {
-            view.findNavController().navigate(R.id.navigate_from_startScreenFragment_to_formFragment)
+            val application = (activity?.application as MainApplication)
+            application.setViewModel(formType = FormType.SoilStructure)
+            view.findNavController().navigate(R.id.navigateToFormFragment)
         }
 
         binding.test3Container.setOnClickListener {
