@@ -58,12 +58,4 @@ private extension FormViewController {
             interfaceGenerator.updateInterface(components: components, currentScreen: currentScreen)
         }
     }
-    
-    func nextScreen() {
-        viewModel.nextScreen()
-    }
-    
-    func previousScreen() {
-        viewModel.previousScreen()
-    }
 }
