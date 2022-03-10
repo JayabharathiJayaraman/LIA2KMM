@@ -18,11 +18,12 @@
 
         <ImageView
             android:id="@+id/bottom_navbar_back"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:paddingBottom="20dp"
             android:paddingRight="10dp"
+            android:scaleType="fitXY"
             android:layout_marginRight="10dp"
             android:layout_alignParentStart="true"
             android:src="@drawable/ic_baseline_arrow_back_green"
@@ -30,8 +31,8 @@
 
         <ImageView
             android:id="@+id/bottom_navbar_forward"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="right"
             android:paddingBottom="20dp"
             android:paddingLeft="10dp"
