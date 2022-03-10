@@ -16,5 +16,4 @@ enum class FormType {
     GeneralQuestions,
     SoilStructure,
     Infiltration,
-    NewTest
 }

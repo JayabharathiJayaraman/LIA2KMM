@@ -132,25 +132,21 @@ data class FormInfiltrations(
                     id = "radioButton1Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Representativ",
-                    image = "src"
                 ),
                 FormComponentChecklist(
                     id = "radioButton2Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Bra plats",
-                    image = "src"
                 ),
                 FormComponentChecklist(
                     id = "radioButton3Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Dålig plats",
-                    image = "src"
                 ),
                 FormComponentChecklist(
                     id = "radioButton4Screen3",
                     type = ComponentType.CHECKLIST,
                     text = "Annan",
-                    image = "src"
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
@@ -455,13 +451,17 @@ data class FormInfiltrations(
             ),
         ),
     )
-        fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
-        {
+        override fun setText(
+            id: String,
+            text: String,
+            state: FormViewModel.State
+        ): FormViewModel.State {
             with(state.form.data) {
                 when (id) {
                     FormGeneralQuestions.ID_FARMNAME -> commonData.farmInformation.farmName = text
                     FormGeneralQuestions.ID_FARMLAND -> commonData.farmInformation.farmLand = text
-                    FormGeneralQuestions.ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
+                    FormGeneralQuestions.ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType =
+                        text
                 }
             }
             return state

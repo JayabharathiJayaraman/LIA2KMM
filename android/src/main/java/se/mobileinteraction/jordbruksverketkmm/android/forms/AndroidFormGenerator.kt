@@ -1,25 +1,15 @@
 package se.mobileinteraction.jordbruksverketkmm.android.forms
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
-import android.widget.*
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.ImageView
+import android.widget.GridLayout
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.TypedArrayUtils.getResourceId
-import android.widget.*
 import androidx.core.widget.addTextChangedListener
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
-import se.mobileinteraction.jordbruksverketkmm.android.R
-import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
@@ -83,7 +73,6 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 ComponentType.REMARK -> {
                     val remark = (component as FormComponentRemark)
                     mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
-                    mainView.createOrUpdateImage(image.image, image.caption)
                 }
                 ComponentType.BUTTON -> {
                     val button = (component as FormComponentButton)
@@ -161,7 +150,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         }
     }
 
-    override fun createInterface(components: List<FormComponent>): View {
+    fun createInterface(components: List<FormComponent>): View {
         generateInterface(components)
 
         return mainView
@@ -190,8 +179,8 @@ private fun ViewGroup.createOrUpdateSmallTitleLabel(text: String, id: String) {
 
     this.findViewWithTag(id) ?: binding.formSmallTitleLabelContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
-
     binding.smallTitleLabelTextview.text = text
+}
 
 private fun ViewGroup.createOrUpdateButton(text: String, id: String) {
     val binding: FormButtonBinding = FormButtonBinding.inflate(LayoutInflater.from(context))
@@ -296,7 +285,7 @@ private fun ViewGroup.addImagesContainer(id:String,text1:String,text2:String,tex
     this.findViewWithTag(id) ?: binding.whatNextImagesContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
     binding.newTestText.text = text1
-    binding.vRdaText.text = text2
+    binding.vardaText.text = text2
     binding.markstrukturText.text = text3
     binding.klarText.text = text4
 }
@@ -305,6 +294,7 @@ private fun ViewGroup.createOrUpdateVideo(id: String, text: String) {
     val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formVideoviewContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
+}
 
 private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String, caption: String) {
     val binding: FormImageviewCaptionBinding = FormImageviewCaptionBinding.inflate(LayoutInflater.from(context))
@@ -317,16 +307,16 @@ private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String
 }
 
 private fun ViewGroup.createOrUpdateResultatInfoBody(text: String, id: String) {
-    val binding: FormResultatInfoBodyBinding = FormResultatInfoBodyBinding.inflate(LayoutInflater.from(context))
+    val binding: FormResultatInfoBodyBinding =
+        FormResultatInfoBodyBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formResultatInfoContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
     binding.resultatBodyTextview.text = text
+}
 
 private fun ViewGroup.getImageResource(name: String): Int {
     return context.resources.getIdentifier("drawable/$name", null, context.packageName)
 }
-
-
 
 private fun ViewGroup.getbackgroundFaceColor(colorName: String) : Int{
     var resourceId:Int = 0

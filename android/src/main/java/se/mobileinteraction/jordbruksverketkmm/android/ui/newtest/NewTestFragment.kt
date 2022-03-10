@@ -37,7 +37,9 @@ class NewTestFragment : Fragment() {
         }
 
         binding.test3Container.setOnClickListener {
-
+            val application = (activity?.application as MainApplication)
+            application.setViewModel(formType = FormType.Infiltration)
+            view.findNavController().navigate(R.id.navigateToFormFragment)
         }
 
         return view
