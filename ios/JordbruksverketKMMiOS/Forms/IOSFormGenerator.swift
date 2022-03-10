@@ -27,36 +27,34 @@ class IOSFormGenerator: FormGenerator {
     }
     
     func generateInterface(components: [FormComponent]) {
-        if mainView.subviews.count == 0 {
-            for component in components {
-                switch component.type {
-                case .body:
-                    if let body = component as? FormComponentText {
-                        mainView.addBodyLabel(text: body.text)
-                    }
-                case .titlebig:
-                    if let title = component as? FormComponentText {
-                        mainView.addBigTitleLabel(text: title.text)
-                    }
-                case .titlesmall:
-                    if let title = component as? FormComponentText {
-                        mainView.addSmallTitleLabel(text: title.text)
-                    }
-                case .textfield:
-                    if let textfield = component as? FormComponentTextField {
-                        mainView.createOrUpdateTextField(id: textfield.id, text: textfield.text, placeholder: textfield.placeholder)
-                    }
-                case .buttonlist:
-                    if let buttonlist = component as? FormComponentButtonList {
-                        mainView.addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
-                    }
-                case .image:
-                    if let image = component as? FormComponentImage {
-                        mainView.addImage(imageName: image.image, caption: image.caption)
-                    }
-                default:
-                    print("unknown component")
+        for component in components {
+            switch component.type {
+            case .body:
+                if let body = component as? FormComponentText {
+                    mainView.addBodyLabel(text: body.text)
                 }
+            case .titlebig:
+                if let title = component as? FormComponentText {
+                    mainView.addBigTitleLabel(text: title.text)
+                }
+            case .titlesmall:
+                if let title = component as? FormComponentText {
+                    mainView.addSmallTitleLabel(text: title.text)
+                }
+            case .textfield:
+                if let textfield = component as? FormComponentTextField {
+                    mainView.createOrUpdateTextField(id: textfield.id, text: textfield.text, placeholder: textfield.placeholder)
+                }
+            case .buttonlist:
+                if let buttonlist = component as? FormComponentButtonList {
+                    mainView.addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
+                }
+            case .image:
+                if let image = component as? FormComponentImage {
+                    mainView.addImage(imageName: image.image, caption: image.caption)
+                }
+            default:
+                print("unknown component")
             }
         }
     }
@@ -109,18 +107,15 @@ extension UIStackView {
     }
     
     func createOrUpdateTextField(id: String, text: String, placeholder: String) {
-        let existingView = self.subviews.first { view in
+        if (self.subviews.first(where: { view in
             (view as? TextFieldWithId)?.idString == id
-        } as? TextFieldWithId
-        
-        var textField = TextFieldWithId()
-        
-        if let existingView = existingView {
-            textField = existingView
-        } else {
+        }) as? TextFieldWithId) == nil {
+            print("NEW VIEWW")
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
             
+            let textField = TextFieldWithId()
+            textField.text = text
             textField.placeholder = placeholder
             textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             textField.idString = id
@@ -128,8 +123,6 @@ extension UIStackView {
             
             self.addArrangedSubview(textField)
         }
-        
-        textField.text = text
     }
     
     @objc
