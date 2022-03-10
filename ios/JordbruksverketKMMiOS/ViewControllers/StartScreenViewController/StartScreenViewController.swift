@@ -43,7 +43,9 @@ final class StartScreenViewController: UIViewController {
     }
     
     @IBAction func aboutAppButtonTapped(_ sender: Any) {
-        navigationController?.present(AboutAppViewController(), animated: true)
+        let aboutViewController = AboutAppViewController()
+        aboutViewController.modalPresentationStyle = .overFullScreen
+        navigationController?.present(aboutViewController, animated: true)
     }
     
     @IBAction func myTestButtonTapped(_ sender: Any) {

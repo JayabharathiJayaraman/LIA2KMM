@@ -72,6 +72,18 @@
 		9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7427DA240500239E45 /* UINavigationController.swift */; };
 		9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7427DA240500239E45 /* UINavigationController.swift */; };
 		9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7427DA240500239E45 /* UINavigationController.swift */; };
+		9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7927DA253500239E45 /* NavigationBarViewController.swift */; };
+		9D5A8C7B27DA253500239E45 /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7927DA253500239E45 /* NavigationBarViewController.swift */; };
+		9D5A8C7C27DA253500239E45 /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7927DA253500239E45 /* NavigationBarViewController.swift */; };
+		9D5A8C8127DA258D00239E45 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7F27DA258D00239E45 /* NavigationBar.swift */; };
+		9D5A8C8227DA258D00239E45 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7F27DA258D00239E45 /* NavigationBar.swift */; };
+		9D5A8C8327DA258D00239E45 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7F27DA258D00239E45 /* NavigationBar.swift */; };
+		9D5A8C8427DA258D00239E45 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8027DA258D00239E45 /* NavigationBar.xib */; };
+		9D5A8C8527DA258D00239E45 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8027DA258D00239E45 /* NavigationBar.xib */; };
+		9D5A8C8627DA258D00239E45 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8027DA258D00239E45 /* NavigationBar.xib */; };
+		9D5A8C8827DA261400239E45 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8727DA261400239E45 /* UIView.swift */; };
+		9D5A8C8927DA261400239E45 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8727DA261400239E45 /* UIView.swift */; };
+		9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C8727DA261400239E45 /* UIView.swift */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
@@ -137,6 +149,10 @@
 		9D5A8C6B27DA0DE600239E45 /* Int32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int32.swift; sourceTree = "<group>"; };
 		9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		9D5A8C7427DA240500239E45 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		9D5A8C7927DA253500239E45 /* NavigationBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewController.swift; sourceTree = "<group>"; };
+		9D5A8C7F27DA258D00239E45 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		9D5A8C8027DA258D00239E45 /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		9D5A8C8727DA261400239E45 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,8 +275,8 @@
 			children = (
 				9D07BE0527BBC37600FF1D55 /* Forms */,
 				9D8E1E8327A7F9C1002E7D94 /* Resources */,
-				9D34C54127A14FD50043B5A1 /* ViewControllers */,
 				9D34C53C27A14DED0043B5A1 /* Common */,
+				9D34C54127A14FD50043B5A1 /* ViewControllers */,
 				9D34C50C27A14C740043B5A1 /* AppDelegate.swift */,
 				9D34C50E27A14C740043B5A1 /* SceneDelegate.swift */,
 				9D34C51227A14C740043B5A1 /* Main.storyboard */,
@@ -291,6 +307,7 @@
 		9D34C53C27A14DED0043B5A1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9D5A8C7D27DA254D00239E45 /* Views */,
 				9D8E1E8827A7FA00002E7D94 /* Extensions */,
 				9D34C53D27A14E090043B5A1 /* AppLaunchManager.swift */,
 			);
@@ -300,6 +317,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D5A8C7827DA252100239E45 /* NavigationBarViewController */,
 				9D5A8C6F27DA23D900239E45 /* MainNavigationController */,
 				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
 				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
@@ -324,6 +342,31 @@
 				9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */,
 			);
 			path = MainNavigationController;
+			sourceTree = "<group>";
+		};
+		9D5A8C7827DA252100239E45 /* NavigationBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D5A8C7927DA253500239E45 /* NavigationBarViewController.swift */,
+			);
+			path = NavigationBarViewController;
+			sourceTree = "<group>";
+		};
+		9D5A8C7D27DA254D00239E45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D5A8C7E27DA257E00239E45 /* NavigationBar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9D5A8C7E27DA257E00239E45 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				9D5A8C7F27DA258D00239E45 /* NavigationBar.swift */,
+				9D5A8C8027DA258D00239E45 /* NavigationBar.xib */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		9D65F40827CCFE7700646C73 /* Views */ = {
@@ -352,6 +395,7 @@
 				2E4F3EAE27D76E21008A336C /* UILabel.swift */,
 				9D5A8C6B27DA0DE600239E45 /* Int32.swift */,
 				9D5A8C7427DA240500239E45 /* UINavigationController.swift */,
+				9D5A8C8727DA261400239E45 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +512,7 @@
 				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
 				9D07BE3427BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
+				9D5A8C8427DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */,
@@ -485,6 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5A8C8527DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D07BE3827BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
 				9D07BE2F27BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				9D5A8C6627D8D7C800239E45 /* Localizable.strings in Resources */,
@@ -507,6 +553,7 @@
 				9D34C54A27A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8C6727D8D7C800239E45 /* Localizable.strings in Resources */,
 				9D07BE1127BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
+				9D5A8C8627DA258D00239E45 /* NavigationBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,14 +591,17 @@
 			files = (
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				9D5A8C8827DA261400239E45 /* UIView.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
 				9D07BE1327BBFE7A00FF1D55 /* UIFont.swift in Sources */,
+				9D5A8C8127DA258D00239E45 /* NavigationBar.swift in Sources */,
 				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,
 				9D5A8C5627D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
@@ -568,11 +618,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5A8C8927DA261400239E45 /* UIView.swift in Sources */,
 				9D5A8C5727D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
 				9D07BE3D27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				9D5A8C8227DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D5A8C6D27DA0DE700239E45 /* Int32.swift in Sources */,
 				9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */,
 				9D5A8C7227DA23EC00239E45 /* MainNavigationController.swift in Sources */,
@@ -580,6 +632,7 @@
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D34C54627A150180043B5A1 /* FormViewController.swift in Sources */,
+				9D5A8C7B27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,7 +644,9 @@
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
+				9D5A8C8327DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
+				9D5A8C7C27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D07BE3E27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D5A8C6E27DA0DE700239E45 /* Int32.swift in Sources */,
@@ -599,6 +654,7 @@
 				9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D5A8C5827D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
+				9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */,
 				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
 				9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */,

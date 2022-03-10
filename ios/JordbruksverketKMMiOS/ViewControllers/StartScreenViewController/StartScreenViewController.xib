@@ -92,7 +92,7 @@
                             <rect key="frame" x="0.0" y="664" width="390" height="180"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testDoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-w6-Rix">
-                                    <rect key="frame" x="40" y="8" width="40" height="74"/>
+                                    <rect key="frame" x="50" y="8" width="40" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="CvR-bq-4II"/>
                                         <constraint firstAttribute="width" constant="40" id="fT4-r3-YjL"/>
@@ -106,14 +106,14 @@
                                     </constraints>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="alS-Vh-BdQ">
-                                    <rect key="frame" x="310" y="8" width="40" height="74"/>
+                                    <rect key="frame" x="300" y="8" width="40" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="52g-75-Dqm"/>
                                         <constraint firstAttribute="width" constant="40" id="k9a-uQ-qkc"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mina test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-wV-p6d">
-                                    <rect key="frame" x="26" y="90" width="68" height="20.666666666666671"/>
+                                    <rect key="frame" x="36" y="90" width="68" height="20.666666666666671"/>
                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                     <color key="textColor" name="defaultTitleText"/>
                                     <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vårda markstruktur" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUt-eQ-Qre">
-                                    <rect key="frame" x="270" y="90" width="120" height="41"/>
+                                    <rect key="frame" x="260" y="90" width="120" height="41"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="Amh-HL-m0b"/>
                                     </constraints>
@@ -134,7 +134,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-lg-ZUL" userLabel="My Tests">
-                                    <rect key="frame" x="12.666666666666664" y="0.0" width="95" height="125"/>
+                                    <rect key="frame" x="22.666666666666671" y="0.0" width="95" height="125"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="125" id="G8s-4N-Dhr"/>
                                         <constraint firstAttribute="width" constant="95" id="i5J-W8-ig1"/>
@@ -158,7 +158,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHT-lw-HoP" userLabel="Checklists">
-                                    <rect key="frame" x="282.66666666666669" y="12" width="95" height="125"/>
+                                    <rect key="frame" x="272.66666666666669" y="12" width="95" height="125"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="95" id="YNY-TX-gdK"/>
                                         <constraint firstAttribute="height" constant="125" id="edl-dY-mkQ"/>
@@ -173,10 +173,10 @@
                             <constraints>
                                 <constraint firstItem="6yy-7r-cju" firstAttribute="top" secondItem="eV9-Hh-X5O" secondAttribute="bottom" constant="8" symbolic="YES" id="57P-ew-jKk"/>
                                 <constraint firstItem="eV9-Hh-X5O" firstAttribute="top" secondItem="aoO-ai-0vN" secondAttribute="top" constant="30" id="5sb-Zn-Akv"/>
-                                <constraint firstItem="DZ8-w6-Rix" firstAttribute="leading" secondItem="aoO-ai-0vN" secondAttribute="leading" constant="40" id="5ye-IA-hZM"/>
+                                <constraint firstItem="DZ8-w6-Rix" firstAttribute="leading" secondItem="aoO-ai-0vN" secondAttribute="leading" constant="50" id="5ye-IA-hZM"/>
                                 <constraint firstItem="6yy-7r-cju" firstAttribute="centerX" secondItem="eV9-Hh-X5O" secondAttribute="centerX" id="HXR-kx-k7t"/>
                                 <constraint firstItem="LZV-lg-ZUL" firstAttribute="top" secondItem="aoO-ai-0vN" secondAttribute="top" id="Hk3-4N-MmQ"/>
-                                <constraint firstAttribute="trailing" secondItem="alS-Vh-BdQ" secondAttribute="trailing" constant="40" id="IQV-uy-bRC"/>
+                                <constraint firstAttribute="trailing" secondItem="alS-Vh-BdQ" secondAttribute="trailing" constant="50" id="IQV-uy-bRC"/>
                                 <constraint firstItem="uvI-wV-p6d" firstAttribute="centerX" secondItem="DZ8-w6-Rix" secondAttribute="centerX" id="ISh-aO-9RR"/>
                                 <constraint firstItem="EHT-lw-HoP" firstAttribute="centerX" secondItem="kUt-eQ-Qre" secondAttribute="centerX" id="Io9-OT-DgB"/>
                                 <constraint firstItem="uvI-wV-p6d" firstAttribute="top" secondItem="DZ8-w6-Rix" secondAttribute="bottom" constant="8" symbolic="YES" id="KtW-kK-8xX"/>

@@ -1,13 +1,6 @@
-//
-//  AboutAppViewController.swift
-//  JordbruksverketKMMiOS
-//
-//  Created by Ghana Chandrasekaran on 2022-02-12.
-//
-
 import UIKit
 
-final class AboutAppViewController: UIViewController {
+final class AboutAppViewController: NavigationBarViewController {
     
     @IBOutlet private weak var about_title1: UILabel!
     @IBOutlet private weak var about_info1: UILabel!
