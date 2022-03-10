@@ -29,16 +29,20 @@ class FormViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         listeningJob?.close()
     }
-    
+
     @IBAction func backButtonTapped(_ sender: Any) {
         viewModel.previousScreen()
     }
-    
+
     @IBAction func nextButtonTapped(_ sender: Any) {
         viewModel.nextScreen()
     }

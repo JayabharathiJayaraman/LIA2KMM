@@ -27,7 +27,7 @@ class NewTestFragment : Fragment() {
         }
 
         binding.test1Container.setOnClickListener {
-
+            view.findNavController().navigate(R.id.navigate_from_startScreenFragment_to_formFragment)
         }
 
         binding.test2Container.setOnClickListener {
