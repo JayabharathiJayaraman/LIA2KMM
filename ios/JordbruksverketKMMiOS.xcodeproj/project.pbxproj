@@ -66,6 +66,12 @@
 		9D5A8C6C27DA0DE700239E45 /* Int32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C6B27DA0DE600239E45 /* Int32.swift */; };
 		9D5A8C6D27DA0DE700239E45 /* Int32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C6B27DA0DE600239E45 /* Int32.swift */; };
 		9D5A8C6E27DA0DE700239E45 /* Int32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C6B27DA0DE600239E45 /* Int32.swift */; };
+		9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */; };
+		9D5A8C7227DA23EC00239E45 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */; };
+		9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */; };
+		9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7427DA240500239E45 /* UINavigationController.swift */; };
+		9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7427DA240500239E45 /* UINavigationController.swift */; };
+		9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8C7427DA240500239E45 /* UINavigationController.swift */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
@@ -129,6 +135,8 @@
 		9D5A8C6827D8D7C800239E45 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D5A8C6A27D8D7CF00239E45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D5A8C6B27DA0DE600239E45 /* Int32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int32.swift; sourceTree = "<group>"; };
+		9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		9D5A8C7427DA240500239E45 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,6 +300,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D5A8C6F27DA23D900239E45 /* MainNavigationController */,
 				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
 				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
 				51C7154627B281730005FE91 /* DataPrivacyViewController */,
@@ -307,6 +316,14 @@
 				9D34C54427A150180043B5A1 /* FormViewController.xib */,
 			);
 			path = FormViewController;
+			sourceTree = "<group>";
+		};
+		9D5A8C6F27DA23D900239E45 /* MainNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				9D5A8C7027DA23EC00239E45 /* MainNavigationController.swift */,
+			);
+			path = MainNavigationController;
 			sourceTree = "<group>";
 		};
 		9D65F40827CCFE7700646C73 /* Views */ = {
@@ -334,6 +351,7 @@
 				9D5A8C5927D762FB00239E45 /* UIColor.swift */,
 				2E4F3EAE27D76E21008A336C /* UILabel.swift */,
 				9D5A8C6B27DA0DE600239E45 /* Int32.swift */,
+				9D5A8C7427DA240500239E45 /* UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -524,9 +542,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
@@ -554,6 +574,8 @@
 				9D07BE3D27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D5A8C6D27DA0DE700239E45 /* Int32.swift in Sources */,
+				9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */,
+				9D5A8C7227DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D07BE0D27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
@@ -577,7 +599,9 @@
 				9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D5A8C5827D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
+				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
+				9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
