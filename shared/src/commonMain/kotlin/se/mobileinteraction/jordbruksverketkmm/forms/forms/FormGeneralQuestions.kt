@@ -75,11 +75,6 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
-                FormComponentText(
-                    id = "jordartTitleScreen3",
-                    type = ComponentType.TITLESMALL,
-                    text = "Jordart"
-                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
@@ -95,7 +90,7 @@ data class FormGeneralQuestions(
                         "Mulljord (torvjord under)",
                         "Mulljord (gyttjejord under)"
                     ),
-                    title = "Title",
+                    title = "Jordart",
                     value = "ett",
                     placeholder = "Välj...",
                 ),
@@ -315,11 +310,6 @@ data class FormGeneralQuestions(
                         text = "Notes",
                         placeholder = "Skriv dina noteringar och kommentarer om frågorna här.",
                     ),
-                    FormComponentButton(
-                        id ="taFotoButtonScreen10",
-                        type = ComponentType.BUTTON,
-                        text = "Ta foto",
-                    ),
                 ),
             ),
             FormScreen(
@@ -330,49 +320,63 @@ data class FormGeneralQuestions(
                         text = "Resultat",
                     ),
                     FormComponentText(
-                        id ="hurFungerarTitleScreen11",
+                        id = "hurFungerarTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "Hur fungerar skiftet för min växtodling?"
                     ),
                     FormComponentText(
-                        id ="symbolTitleScreen11",
+                        id = "symbolTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "vilken symbol dominerar?"
                     ),
-                    FormComponentText(
-                        id ="krafttagBodyScreen11",
-                        type = ComponentType.BODY,
-                        text = "oj, här behövs det krafttag för att förbättra ,markstrukturen!"
+                    FormComponentResultatRemark(
+                        id = "structureSadRemarkScreen10",
+                        type = ComponentType.RESULTATREMARKSFACE,
+                        text = "Oj, här behövs det krafttag för att förbättra markstrukturen!",
+                        image = "sad_face",
+                        color = "red_round_background"
+                    ),
+                    FormComponentResultatRemark(
+                        id = "structureIndifferentRemarkScreen10",
+                        type = ComponentType.RESULTATREMARKSFACE,
+                        text = "Här finns det en del att göra åt markstrukturen!",
+                        image = "indifferent_face",
+                        color = "orange_round_background"
+                    ),
+                    FormComponentResultatRemark(
+                        id = "structureHappyRemarkScreen10",
+                        type = ComponentType.RESULTATREMARKSFACE,
+                        text = "Mycket bra markstruktur!Vårda den!",
+                        image = "happy_face",
+                        color = "green_round_background"
                     ),
                     FormComponentText(
-                        id ="markstrukturenBodyScreen11",
-                        type = ComponentType.BODY,
-                        text = "Här finns det en del att göra åt markstrukturen!"
-                    ),
-                    FormComponentText(
-                        id ="braMarkstrukturBodyScreen11",
-                        type = ComponentType.BODY,
-                        text = "Mycket bra markstruktur! Vårda den!"
-                    ),
-                    FormComponentText(
-                        id ="NoteringarTitleScreen11",
+                        id = "NoteringarTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "Noteringar"
                     ),
                     FormComponentText(
-                        id ="TipsTitleScreen11",
+                        id = "TipsTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "Tips"
                     ),
                     FormComponentText(
-                        id ="exporteraTestetBodyScreen11",
+                        id = "exporteraTestetBodyScreen11",
                         type = ComponentType.BODY,
                         text = "Gå till Mina test och exportera testet som datafil direkt när du är klar! Då har du ditt arbete tryggt sparat även på annan plats. Annars finns det bara i appen i din mobil."
                     ),
                     FormComponentText(
-                        id ="vadGöraNuTitleScreen11",
+                        id = "vadGöraNuTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "Vad vill du göra nu?"
+                    ),
+                    FormComponentResultatImages(
+                        id = "vadNuImagesScreen10",
+                        type = ComponentType.RESULTATIMAGES,
+                        text1 = "Nytt test",
+                        text2 = "Vårda",
+                        text3 = "markstruktur",
+                        text4 = "Klar"
                     ),
                 ),
             ),
