@@ -74,28 +74,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                     val remark = (component as FormComponentRemark)
                     mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
                 }
-                ComponentType.BUTTON -> {
-                    val button = (component as FormComponentButton)
-                    mainView.createOrUpdateButton(button.text, button.id)
-                }
-                ComponentType.BUTTONLIST -> {
-                    val buttonList = (component as FormComponentButtonList)
-                    mainView.createOrUpdateButtonList(
-                        buttonList.title,
-                        buttonList.id,
-                        buttonList.list,
-                        buttonList.value,
-                        buttonList.placeholder
-                    )
-                }
-                ComponentType.CHECKLIST -> {
-                    val checklist = (component as FormComponentChecklist)
-                    mainView.createOrUpdateChecklist(checklist.text, checklist.id)
-                }
-                ComponentType.REMARK -> {
-                    val remark = (component as FormComponentRemark)
-                    mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
-                }
+
                 ComponentType.RESULTATREMARKSFACE -> {
                     val resultatRemarks = (component as FormComponentResultatRemark)
                     mainView.createOrUpdateResultatRemarks(resultatRemarks.text, resultatRemarks.id, resultatRemarks.image, resultatRemarks.color)
@@ -112,14 +91,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         textFieldNotes.placeholder
                     )
                 }
-                ComponentType.TEXTFIELDNOTES -> {
-                    val textFieldNotes = (component as FormComponentTextField)
-                    mainView.createOrUpdateTextFieldNotes(
-                        textFieldNotes.id,
-                        textFieldNotes.text,
-                        textFieldNotes.placeholder
-                    )
-                }
+
                 ComponentType.CAPTIONEDIMAGE -> {
 
                     if(innerImageLayout.parent == null) {
