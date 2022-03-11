@@ -41,4 +41,13 @@ class NewTestViewController: UIViewController {
         bodyTextTitleLabel.text = "new_test_about".localized
         bodyTextLabel.text = "new_test_about_body".localized
     }
+    
+    @IBAction func createGeneralQuestionsFormTapped(_ sender: Any) {
+    }
+    
+    @IBAction func createSoilStructureFormTapped(_ sender: Any) {
+    }
+    
+    @IBAction func createInfiltrationFormTapped(_ sender: Any) {
+    }
 }
