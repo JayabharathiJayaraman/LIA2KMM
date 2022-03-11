@@ -26,16 +26,17 @@ class FormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            
+
             self.progressBarStackView.layer.cornerRadius = 6.0
             self.progressBarStackView.clipsToBounds = true
 
             self.updateOrGenerateNewComponents(components: newState.components)
-            
+
             self.updateProgress(totalScreens: Int(newState.totalScreens), currentScreen: Int(newState.currentScreen))
-            
+
             self.CurrentScreenView.text = "\(newState.currentScreen + 1)"
             self.totalScreensView.text = "\(newState.totalScreens)"
         }
@@ -44,7 +45,7 @@ class FormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
+
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var nextButtonImageRight: NSLayoutConstraint!
     
@@ -54,7 +55,7 @@ class FormViewController: UIViewController {
     
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var previousButtonImageLeft: UIImageView!
-    
+
     @IBAction func previousViewButton(_ sender: Any) {
         previousScreen()
     }
@@ -116,7 +117,7 @@ private extension FormViewController {
            }
         viewModel.previousScreen()
     }
-    
+
     func getUIColor(hex: String, alpha: Double = 1.0) -> UIColor? {
         var cleanString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
@@ -127,10 +128,10 @@ private extension FormViewController {
         if ((cleanString.count) != 6) {
             return nil
         }
-        
+
         var rgbValue: UInt32 = 0
         Scanner(string: cleanString).scanHexInt32(&rgbValue)
-        
+
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
