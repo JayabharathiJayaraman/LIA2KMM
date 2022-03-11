@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/data_privacy_policy_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background='#EDF1E2'
+    android:orientation="vertical"
     android:contentDescription="@android:string/no"
     tools:context=".ui.dataprivacypolicy.DataPrivacyPolicyFragment">
 
@@ -49,107 +50,118 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <ImageView
-                android:id="@+id/jordbruksverket_icon"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="60dp"
-                android:contentDescription="@string/jordbruksverket_icon"
-                android:src="@drawable/jv_logga" />
-
-            <TextView
-                android:id="@+id/appInfoHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/open_sans_semi_bold"
-                android:text="@string/data_privacy_policy_applikationen"
-                android:textColor="#2f651a"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/appInfoText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="@string/data_privacy_policy_appInfoText"
-                android:textColor="#2f651a"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/feedback_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:height="24sp"
-                android:background="@drawable/data_privacy_btn"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="@string/data_privacy_policy_feedbackButton"
-                android:textColor="#2f651a" />
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="60dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-                <ImageView
-                    android:id="@+id/EUicon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    android:contentDescription="Eu logo"
-                    android:src="@drawable/eu_logga" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <ImageView
-                    android:id="@+id/SLUicon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    android:contentDescription="SLU logo"
-                    android:src="@drawable/slu_logga" />
+                    <ImageView
+                        android:id="@+id/jordbruksverket_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="190dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="60dp"
+                        android:contentDescription="@string/jordbruksverket_icon"
+                        android:src="@drawable/jv_logga" />
 
+                    <TextView
+                        android:id="@+id/appInfoHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/data_privacy_policy_applikationen"
+                        android:textColor="#2f651a"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/appInfoText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/data_privacy_policy_appInfoText"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/feedback_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:height="24sp"
+                        android:background="@drawable/data_privacy_btn"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/data_privacy_policy_feedbackButton"
+                        android:textColor="#2f651a" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginBottom="60dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/EUicon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:contentDescription="Eu logo"
+                            android:src="@drawable/eu_logga" />
+
+                        <ImageView
+                            android:id="@+id/SLUicon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:contentDescription="SLU logo"
+                            android:src="@drawable/slu_logga" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/hanteringHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/data_privacy_policy_hanteringHeader"
+                        android:textColor="#2f651a"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/hanteringText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/data_privacy_policy_hanteringText1"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/hanteringText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="80dp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/data_privacy_policy_hanteringText2"
+                        android:textColor="#2f651a"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/hanteringHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/open_sans_semi_bold"
-                android:text="@string/data_privacy_policy_hanteringHeader"
-                android:textColor="#2f651a"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/hanteringText1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="@string/data_privacy_policy_hanteringText1"
-                android:textColor="#2f651a"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/hanteringText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="@string/data_privacy_policy_hanteringText2"
-                android:textColor="#2f651a"
-                android:textSize="16sp" />
-
-        </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
-</ScrollView>
+</LinearLayout>

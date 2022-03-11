@@ -32,6 +32,9 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
         <action
+            android:id="@+id/navigareToVardaMarkstruktur"
+            app:destination="@id/vardaMarkstrukturFragment" />
+        <action
             android:id="@+id/navigate_from_startScreenFragment_to_newTestFragment"
             app:destination="@id/newTestFragment" />
     </fragment>
@@ -61,6 +64,27 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/vardaMarkstrukturFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.vardamarkstruktur.VardaMarkstrukturFragment"
+        android:label="fragment_varda_markstruktur"
+        tools:layout="@layout/fragment_varda_markstruktur" >
+        <action
+            android:id="@+id/navigateTocheckList"
+            app:destination="@id/checkListFragment">
+            <argument
+                android:name="category"
+                app:argType="string"
+                android:defaultValue="dummy" />
+        </action>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkListFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.checklist.CheckListFragment"
+        android:label="fragment_check_list"
+        tools:layout="@layout/fragment_check_list" />
     <fragment
         android:id="@+id/newTestFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.newtest.NewTestFragment"
