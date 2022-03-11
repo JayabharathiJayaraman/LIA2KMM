@@ -191,17 +191,22 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
-                FormComponentText(
-                    id = "jordatTitleScreen5",
-                    type = ComponentType.TITLESMALL,
-                    text = "Jordat"
-                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
-                    title = "",
-                    list = listOf("Sand, grovmo", "Finmo, mjäla", "Leriga jordar (5-15%)", "Lättlera (15-25%)", "Mellanlera (25-40%)", "Styv lera (40-60%)", "Mycket styv lera (>60%)",
-                        "Moränlera", "Mulljord (torvjord under)", "Mulljord (gyttjejord under)"),
+                    title = "Jordart",
+                    list = listOf(
+                        "Sand, grovmo",
+                        "Finmo, mjäla",
+                        "Leriga jordar (5-15%)",
+                        "Lättlera (15-25%)",
+                        "Mellanlera (25-40%)",
+                        "Styv lera (40-60%)",
+                        "Mycket styv lera (>60%)",
+                        "Moränlera",
+                        "Mulljord (torvjord under)",
+                        "Mulljord (gyttjejord under)"
+                    ),
                     value = "ett",
                     placeholder = "Välj...",
                 ),
@@ -225,45 +230,62 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
-                FormComponentText(
-                    id = "grödaTitleScreen6",
-                    type = ComponentType.TITLESMALL,
-                    text = "Gröda"
-                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
-                    title = "",
-                    list = listOf("Vårstråsäd", "Höststråsäd", "Våroljeväxter", "Höstoljeväxter", "Vall", "Potatis", "Majs",
-                        "Åkerbönor", "Ärter", "Sockerbetor", "Frilandsgrönsaker", "Frukt och Bär", "Övriga grödor",
-                        "Mellangröda Fånggröda", "Bevuxen träda", "Stubb", "Ingen gröda - öppen jord"),
+                    title = "Gröda",
+                    list = listOf(
+                        "Vårstråsäd",
+                        "Höststråsäd",
+                        "Våroljeväxter",
+                        "Höstoljeväxter",
+                        "Vall",
+                        "Potatis",
+                        "Majs",
+                        "Åkerbönor",
+                        "Ärter",
+                        "Sockerbetor",
+                        "Frilandsgrönsaker",
+                        "Frukt och Bär",
+                        "Övriga grödor",
+                        "Mellangröda Fånggröda",
+                        "Bevuxen träda",
+                        "Stubb",
+                        "Ingen gröda - öppen jord"
+                    ),
                     value = "ett",
                     placeholder = "Välj...",
-                ),
-                FormComponentText(
-                    id = "förfuktrsgrödaTitleScreen6",
-                    type = ComponentType.TITLESMALL,
-                    text = "Förfuktrsgröda"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = "CropButtonListScreen6",
-                    title = "",
-                    list = listOf("Vårstråsäd", "Höststråsäd", "Våroljeväxter", "Höstoljeväxter", "Vall", "Potatis", "Majs",
-                        "Åkerbönor", "Ärter", "Sockerbetor", "Frilandsgrönsaker", "Frukt och Bär", "Övriga grödor",
-                        "Mellangröda Fånggröda", "Bevuxen träda", "Stubb", "Ingen gröda - öppen jord"),
+                    title = "Förfuktrsgröda",
+                    list = listOf(
+                        "Vårstråsäd",
+                        "Höststråsäd",
+                        "Våroljeväxter",
+                        "Höstoljeväxter",
+                        "Vall",
+                        "Potatis",
+                        "Majs",
+                        "Åkerbönor",
+                        "Ärter",
+                        "Sockerbetor",
+                        "Frilandsgrönsaker",
+                        "Frukt och Bär",
+                        "Övriga grödor",
+                        "Mellangröda Fånggröda",
+                        "Bevuxen träda",
+                        "Stubb",
+                        "Ingen gröda - öppen jord"
+                    ),
                     value = "ett",
                     placeholder = "Välj...",
-                ),
-                FormComponentText(
-                    id = "jordbearbetningTitleScreen6",
-                    type = ComponentType.TITLESMALL,
-                    text = "Jordbearbetning"
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = "soilBearbetningScreen6",
-                    title = "",
+                    title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
                     value = "ett",
                     placeholder = "Välj...",
@@ -324,16 +346,16 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Infiltrationstest"
                 ),
-                FormComponentText(
-                    id = "vilketSkiktTitleScreen8",
-                    type = ComponentType.TITLESMALL,
-                    text = "På vilket skikt mäter du infiltrationen?"
-                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
-                    title = "",
-                    list = listOf("Markyta/Matjord", "Bearbetningssula 1", "Bearbetningssula 2", "Alv"),
+                    title = "På vilket skikt mäter du infiltrationen?",
+                    list = listOf(
+                        "Markyta/Matjord",
+                        "Bearbetningssula 1",
+                        "Bearbetningssula 2",
+                        "Alv"
+                    ),
                     value = "ett",
                     placeholder = "Välj...",
                 ),
