@@ -20,10 +20,10 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:paddingBottom="20dp"
-            android:paddingRight="10dp"
-            android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:scaleType="center"
+            android:layout_marginRight="10dp"
             android:layout_alignParentStart="true"
             android:src="@drawable/ic_baseline_arrow_back_green"
             tools:ignore="RtlHardcoded" />
@@ -33,10 +33,10 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:paddingBottom="20dp"
-            android:paddingLeft="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:scaleType="center"
+            android:layout_marginLeft="10dp"
             android:layout_alignParentEnd="true"
             android:src="@drawable/ic_baseline_arrow_forward_green"
             tools:ignore="RtlHardcoded" />
@@ -50,6 +50,7 @@
             android:gravity="center_vertical"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:id="@+id/progress_layout"
                 android:layout_width="fill_parent"
@@ -57,6 +58,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
+
             </LinearLayout>
 
             <TextView
@@ -65,8 +67,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/bottom_navbar_text"
-                android:paddingTop="4dp"
-                android:paddingBottom="10dp"
                 android:textColor="#2f651a"
                 android:textSize="16sp" />
         </LinearLayout>
