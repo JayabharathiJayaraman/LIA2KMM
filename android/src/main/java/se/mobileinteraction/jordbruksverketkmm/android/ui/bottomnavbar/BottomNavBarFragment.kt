@@ -57,9 +57,11 @@ class BottomNavBarFragment : Fragment() {
     private fun setProgress(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
         binding.progressLayout.removeAllViews()
         val containerWidth = binding.progressLayout.width
+        val usableContainerWidth = (containerWidth * 0.8).toInt()
         for (i in 0 until totalScreens){
             val progressItem = ImageView(this.requireContext())
-            progressItem.layoutParams = LinearLayout.LayoutParams(containerWidth/totalScreens, 50)
+            progressItem.layoutParams =
+                LinearLayout.LayoutParams(usableContainerWidth / totalScreens, 50)
             (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(2, 0, 2, 0);
             progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
             if(i==0){
@@ -83,21 +85,21 @@ class BottomNavBarFragment : Fragment() {
 
     private fun getFirstDrawableWithRadius(): Drawable? {
         val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(20f, 20f, 0f, 0f, 0f, 0f, 20f, 20f)
+        gradientDrawable.cornerRadii = floatArrayOf(40f, 40f, 0f, 0f, 0f, 0f, 40f, 40f)
         gradientDrawable.setColor(Color.parseColor("#CED7B2"))
         return gradientDrawable
     }
 
     private fun getLastDrawableWithRadius(): Drawable? {
         val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
+        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 40f, 40f, 40f, 40f, 0f, 0f)
         gradientDrawable.setColor(Color.parseColor("#EDF1E2"))
         return gradientDrawable
     }
 
     private fun getLastColoredDrawableWithRadius(): Drawable? {
         val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
+        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 40f, 40f, 40f, 40f, 0f, 0f)
         gradientDrawable.setColor(Color.parseColor("#CED7B2"))
         return gradientDrawable
     }
