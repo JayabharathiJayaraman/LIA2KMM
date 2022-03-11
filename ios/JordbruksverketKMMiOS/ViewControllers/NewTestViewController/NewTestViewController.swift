@@ -14,5 +14,18 @@ class NewTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLabels()
+    }
+    
+    private func setupLabels() {
+        let smallTitles = [generalQuestionsTitleLabel, soilStructureTitleLabel, infiltrationTestTitleLabel]
+        let bigTitles = [generalQuestionsLabel, soilStructureLabel, infiltrationTestLabel]
+        smallTitles.forEach { $0?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .caption1)}
+        bigTitles.forEach { $0?.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)}
+        
+        bodyTextTitleLabel.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
+        bodyTextLabel.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+        
+        
     }
 }
