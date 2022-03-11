@@ -102,6 +102,9 @@
 		9D5A8CA327DB52E100239E45 /* NewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C9F27DB52E100239E45 /* NewTestViewController.xib */; };
 		9D5A8CA427DB52E100239E45 /* NewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C9F27DB52E100239E45 /* NewTestViewController.xib */; };
 		9D5A8CA527DB52E100239E45 /* NewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A8C9F27DB52E100239E45 /* NewTestViewController.xib */; };
+		9D5A8CA827DB5D5D00239E45 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */; };
+		9D5A8CA927DB5D5D00239E45 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */; };
+		9D5A8CAA27DB5D5D00239E45 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */; };
 		9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
 		9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */; };
@@ -177,6 +180,7 @@
 		9D5A8C9627DA37E500239E45 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9D5A8C9E27DB52E100239E45 /* NewTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTestViewController.swift; sourceTree = "<group>"; };
 		9D5A8C9F27DB52E100239E45 /* NewTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTestViewController.xib; sourceTree = "<group>"; };
+		9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,6 +335,7 @@
 		9D34C53C27A14DED0043B5A1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9D5A8CA627DB5D4700239E45 /* Subclasses */,
 				9D5A8C7D27DA254D00239E45 /* Views */,
 				9D8E1E8827A7FA00002E7D94 /* Extensions */,
 				9D34C53D27A14E090043B5A1 /* AppLaunchManager.swift */,
@@ -421,6 +426,14 @@
 				9D5A8C9F27DB52E100239E45 /* NewTestViewController.xib */,
 			);
 			path = NewTestViewController;
+			sourceTree = "<group>";
+		};
+		9D5A8CA627DB5D4700239E45 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 		9D65F40827CCFE7700646C73 /* Views */ = {
@@ -674,6 +687,7 @@
 				9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D5A8C6C27DA0DE700239E45 /* Int32.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
+				9D5A8CA827DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
 				2E22F6D527CCD275005C893A /* StartScreenViewController.swift in Sources */,
 				9D5A8C8E27DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 				9D5A8C9A27DA37E500239E45 /* SettingsViewController.swift in Sources */,
@@ -690,6 +704,7 @@
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
 				9D07BE3D27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				9D5A8CA927DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
 				9D5A8C8227DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D5A8C6D27DA0DE700239E45 /* Int32.swift in Sources */,
 				9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */,
@@ -729,6 +744,7 @@
 				9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */,
 				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
+				9D5A8CAA27DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
 				9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

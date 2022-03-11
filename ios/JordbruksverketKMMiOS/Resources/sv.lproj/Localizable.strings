@@ -34,3 +34,11 @@ Om du behöver ominstallera appen och har utförda test du vill spara; exportera
 "settings_namn" = "Namn";
 "settings_emailadress" = "E-mailadress";
 "settings_spara" = "Spara";
+"new_test_test1" = "Test 1";
+"new_test_test2" = "Test 2";
+"new_test_test3" = "Test 3";
+"new_test_general_questions" = "Allmänna frågor om skiftet";
+"new_test_soil_structure" = "Markstrukturtest";
+"new_test_infiltration" = "Infiltrationstest";
+"new_test_about" = "Om testerna";
+"new_test_about_body" = "Du har tre deltester att välja på. Testerna går att göra var för sig men bäst koll på ditt skifte får du om du gör alla tre. Resultaten från de tre deltesten kan summeras i Mina test.\n\nAllmänna frågor om skiftet ger dig en översiktlig bild av skiftets generella status och om det finns strukturproblem som kan behöva åtgärdas. Detta test kan göras inomhus. \n\nMarkstrukturtest i fält och Infiltrationstest  hjälper dig att  lära känna dina odlingsjordar bättre. Dessa två tester görs ute i fält och ger en beskrivning av markens strukturtillstånd på platsen. Fälttesterna fungerar bäst när marken är fuktig och rötter studeras bäst på hösten.\n\nAlla uppgifter sparas löpande i appen. Du kan bläddra framåt och tillbaka, gå ur ett påbörjat test eller tappa uppkopplingen, utan att förlora data. Testen hittar du under Mina Test.";
