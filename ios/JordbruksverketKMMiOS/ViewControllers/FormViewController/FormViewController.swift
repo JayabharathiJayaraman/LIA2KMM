@@ -7,7 +7,7 @@ class FormViewController: UIViewController {
     @IBOutlet weak var CurrentScreenView: UILabel!
     @IBOutlet weak var totalScreensView: UILabel!
     @IBOutlet weak var progressBarStackView: UIStackView!
-    
+    @IBOutlet weak var bottomBarContainerView: UIView!
     private var viewModel = IOSFormViewModel.shared
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
@@ -26,9 +26,10 @@ class FormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
+
+            self.setupBottomViewLayout()
 
             self.progressBarStackView.layer.cornerRadius = 6.0
             self.progressBarStackView.clipsToBounds = true
@@ -42,6 +43,22 @@ class FormViewController: UIViewController {
         }
     }
     
+    private func setupBottomViewLayout(){
+        let bottomViewContainer = UIView()
+        bottomViewContainer.backgroundColor = .white
+        view.addSubview(bottomViewContainer)
+        bottomViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        bottomViewContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomViewContainer.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bottomViewContainer.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        bottomViewContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.12).isActive = true
+        bottomViewContainer.addSubview(bottomBarContainerView)
+        bottomBarContainerView.centerXAnchor.constraint(equalTo: bottomViewContainer.centerXAnchor).isActive = true
+        bottomBarContainerView.centerYAnchor.constraint(equalTo: bottomViewContainer.centerYAnchor).isActive = true
+        
+
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
