@@ -32,10 +32,23 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentText(
-                    id = "utrustningBodyScreen1",
-                    type = ComponentType.BODY,
-                    text = "Bilder med spade osv.."
+                FormComponentImage(
+                    id = "braGrävspadeImage",
+                    type = ComponentType.CAPTIONEDIMAGE,
+                    image = "shovel",
+                    caption = "Bra grävspade",
+                ),
+                FormComponentImage(
+                    id = "cylinderImage",
+                    type = ComponentType.CAPTIONEDIMAGE,
+                    image = "knife",
+                    caption = "Morakniv",
+                ),
+                FormComponentImage(
+                    id = "vattenImage",
+                    type = ComponentType.CAPTIONEDIMAGE,
+                    image = "ruler",
+                    caption = "Tumstock",
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen1",
@@ -874,6 +887,30 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vilken symbol dominerar?",
                 ),
+                FormComponentResultatRemark(
+                    id = "structureSadRemarkScreen19",
+                    type = ComponentType.RESULTATREMARKSFACE,
+                    text = "<4 mm/tim" +
+                            "Oj, här behövs det krafttag för att förbättra markstrukturen!",
+                    image = "sad_face",
+                    color = "red_round_background"
+                ),
+                FormComponentResultatRemark(
+                    id = "structureIndifferentRemarkScreen19",
+                    type = ComponentType.RESULTATREMARKSFACE,
+                    text = "4-12 mm/tim" +
+                            "Här finns det en del att göra åt markstrukturen!",
+                    image = "indifferent_face",
+                    color = "orange_round_background"
+                ),
+                FormComponentResultatRemark(
+                    id = "structureHappyRemarkScreen19",
+                    type = ComponentType.RESULTATREMARKSFACE,
+                    text = ">12 mm/tim" +
+                            "Mycket bra markstruktur!Vårda den!",
+                    image = "happy_face",
+                    color = "green_round_background"
+                ),
                 FormComponentText(
                     id = "tipsTitleScreen19",
                     type = ComponentType.TITLESMALL,
@@ -890,6 +927,14 @@ data class FormSoilStructure(
                     id = "whatNowTitleScreen19",
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?",
+                ),
+                FormComponentResultatImages(
+                    id = "vadNuImagesScreen19",
+                    type = ComponentType.RESULTATIMAGES,
+                    text1 = "Nytt test",
+                    text2 = "Vårda",
+                    text3 = "markstruktur",
+                    text4 = "Klar"
                 ),
             )
         ),
