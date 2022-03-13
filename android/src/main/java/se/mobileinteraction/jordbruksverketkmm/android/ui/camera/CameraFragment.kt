@@ -20,7 +20,7 @@ import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCameraBinding
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.PreviewCameraContainerBinding
-import java.io.*
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
@@ -53,7 +53,7 @@ class CameraFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cameraExecutor = Executors.newSingleThreadExecutor()
-        fragmentCameraBinding.viewFinder.post{
+        fragmentCameraBinding.viewFinder.post {
             startCamera()
             cameraBinding?.imageCaptureButton?.setOnClickListener {
                 takePhoto()
@@ -79,8 +79,15 @@ class CameraFragment : Fragment() {
             .also {
                 it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
             }
-        imageCapture = ImageCapture.Builder().setJpegQuality(70).setTargetRotation(ROTATION_0).build()
-        val viewPort = ViewPort.Builder(Rational(fragmentCameraBinding.viewFinder.width, fragmentCameraBinding.viewFinder.height), ROTATION_0).build()
+        imageCapture =
+            ImageCapture.Builder().setJpegQuality(JPEG_QUALITY).setTargetRotation(ROTATION_0)
+                .build()
+        val viewPort = ViewPort.Builder(
+            Rational(
+                fragmentCameraBinding.viewFinder.width,
+                fragmentCameraBinding.viewFinder.height
+            ), ROTATION_0
+        ).build()
         val useCaseGroup = imageCapture?.let {
             UseCaseGroup.Builder()
                 .addUseCase(preview)
@@ -107,8 +114,9 @@ class CameraFragment : Fragment() {
                     override fun onError(exc: ImageCaptureException) {
                         Log.e("DEBUG", "Photo capture failed: ${exc.message}", exc)
                     }
+
                     override fun
-                            onImageSaved(output: ImageCapture.OutputFileResults){
+                            onImageSaved(output: ImageCapture.OutputFileResults) {
                         updateUiForImagePreview(output.savedUri)
                     }
                 }
@@ -120,14 +128,14 @@ class CameraFragment : Fragment() {
         val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
         val outputDir = context?.cacheDir
-        cachedImageFile = File.createTempFile(name, ".jpg", outputDir)
-        return cachedImageFile as File
+        return File.createTempFile(name, ".jpg", outputDir).also { cachedImageFile = it }
     }
 
     private fun updateUiForImagePreview(cachedImageUri: Uri?) {
         previewBinding = PreviewCameraContainerBinding.inflate(
             LayoutInflater.from(requireContext()),
-            fragmentCameraBinding.root, true)
+            fragmentCameraBinding.root, true
+        )
 
         cameraBinding?.imageCaptureButton?.isVisible = false
         cameraBinding?.viewFinder?.isVisible = false
@@ -150,10 +158,9 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForDeclineImage() {
-        previewBinding?.root?.let {fragmentCameraBinding.root.removeView(it)}
+        previewBinding?.root?.let { fragmentCameraBinding.root.removeView(it) }
         cameraBinding?.imageCaptureButton?.isVisible = true
         cameraBinding?.viewFinder?.isVisible = true
-
         cachedImageFile?.delete()
     }
 
@@ -164,17 +171,14 @@ class CameraFragment : Fragment() {
     }
 
     private fun saveImageToPermanentFolder() {
-        val cacheDir = context?.cacheDir
-        val cachedFile = File(cacheDir,cachedImageFile?.name.toString())
-
         val imageDirectory = context?.getDir("images", Context.MODE_PRIVATE)
-        val imageFile= File(imageDirectory,cachedImageFile?.name.toString())
+        val targetFile = File(imageDirectory, cachedImageFile?.name.toString())
 
-        if (imageFile.isDirectory) {
-            cachedFile.copyTo(imageFile, true)
+        if (imageDirectory?.exists() == true) {
+            cachedImageFile?.copyTo(targetFile, true)
         } else {
-            imageFile.mkdirs()
-            cachedFile.copyTo(imageFile, true)
+            targetFile.mkdirs()
+            cachedImageFile?.copyTo(targetFile, true)
         }
     }
 
@@ -186,5 +190,6 @@ class CameraFragment : Fragment() {
 
     companion object {
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
+        private const val JPEG_QUALITY = 70
     }
 }
