@@ -79,15 +79,18 @@ class CameraFragment : Fragment() {
             .also {
                 it.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
             }
+
         imageCapture =
             ImageCapture.Builder().setJpegQuality(JPEG_QUALITY).setTargetRotation(ROTATION_0)
                 .build()
+
         val viewPort = ViewPort.Builder(
             Rational(
                 fragmentCameraBinding.viewFinder.width,
                 fragmentCameraBinding.viewFinder.height
             ), ROTATION_0
         ).build()
+
         val useCaseGroup = imageCapture?.let {
             UseCaseGroup.Builder()
                 .addUseCase(preview)
@@ -144,15 +147,15 @@ class CameraFragment : Fragment() {
         previewOnClick()
     }
 
-    private fun previewOnClick() {
-        previewBinding?.btnContainerClose?.setOnClickListener {
+    private fun previewOnClick() = previewBinding?.apply {
+        btnContainerClose.setOnClickListener {
             cachedImageFile?.delete()
             view?.findNavController()?.navigateUp()
         }
-        previewBinding?.btnAcceptImage?.setOnClickListener {
+        btnAcceptImage.setOnClickListener {
             updateUiForAcceptImage()
         }
-        previewBinding?.btnDeclineImage?.setOnClickListener {
+        btnDeclineImage.setOnClickListener {
             updateUiForDeclineImage()
         }
     }
@@ -171,15 +174,9 @@ class CameraFragment : Fragment() {
     }
 
     private fun saveImageToPermanentFolder() {
-        val imageDirectory = context?.getDir("images", Context.MODE_PRIVATE)
+        val imageDirectory = context?.getDir(IMAGES_FOLDER, Context.MODE_PRIVATE)
         val targetFile = File(imageDirectory, cachedImageFile?.name.toString())
-
-        if (imageDirectory?.exists() == true) {
-            cachedImageFile?.copyTo(targetFile, true)
-        } else {
-            targetFile.mkdirs()
-            cachedImageFile?.copyTo(targetFile, true)
-        }
+        cachedImageFile?.copyTo(targetFile)
     }
 
     override fun onDestroyView() {
@@ -191,5 +188,6 @@ class CameraFragment : Fragment() {
     companion object {
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val JPEG_QUALITY = 70
+        private const val IMAGES_FOLDER = "Images"
     }
 }
