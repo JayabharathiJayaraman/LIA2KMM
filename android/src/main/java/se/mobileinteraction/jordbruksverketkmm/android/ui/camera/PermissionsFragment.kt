@@ -3,11 +3,9 @@ package se.mobileinteraction.jordbruksverketkmm.android.ui.camera
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import se.mobileinteraction.jordbruksverketkmm.android.R
 
@@ -29,25 +27,21 @@ class PermissionsFragment : Fragment() {
     private val requestPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted) {
-                Log.e("DEBUG", "Permission is: $isGranted")
                 navigateToCamera()
             } else {
-                Log.e("DEBUG", "Permission is: $isGranted")
                 navigateBack()
             }
         }
 
     private fun navigateToCamera() {
-        lifecycleScope.launchWhenStarted {
-            Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
-                PermissionsFragmentDirections.navigateToCamera())
-        }
+        Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
+            PermissionsFragmentDirections.navigateToCamera()
+        )
     }
 
     private fun navigateBack() {
-        lifecycleScope.launchWhenStarted {
-            Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
-                PermissionsFragmentDirections.navigateToMenu())
-        }
+        Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
+            PermissionsFragmentDirections.navigateToMenu()
+        )
     }
 }
