@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -90,7 +91,7 @@ class BottomNavBarFragment : Fragment() {
         totalScreens: Int,
         currentScreen: Int
     ) {
-        binding.bottomNavbarProgressText.text = "${currentScreen + 1} av $totalScreens"
+        binding.bottomNavbarProgressText.text = "${currentScreen + 1} ${getString(R.string.bottom_navbar_text)} $totalScreens"
     }
 
     private fun getFirstDrawableWithRadius(): Drawable {
