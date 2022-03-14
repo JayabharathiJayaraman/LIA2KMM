@@ -36,4 +36,5 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     implementation("com.android.databinding:viewbinding:7.1.2")
+    implementation("androidx.core:core:1.7.0")
 }

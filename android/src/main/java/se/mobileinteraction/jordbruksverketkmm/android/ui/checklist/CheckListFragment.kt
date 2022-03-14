@@ -32,7 +32,11 @@ class CheckListFragment : Fragment() {
         fragmentCheckListBinding = binding
 
         recyclerView = binding.checkListActiveRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = object : LinearLayoutManager(activity){
+         /*   override fun canScrollVertically(): Boolean {
+                return false
+            }*/
+        }
         adapterActive = CheckListActiveAdapter(checkList)
         recyclerView.adapter = adapterActive
         recyclerView.adapter!!.notifyDataSetChanged()
