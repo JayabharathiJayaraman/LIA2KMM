@@ -34,6 +34,9 @@
         <action
             android:id="@+id/navigate_from_startScreenFragment_to_newTestFragment"
             app:destination="@id/newTestFragment" />
+        <action
+            android:id="@+id/navigate_startScreenFragment_to_vardaMarkstrukturFragment"
+            app:destination="@id/vardaMarkstrukturFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"

@@ -10,10 +10,10 @@ import android.widget.ImageButton
 import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import se.mobileinteraction.jordbruksverketkmm.CheckList
+import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.android.R
 
-class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>() {
+class CheckListActiveAdapter(checkList: Checklist): RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>() {
     private var _checkList = checkList
     private var context: Context?= null
     override fun onCreateViewHolder(
@@ -31,7 +31,7 @@ class CheckListActiveAdapter(checkList: CheckList): RecyclerView.Adapter<CheckLi
         holder.itemAdd.setOnClickListener {
             val tmpName = _checkList.itemList.filter { it.active }[position].title
             Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
-            _checkList.itemList.filter { it.active }[position].switchActive()
+            //_checkList.itemList.filter { it.active }[position].switchActive()
             Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
         }
         if(_checkList.id == "UndvikEllerMinimera"){

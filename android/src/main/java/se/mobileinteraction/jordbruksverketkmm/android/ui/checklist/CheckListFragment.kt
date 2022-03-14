@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import se.mobileinteraction.jordbruksverketkmm.CheckList
+import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
 
@@ -28,7 +28,7 @@ class CheckListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
         val receivedCategory = arguments?.getString("amount")?: "dummy"
-        val checkList = CheckList(receivedCategory)
+        val checkList = Checklist(receivedCategory)
         fragmentCheckListBinding = binding
 
         recyclerView = binding.checkListActiveRecyclerView
