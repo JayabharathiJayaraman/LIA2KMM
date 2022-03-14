@@ -39,6 +39,10 @@ class MenuFragment : Fragment() {
             view.findNavController().navigate(R.id.navigateToAboutApp)
         }
 
+        binding.textviewMenuCamera.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToPermissions)
+        }
+
         return view
     }
 
