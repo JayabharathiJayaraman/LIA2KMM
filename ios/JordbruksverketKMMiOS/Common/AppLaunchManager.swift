@@ -6,8 +6,8 @@ protocol AppLaunchManager {
 
 struct DefaultAppLaunchManager: AppLaunchManager {
     let rootViewController: UIViewController
-
+   
     init() {
-        rootViewController = RootViewController()
+        rootViewController = MainNavigationController(rootViewController: FormViewController())
     }
 }

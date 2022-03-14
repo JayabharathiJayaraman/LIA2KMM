@@ -8,7 +8,7 @@
     android:background='#EDF1E2'
     android:orientation="vertical"
     android:contentDescription="@android:string/no"
-    tools:context=".DataPrivacyPolicyFragment">
+    tools:context=".ui.dataprivacypolicy.DataPrivacyPolicyFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

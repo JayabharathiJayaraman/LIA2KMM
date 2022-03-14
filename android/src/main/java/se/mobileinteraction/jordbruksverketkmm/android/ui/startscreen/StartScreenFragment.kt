@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.android
+package se.mobileinteraction.jordbruksverketkmm.android.ui.startscreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentStartScreenBinding
 
 
@@ -28,6 +29,10 @@ class StartScreenFragment : Fragment() {
         }
         binding.imagePlantIconButton.setOnClickListener{
             view.findNavController().navigate(R.id.navigareToVardaMarkstruktur)
+        }
+
+        binding.imageNewTestButton.setOnClickListener {
+            view.findNavController().navigate(R.id.navigate_from_startScreenFragment_to_newTestFragment)
         }
 
         return view

@@ -1,15 +1,12 @@
-package se.mobileinteraction.jordbruksverketkmm.android
+package se.mobileinteraction.jordbruksverketkmm.android.ui.dataprivacypolicy
 
-
-import android.content.Context
-import android.content.res.Resources
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import se.mobileinteraction.jordbruksverketkmm.CheckList
+import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentDataPrivacyPolicyBinding
 
 class DataPrivacyPolicyFragment : Fragment() {
@@ -26,11 +23,6 @@ class DataPrivacyPolicyFragment : Fragment() {
         val binding = FragmentDataPrivacyPolicyBinding.bind(view)
         fragmentDataPrivacyPolicyBinding = binding
 
-        val checkList = CheckList("UndvikEllerMinimera")
-
-        //binding.appInfoHeader.text = this.context?.let { getStringByIdName(it, checkList.text) }
-
-
         binding.closeLink.setOnClickListener {
             view.findNavController().navigateUp()
         }
@@ -41,10 +33,5 @@ class DataPrivacyPolicyFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         fragmentDataPrivacyPolicyBinding = null
-    }
-
-    fun getStringByIdName(context: Context, idName: String?): String? {
-        val res: Resources = context.getResources()
-        return res.getString(res.getIdentifier(idName, "string", context.getPackageName()))
     }
 }
