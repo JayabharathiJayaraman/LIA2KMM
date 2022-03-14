@@ -52,14 +52,6 @@ class FormViewController: UIViewController {
         
         listeningJob?.close()
     }
-
-    @IBAction func backButtonTapped(_ sender: Any) {
-        viewModel.previousScreen()
-    }
-
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        viewModel.nextScreen()
-    }
 }
 
 private extension FormViewController {

@@ -43,11 +43,17 @@ class NewTestViewController: UIViewController {
     }
     
     @IBAction func createGeneralQuestionsFormTapped(_ sender: Any) {
+        let newTestViewController = FormViewController()
+                navigationController?.pushViewController(newTestViewController, animated: true)
     }
     
     @IBAction func createSoilStructureFormTapped(_ sender: Any) {
+        let newTestViewController = FormViewController()
+                navigationController?.pushViewController(newTestViewController, animated: true)
     }
     
     @IBAction func createInfiltrationFormTapped(_ sender: Any) {
+        let newTestViewController = FormViewController()
+                navigationController?.pushViewController(newTestViewController, animated: true)
     }
 }
