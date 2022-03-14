@@ -1,5 +1,7 @@
 package se.mobileinteraction.jordbruksverketkmm
 
+import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
+
 data class Checklist(val category : String) {
 
     val title : String
@@ -10,25 +12,50 @@ data class Checklist(val category : String) {
     private val categoryList = listOf("Grundförbättringar",
         "Odlingsåtgärder", "UndvikEllerMinimera")
 
-    private val catgoryListGrundförbättringar = listOf("Huvudavvattning",
+    private val catgoryListGrundforbattringar = listOf("Huvudavvattning",
         "OrganiskaMaterial", "Detaljdränering", "Strukturkalkning", "Alvluckring")
 
-    private val catgoryListOdlingsåtgärder = listOf("GynnaDaggmaskarna",
+    private val catgoryListOdlingsatgarder = listOf("GynnaDaggmaskarna",
         "GrödorMedBraRotsystem", "LämnaOrganisktMaterial", "PlaneraKörningen",
         "MinskaBelastningenPåMarken", "BeväxtMarkÅretOm")
+
 
     private val catgoryListUndvikEllerMinimera = listOf("UndvikTungaMaskiner",
         "UndvikKörningVidVåtaMarkförhållanden", "MinimeraAntaletÖverfarter",
         "MinimeraAndelenBarMark",)
+
+    private val grundforbattringarState = listOf<ChecklistState>(
+        ChecklistState("Huvudavvattning", true, true),
+        ChecklistState("OrganiskaMaterial", true, true),
+        ChecklistState("Detaljdränering", true, true),
+        ChecklistState("Strukturkalkning", true, true),
+        ChecklistState("Alvluckring", true, true)
+    )
+
+    private val odlingsatgarderState = listOf<ChecklistState>(
+        ChecklistState("GynnaDaggmaskarna", true, true),
+        ChecklistState("GrödorMedBraRotsystem", true, true),
+        ChecklistState("LämnaOrganisktMaterial", true, true),
+        ChecklistState("PlaneraKörningen", true, true),
+        ChecklistState("MinskaBelastningenPåMarken", true, true),
+        ChecklistState("BeväxtMarkÅretOm", true, true)
+    )
+
+    private val undvikEllerMinimeraState = listOf<ChecklistState>(
+        ChecklistState("UndvikTungaMaskiner", true, true),
+        ChecklistState("UndvikKörningVidVåtaMarkförhållanden", true, true),
+        ChecklistState("MinimeraAntaletÖverfarter", true, true),
+        ChecklistState("MinimeraAndelenBarMark", true, true)
+    )
 
     init {
         if(categoryList.contains(category)){
             this.title = "CheckList_" + category + "_title"
             this.text = "CheckList_" + category + "_text"
             this.itemList = when(category){
-                categoryList[0] -> createItemList(catgoryListGrundförbättringar)
-                categoryList[1] -> createItemList(catgoryListOdlingsåtgärder)
-                categoryList[2] -> createItemList(catgoryListUndvikEllerMinimera)
+                categoryList[0] -> createItemList(catgoryListGrundforbattringar, grundforbattringarState)
+                categoryList[1] -> createItemList(catgoryListOdlingsatgarder, odlingsatgarderState)
+                categoryList[2] -> createItemList(catgoryListUndvikEllerMinimera, undvikEllerMinimeraState)
                 else -> listOf<ChecklistItem>()
             }
         }else{
@@ -38,10 +65,11 @@ data class Checklist(val category : String) {
         }
     }
 
-    private fun createItemList(listForCategory : List<String>): List<ChecklistItem>{
+    private fun createItemList(listForCategory : List<String>, stateList: List<ChecklistState>): List<ChecklistItem>{
         val listToReturn = mutableListOf<ChecklistItem>()
         for(elem in listForCategory){
-            val item = ChecklistItem(elem, true, true)
+            val tmpState = stateList.filter { it.itemName == elem }
+            val item = ChecklistItem(elem, tmpState[0].checked, tmpState[0].active)
             listToReturn.add(item)
         }
         return listToReturn
