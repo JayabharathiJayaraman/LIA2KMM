@@ -13,7 +13,6 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var infoViewLabel: UILabel!
     
-    
     @IBOutlet weak var infoViewBackground: UIView!
     
     @IBOutlet weak var navigationTitleView: UIView!
@@ -31,6 +30,10 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var infoButton: UIButton!
     
     @IBAction func infoButtonPressed(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.infoView.alpha = 1
+        })
         
         if (infoView.isHidden == true) {
             infoView.isHidden = false
@@ -52,6 +55,10 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var closeInfoButton: UIButton!
     
     @IBAction func closeInfoButtonPressed(_ sender: Any) {
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.infoView.alpha = 0
+        })
         
         if (infoView.isHidden == true) {
             infoView.isHidden = false
