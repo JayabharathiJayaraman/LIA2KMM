@@ -26,7 +26,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
     }
     private var currentScreenRendered: Int = 0
 
-    override fun generateInterface(components: List<FormComponent>) {
+    override fun generateInterface(components: List<FormComponent>, currentScreen: Int?) {
         for (component in components) {
             when (component.type) {
                 ComponentType.BODY -> {
@@ -46,13 +46,13 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         }
     }
 
-    override fun createInterface(components: List<FormComponent>): View {
+    fun createInterface(components: List<FormComponent>): View {
         generateInterface(components)
 
         return mainView
     }
 
-    override fun updateInterface(components: List<FormComponent>, currentScreen: Int) {
+    fun updateInterface(components: List<FormComponent>, currentScreen: Int) {
         if (currentScreen != currentScreenRendered) {
             mainView.removeAllViews()
             currentScreenRendered = currentScreen

@@ -12,5 +12,7 @@ extension UIColor {
     struct Jordbruksverket {
         static let defaultTextColor = UIColor(named: "defaultText")
         static let defaultBackgroundColor = UIColor(named: "defaultBackground")
+        static let progressFilled = UIColor(named: "progressFilled")
+        static let progressUnfilled = UIColor(named: "progressUnfilled")
     }
 }
