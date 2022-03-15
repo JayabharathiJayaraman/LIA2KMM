@@ -221,7 +221,6 @@ private fun ViewGroup.createOrUpdateCaptureImage(
     binding.title.text = title
     binding.body.text = body
     binding.button.text = button_text
-    println("imageuri in generator: $imageUri")
 
     if (imageUri != null) {
         binding.imageview.setImageURI(imageUri.toUri())
@@ -230,7 +229,7 @@ private fun ViewGroup.createOrUpdateCaptureImage(
     }
 
     binding.button.setOnClickListener {
-        findNavController().navigate(R.id.permissionsFragment)
+       findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
     }
 }
 
