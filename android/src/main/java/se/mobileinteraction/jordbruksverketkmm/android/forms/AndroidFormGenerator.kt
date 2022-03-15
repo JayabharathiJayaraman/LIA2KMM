@@ -76,8 +76,8 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
 
                 ComponentType.RESULTSREMARKSFACE -> {
-                    val resultatRemarks = (component as FormComponentResultatRemark)
-                    mainView.createOrUpdateResultsRemarks(resultatRemarks.text, resultatRemarks.id, resultatRemarks.image, resultatRemarks.color)
+                    val resultsRemark = (component as FormComponentResultsRemark)
+                    mainView.createOrUpdateResultsRemarks(resultsRemark.text, resultsRemark.id, resultsRemark.image, resultsRemark.color)
                 }
                 ComponentType.TEXTFIELD -> {
                     val textField = (component as FormComponentTextField)
@@ -107,12 +107,12 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                     mainView.createOrUpdateTimeField(timeField.id,timeField.timeLabel,timeField.start,timeField.stop)
                 }
                 ComponentType.RESULTSINFOBODY -> {
-                    val resultInfoBody = (component as FormComponentResultatInfoBody)
+                    val resultInfoBody = (component as FormComponentResultsInfoBody)
                     mainView.createOrUpdateResultsInfoBody(resultInfoBody.text, resultInfoBody.id)
                 }
                 ComponentType.RESULTSIMAGES -> {
-                    val resultatImages = (component as FormComponentResultatImages)
-                    mainView.addImagesContainer(resultatImages.id,resultatImages.imagesTextList)
+                    val resultsImages = (component as FormComponentResultsImages)
+                    mainView.addImagesContainer(resultsImages.id,resultsImages.imagesTextList)
                 }
 
                 else -> println("unknown")
