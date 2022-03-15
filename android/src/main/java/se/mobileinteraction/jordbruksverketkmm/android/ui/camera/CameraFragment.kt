@@ -59,7 +59,7 @@ class CameraFragment : Fragment() {
                 takePhoto()
             }
             cameraBinding?.btnCameraClose?.setOnClickListener {
-                view.findNavController().navigateUp()
+                view.findNavController().navigate(R.id.navigateFromCameraToFormFragment)
             }
         }
     }
@@ -148,9 +148,9 @@ class CameraFragment : Fragment() {
     }
 
     private fun previewOnClick() = previewBinding?.apply {
-        btnContainerClose.setOnClickListener {
+        buttonContainerClose.setOnClickListener {
             cachedImageFile?.delete()
-            view?.findNavController()?.navigateUp()
+            view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment)
         }
         btnAcceptImage.setOnClickListener {
             updateUiForAcceptImage()
@@ -168,15 +168,18 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForAcceptImage() {
-        saveImageToPermanentFolder()
+        val targetFile = saveImageToPermanentFolder().toString()
         cachedImageFile?.delete()
-        view?.findNavController()?.navigate(R.id.navigateFromCameraToMenu)
+        val bundle = Bundle()
+        bundle.putString("uri", targetFile)
+        view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment, bundle)
     }
 
-    private fun saveImageToPermanentFolder() {
+    private fun saveImageToPermanentFolder(): File {
         val imageDirectory = context?.getDir(IMAGES_FOLDER, Context.MODE_PRIVATE)
         val targetFile = File(imageDirectory, cachedImageFile?.name.toString())
         cachedImageFile?.copyTo(targetFile)
+        return targetFile
     }
 
     override fun onDestroyView() {
