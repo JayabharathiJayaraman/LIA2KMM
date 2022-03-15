@@ -41,7 +41,7 @@ class PermissionsFragment : Fragment() {
 
     private fun navigateBack() {
         Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
-            PermissionsFragmentDirections.navigateToMenu()
+            PermissionsFragmentDirections.navigateFromPermissionsFragmentToFormFragment()
         )
     }
 }
