@@ -412,9 +412,9 @@ data class FormInfiltrations(
                     type = ComponentType.TITLEBIG,
                     text = "Resultat"
                 ),
-                FormComponentResultatInfoBody(
+                FormComponentResultInfoBody(
                     id = "resultatInfoBodyScreen10",
-                    type = ComponentType.RESULTATINFOBODY,
+                    type = ComponentType.RESULTINFOBODY,
                     text = "Genomsläppligheten för vatten bör överstiga 4 mm per timme för att du ska få en god effekt av din dränering. Intensiteten i ett sommarregn är ofta ca 3 mm per timme."
                 ),
                 FormComponentText(
@@ -422,25 +422,25 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Vad betyder symbolen?"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultRemark(
                     id = "structureSadRemarkScreen10",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTREMARKSFACE,
                     text = "<4 mm/tim" +
                             "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
                     color = "red_round_background"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultRemark(
                     id = "structureIndifferentRemarkScreen10",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTREMARKSFACE,
                     text = "4-12 mm/tim" +
                             "Här finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
                     color = "orange_round_background"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultRemark(
                     id = "structureHappyRemarkScreen10",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTREMARKSFACE,
                     text = ">12 mm/tim" +
                             "Mycket bra markstruktur!Vårda den!",
                     image = "happy_face",
@@ -461,9 +461,9 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?"
                 ),
-                FormComponentResultatImages(
+                FormComponentResultImages(
                     id = "vadNuImagesScreen10",
-                    type = ComponentType.RESULTATIMAGES,
+                    type = ComponentType.RESULTIMAGES,
                     text1 = "Nytt test",
                     text2 = "Vårda",
                     text3 = "markstruktur",

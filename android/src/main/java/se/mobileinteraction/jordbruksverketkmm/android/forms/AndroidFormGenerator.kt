@@ -75,8 +75,8 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                     mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
                 }
 
-                ComponentType.RESULTATREMARKSFACE -> {
-                    val resultatRemarks = (component as FormComponentResultatRemark)
+                ComponentType.RESULTREMARKSFACE -> {
+                    val resultatRemarks = (component as FormComponentResultRemark)
                     mainView.createOrUpdateResultatRemarks(resultatRemarks.text, resultatRemarks.id, resultatRemarks.image, resultatRemarks.color)
                 }
                 ComponentType.TEXTFIELD -> {
@@ -108,12 +108,12 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                     val timeField = (component as FormComponentTime)
                     mainView.createOrUpdateTimeField(timeField.id,timeField.timeLabel,timeField.start,timeField.stopp)
                 }
-                ComponentType.RESULTATINFOBODY -> {
-                    val resultInfoBody = (component as FormComponentResultatInfoBody)
+                ComponentType.RESULTINFOBODY -> {
+                    val resultInfoBody = (component as FormComponentResultInfoBody)
                     mainView.createOrUpdateResultatInfoBody(resultInfoBody.text, resultInfoBody.id)
                 }
-                ComponentType.RESULTATIMAGES -> {
-                    val resultatImages = (component as FormComponentResultatImages)
+                ComponentType.RESULTIMAGES -> {
+                    val resultatImages = (component as FormComponentResultImages)
                     mainView.addImagesContainer(resultatImages.id,resultatImages.text1,resultatImages.text2,resultatImages.text3,resultatImages.text4)
                 }
 
@@ -199,23 +199,16 @@ private fun ViewGroup.createOrUpdateResultatRemarks(text: String, id: String, im
         .also { this.addView(it) }
     binding.textview.text = text
     binding.imageview.setImageResource(getImageResource(image))
-    //binding.imageview.setBackgroundColor(getResultatFaceColor(color))
     binding.imageview.setBackgroundResource(getbackgroundFaceColor(color))
 }
 
 
 private fun ViewGroup.addTextField(id: String, text: String, placeholder: String) {
     println("logg: addTextField: $text")
-    val editText = this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
-        .also {
-            it.setText(text)
-            it.hint = placeholder
-            it.addTextChangedListener { editable ->
-                println("logg: TEXT LISTENER: ${editable.toString()}")
-                if (text != editable.toString()) getApplication().formViewModel.setTextData(id, editable.toString())
-            }
-            this.addView(it)
-        }
+    val binding: FormTextfieldBinding = FormTextfieldBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formTextfieldContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+    binding.formTextfield.hint = placeholder
 }
 
 private fun ViewGroup.createOrUpdateButtonList(
@@ -233,6 +226,7 @@ private fun ViewGroup.createOrUpdateButtonList(
 
     binding.spinner.adapter = dataAdapter
     binding.textView.text = title
+    binding.spinner.prompt = placeholder
 }
 
 private fun ViewGroup.createOrUpdateImage(imageName: String, caption: String) {

@@ -329,23 +329,23 @@ data class FormGeneralQuestions(
                         type = ComponentType.TITLESMALL,
                         text = "vilken symbol dominerar?"
                     ),
-                    FormComponentResultatRemark(
+                    FormComponentResultRemark(
                         id = "structureSadRemarkScreen10",
-                        type = ComponentType.RESULTATREMARKSFACE,
+                        type = ComponentType.RESULTREMARKSFACE,
                         text = "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                         image = "sad_face",
                         color = "red_round_background"
                     ),
-                    FormComponentResultatRemark(
+                    FormComponentResultRemark(
                         id = "structureIndifferentRemarkScreen10",
-                        type = ComponentType.RESULTATREMARKSFACE,
+                        type = ComponentType.RESULTREMARKSFACE,
                         text = "Här finns det en del att göra åt markstrukturen!",
                         image = "indifferent_face",
                         color = "orange_round_background"
                     ),
-                    FormComponentResultatRemark(
+                    FormComponentResultRemark(
                         id = "structureHappyRemarkScreen10",
-                        type = ComponentType.RESULTATREMARKSFACE,
+                        type = ComponentType.RESULTREMARKSFACE,
                         text = "Mycket bra markstruktur!Vårda den!",
                         image = "happy_face",
                         color = "green_round_background"
@@ -370,9 +370,9 @@ data class FormGeneralQuestions(
                         type = ComponentType.TITLESMALL,
                         text = "Vad vill du göra nu?"
                     ),
-                    FormComponentResultatImages(
+                    FormComponentResultImages(
                         id = "vadNuImagesScreen10",
-                        type = ComponentType.RESULTATIMAGES,
+                        type = ComponentType.RESULTIMAGES,
                         text1 = "Nytt test",
                         text2 = "Vårda",
                         text3 = "markstruktur",

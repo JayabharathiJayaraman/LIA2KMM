@@ -6,8 +6,7 @@
     android:id="@+id/whatNext_images_container"
     android:orientation="horizontal"
     android:layout_weight="1"
-    android:layout_gravity="center"
-    android:padding="30dp">
+    android:layout_gravity="center">
 
     <LinearLayout
         android:id="@+id/newTestImage_container"

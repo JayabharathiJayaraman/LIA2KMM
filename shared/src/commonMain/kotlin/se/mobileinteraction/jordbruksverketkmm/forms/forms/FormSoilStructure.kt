@@ -887,25 +887,25 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vilken symbol dominerar?",
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultRemark(
                     id = "structureSadRemarkScreen19",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTREMARKSFACE,
                     text = "<4 mm/tim" +
                             "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
                     color = "red_round_background"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultRemark(
                     id = "structureIndifferentRemarkScreen19",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTREMARKSFACE,
                     text = "4-12 mm/tim" +
                             "Här finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
                     color = "orange_round_background"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultRemark(
                     id = "structureHappyRemarkScreen19",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTREMARKSFACE,
                     text = ">12 mm/tim" +
                             "Mycket bra markstruktur!Vårda den!",
                     image = "happy_face",
@@ -928,9 +928,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?",
                 ),
-                FormComponentResultatImages(
-                    id = "vadNuImagesScreen19",
-                    type = ComponentType.RESULTATIMAGES,
+                FormComponentResultImages(
+                    id = "vadNuImagesScreen10",
+                    type = ComponentType.RESULTIMAGES,
                     text1 = "Nytt test",
                     text2 = "Vårda",
                     text3 = "markstruktur",
