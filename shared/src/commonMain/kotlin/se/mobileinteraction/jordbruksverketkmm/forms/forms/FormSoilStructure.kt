@@ -887,27 +887,27 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vilken symbol dominerar?",
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultsRemark(
                     id = "structureSadRemarkScreen19",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = "<4 mm/tim" +
-                            "Oj, här behövs det krafttag för att förbättra markstrukturen!",
+                            "\nOj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
                     color = "red_round_background"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultsRemark(
                     id = "structureIndifferentRemarkScreen19",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = "4-12 mm/tim" +
-                            "Här finns det en del att göra åt markstrukturen!",
+                            "\nHär finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
                     color = "orange_round_background"
                 ),
-                FormComponentResultatRemark(
+                FormComponentResultsRemark(
                     id = "structureHappyRemarkScreen19",
-                    type = ComponentType.RESULTATREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = ">12 mm/tim" +
-                            "Mycket bra markstruktur!Vårda den!",
+                            "\nMycket bra markstruktur!Vårda den!",
                     image = "happy_face",
                     color = "green_round_background"
                 ),
@@ -928,13 +928,10 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?",
                 ),
-                FormComponentResultatImages(
-                    id = "vadNuImagesScreen19",
-                    type = ComponentType.RESULTATIMAGES,
-                    text1 = "Nytt test",
-                    text2 = "Vårda",
-                    text3 = "markstruktur",
-                    text4 = "Klar"
+                FormComponentResultsImages(
+                    id = "vadNuImagesScreen10",
+                    type = ComponentType.RESULTSIMAGES,
+                    imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                 ),
             )
         ),
