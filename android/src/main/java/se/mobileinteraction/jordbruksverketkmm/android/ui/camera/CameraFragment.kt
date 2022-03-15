@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.Surface.ROTATION_0
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
@@ -39,6 +40,14 @@ class CameraFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    // Handle the back button event
+                    view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onCreateView(
@@ -46,7 +55,8 @@ class CameraFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        cameraBinding = FragmentCameraBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_camera, container, false)
+        cameraBinding = FragmentCameraBinding.bind(view)
         return fragmentCameraBinding.root
     }
 
@@ -58,7 +68,7 @@ class CameraFragment : Fragment() {
             cameraBinding?.imageCaptureButton?.setOnClickListener {
                 takePhoto()
             }
-            cameraBinding?.btnCameraClose?.setOnClickListener {
+            cameraBinding?.buttonCameraClose?.setOnClickListener {
                 view.findNavController().navigate(R.id.navigateFromCameraToFormFragment)
             }
         }
@@ -172,6 +182,7 @@ class CameraFragment : Fragment() {
         cachedImageFile?.delete()
         val bundle = Bundle()
         bundle.putString("uri", targetFile)
+        cameraBinding?.root?.let { fragmentCameraBinding.root.removeView(it) }
         view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment, bundle)
     }
 
