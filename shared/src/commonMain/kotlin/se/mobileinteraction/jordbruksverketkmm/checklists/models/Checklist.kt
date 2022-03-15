@@ -2,7 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm
 
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
 
-data class Checklist(val category : String) {
+data class Checklist(val category : String, val stateList: List<ChecklistState>?) {
 
     val title : String
     val text : String
@@ -52,10 +52,24 @@ data class Checklist(val category : String) {
         if(categoryList.contains(category)){
             this.title = "CheckList_" + category + "_title"
             this.text = "CheckList_" + category + "_text"
+           val newGrundforbattringarState : List<ChecklistState>
+           val newOdlingsatgarderState : List<ChecklistState>
+           val newUndvikEllerMinimeraState : List<ChecklistState>
+
+            if(stateList.isNullOrEmpty()){
+                newGrundforbattringarState = grundforbattringarState
+                newOdlingsatgarderState = odlingsatgarderState
+                newUndvikEllerMinimeraState = undvikEllerMinimeraState
+            }else{
+                newGrundforbattringarState = stateList
+                newOdlingsatgarderState = stateList
+                newUndvikEllerMinimeraState = stateList
+            }
+
             this.itemList = when(category){
-                categoryList[0] -> createItemList(catgoryListGrundforbattringar, grundforbattringarState)
-                categoryList[1] -> createItemList(catgoryListOdlingsatgarder, odlingsatgarderState)
-                categoryList[2] -> createItemList(catgoryListUndvikEllerMinimera, undvikEllerMinimeraState)
+                categoryList[0] -> createItemList(catgoryListGrundforbattringar, newGrundforbattringarState)
+                categoryList[1] -> createItemList(catgoryListOdlingsatgarder, newOdlingsatgarderState)
+                categoryList[2] -> createItemList(catgoryListUndvikEllerMinimera, newUndvikEllerMinimeraState)
                 else -> listOf<ChecklistItem>()
             }
         }else{
@@ -68,7 +82,7 @@ data class Checklist(val category : String) {
     private fun createItemList(listForCategory : List<String>, stateList: List<ChecklistState>): List<ChecklistItem>{
         val listToReturn = mutableListOf<ChecklistItem>()
         for(elem in listForCategory){
-            val tmpState = stateList.filter { it.itemName == elem }
+            val tmpState = stateList.filter { it.id == elem }
             val item = ChecklistItem(elem, tmpState[0].checked, tmpState[0].active)
             listToReturn.add(item)
         }

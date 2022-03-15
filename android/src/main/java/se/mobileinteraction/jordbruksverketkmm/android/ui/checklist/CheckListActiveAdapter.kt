@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.android.R
+import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
 
 class CheckListActiveAdapter(checkList: Checklist): RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>() {
     private var _checkList = checkList
@@ -48,6 +49,13 @@ class CheckListActiveAdapter(checkList: Checklist): RecyclerView.Adapter<CheckLi
         var itemText: TextView = itemView.findViewById(R.id.checklist_active_item_text)
         var itemAdd: ImageButton = itemView.findViewById(R.id.checkList_item_add)
         var itemSwitch: Switch = itemView.findViewById(R.id.checklist_active_item_switch)
+
+        init {
+            itemAdd.setOnClickListener {
+
+
+            }
+        }
         }
 
     private fun getStringByIdName(context: Context, idName: String?): String? {

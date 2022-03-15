@@ -1,4 +1,4 @@
 package se.mobileinteraction.jordbruksverketkmm.checklists.models
 
-data class ChecklistState(val itemName: String, val active: Boolean, val checked: Boolean ) {
+data class ChecklistState(val id: String, val active: Boolean, val checked: Boolean ) {
 }

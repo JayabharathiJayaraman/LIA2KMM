@@ -28,15 +28,11 @@ class CheckListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
         val receivedCategory = arguments?.getString("amount")?: "dummy"
-        val checkList = Checklist(receivedCategory)
+        val checkList = Checklist(receivedCategory, null)
         fragmentCheckListBinding = binding
 
         recyclerView = binding.checkListActiveRecyclerView
-        recyclerView.layoutManager = object : LinearLayoutManager(activity){
-         /*   override fun canScrollVertically(): Boolean {
-                return false
-            }*/
-        }
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         adapterActive = CheckListActiveAdapter(checkList)
         recyclerView.adapter = adapterActive
         recyclerView.adapter!!.notifyDataSetChanged()
