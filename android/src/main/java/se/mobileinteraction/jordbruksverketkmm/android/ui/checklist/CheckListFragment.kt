@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +33,7 @@ class CheckListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
         val receivedCategory = arguments?.getString("amount")?: "dummy"
-
+        val viewModel : ChecklistViewModel
         fragmentCheckListBinding = binding
 
         recyclerView = binding.checkListActiveRecyclerView
@@ -38,27 +41,27 @@ class CheckListFragment : Fragment() {
 
         when(receivedCategory){
             "Grundförbättringar" -> {
+                viewModel = (activity?.application as MainApplication).grundforbattringarViewModel
                 adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).grundforbattringarViewModel)
-                binding.testLabel.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).grundforbattringarViewModel.checklist.title) }
-                binding.testText1.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).grundforbattringarViewModel.checklist.text) }
+
             }
             "Odlingsåtgärder" -> {
+                viewModel = (activity?.application as MainApplication).odlingsatgarderViewModel
                 adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).odlingsatgarderViewModel)
-                binding.testLabel.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.title) }
-                binding.testText1.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.text) }
+
             }
             "UndvikEllerMinimera" -> {
+                viewModel = (activity?.application as MainApplication).undvikEllerMinimeraViewModel
                 adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).undvikEllerMinimeraViewModel)
-                binding.testLabel.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.title) }
-                binding.testText1.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.text) }
-            }
+
+            }else -> {
+            viewModel = (activity?.application as MainApplication).undvikEllerMinimeraViewModel
         }
+        }
+        binding.testLabel.text = this.context?.let { getStringByIdName(it,
+            viewModel.checklist.title) }
+        binding.testText1.text = this.context?.let { getStringByIdName(it,
+            viewModel.checklist.text) }
 
         recyclerView.adapter = adapterActive
         recyclerView.adapter!!.notifyDataSetChanged()
@@ -73,8 +76,20 @@ class CheckListFragment : Fragment() {
             binding.testText4.visibility = View.GONE
         }
 
+        subscribeToObservables(viewModel)
+
         return view
     }
+
+    private fun subscribeToObservables(viewModel: ChecklistViewModel) {
+        lifecycleScope.launchWhenStarted {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+                recyclerView.layoutManager = LinearLayoutManager(activity)
+                recyclerView.adapter = CheckListActiveAdapter(viewModel)
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         fragmentCheckListBinding = null

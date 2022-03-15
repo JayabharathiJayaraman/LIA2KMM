@@ -5,15 +5,15 @@ import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.ChecklistItem
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 
 class ChecklistViewModel constructor(
     val checklist: Checklist,
     val count: Int
-): ViewModelState<ChecklistViewModel.State> by ViewModelStateImpl(State(checklist, count)) {
-    data class State(val checklist: Checklist,val count: Int){}
-
+): ViewModelState<ChecklistViewModel.StateChecklist> by ViewModelStateImpl(StateChecklist(checklist, count)) {
+    data class StateChecklist(val checklist: Checklist,val count: Int){}
     fun triggerStateActive(itemName: String) {
         val tmp = checklist
         val count = count
@@ -28,14 +28,14 @@ class ChecklistViewModel constructor(
                 newStateList.add(elem)
             }
         }
-        updateStateAndSave { copy(checklist = Checklist(checklist.category, newStateList), count = count + 1) }
+        updateStateAndSave { copy(checklist = Checklist(checklist.category, newStateList), count = state.value.count + 1) }
     }
 
-    private fun updateStateAndSave(state: ChecklistViewModel.State.() -> ChecklistViewModel.State) {
+    private fun updateStateAndSave(state: StateChecklist.() -> StateChecklist) {
         updateState(state).also(::save)
     }
 
-    private fun save(state: ChecklistViewModel.State) {
+    private fun save(state: StateChecklist) {
         println("Saving state: $state")
     }
 }
