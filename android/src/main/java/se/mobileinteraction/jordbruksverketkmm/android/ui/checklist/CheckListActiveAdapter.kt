@@ -1,5 +1,6 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.checklist
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.util.Log
@@ -11,12 +12,13 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.Checklist
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
 
-class CheckListActiveAdapter(checkList: Checklist): RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>() {
-    private var _checkList = checkList
+class CheckListActiveAdapter(val viewModel: ChecklistViewModel): RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>() {
     private var context: Context?= null
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,21 +29,23 @@ class CheckListActiveAdapter(checkList: Checklist): RecyclerView.Adapter<CheckLi
     }
 
     override fun onBindViewHolder(holder: CheckListActiveAdapter.ViewHolder, position: Int) {
-        holder.itemLabel.text = context?.let { getStringByIdName(it, _checkList.itemList.filter { it.active }[position].title) }
-        holder.itemText.text = context?.let { getStringByIdName(it, _checkList.itemList.filter { it.active }[position].text) }
+        holder.itemLabel.text = context?.let { getStringByIdName(it, viewModel.checklist.itemList.filter { it.active }[position].title) }
+        holder.itemText.text = context?.let { getStringByIdName(it, viewModel.checklist.itemList.filter { it.active }[position].text) }
+        holder.id = viewModel.checklist.itemList.filter { it.active }[position].id
         holder.itemAdd.setOnClickListener {
-            val tmpName = _checkList.itemList.filter { it.active }[position].title
-            Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
-            //_checkList.itemList.filter { it.active }[position].switchActive()
-            Log.d("!!!",_checkList.itemList.filter { it.title == tmpName }[0].active.toString())
+            viewModel.triggerStateActive(viewModel.checklist.itemList.filter { it.active }[position].id)
+            Log.d("test count",viewModel.count.toString())
+            val tmpName = viewModel.checklist.itemList.filter { it.active }[position].title
+            Log.d("!!!",viewModel.checklist.itemList.filter { it.title == tmpName }[0].active.toString())
+            Log.d("!!!",viewModel.checklist.itemList.filter { it.title == tmpName }[0].active.toString())
         }
-        if(_checkList.id == "UndvikEllerMinimera"){
+        if(viewModel.checklist.id == "UndvikEllerMinimera"){
             holder.itemAdd.visibility = View.INVISIBLE
         }
     }
 
     override fun getItemCount(): Int {
-       return _checkList.itemList.filter { it.active }.size
+       return viewModel.checklist.itemList.filter { it.active }.size
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -49,11 +53,11 @@ class CheckListActiveAdapter(checkList: Checklist): RecyclerView.Adapter<CheckLi
         var itemText: TextView = itemView.findViewById(R.id.checklist_active_item_text)
         var itemAdd: ImageButton = itemView.findViewById(R.id.checkList_item_add)
         var itemSwitch: Switch = itemView.findViewById(R.id.checklist_active_item_switch)
-
+        lateinit var id: String
         init {
             itemAdd.setOnClickListener {
-
-
+                viewModel.triggerStateActive(id)
+                Log.d("test count",viewModel.count.toString())
             }
         }
         }

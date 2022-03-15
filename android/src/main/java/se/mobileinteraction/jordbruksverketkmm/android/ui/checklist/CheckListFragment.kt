@@ -12,8 +12,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.Checklist
+import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
+import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
 
 class CheckListFragment : Fragment() {
 
@@ -28,12 +30,36 @@ class CheckListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
         val receivedCategory = arguments?.getString("amount")?: "dummy"
-        val checkList = Checklist(receivedCategory, null)
+
         fragmentCheckListBinding = binding
 
         recyclerView = binding.checkListActiveRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapterActive = CheckListActiveAdapter(checkList)
+
+        when(receivedCategory){
+            "Grundförbättringar" -> {
+                adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).grundforbattringarViewModel)
+                binding.testLabel.text = this.context?.let { getStringByIdName(it,
+                    (activity?.application as MainApplication).grundforbattringarViewModel.checklist.title) }
+                binding.testText1.text = this.context?.let { getStringByIdName(it,
+                    (activity?.application as MainApplication).grundforbattringarViewModel.checklist.text) }
+            }
+            "Odlingsåtgärder" -> {
+                adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).odlingsatgarderViewModel)
+                binding.testLabel.text = this.context?.let { getStringByIdName(it,
+                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.title) }
+                binding.testText1.text = this.context?.let { getStringByIdName(it,
+                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.text) }
+            }
+            "UndvikEllerMinimera" -> {
+                adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).undvikEllerMinimeraViewModel)
+                binding.testLabel.text = this.context?.let { getStringByIdName(it,
+                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.title) }
+                binding.testText1.text = this.context?.let { getStringByIdName(it,
+                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.text) }
+            }
+        }
+
         recyclerView.adapter = adapterActive
         recyclerView.adapter!!.notifyDataSetChanged()
 
@@ -46,9 +72,6 @@ class CheckListFragment : Fragment() {
             binding.testText3.visibility = View.GONE
             binding.testText4.visibility = View.GONE
         }
-
-        binding.testLabel.text = this.context?.let { getStringByIdName(it, checkList.title) }
-        binding.testText1.text = this.context?.let { getStringByIdName(it, checkList.text) }
 
         return view
     }

@@ -17,18 +17,18 @@ class ChecklistViewModel constructor(
     fun triggerStateActive(itemName: String) {
         val tmp = checklist
         val count = count
-        val tmp2 = tmp.stateList!!.filter { it.id == itemName }[0].copy(active = !tmp.itemList.filter { it.id == itemName }[0].active)
+        Log.d("wtf", tmp.stateList.toString())
+        val tmp2 = tmp.stateList.filter { it.id == itemName }[0].copy(active = !tmp.itemList.filter { it.id == itemName }[0].active)
         val newStateList = mutableListOf<ChecklistState>()
 
-        for (elem in checklist.stateList!!) {
-            if (elem.id == checklist.stateList!!.filter { it.id == itemName }[0].id) {
+        for (elem in checklist.stateList) {
+            if (elem.id == checklist.stateList.filter { it.id == itemName }[0].id) {
                 newStateList.add(tmp2)
             } else {
                 newStateList.add(elem)
             }
         }
-        val newState = State(checklist = Checklist(checklist.category, newStateList), count = count + 1)
-        updateStateAndSave { newState }
+        updateStateAndSave { copy(checklist = Checklist(checklist.category, newStateList), count = count + 1) }
     }
 
     private fun updateStateAndSave(state: ChecklistViewModel.State.() -> ChecklistViewModel.State) {
