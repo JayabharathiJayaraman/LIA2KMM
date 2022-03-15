@@ -1,11 +1,11 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
-import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructure
+import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
+import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 
 class FormViewModel constructor(
     val form: Form
@@ -48,6 +48,14 @@ class FormViewModel constructor(
             it is FormComponentTextField
         }.let {
             updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
+        }
+    }
+
+    fun setSoilStructurePhoto(id: String, imageUri: String) {
+        updateStateAndSave {
+            (form as? FormSoilStructure)?.setSoilStructurePhoto(id, state.value, imageUri)
+                ?.copy(counter = counter + 1)
+                ?: this
         }
     }
 }
