@@ -79,7 +79,7 @@
         android:label="FormFragment">
         <action
             android:id="@+id/navigateFromFormFragmentToPermissionsFragment"
-            app:destination="@id/cameraFragment"
+            app:destination="@id/permissionsFragment"
             app:popUpTo="@id/permissionsFragment"
             app:popUpToInclusive="true" />
         <action
