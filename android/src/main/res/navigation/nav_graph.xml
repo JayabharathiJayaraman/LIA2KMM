@@ -53,6 +53,7 @@
             android:id="@+id/navigateToMenu"
             app:destination="@id/menuFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/aboutAppFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.aboutapp.AboutAppFragment"
@@ -75,7 +76,16 @@
     <fragment
         android:id="@+id/formFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.form.FormFragment"
-        android:label="FormFragment"></fragment>
+        android:label="FormFragment">
+        <action
+            android:id="@+id/navigateFromFormFragmentToPermissionsFragment"
+            app:destination="@id/cameraFragment"
+            app:popUpTo="@id/permissionsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/navigateFromFormToMenu"
+            app:destination="@id/menuFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/cameraFragment"
@@ -85,7 +95,7 @@
         <action
             android:id="@+id/navigateFromCameraToFormFragment"
             app:destination="@id/formFragment"
-            app:popUpTo="@id/cameraFragment"
+            app:popUpTo="@id/formFragment"
             app:popUpToInclusive="true" />
     </fragment>
 
@@ -96,12 +106,12 @@
         <action
             android:id="@+id/navigateToCamera"
             app:destination="@id/cameraFragment"
-            app:popUpTo="@id/permissionsFragment"
+            app:popUpTo="@id/cameraFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/navigate_from_permissionsFragment_to_formFragment"
             app:destination="@id/formFragment"
-            app:popUpTo="@id/permissionsFragment"
+            app:popUpTo="@id/formFragment"
             app:popUpToInclusive="true" />
     </fragment>
 
