@@ -329,23 +329,23 @@ data class FormGeneralQuestions(
                         type = ComponentType.TITLESMALL,
                         text = "vilken symbol dominerar?"
                     ),
-                    FormComponentResultatRemark(
+                    FormComponentResultsRemark(
                         id = "structureSadRemarkScreen10",
-                        type = ComponentType.RESULTATREMARKSFACE,
+                        type = ComponentType.RESULTSREMARKSFACE,
                         text = "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                         image = "sad_face",
                         color = "red_round_background"
                     ),
-                    FormComponentResultatRemark(
+                    FormComponentResultsRemark(
                         id = "structureIndifferentRemarkScreen10",
-                        type = ComponentType.RESULTATREMARKSFACE,
+                        type = ComponentType.RESULTSREMARKSFACE,
                         text = "Här finns det en del att göra åt markstrukturen!",
                         image = "indifferent_face",
                         color = "orange_round_background"
                     ),
-                    FormComponentResultatRemark(
+                    FormComponentResultsRemark(
                         id = "structureHappyRemarkScreen10",
-                        type = ComponentType.RESULTATREMARKSFACE,
+                        type = ComponentType.RESULTSREMARKSFACE,
                         text = "Mycket bra markstruktur!Vårda den!",
                         image = "happy_face",
                         color = "green_round_background"
@@ -370,13 +370,10 @@ data class FormGeneralQuestions(
                         type = ComponentType.TITLESMALL,
                         text = "Vad vill du göra nu?"
                     ),
-                    FormComponentResultatImages(
+                    FormComponentResultsImages(
                         id = "vadNuImagesScreen10",
-                        type = ComponentType.RESULTATIMAGES,
-                        text1 = "Nytt test",
-                        text2 = "Vårda",
-                        text3 = "markstruktur",
-                        text4 = "Klar"
+                        type = ComponentType.RESULTSIMAGES,
+                        imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                     ),
                 ),
             ),
