@@ -15,9 +15,9 @@ enum class ComponentType {
     CAPTIONEDIMAGE,
     TIMEFIELD,
     EMPTYLINE,
-    RESULTATINFOBODY,
-    RESULTATIMAGES,
-    RESULTATREMARKSFACE,
+    RESULTSINFOBODY,
+    RESULTSIMAGES,
+    RESULTSREMARKSFACE,
 }
 
 interface FormComponent {
@@ -75,7 +75,7 @@ class FormComponentTime(
     override val id: String,
     val timeLabel:String,
     val start: String,
-    val stopp: String,
+    val stop: String,
 ) : FormComponent
 
 class FormComponentLine(
@@ -84,21 +84,18 @@ class FormComponentLine(
    val text: String
 ): FormComponent
 
-class FormComponentResultatInfoBody(
+class FormComponentResultsInfoBody(
     override val type: ComponentType,
     override val id: String,
     val text: String) : FormComponent
 
-class FormComponentResultatImages(
+class FormComponentResultsImages(
     override val type: ComponentType,
     override val id: String,
-    val text1: String,
-    val text2: String,
-    val text3: String,
-    val text4: String
+    val imagesTextList:List<String>
 ): FormComponent
 
-class FormComponentResultatRemark(
+class FormComponentResultsRemark(
     override val type: ComponentType,
     override val id: String,
     val text: String,
