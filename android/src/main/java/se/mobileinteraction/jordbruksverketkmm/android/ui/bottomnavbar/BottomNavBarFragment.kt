@@ -1,9 +1,9 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.bottomnavbar
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -69,15 +69,15 @@ class BottomNavBarFragment : Fragment() {
             progressItem.layoutParams =
                 LinearLayout.LayoutParams(usableContainerWidth / totalScreens, 50)
             (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(2, 0, 2, 0)
-            progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
+            progressItem.setBackgroundResource(if (i <= currentScreen) R.color.lightOlive else R.color.progress_bar_uncolored)
             if (i == 0) {
-                progressItem.background = getFirstDrawableWithRadius()
+                progressItem.background = getDrawableWithRadius(R.color.lightOlive, true)
             }
             if (i == totalScreens - 1) {
                 if (i == currentScreen) {
-                    progressItem.background = getLastColoredDrawableWithRadius()
+                    progressItem.background = getDrawableWithRadius(R.color.lightOlive, false)
                 } else {
-                    progressItem.background = getLastDrawableWithRadius()
+                    progressItem.background = getDrawableWithRadius(R.color.progress_bar_uncolored, false)
                 }
             }
             binding.progressLayout.addView(progressItem)
@@ -93,24 +93,21 @@ class BottomNavBarFragment : Fragment() {
         binding.bottomNavbarProgressText.text = "${currentScreen + 1} ${getString(R.string.bottom_navbar_text)} $totalScreens"
     }
 
-    private fun getFirstDrawableWithRadius(): Drawable {
+    private fun getDrawableWithRadius(color: Int, isStart: Boolean): Drawable {
         val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(20f, 20f, 0f, 0f, 0f, 0f, 20f, 20f)
-        gradientDrawable.setColor(Color.parseColor("#CED7B2"))
-        return gradientDrawable
-    }
+        if(isStart){
+            gradientDrawable.cornerRadii = floatArrayOf(20f, 20f, 0f, 0f, 0f, 0f, 20f, 20f)
+        }else{
+            gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
+        }
 
-    private fun getLastDrawableWithRadius(): Drawable {
-        val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
-        gradientDrawable.setColor(Color.parseColor("#EDF1E2"))
-        return gradientDrawable
-    }
-
-    private fun getLastColoredDrawableWithRadius(): Drawable {
-        val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
-        gradientDrawable.setColor(Color.parseColor("#CED7B2"))
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            gradientDrawable.setColor(resources.getColor(color,
+                getActivity()?.getTheme()
+            ))
+        }else{
+            gradientDrawable.setColor(resources.getColor(color))
+        }
         return gradientDrawable
     }
 
