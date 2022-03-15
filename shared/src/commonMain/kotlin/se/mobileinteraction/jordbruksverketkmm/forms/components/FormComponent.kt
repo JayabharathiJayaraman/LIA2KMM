@@ -4,6 +4,7 @@ enum class ComponentType {
     TITLEBIG,
     TITLESMALL,
     BODY,
+    CAPTUREIMAGE,
     TEXTFIELD,
     TEXTFIELDNOTES,
     BUTTONLIST,
@@ -25,13 +26,27 @@ interface FormComponent {
     val id: String
 }
 
-class FormComponentText(override val type: ComponentType, override val id: String, val text: String) :
+class FormComponentText(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String
+) :
     FormComponent
 
 class FormComponentButton(
     override val type: ComponentType,
     override val id: String,
     val text: String,
+) : FormComponent
+
+class FormComponentCaptureImage(
+    override val type: ComponentType,
+    override val id: String,
+    val title: String,
+    val body: String,
+    var placeholderImage: String,
+    var imageUri: String?,
+    val button_text: String
 ) : FormComponent
 
 class FormComponentTextField(
