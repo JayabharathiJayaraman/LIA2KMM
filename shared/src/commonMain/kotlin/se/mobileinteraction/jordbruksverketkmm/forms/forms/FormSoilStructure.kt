@@ -325,7 +325,8 @@ data class FormSoilStructure(
                 FormComponentVideo(
                     id = "videoScreen9",
                     type = ComponentType.VIDEO,
-                    text = "Video..."
+                    description = "Markprofil video",
+                    source = "markprofilen"
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen9",
