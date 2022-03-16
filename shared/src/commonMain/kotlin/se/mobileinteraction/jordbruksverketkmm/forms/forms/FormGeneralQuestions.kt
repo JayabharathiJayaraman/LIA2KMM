@@ -53,7 +53,7 @@ data class FormGeneralQuestions(
                 FormComponentButton(
                     id = "getRecordsButtonScreen2",
                     type = ComponentType.BUTTON,
-                    text = "Hämta uppgifter från annat test",
+                    text = "Hämta uppgifter från annat test >",
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen2",
@@ -118,14 +118,14 @@ data class FormGeneralQuestions(
                         id ="sadFaceRemarkScreen4",
                         type = ComponentType.REMARK,
                         text = "Svårbearbetad jord som kräver många överfarter." +
-                                "Stort dragkraftsbehov",
+                                " Stort dragkraftsbehov",
                         image = "sad_face"
                     ),
                     FormComponentRemark(
                         id ="indifferentFaceRemarkScreen4",
                         type = ComponentType.REMARK,
                         text = "Jordbearbetningen kräver ibland många överfarter." +
-                                "Relativt stort dragkraftsbehov",
+                                " Relativt stort dragkraftsbehov",
                         image = "indifferent_face"
                     ),
                     FormComponentRemark(
