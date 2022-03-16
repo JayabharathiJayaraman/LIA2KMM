@@ -35,9 +35,15 @@ class MainApplication : Application() {
         ChecklistState("MinimeraAndelenBarMark", true, true)
     )
 
-    var grundforbattringarViewModel: ChecklistViewModel = ChecklistViewModel(Checklist("Grundförbättringar", grundforbattringarState), 0)
-    var odlingsatgarderViewModel: ChecklistViewModel = ChecklistViewModel(Checklist("Odlingsåtgärder", odlingsatgarderState), 0)
-    var undvikEllerMinimeraViewModel: ChecklistViewModel = ChecklistViewModel(Checklist("UndvikEllerMinimera", undvikEllerMinimeraState), 0)
+    var checklistViewModel: ChecklistViewModel = ChecklistViewModel(Checklist("Grundförbättringar", grundforbattringarState), 0)
+
+    fun setChecklistViewModel(category: String){
+        when(category){
+            "Grundförbättringar" -> checklistViewModel = ChecklistViewModel(Checklist("Grundförbättringar", grundforbattringarState), 0)
+            "Odlingsåtgärder" -> checklistViewModel = ChecklistViewModel(Checklist("Odlingsåtgärder", odlingsatgarderState), 0)
+            "UndvikEllerMinimera" -> checklistViewModel = ChecklistViewModel(Checklist("UndvikEllerMinimera", undvikEllerMinimeraState), 0)
+        }
+    }
 
     fun setViewModel(formType: FormType) {
         formViewModel = when (formType) {

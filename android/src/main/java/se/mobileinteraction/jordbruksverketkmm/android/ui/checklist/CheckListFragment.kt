@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,12 +19,14 @@ import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
+import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 
 class CheckListFragment : Fragment() {
 
-   private var fragmentCheckListBinding: FragmentCheckListBinding? = null
+    private var fragmentCheckListBinding: FragmentCheckListBinding? = null
     private lateinit var recyclerView: RecyclerView
     private var adapterActive: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
+    private lateinit var viewModel : ChecklistViewModel
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,35 +34,26 @@ class CheckListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
-        val receivedCategory = arguments?.getString("amount")?: "dummy"
-
+        val receivedCategory = arguments?.getString("amount") ?: "dummy"
+        viewModel = (activity?.application as MainApplication).checklistViewModel
         fragmentCheckListBinding = binding
 
         recyclerView = binding.checkListActiveRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
+        adapterActive = CheckListActiveAdapter(viewModel)
 
-        when(receivedCategory){
-            "Grundförbättringar" -> {
-                adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).grundforbattringarViewModel)
-                binding.testLabel.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).grundforbattringarViewModel.checklist.title) }
-                binding.testText1.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).grundforbattringarViewModel.checklist.text) }
-            }
-            "Odlingsåtgärder" -> {
-                adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).odlingsatgarderViewModel)
-                binding.testLabel.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.title) }
-                binding.testText1.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.text) }
-            }
-            "UndvikEllerMinimera" -> {
-                adapterActive = CheckListActiveAdapter((activity?.application as MainApplication).undvikEllerMinimeraViewModel)
-                binding.testLabel.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.title) }
-                binding.testText1.text = this.context?.let { getStringByIdName(it,
-                    (activity?.application as MainApplication).odlingsatgarderViewModel.checklist.text) }
-            }
+
+        binding.testLabel.text = this.context?.let {
+            getStringByIdName(
+                it,
+                viewModel.checklist.title
+            )
+        }
+        binding.testText1.text = this.context?.let {
+            getStringByIdName(
+                it,
+                viewModel.checklist.text
+            )
         }
 
         recyclerView.adapter = adapterActive
@@ -67,7 +63,7 @@ class CheckListFragment : Fragment() {
             view.findNavController().navigateUp()
         }
 
-        if(receivedCategory == "UndvikEllerMinimera"){
+        if (receivedCategory == "UndvikEllerMinimera") {
             binding.testLabelEjAktuellaAtgarder.visibility = View.GONE
             binding.testText3.visibility = View.GONE
             binding.testText4.visibility = View.GONE
@@ -75,6 +71,24 @@ class CheckListFragment : Fragment() {
 
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        lifecycleScope.launchWhenStarted {
+
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect(::updateView)
+            }
+        }
+    }
+
+    private fun updateView(state: ChecklistViewModel.State) {
+        println("StateJV: $state")
+        recyclerView.adapter!!.notifyDataSetChanged()
+        //displayComponents(state.components, state.currentScreen)
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         fragmentCheckListBinding = null

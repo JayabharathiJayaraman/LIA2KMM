@@ -28,7 +28,7 @@ class ChecklistViewModel constructor(
                 newStateList.add(elem)
             }
         }
-        updateStateAndSave { copy(checklist = Checklist(checklist.category, newStateList), count = count + 1) }
+        updateStateAndSave { copy(checklist = Checklist(checklist.category, newStateList), count =  state.value.count + 1) }
     }
 
     private fun updateStateAndSave(state: ChecklistViewModel.State.() -> ChecklistViewModel.State) {
