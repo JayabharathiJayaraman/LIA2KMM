@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/form_radiobtn_container"
+    android:id="@+id/form_radio_group"
     >
 
     <RadioButton
@@ -14,7 +14,7 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:button="@drawable/btn_radio_satetlist"
+        android:button="@drawable/checklist_button_states"
         >
     </RadioButton>
 
