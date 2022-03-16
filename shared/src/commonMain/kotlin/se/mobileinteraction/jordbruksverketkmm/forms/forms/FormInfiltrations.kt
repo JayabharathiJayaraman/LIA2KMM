@@ -188,7 +188,7 @@ data class FormInfiltrations(
                         "Mulljord (torvjord under)",
                         "Mulljord (gyttjejord under)"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.soilType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -234,7 +234,7 @@ data class FormInfiltrations(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.crop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -260,7 +260,7 @@ data class FormInfiltrations(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.precedingCrop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -268,7 +268,7 @@ data class FormInfiltrations(
                     id = "soilBearbetningScreen6",
                     title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.soilHandling ?: "",
                     placeholder = "Välj...",
                 ),
             ),
@@ -337,7 +337,7 @@ data class FormInfiltrations(
                         "Bearbetningssula 2",
                         "Alv"
                     ),
-                    value = "ett",
+                    value = (data as FormDataInfiltration).infiltrationTest.measurementType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentTextField(
@@ -480,6 +480,17 @@ data class FormInfiltrations(
         (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating = active
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
             active
+        return state
+    }
+
+    override fun setButtonlistActive(
+        id: String,
+        value: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataInfiltration)?.soilAssesment?.crop = value
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
+            value
         return state
     }
 
