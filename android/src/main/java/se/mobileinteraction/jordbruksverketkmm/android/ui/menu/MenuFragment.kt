@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.android
+package se.mobileinteraction.jordbruksverketkmm.android.ui.menu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentMenuBinding
-
 
 class MenuFragment : Fragment() {
 
@@ -24,7 +24,19 @@ class MenuFragment : Fragment() {
         fragmentMenuBinding = binding
 
         binding.btnClose.setOnClickListener {
-            view.findNavController().navigate(R.id.navigateToStartFragment)
+              view.findNavController().navigateUp()
+        }
+
+        binding.textViewSettings.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToSettings)
+        }
+
+        binding.textViewDataPrivacyPolicy.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToDataPrivacyPolicy)
+        }
+
+        binding.textViewAboutApp.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToAboutApp)
         }
 
         return view
