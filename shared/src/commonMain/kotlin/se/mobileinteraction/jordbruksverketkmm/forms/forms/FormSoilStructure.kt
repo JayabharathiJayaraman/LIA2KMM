@@ -107,30 +107,12 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "testPlaceTitleScreen3",
-                    type = ComponentType.TITLESMALL,
-                    text = "Testets plats"
-                ),
                 FormComponentChecklist(
                     id = "representativeChecklistScreen3",
                     type = ComponentType.CHECKLIST,
-                    text = "Representativ",
-                ),
-                FormComponentChecklist(
-                    id = "goodChecklistScreen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Bra plats",
-                ),
-                FormComponentChecklist(
-                    id = "badChecklistScreen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Dålig plats",
-                ),
-                FormComponentChecklist(
-                    id = "otherChecklistScreen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Annan",
+                    title = "Testets plats",
+                    options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
+                    active = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     id = "placeTextfieldScreen3",
@@ -314,25 +296,12 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "groundRatioTitleScreen8",
-                    type = ComponentType.TITLESMALL,
-                    text = "Markförhållanden"
-                ),
                 FormComponentChecklist(
                     id = "moistChecklisScreen8",
                     type = ComponentType.CHECKLIST,
-                    text = "Fuktigt",
-                ),
-                FormComponentChecklist(
-                    id = "dryChecklisScreen8",
-                    type = ComponentType.CHECKLIST,
-                    text = "Torrt",
-                ),
-                FormComponentChecklist(
-                    id = "wetChecklisScreen8",
-                    type = ComponentType.CHECKLIST,
-                    text = "Blött",
+                    title = "Markförhållanden",
+                    options = listOf("Fuktigt", "Torrt", "Blött"),
+                    active = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
                 ),
             )
         ),
@@ -931,13 +900,17 @@ data class FormSoilStructure(
                 FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
                     type = ComponentType.RESULTSIMAGES,
-                    imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
+                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
                 ),
             )
         ),
     )
 
-    override fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
+    override fun setText(
+        id: String,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
         println("logg: FORMDEF $text")
         with(state.form.data) {
             when (id) {
@@ -950,6 +923,17 @@ data class FormSoilStructure(
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text =
             text
 
+        return state
+    }
+
+    override fun setChecklistActive(
+        id: String,
+        active: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = active
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
+            active
         return state
     }
 

@@ -3,7 +3,6 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
@@ -72,7 +71,7 @@ data class FormInfiltrations(
                     text = "Tips!"
                 ),
                 FormComponentText(
-                    id  = "tipsBodyScreen1",
+                    id = "tipsBodyScreen1",
                     type = ComponentType.BODY,
                     text = "Använd brädlapp och gummiklubba för att få ner cylindern om det är hårt i marken."
                 ),
@@ -123,30 +122,12 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "testetsPlatsScreen3",
-                    type = ComponentType.TITLESMALL,
-                    text = "Testets plats"
-                ),
                 FormComponentChecklist(
-                    id = "radioButton1Screen3",
+                    id = "representativeChecklistScreen3",
                     type = ComponentType.CHECKLIST,
-                    text = "Representativ",
-                ),
-                FormComponentChecklist(
-                    id = "radioButton2Screen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Bra plats",
-                ),
-                FormComponentChecklist(
-                    id = "radioButton3Screen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Dålig plats",
-                ),
-                FormComponentChecklist(
-                    id = "radioButton4Screen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Annan",
+                    title = "Testets plats",
+                    options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
+                    active = (data as? FormDataInfiltration)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
@@ -371,13 +352,13 @@ data class FormInfiltrations(
                     text = "",
                     placeholder = "mm till vattenytan (stopp)",
                 ),
-               FormComponentTime(
-                   id = "timeScreen8",
-                   type = ComponentType.TIMEFIELD,
-                   timeLabel = "Tidsåtgång:",
-                   start = "",
-                   stop = ""
-               ),
+                FormComponentTime(
+                    id = "timeScreen8",
+                    type = ComponentType.TIMEFIELD,
+                    timeLabel = "Tidsåtgång:",
+                    start = "",
+                    stop = ""
+                ),
                 FormComponentLine(
                     id = "dividerScreen8",
                     type = ComponentType.EMPTYLINE,
@@ -464,35 +445,51 @@ data class FormInfiltrations(
                 FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
                     type = ComponentType.RESULTSIMAGES,
-                    imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
+                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
                 ),
 
-            ),
+                ),
         ),
     )
-        override fun setText(
-            id: String,
-            text: String,
-            state: FormViewModel.State
-        ): FormViewModel.State {
-            with(state.form.data) {
-                when (id) {
-                    FormGeneralQuestions.ID_FARMNAME -> commonData.farmInformation.farmName = text
-                    FormGeneralQuestions.ID_FARMLAND -> commonData.farmInformation.farmLand = text
-                    FormGeneralQuestions.ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType =
-                        text
-                }
+
+    override fun setText(
+        id: String,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        println("logg: FORMDEF $text")
+        with(state.form.data) {
+            when (id) {
+                ID_FARMNAME -> commonData.farmInformation.farmName = text
+                ID_FARMLAND -> commonData.farmInformation.farmLand = text
+                ID_SOILTYPE -> (this as FormDataInfiltration).soilAssesment.soilType = text
             }
-            return state
         }
 
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text =
+            text
+
+        return state
+    }
+
+    override fun setChecklistActive(
+        id: String,
+        active: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating = active
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
+            active
+        return state
+    }
+
     companion object {
-            const val ID_FARMNAME = "FARMNAME"
-            const val ID_FARMLAND = "FARMLAND"
-            const val ID_DATE = "DATE"
-            const val ID_SOILTYPE = "SOILTYPE"
-            const val ID_ALTERNATE = "ALTERNATE_REMARK"
-            const val ID_VATTENYTAN_START = "VATTENYTAN_START"
-            const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"
-        }
+        const val ID_FARMNAME = "FARMNAME"
+        const val ID_FARMLAND = "FARMLAND"
+        const val ID_DATE = "DATE"
+        const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_ALTERNATE = "ALTERNATE_REMARK"
+        const val ID_VATTENYTAN_START = "VATTENYTAN_START"
+        const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"
+    }
 }
