@@ -276,12 +276,36 @@ private fun ViewGroup.createOrUpdateButtonList(
 ) {
     val binding: FormButtonListBinding = FormButtonListBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formButtonlistContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    val dataAdapter: ArrayAdapter<String> =
-        ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list)
+        .also {
 
-    binding.spinner.adapter = dataAdapter
-    binding.textView.text = title
+            val dataAdapter: ArrayAdapter<String> =
+                ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list)
+
+            binding.spinner.adapter = dataAdapter
+            binding.textView.text = title
+
+            binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    pos: Int,
+                    spinnerId: Long
+                ) {
+                    val itemId = parent.getItemIdAtPosition(pos)
+                    getApplication().formViewModel.setButtonListActive(id, itemId.toString())
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+            }
+
+            println("BUTTON LIST INFILTRATION: $value")
+            if (value != "") {
+                binding.spinner.setSelection(value.toInt())
+            }
+            this.addView(it)
+        }
 }
 
 private fun ViewGroup.createOrUpdateImage(imageName: String, caption: String) {
