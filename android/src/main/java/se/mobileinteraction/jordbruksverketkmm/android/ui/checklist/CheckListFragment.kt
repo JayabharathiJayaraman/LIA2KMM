@@ -34,14 +34,12 @@ class CheckListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_check_list, container, false)
         val binding = FragmentCheckListBinding.bind(view)
-        val receivedCategory = arguments?.getString("amount") ?: "dummy"
         viewModel = (activity?.application as MainApplication).checklistViewModel
         fragmentCheckListBinding = binding
-
         recyclerView = binding.checkListActiveRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
         adapterActive = CheckListActiveAdapter(viewModel)
-
+        recyclerView.adapter = adapterActive
 
         binding.testLabel.text = this.context?.let {
             getStringByIdName(
@@ -56,14 +54,11 @@ class CheckListFragment : Fragment() {
             )
         }
 
-        recyclerView.adapter = adapterActive
-        recyclerView.adapter!!.notifyDataSetChanged()
-
         binding.tmpBack.setOnClickListener {
             view.findNavController().navigateUp()
         }
 
-        if (receivedCategory == "UndvikEllerMinimera") {
+        if (viewModel.checklist.category == Checklist.Category.UNDVIKELLERMINIMERA) {
             binding.testLabelEjAktuellaAtgarder.visibility = View.GONE
             binding.testText3.visibility = View.GONE
             binding.testText4.visibility = View.GONE

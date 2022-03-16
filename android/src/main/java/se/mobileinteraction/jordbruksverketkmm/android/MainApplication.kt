@@ -37,11 +37,11 @@ class MainApplication : Application() {
 
     var checklistViewModel: ChecklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.GRUNDFORBATTRINGAR, grundforbattringarState), 0)
 
-    fun setChecklistViewModel(category: String){
+    fun setChecklistViewModel(category: Checklist.Category){
         when(category){
-            "Grundförbättringar" -> checklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.GRUNDFORBATTRINGAR, grundforbattringarState), 0)
-            "Odlingsåtgärder" -> checklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.ODLINGSATGARDER, odlingsatgarderState), 0)
-            "UndvikEllerMinimera" -> checklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.UNDVIKELLERMINIMERA, undvikEllerMinimeraState), 0)
+            Checklist.Category.GRUNDFORBATTRINGAR -> checklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.GRUNDFORBATTRINGAR, grundforbattringarState), 0)
+            Checklist.Category.ODLINGSATGARDER-> checklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.ODLINGSATGARDER, odlingsatgarderState), 0)
+            Checklist.Category.UNDVIKELLERMINIMERA -> checklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.UNDVIKELLERMINIMERA, undvikEllerMinimeraState), 0)
         }
     }
 

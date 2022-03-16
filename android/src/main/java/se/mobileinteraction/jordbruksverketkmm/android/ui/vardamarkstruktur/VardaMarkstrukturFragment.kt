@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentVardaMarkstrukturBinding
@@ -28,31 +28,23 @@ class VardaMarkstrukturFragment : Fragment() {
         }
 
         binding.tempForward.setOnClickListener {
-            val amount = "Grundförbättringar"
-            val bundle = bundleOf("amount" to amount)
-            (activity?.application as MainApplication).setChecklistViewModel("Grundförbättringar")
-            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.GRUNDFORBATTRINGAR)
+            view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         binding.grunforbattringarutton.setOnClickListener {
-            val amount = "Grundförbättringar"
-            val bundle = bundleOf("amount" to amount)
-            (activity?.application as MainApplication).setChecklistViewModel("Grundförbättringar")
-            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.GRUNDFORBATTRINGAR)
+            view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         binding.odlingsatgarderButton.setOnClickListener {
-            val amount = "Odlingsåtgärder"
-            val bundle = bundleOf("amount" to amount)
-            (activity?.application as MainApplication).setChecklistViewModel("Odlingsåtgärder")
-            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.ODLINGSATGARDER)
+            view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         binding.undvikEllerMinimeraButton.setOnClickListener {
-            val amount = "UndvikEllerMinimera"
-            val bundle = bundleOf("amount" to amount)
-            (activity?.application as MainApplication).setChecklistViewModel("UndvikEllerMinimera")
-            view.findNavController().navigate(R.id.navigateTocheckList, bundle)
+            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.UNDVIKELLERMINIMERA)
+            view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         return view
