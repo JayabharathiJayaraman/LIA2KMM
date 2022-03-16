@@ -1,6 +1,7 @@
 package se.mobileinteraction.jordbruksverketkmm.android.forms
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,7 +51,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.VIDEO -> {
                     val video = (component as FormComponentVideo)
-                    mainView.createOrUpdateVideo(video.text, video.id)
+                    mainView.createOrUpdateVideo(video.id, video.description, video.source)
                 }
                 ComponentType.BUTTON -> {
                     val button = (component as FormComponentButton)
@@ -318,10 +319,15 @@ private fun ViewGroup.addImagesContainer(id: String, imagesTextList: List<String
     binding.klarText.text = imagesTextList[3]
 }
 
-private fun ViewGroup.createOrUpdateVideo(id: String, text: String) {
+private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
     val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formVideoviewContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
+
+    val mc = MediaController(context)
+    binding.videoview.setMediaController(mc)
+    binding.videoview.setVideoURI(Uri.parse(getVideoPath(source)))
+    binding.videoview.seekTo(1)
 }
 
 private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String, caption: String) {
@@ -345,6 +351,11 @@ private fun ViewGroup.createOrUpdateResultsInfoBody(text: String, id: String) {
 
 private fun ViewGroup.getImageResource(name: String): Int {
     return context.resources.getIdentifier("drawable/$name", null, context.packageName)
+}
+
+private fun ViewGroup.getVideoPath(source: String): String {
+    val videoResource = resources.getIdentifier(source, "raw", context.packageName)
+    return "android.resource://" + context.packageName.toString() + "/" + videoResource
 }
 
 private fun ViewGroup.getFaceBackgroundColor(colorName: String): Int {
