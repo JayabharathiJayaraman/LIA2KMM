@@ -142,9 +142,9 @@
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		2E57534127BFF44A00CB01E6 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
 		2E57534227BFF44A00CB01E6 /* MapScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapScreenViewController.xib; sourceTree = "<group>"; };
-		2EBBA3D627D0C4CB0016CA79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2EBBA3D627D0C4CB0016CA79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
@@ -628,7 +628,6 @@
 				9D5A8C9227DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D07BE1027BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
-				9D8E1E8E27A7FA92002E7D94 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,7 +635,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D8E1E8F27A7FA92002E7D94 /* Localizable.strings in Resources */,
 				9D07BE3927BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
 				9D5A8CA527DB52E100239E45 /* NewTestViewController.xib in Resources */,
 				9D07BE3027BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
@@ -805,7 +803,6 @@
 			children = (
 				9D5A8C6827D8D7C800239E45 /* sv */,
 				9D5A8C6A27D8D7CF00239E45 /* en */,
-				9D8E1E9227A7FAFC002E7D94 /* sv */,
 				2EBBA3D627D0C4CB0016CA79 /* en */,
 			);
 			name = Localizable.strings;
@@ -940,8 +937,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -976,8 +971,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;

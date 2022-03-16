@@ -31,7 +31,7 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func infoButtonPressed(_ sender: Any) {
         
-        UIView.animate(withDuration: 0.6, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.infoView.alpha = 1
         })
         
