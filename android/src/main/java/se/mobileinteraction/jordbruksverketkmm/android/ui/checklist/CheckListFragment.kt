@@ -85,7 +85,6 @@ class CheckListFragment : Fragment() {
     private fun updateView(state: ChecklistViewModel.State) {
         println("StateJV: $state")
         recyclerView.adapter!!.notifyDataSetChanged()
-        //displayComponents(state.components, state.currentScreen)
     }
 
 

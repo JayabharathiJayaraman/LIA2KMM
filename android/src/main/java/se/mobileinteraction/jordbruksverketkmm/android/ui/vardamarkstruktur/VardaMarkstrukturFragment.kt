@@ -39,7 +39,6 @@ class VardaMarkstrukturFragment : Fragment() {
             val bundle = bundleOf("amount" to amount)
             (activity?.application as MainApplication).setChecklistViewModel("Grundförbättringar")
             view.findNavController().navigate(R.id.navigateTocheckList, bundle)
-
         }
 
         binding.odlingsatgarderButton.setOnClickListener {

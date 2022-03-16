@@ -2,9 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.checklists
 
 import android.util.Log
 import se.mobileinteraction.jordbruksverketkmm.Checklist
-import se.mobileinteraction.jordbruksverketkmm.ChecklistItem
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
-import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 

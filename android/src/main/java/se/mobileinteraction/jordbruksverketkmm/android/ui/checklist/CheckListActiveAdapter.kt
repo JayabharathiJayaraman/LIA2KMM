@@ -1,6 +1,6 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.checklist
 
-import android.app.Activity
+
 import android.content.Context
 import android.content.res.Resources
 import android.util.Log
@@ -11,9 +11,7 @@ import android.widget.ImageButton
 import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.flow.count
 import se.mobileinteraction.jordbruksverketkmm.Checklist
-import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
@@ -41,15 +39,7 @@ class CheckListActiveAdapter(val viewModel: ChecklistViewModel): RecyclerView.Ad
         holder.itemText.text = context?.let { getStringByIdName(it, tempList[position].text) }
         holder.id = tempList[position].id
         Log.d("run onBind",tempList[position].id)
-     /*   holder.itemLabel.text = context?.let { getStringByIdName(it, viewModel.state.value.checklist.stateList.filter { it.active }[position].title) }
-        holder.itemText.text = context?.let { getStringByIdName(it, viewModel.state.value.checklist.stateList.filter { it.active }[position].text) }
-        holder.id = viewModel.state.value.checklist.stateList.filter { it.active }[position].id
-        holder.itemAdd.setOnClickListener {
-            viewModel.triggerStateActive(viewModel.state.value.checklist.stateList.filter { it.active }[position].id)
-           Log.d("test count",viewModel.state.value.count.toString())
-
-        }*/
-        if(viewModel.checklist.id == "UndvikEllerMinimera"){
+        if(viewModel.checklist.id == Checklist.Category.UNDVIKELLERMINIMERA){
             holder.itemAdd.visibility = View.INVISIBLE
         }
     }

@@ -2,56 +2,16 @@ package se.mobileinteraction.jordbruksverketkmm
 
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
 
-data class Checklist(val category : String, val stateList: List<ChecklistState>) {
+data class Checklist(val category: Category, val stateList: List<ChecklistState>) {
 
-    val title : String
-    val text : String
-    val id : String = category
-    val itemList: List<ChecklistItem>
+    val title : String = "CheckList_" + category.categoryName + "_title"
+    val text : String = "CheckList_" + category.categoryName + "_text"
+    val id : Category = category
 
-
-    private val categoryList = listOf("Grundförbättringar",
-        "Odlingsåtgärder", "UndvikEllerMinimera")
-
-    private val catgoryListGrundforbattringar = listOf("Huvudavvattning",
-        "OrganiskaMaterial", "Detaljdränering", "Strukturkalkning", "Alvluckring")
-
-    private val catgoryListOdlingsatgarder = listOf("GynnaDaggmaskarna",
-        "GrödorMedBraRotsystem", "LämnaOrganisktMaterial", "PlaneraKörningen",
-        "MinskaBelastningenPåMarken", "BeväxtMarkÅretOm")
-
-
-    private val catgoryListUndvikEllerMinimera = listOf("UndvikTungaMaskiner",
-        "UndvikKörningVidVåtaMarkförhållanden", "MinimeraAntaletÖverfarter",
-        "MinimeraAndelenBarMark",)
-
-
-
-    init {
-        if(categoryList.contains(category)){
-            this.title = "CheckList_" + category + "_title"
-            this.text = "CheckList_" + category + "_text"
-
-            this.itemList = when(category){
-                categoryList[0] -> createItemList(catgoryListGrundforbattringar, stateList)
-                categoryList[1] -> createItemList(catgoryListOdlingsatgarder, stateList)
-                categoryList[2] -> createItemList(catgoryListUndvikEllerMinimera, stateList)
-                else -> listOf<ChecklistItem>()
-            }
-        }else{
-            this.title = "dummy"
-            this.text = "dummy"
-            this.itemList = listOf<ChecklistItem>()
-        }
+    enum class Category(val categoryName: String) {
+        GRUNDFORBATTRINGAR("Grundförbättringar"),
+        ODLINGSATGARDER("Odlingsåtgärder"),
+        UNDVIKELLERMINIMERA("UndvikEllerMinimera")
     }
 
-    private fun createItemList(listForCategory : List<String>, stateList: List<ChecklistState>): List<ChecklistItem>{
-        val listToReturn = mutableListOf<ChecklistItem>()
-        for(elem in listForCategory){
-            val tmpState = stateList.filter { it.id == elem }
-            val item = ChecklistItem(elem, tmpState[0].checked, tmpState[0].active)
-            listToReturn.add(item)
-        }
-        return listToReturn
-    }
 }
