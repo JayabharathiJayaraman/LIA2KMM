@@ -91,7 +91,7 @@ data class FormGeneralQuestions(
                         "Mulljord (gyttjejord under)"
                     ),
                     title = "Jordart",
-                    value = "ett",
+                    value = (data as? FormDataGeneralQuestions)?.soilAssesment?.soilType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -408,6 +408,17 @@ data class FormGeneralQuestions(
         (state.form.data as? FormDataGeneralQuestions)?.placeAssesment?.rating = active
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
             active
+        return state
+    }
+
+    override fun setButtonlistActive(
+        id: String,
+        value: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataGeneralQuestions)?.soilAssesment?.crop = value
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
+            value
         return state
     }
 
