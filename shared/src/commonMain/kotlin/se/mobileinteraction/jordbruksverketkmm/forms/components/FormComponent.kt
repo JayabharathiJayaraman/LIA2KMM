@@ -53,7 +53,9 @@ class FormComponentButtonList(
 class FormComponentChecklist(
     override val type: ComponentType,
     override val id: String,
-    val text: String,
+    val title: String,
+    val options: List<String>,
+    var active: Int,
 ) : FormComponent
 
 class FormComponentRemark(
