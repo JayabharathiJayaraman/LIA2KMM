@@ -108,5 +108,6 @@ class FormComponentResultsRemark(
 class FormComponentVideo(
     override val type: ComponentType,
     override val id: String,
-    val text: String,
+    val description: String,
+    val source: String,
 ) : FormComponent
