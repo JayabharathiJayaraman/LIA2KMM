@@ -46,7 +46,7 @@ class FormComponentButtonList(
     override val id: String,
     val title: String,
     val list: List<String>,
-    val value: String,
+    var value: String,
     val placeholder: String,
 ) : FormComponent
 
