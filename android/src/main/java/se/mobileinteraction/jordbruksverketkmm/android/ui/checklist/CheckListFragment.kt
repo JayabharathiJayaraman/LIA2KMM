@@ -19,13 +19,14 @@ import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
-import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 
 class CheckListFragment : Fragment() {
 
     private var fragmentCheckListBinding: FragmentCheckListBinding? = null
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerViewActive: RecyclerView
+    private lateinit var recyclerViewInActive: RecyclerView
     private var adapterActive: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
+    private var adapterInActive: RecyclerView.Adapter<CheckListInActiveAdapter.ViewHolder>? = null
     private lateinit var viewModel : ChecklistViewModel
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -36,10 +37,14 @@ class CheckListFragment : Fragment() {
         val binding = FragmentCheckListBinding.bind(view)
         viewModel = (activity?.application as MainApplication).checklistViewModel
         fragmentCheckListBinding = binding
-        recyclerView = binding.checkListActiveRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerViewActive = binding.checkListActiveRecyclerView
+        recyclerViewInActive = binding.checkListInActiveRecyclerView
+        recyclerViewActive.layoutManager = LinearLayoutManager(activity)
+        recyclerViewInActive.layoutManager = LinearLayoutManager(activity)
         adapterActive = CheckListActiveAdapter(viewModel)
-        recyclerView.adapter = adapterActive
+        adapterInActive = CheckListInActiveAdapter(viewModel)
+        recyclerViewActive.adapter = adapterActive
+        recyclerViewInActive.adapter = adapterInActive
 
         binding.testLabel.text = this.context?.let {
             getStringByIdName(
@@ -77,9 +82,11 @@ class CheckListFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateView(state: ChecklistViewModel.State) {
         println("StateJV: $state")
-        recyclerView.adapter!!.notifyDataSetChanged()
+        this.recyclerViewActive.adapter!!.notifyDataSetChanged()
+        this.recyclerViewInActive.adapter!!.notifyDataSetChanged()
     }
 
 
@@ -88,7 +95,7 @@ class CheckListFragment : Fragment() {
         fragmentCheckListBinding = null
     }
 
-    private fun getStringByIdName(context: Context, idName: String?): String? {
+    private fun getStringByIdName(context: Context, idName: String?): String {
         val res: Resources = context.resources
         return res.getString(res.getIdentifier(idName, "string", context.packageName))
     }

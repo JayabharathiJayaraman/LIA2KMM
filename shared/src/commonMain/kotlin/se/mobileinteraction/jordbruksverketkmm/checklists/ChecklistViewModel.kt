@@ -14,7 +14,6 @@ class ChecklistViewModel constructor(
 
     fun triggerStateActive(itemName: String) {
         val tmp = state.value.checklist
-        val count = count
         Log.d("wtf", tmp.stateList.toString())
         val tmp2 = tmp.stateList.filter { it.id == itemName }[0].copy(active = !tmp.stateList.filter { it.id == itemName }[0].active)
         val newStateList = mutableListOf<ChecklistState>()
