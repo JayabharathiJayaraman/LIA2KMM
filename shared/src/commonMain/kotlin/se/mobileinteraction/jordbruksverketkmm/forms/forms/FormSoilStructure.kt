@@ -3,7 +3,6 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
@@ -180,7 +179,7 @@ data class FormSoilStructure(
                         "Mulljord (torvjord under)",
                         "Mulljord (gyttjejord under)"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.soilType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -229,7 +228,7 @@ data class FormSoilStructure(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.crop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -255,7 +254,7 @@ data class FormSoilStructure(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.precedingCrop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -263,7 +262,7 @@ data class FormSoilStructure(
                     type = ComponentType.BUTTONLIST,
                     title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.soilHandling ?: "",
                     placeholder = "Välj...",
                 ),
             )
@@ -391,7 +390,7 @@ data class FormSoilStructure(
                     id = "groundSurfaceButtonListScreen11",
                     title = "Markyta/Markjord",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.stompData?.level1 ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -399,15 +398,23 @@ data class FormSoilStructure(
                     id = "MachiningsoleButtonListScreen11",
                     title = "Bearbetningssula",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.stompData?.level2 ?: "",
                     placeholder = "Välj...",
                 ),
+                /*FormComponentButtonList(
+                    type = ComponentType.BUTTONLIST,
+                    id = "subSoil2ButtonListScreen11",
+                    title = "Bearbetningssula 2",
+                    list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
+                    value = (data as? FormDataSoilStructure)?.stompData?.level3 ?: "",
+                    placeholder = "Välj...",
+                ),*/
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = "subSoilButtonListScreen11",
                     title = "Alv",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.stompData?.level4 ?: "",
                     placeholder = "Välj...",
                 ),
             )
@@ -917,7 +924,7 @@ data class FormSoilStructure(
             when (id) {
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
-                ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
+                ID_SOILTYPE -> (this as FormDataSoilStructure).soilAssesment.soilType = text
             }
         }
 
@@ -935,6 +942,17 @@ data class FormSoilStructure(
         (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = active
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
             active
+        return state
+    }
+
+    override fun setButtonlistActive(
+        id: String,
+        value: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.soilAssesment?.crop = value
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
+            value
         return state
     }
 
