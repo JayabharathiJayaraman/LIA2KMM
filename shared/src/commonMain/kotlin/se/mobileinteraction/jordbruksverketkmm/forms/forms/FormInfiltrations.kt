@@ -156,12 +156,18 @@ data class FormInfiltrations(
                 FormComponentText(
                     id = "platsTitleScreen4",
                     type = ComponentType.TITLESMALL,
-                    text = "Plats"
+                    text = "Plats",
                 ),
                 FormComponentText(
                     id = "platsBodyScreen4",
                     type = ComponentType.BODY,
-                    text = "Tryck på kartan för att välja din exakta position"
+                    text = "Tryck på kartan för att välja din exakta position",
+                ),
+                FormComponentMap(
+                    id = "mapScreen",
+                    type = ComponentType.MAPS,
+                    text = "",
+                    image = "jv-logga",
                 ),
             ),
         ),

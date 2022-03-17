@@ -18,6 +18,7 @@ enum class ComponentType {
     RESULTSINFOBODY,
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
+    MAPS,
 }
 
 interface FormComponent {
@@ -111,3 +112,11 @@ class FormComponentVideo(
     val description: String,
     val source: String,
 ) : FormComponent
+
+class FormComponentMap(
+    override val type: ComponentType,
+    override val id: String,
+    var text: String,
+    val image: String,
+) : FormComponent
+

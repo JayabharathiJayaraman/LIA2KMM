@@ -1,6 +1,7 @@
 import Foundation
 import shared
 import UIKit
+import MapKit
 
 class IOSFormGenerator: FormGenerator {
     private var mainView = UIStackView()
@@ -56,6 +57,10 @@ class IOSFormGenerator: FormGenerator {
                 if let image = component as? FormComponentImage {
                     mainView.addImage(imageName: image.image, caption: image.caption)
                 }
+            case .maps:
+                if let mapImage = component as? FormComponentMap {
+                    mainView.addImage(imageName: mapImage.image, caption: mapImage.text)
+                }
             default:
                 print("unknown component")
             }
@@ -78,7 +83,6 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpace)
         self.addArrangedSubview(label)
     }
-    
     func addBigTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let label = getDefaultLabel()
@@ -88,7 +92,6 @@ extension UIStackView {
             self.addArrangedSubview(label)
         }
     }
-    
     func addSmallTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             var verticalSpacing = getVerticalSpacingView(withHeight: 20)
