@@ -78,7 +78,11 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.REMARK -> {
                     val remark = (component as FormComponentRemark)
-                    mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
+                    mainView.createOrUpdateRemark(
+                        remark.id,
+                        remark.text,
+                        remark.active
+                    )
                 }
 
                 ComponentType.RESULTSREMARKSFACE -> {
@@ -218,21 +222,38 @@ private fun ViewGroup.createOrUpdateBodyLabel(text: String, id: String) {
 }
 
 private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, placeholder: String) {
-    println("logg: addTextField: $text")
     val binding: FormTextfieldNotesBinding =
         FormTextfieldNotesBinding.inflate(LayoutInflater.from(context))
 
-    this.findViewWithTag<EditText>(id) ?: binding.formTextfieldnotesContainer.apply { tag = id }
-        .also { this.addView(it) }
-    binding.textfield.hint = placeholder
+    this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
+        .also {
+
+            binding.textfield.hint = placeholder
+            this.addView(it)
+        }
+
 }
 
-private fun ViewGroup.createOrUpdateRemark(text: String, id: String, image: String) {
-    val binding: FormRemarkBinding = FormRemarkBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formRemarkContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.textview.text = text
-    binding.imageview.setImageResource(getImageResource(image))
+private fun ViewGroup.createOrUpdateRemark(
+    id: String,
+    text: List<String>,
+    active: Int
+) {
+    val binding: FormQuestionnaireChecklistBinding =
+        FormQuestionnaireChecklistBinding.inflate(LayoutInflater.from(context))
+
+    this.findViewWithTag(id) ?: binding.radioGroup.rootView.apply { tag = id }
+        .also {
+            binding.radioButtonSad.text = text[0]
+            binding.radioButtonIndifferent.text = text[1]
+            binding.radioButtonHappy.text = text[2]
+            binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
+                getApplication().formViewModel.setQuestionnaireAnswer(id, checkedId)
+            }
+            binding.radioGroup.check(active)
+            this.addView(it)
+        }
+
 }
 
 private fun ViewGroup.createOrUpdateResultsRemarks(
@@ -251,7 +272,6 @@ private fun ViewGroup.createOrUpdateResultsRemarks(
 }
 
 private fun ViewGroup.addTextField(id: String, text: String, placeholder: String) {
-    println("logg: addTextField: $text")
     val editText = this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
         .also {
             it.setText(text)
