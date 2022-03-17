@@ -245,8 +245,8 @@ data class FormGeneralQuestions(
                 FormComponentRemark(
                     id = "indifferentFaceRemarkScreen8",
                     type = ComponentType.REMARK,
-                    text = "Skoråa förekommer" + "ibland, särskilt efter" +
-                            "ibland, särskilt efter" + "bevattning.",
+                    text = "Skorpa förekommer ibland, särskilt " +
+                            "efter kraftigt regn eller bevattning bevattning.",
                     image = "indifferent_face"
                 ),
                 FormComponentRemark(
