@@ -17,6 +17,7 @@ class FormViewController: UIViewController {
         
         let nibName = String(describing: FormViewController.self)
         super.init(nibName: nibName, bundle: nil)
+        interfaceGenerator.presentingViewController = self
     }
 
     required init?(coder: NSCoder) {

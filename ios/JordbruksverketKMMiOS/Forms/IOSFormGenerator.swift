@@ -5,7 +5,9 @@ import UIKit
 class IOSFormGenerator: FormGenerator {
     private var mainView = UIStackView()
     private var currentScreenRendered: Int32 = 0
-    
+
+    var presentingViewController: UIViewController?
+
     init() {
         mainView.axis = .vertical
         mainView.distribution = .fillProportionally
@@ -50,7 +52,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .buttonlist:
                 if let buttonlist = component as? FormComponentButtonList {
-                    mainView.addButtonList(screenTag: screenTag, id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
+                    addButtonList(screenTag: screenTag, id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
                 }
             case .image:
                 if let image = component as? FormComponentImage {
@@ -59,6 +61,79 @@ class IOSFormGenerator: FormGenerator {
             default:
                 print("unknown component")
             }
+        }
+    }
+}
+
+private extension IOSFormGenerator {
+    func addButtonList(
+        screenTag: Int,
+        id: String,
+        title: String,
+        list: [String],
+        value: String,
+        placeholder: String
+    ) {
+        mainView.addSmallTitleLabel(screenTag: screenTag, text: title)
+
+        let verticalSpacing = mainView.getVerticalSpacingView(withHeight: 5)
+        mainView.addArrangedSubview(verticalSpacing)
+
+        let button = ButtonWithList()
+        button.id = id
+        button.list = list
+
+        button.setTitle(placeholder, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.backgroundColor = .white
+        button.contentEdgeInsets = UIEdgeInsets(top: 11, left: 12, bottom: 11, right: 12)
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 5
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.addTarget(self, action: #selector(handleButtonListButtonTap), for: .touchUpInside)
+
+        mainView.addArrangedSubview(button)
+    }
+
+    @objc
+    func handleButtonListButtonTap(_ button: ButtonWithList) {
+        guard
+            let id = button.id,
+            let list = button.list,
+            let presentingViewController = presentingViewController
+        else { return }
+
+        let buttonListViewController = ButtonListViewController(list: list)
+
+        let dismissButtonList = { [weak buttonListViewController] in
+            UIView.animate(withDuration: 0.25) {
+                buttonListViewController?.view.alpha = .zero
+            } completion: { _ in
+                buttonListViewController?.view.removeFromSuperview()
+                buttonListViewController?.removeFromParent()
+            }
+
+        }
+
+        buttonListViewController.itemSelectionHandler = { item in
+            button.setTitle(item, for: .normal)
+//            IOSFormViewModel.shared.setTextData(id: id, text: item)
+            dismissButtonList()
+        }
+        buttonListViewController.closeButtonTapHandler = dismissButtonList
+
+        buttonListViewController.view.alpha = .zero
+        presentingViewController.addChild(buttonListViewController)
+        presentingViewController.view.addSubview(buttonListViewController.view)
+        buttonListViewController.didMove(toParent: presentingViewController)
+
+        UIView.animate(withDuration: 0.25) {
+            buttonListViewController.view.alpha = 1.0
         }
     }
 }
@@ -142,30 +217,7 @@ extension UIStackView {
         guard let id = sender.idString else { return }
         IOSFormViewModel.shared.setTextData(id: id, text: sender.text ?? "")
     }
-    
-    func addButtonList(screenTag: Int, id: String, title: String, list: [String], value: String, placeholder: String) {
-        addSmallTitleLabel(screenTag: screenTag, text: title)
-        
-        let verticalSpacing = getVerticalSpacingView(withHeight: 5)
-        self.addArrangedSubview(verticalSpacing)
-        
-        let button = UIButton()
-        button.setTitle(placeholder, for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.backgroundColor = .white
-        button.contentEdgeInsets = UIEdgeInsets(top: 11, left: 12, bottom: 11, right: 12)
-        button.layer.cornerRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 5
-        button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-        
-        self.addArrangedSubview(button)
-    }
-    
+
     func getDefaultLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
