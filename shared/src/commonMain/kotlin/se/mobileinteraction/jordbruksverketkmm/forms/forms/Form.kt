@@ -11,6 +11,12 @@ interface Form {
 
     fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
     fun setChecklistActive(id: String, active: Int, state: FormViewModel.State): FormViewModel.State
+    fun setQuestionnaireAnswer(
+        id: String,
+        answer: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State
+
     fun setButtonlistActive(
         id: String,
         value: String,
