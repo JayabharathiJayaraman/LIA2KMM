@@ -61,8 +61,8 @@ class FormComponentChecklist(
 class FormComponentRemark(
     override val type: ComponentType,
     override val id: String,
-    val text: String,
-    val image: String,
+    val text: List<String>,
+    var active: Int
 ) : FormComponent
 
 class FormComponentImage(
