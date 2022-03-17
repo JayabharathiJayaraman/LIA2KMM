@@ -25,9 +25,6 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         it.layoutParams = params
         it.orientation = LinearLayout.VERTICAL
     }
-    private var innerImageLayout: GridLayout = GridLayout(context).also {
-        it.columnCount = 3
-    }
     private var currentScreenRendered: Int = 0
 
     override fun generateInterface(components: List<FormComponent>, currentScreen: Int?) {
