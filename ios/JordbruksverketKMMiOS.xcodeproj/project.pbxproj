@@ -13,6 +13,7 @@
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEF27E3810900264125 /* ButtonWithList.swift */; };
 		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
@@ -140,6 +141,7 @@
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		63C33FEF27E3810900264125 /* ButtonWithList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithList.swift; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 		9D65F40827CCFE7700646C73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63C33FEF27E3810900264125 /* ButtonWithList.swift */,
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
 			);
 			path = Views;
@@ -672,6 +675,7 @@
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */,
+				63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
