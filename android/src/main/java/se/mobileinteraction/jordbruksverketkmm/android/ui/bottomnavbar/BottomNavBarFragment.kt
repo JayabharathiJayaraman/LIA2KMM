@@ -28,7 +28,7 @@ class BottomNavBarFragment : Fragment() {
         val binding = FragmentBottomNavBarBinding.bind(view)
         val application = (activity?.application as MainApplication)
         var currentScreen: Int = application.formViewModel.state.value.currentScreen
-        var totalScreens:Int = application.formViewModel.state.value.totalScreens
+        var totalScreens: Int = application.formViewModel.state.value.totalScreens
 
         binding.bottomNavbarBack.setOnClickListener {
             application.formViewModel.previousScreen()
@@ -49,28 +49,36 @@ class BottomNavBarFragment : Fragment() {
         return view
     }
 
-    private fun setContent(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+    private fun setContent(
+        binding: FragmentBottomNavBarBinding,
+        totalScreens: Int,
+        currentScreen: Int
+    ) {
         setProgress(binding, totalScreens, currentScreen)
         setText(binding, totalScreens, currentScreen)
     }
 
-    private fun setProgress(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+    private fun setProgress(
+        binding: FragmentBottomNavBarBinding,
+        totalScreens: Int,
+        currentScreen: Int
+    ) {
         binding.progressLayout.removeAllViews()
         val containerWidth = binding.progressLayout.width
         val usableContainerWidth = (containerWidth * 0.8).toInt()
-        for (i in 0 until totalScreens){
+        for (i in 0 until totalScreens) {
             val progressItem = ImageView(this.requireContext())
             progressItem.layoutParams =
                 LinearLayout.LayoutParams(usableContainerWidth / totalScreens, 50)
             (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(2, 0, 2, 0);
             progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
-            if(i==0){
+            if (i == 0) {
                 progressItem.background = getFirstDrawableWithRadius();
             }
-            if(i==totalScreens - 1){
-                if(i==currentScreen){
+            if (i == totalScreens - 1) {
+                if (i == currentScreen) {
                     progressItem.background = getLastColoredDrawableWithRadius();
-                }else{
+                } else {
                     progressItem.background = getLastDrawableWithRadius();
                 }
             }
@@ -79,7 +87,11 @@ class BottomNavBarFragment : Fragment() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setText(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+    private fun setText(
+        binding: FragmentBottomNavBarBinding,
+        totalScreens: Int,
+        currentScreen: Int
+    ) {
         binding.bottomNavbarProgressText.text = "${currentScreen + 1} av $totalScreens"
     }
 
