@@ -14,4 +14,5 @@
     <color name="aboutSectionDescriptionColor">#2f651a</color>
     <color name="toolbarBackgroundColor">#F7F8F5</color>
     <color name="tree_green">#2f651a</color>
+    <color name="progress_bar_uncolored">#ced7b2</color>
 </resources>

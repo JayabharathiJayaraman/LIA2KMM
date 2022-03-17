@@ -65,5 +65,13 @@
         android:id="@+id/newTestFragment"
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.newtest.NewTestFragment"
         android:label="fragment_new_test"
-        tools:layout="@layout/fragment_new_test" />
+        tools:layout="@layout/fragment_new_test" >
+        <action
+            android:id="@+id/navigate_from_newTestFragment_to_formFragment"
+            app:destination="@id/formFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formFragment"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.form.FormFragment"
+        android:label="FormFragment" />
 </navigation>
