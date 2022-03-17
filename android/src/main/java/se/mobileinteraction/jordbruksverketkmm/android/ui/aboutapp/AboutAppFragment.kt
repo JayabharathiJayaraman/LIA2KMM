@@ -1,4 +1,4 @@
-package se.mobileinteraction.jordbruksverketkmm.android.fragments
+package se.mobileinteraction.jordbruksverketkmm.android.ui.aboutapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
