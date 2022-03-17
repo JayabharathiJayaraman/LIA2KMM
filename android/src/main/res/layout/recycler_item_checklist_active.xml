@@ -9,11 +9,11 @@
 
     <ImageButton
         android:id="@+id/checkList_item_add"
-        android:layout_width="20dp"
+        android:layout_width="17dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginEnd="10dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
         android:background="@android:drawable/ic_input_add" />
 
         <Switch
