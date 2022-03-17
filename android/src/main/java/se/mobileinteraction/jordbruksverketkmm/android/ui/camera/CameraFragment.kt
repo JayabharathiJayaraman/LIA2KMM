@@ -177,7 +177,7 @@ class CameraFragment : Fragment() {
     private fun saveImageToPermanentFolder() {
         val imageDirectory = context?.getDir(IMAGES_FOLDER, Context.MODE_PRIVATE)
         val targetFile = File(imageDirectory, cachedImageFile?.name.toString())
-        cachedImageFile?.copyTo(targetFile)
+        cachedImageFile?.let { it.copyTo(targetFile) }
     }
 
     override fun onDestroyView() {
