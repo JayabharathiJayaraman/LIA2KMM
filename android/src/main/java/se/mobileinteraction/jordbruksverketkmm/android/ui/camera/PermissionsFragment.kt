@@ -6,8 +6,6 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import se.mobileinteraction.jordbruksverketkmm.android.R
 
 class PermissionsFragment : Fragment() {
 
@@ -34,14 +32,14 @@ class PermissionsFragment : Fragment() {
         }
 
     private fun navigateToCamera() {
-        Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
+        /*Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
             PermissionsFragmentDirections.navigateToCamera()
-        )
+        )*/
     }
 
     private fun navigateBack() {
-        Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
+        /*Navigation.findNavController(requireActivity(), R.id.fragmentContainerView).navigate(
             PermissionsFragmentDirections.navigateToMenu()
-        )
+        )*/
     }
 }
