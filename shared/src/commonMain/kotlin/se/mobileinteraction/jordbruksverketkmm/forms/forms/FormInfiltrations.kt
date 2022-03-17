@@ -4,6 +4,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormInfiltrations(
@@ -491,6 +492,17 @@ data class FormInfiltrations(
         (state.form.data as? FormDataInfiltration)?.soilAssesment?.crop = value
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
             value
+        return state
+    }
+
+    override fun setQuestionnaireAnswer(
+        id: String,
+        answer: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentRemark).active =
+            answer
         return state
     }
 

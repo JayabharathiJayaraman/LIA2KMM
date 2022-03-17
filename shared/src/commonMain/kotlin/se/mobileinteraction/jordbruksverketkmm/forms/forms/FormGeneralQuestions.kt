@@ -4,6 +4,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormGeneralQuestions(
@@ -115,26 +116,16 @@ data class FormGeneralQuestions(
                     text = "Är det lätt att bearbeta jorden?"
                 ),
                 FormComponentRemark(
-                    id = "sadFaceRemarkScreen4",
+                    id = "bearbetaJordenRemarkScreen4",
                     type = ComponentType.REMARK,
-                    text = "Svårbearbetad jord som kräver många överfarter." +
-                            "Stort dragkraftsbehov",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen4",
-                    type = ComponentType.REMARK,
-                    text = "Jordbearbetningen kräver ibland många överfarter." +
-                            "Relativt stort dragkraftsbehov",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen4",
-                    type = ComponentType.REMARK,
-                    text = "Lättbearbetad jord, litet dragkraftsbehov",
-                    image = "happy_face"
-                ),
-            ),
+                    text = listOf(
+                        "Svårbearbetad jord som kräver många överfarter. Stort dragkraftsbehov.",
+                        "Jordbearbetningen kräver ibland många överfarter. Relativt stort dragkraftsbehov.",
+                        "Lättbearbetad jord, litet dragkraftsbehov.",
+                    ),
+                    active = -1,
+                )
+            )
         ),
         FormScreen(
             components = listOf<FormComponent>(
@@ -144,26 +135,17 @@ data class FormGeneralQuestions(
                     text = "Är grödans etablering god?"
                 ),
                 FormComponentRemark(
-                    id = "sadFaceRemarkScreen5",
+                    id = "grödansEtableringRemarkScreen5",
                     type = ComponentType.REMARK,
-                    text = "Ojämn uppkomst och luckiga bestånd.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen5",
-                    type = ComponentType.REMARK,
-                    text = "Något ojämn uppkomst och etablering av grödan.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen5",
-                    type = ComponentType.REMARK,
-                    text = "Jämn och snabb uppkomst. Jämnhöga bestånd",
-                    image = "happy_face"
-                ),
+                    text = listOf(
+                        "Ojämn uppkomst och luckiga bestånd.",
+                        "Något ojämn uppkomst och etablering av grödan.",
+                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
+                    ),
+                    active = -1,
+                )
             ),
-
-            ),
+        ),
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
@@ -172,29 +154,15 @@ data class FormGeneralQuestions(
                     text = "Är grödan frisk och frodig och konkurrerar väl med ogräsen?"
                 ),
                 FormComponentRemark(
-                    id = "sadFaceRemarkScreen6",
+                    id = "grödanFriskRemarkScreen6",
                     type = ComponentType.REMARK,
-                    text = "Hämmad tillväxt," +
-                            "missfärgning, eller stora" +
-                            "ogräsproblem.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen6",
-                    type = ComponentType.REMARK,
-                    text = "Något ojämn tillväxt, lite" +
-                            "missfärgning, eller vissa" +
-                            "ogräsproblem.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen6",
-                    type = ComponentType.REMARK,
-                    text = "Frisk och frodig gröda," +
-                            "och mycket små" +
-                            "ogräsproblem.",
-                    image = "happy_face"
-                ),
+                    text = listOf(
+                        "Hämmad tillväxt, missfärgning, eller stora ogräsproblem.",
+                        "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
+                        "Frisk och frodig gröda, och mycket små ogräsproblem.",
+                    ),
+                    active = -1,
+                )
             ),
         ),
         FormScreen(
@@ -205,27 +173,15 @@ data class FormGeneralQuestions(
                     text = "Infiltrerar vatten snabbt?"
                 ),
                 FormComponentRemark(
-                    id = "sadFaceRemarkScreen7",
+                    id = "InfiltrerarRemarkScreen7",
                     type = ComponentType.REMARK,
-                    text = "Stående vatten kvar länge," +
-                            "efter kraftiga regn eller" +
-                            "bevattning.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen7",
-                    type = ComponentType.REMARK,
-                    text = "Vattnet rinner undan" +
-                            "sakta, lite pölar.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen7",
-                    type = ComponentType.REMARK,
-                    text = "Vanligen inget vatten" + "stående kvar efter" +
-                            "kraftiga regn eller" + "bevattning.",
-                    image = "happy_face"
-                ),
+                    text = listOf(
+                        "Stående vatten kvar länge efter kraftiga regn eller bevattning.",
+                        "Vattnet rinner undan sakta, lite pölar.",
+                        "Vanligen inget vatten stående kvar efter kraftiga regn eller bevattning.",
+                    ),
+                    active = -1,
+                )
             ),
         ),
         FormScreen(
@@ -236,24 +192,14 @@ data class FormGeneralQuestions(
                     text = "Förekommer skorpbildning?"
                 ),
                 FormComponentRemark(
-                    id = "sadFaceRemarkScreen8",
+                    id = "förekommerRemarkScreen8",
                     type = ComponentType.REMARK,
-                    text = "Skorpa bildas ofta, även" +
-                            "efter lätta regn",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen8",
-                    type = ComponentType.REMARK,
-                    text = "Skorpa förekommer ibland, särskilt " +
-                            "efter kraftigt regn eller bevattning bevattning.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen8",
-                    type = ComponentType.REMARK,
-                    text = "Skorpa bildas aldrig.",
-                    image = "happy_face"
+                    text = listOf(
+                        "Skorpa bildas ofta, även efter lätta regn.",
+                        "Skorpa förekommer ibland, särskilt efter kraftigt regn eller bevattning.",
+                        "Skorpa bildas aldrig.",
+                    ),
+                    active = -1,
                 ),
                 FormComponentText(
                     id = "skorpbildningTittleScreen8",
@@ -275,25 +221,14 @@ data class FormGeneralQuestions(
                     text = "Är skördenivåerna stabila?"
                 ),
                 FormComponentRemark(
-                    id = "sadFaceRemarkScreen9",
+                    id = "skördenivåernaRemarkScreen9",
                     type = ComponentType.REMARK,
-                    text = "Stor skördevariation" + "inom fältet och mellan"
-                            + "åren.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen9",
-                    type = ComponentType.REMARK,
-                    text = "Viss skördevariation inom" +
-                            "fält och mellan år.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen9",
-                    type = ComponentType.REMARK,
-                    text = "Jämna och - för området" +
-                            "och jordarten - goda" + "skordar.",
-                    image = "happy_face"
+                    text = listOf(
+                        "Stor skördevariation inom fältet och mellan åren.",
+                        "Viss skördevariation inom fält och mellan år.",
+                        "Jämna och - för området och jordarten - goda skördar.",
+                    ),
+                    active = -1,
                 ),
             ),
         ),
@@ -419,6 +354,17 @@ data class FormGeneralQuestions(
         (state.form.data as? FormDataGeneralQuestions)?.soilAssesment?.crop = value
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
             value
+        return state
+    }
+
+    override fun setQuestionnaireAnswer(
+        id: String,
+        answer: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentRemark).active =
+            answer
         return state
     }
 
