@@ -2,12 +2,15 @@ import shared
 import UIKit
 
 class FormViewController: UIViewController {
-    @IBOutlet private weak var containerView: UIView!
     
+    @IBOutlet private weak var containerView: UIView!
+
+    @IBOutlet weak var progressBarStackView: UIStackView!
+    @IBOutlet weak var currentScreenLabel: UILabel!
     private var viewModel = IOSFormViewModel.shared
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
-    
+   
     init() {
         let interfaceGenerator = IOSFormGenerator()
         self.interfaceGenerator = interfaceGenerator
@@ -23,14 +26,25 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        progressBarStackView.layer.cornerRadius = 6.0
+        progressBarStackView.clipsToBounds = true
+        
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
+            
+            self.updateProgress(totalScreens: Int(newState.totalScreens), currentScreen: Int(newState.currentScreen))
+
+            self.currentScreenLabel.text = "\(newState.currentScreen + 1) " + "av".localized + " \(newState.totalScreens)"
             self.displayComponents(components: newState.components, currentScreen: newState.currentScreen)
         }
     }
+        
+    @IBAction func nextViewButton(_ sender: Any) {
+        viewModel.nextScreen()
+    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    @IBAction func previousViewButton(_ sender: Any) {
+        viewModel.previousScreen()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -38,17 +52,18 @@ class FormViewController: UIViewController {
         
         listeningJob?.close()
     }
-
-    @IBAction func backButtonTapped(_ sender: Any) {
-        viewModel.previousScreen()
-    }
-
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        viewModel.nextScreen()
-    }
 }
 
 private extension FormViewController {
+    func updateProgress (totalScreens: Int, currentScreen: Int ) {
+        progressBarStackView.subviews.forEach { $0.removeFromSuperview() }
+        for i in 0...totalScreens - 1{
+            let customView = UILabel()
+            customView.backgroundColor = i <= currentScreen ? UIColor.Jordbruksverket.progressFilled : UIColor.Jordbruksverket.progressUnfilled
+            progressBarStackView.addArrangedSubview(customView)
+        }
+    }
+    
     func displayComponents(components: [FormComponent], currentScreen: Int32) {
         if containerView.subviews.count == 0 {
             guard let mainView = interfaceGenerator.createInterface(components: components, currentScreen: currentScreen) as? UIStackView else { return }
