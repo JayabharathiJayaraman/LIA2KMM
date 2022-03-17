@@ -9,7 +9,6 @@ import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentStartScreenBinding
 
-
 class StartScreenFragment : Fragment() {
 
     private var fragmentStartScreenBinding: FragmentStartScreenBinding? = null
