@@ -18,4 +18,5 @@
     <color name="colorBlack">#141414</color>
     <color name="green">#2d6a01</color>
     <color name="white">#FFFFFF</color>
+    <color name="progress_bar_uncolored">#ced7b2</color>
 </resources>
