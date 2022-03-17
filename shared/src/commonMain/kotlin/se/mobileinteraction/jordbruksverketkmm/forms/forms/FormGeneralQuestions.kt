@@ -63,8 +63,7 @@ data class FormGeneralQuestions(
                 FormComponentText(
                     id = "tipsBodyScreen2",
                     type = ComponentType.BODY,
-                    text = "Om du har ett stort skifte med stora olikheter i jordart och brukningsegenskaper så kan du dela upp skiftet. Det kan göra det enklare att svara " +
-                            "på frågorna i testen, bedöma markstrukturen och möjliga åtgärder."
+                    text = "Om du har ett stort skifte med stora olikheter i jordart och brukningsegenskaper så kan du dela upp skiftet. Det kan göra det enklare att svara på frågorna i testen, bedöma markstrukturen och möjliga åtgärder."
                 ),
             ),
         ),
@@ -117,21 +116,19 @@ data class FormGeneralQuestions(
                     FormComponentRemark(
                         id ="sadFaceRemarkScreen4",
                         type = ComponentType.REMARK,
-                        text = "Svårbearbetad jord som kräver många överfarter." +
-                                " Stort dragkraftsbehov",
+                        text = "Svårbearbetad jord som kräver många överfarter. Stort dragkraftsbehov.",
                         image = "sad_face"
                     ),
                     FormComponentRemark(
                         id ="indifferentFaceRemarkScreen4",
                         type = ComponentType.REMARK,
-                        text = "Jordbearbetningen kräver ibland många överfarter." +
-                                " Relativt stort dragkraftsbehov",
+                        text = "Jordbearbetningen kräver ibland många överfarter. Relativt stort dragkraftsbehov.",
                         image = "indifferent_face"
                     ),
                     FormComponentRemark(
                         id ="happyFaceRemarkScreen4",
                         type = ComponentType.REMARK,
-                        text = "Lättbearbetad jord, litet dragkraftsbehov",
+                        text = "Lättbearbetad jord, litet dragkraftsbehov.",
                         image = "happy_face"
                     ),
                 ),
@@ -158,7 +155,7 @@ data class FormGeneralQuestions(
                     FormComponentRemark(
                         id ="happyFaceRemarkScreen5",
                         type = ComponentType.REMARK,
-                        text = "Jämn och snabb uppkomst. Jämnhöga bestånd",
+                        text = "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                         image = "happy_face"
                     ),
                 ),
@@ -174,25 +171,19 @@ data class FormGeneralQuestions(
                     FormComponentRemark(
                         id ="sadFaceRemarkScreen6",
                         type = ComponentType.REMARK,
-                        text = "Hämmad tillväxt," +
-                                "missfärgning, eller stora"+
-                                "ogräsproblem.",
+                        text = "Hämmad tillväxt, missfärgning, eller stora ogräsproblem.",
                         image = "sad_face"
                     ),
                     FormComponentRemark(
                         id ="indifferentFaceRemarkScreen6",
                         type = ComponentType.REMARK,
-                        text = "Något ojämn tillväxt, lite" +
-                                "missfärgning, eller vissa"+
-                                "ogräsproblem.",
+                        text = "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
                         image = "indifferent_face"
                     ),
                     FormComponentRemark(
                         id ="happyFaceRemarkScreen6",
                         type = ComponentType.REMARK,
-                        text = "Frisk och frodig gröda," +
-                                "och mycket små"+
-                                "ogräsproblem.",
+                        text = "Frisk och frodig gröda, och mycket små ogräsproblem.",
                         image = "happy_face"
                     ),
                 ),
@@ -207,23 +198,19 @@ data class FormGeneralQuestions(
                     FormComponentRemark(
                         id ="sadFaceRemarkScreen7",
                         type = ComponentType.REMARK,
-                        text = "Stående vatten kvar länge," +
-                                "efter kraftiga regn eller"+
-                                "bevattning.",
+                        text = "Stående vatten kvar länge efter kraftiga regn eller bevattning.",
                         image = "sad_face"
                     ),
                     FormComponentRemark(
                         id ="indifferentFaceRemarkScreen7",
                         type = ComponentType.REMARK,
-                        text = "Vattnet rinner undan" +
-                                "sakta, lite pölar.",
+                        text = "Vattnet rinner undan sakta, lite pölar.",
                         image = "indifferent_face"
                     ),
                     FormComponentRemark(
                         id ="happyFaceRemarkScreen7",
                         type = ComponentType.REMARK,
-                        text = "Vanligen inget vatten" + "stående kvar efter"+
-                                "kraftiga regn eller" + "bevattning.",
+                        text = "Vanligen inget vatten stående kvar efter kraftiga regn eller bevattning.",
                         image = "happy_face"
                     ),
                 ),
@@ -238,15 +225,13 @@ data class FormGeneralQuestions(
                     FormComponentRemark(
                         id ="sadFaceRemarkScreen8",
                         type = ComponentType.REMARK,
-                        text = "Skorpa bildas ofta, även" +
-                                "efter lätta regn",
+                        text = "Skorpa bildas ofta, även efter lätta regn.",
                         image = "sad_face"
                     ),
                     FormComponentRemark(
                         id ="indifferentFaceRemarkScreen8",
                         type = ComponentType.REMARK,
-                        text = "Skoråa förekommer" + "ibland, särskilt efter"+
-                                "ibland, särskilt efter" +"bevattning.",
+                        text = "Skoråa förekommer ibland, särskilt efter ibland, särskilt efter bevattning.",
                         image = "indifferent_face"
                     ),
                     FormComponentRemark(
@@ -277,22 +262,19 @@ data class FormGeneralQuestions(
                     FormComponentRemark(
                         id ="sadFaceRemarkScreen9",
                         type = ComponentType.REMARK,
-                        text = "Stor skördevariation" + "inom fältet och mellan"
-                                + "åren.",
+                        text = "Stor skördevariation inom fältet och mellan åren.",
                         image = "sad_face"
                     ),
                     FormComponentRemark(
                         id ="indifferentFaceRemarkScreen9",
                         type = ComponentType.REMARK,
-                        text = "Viss skördevariation inom"+
-                                "fält och mellan år.",
+                        text = "Viss skördevariation inom fält och mellan år.",
                         image = "indifferent_face"
                     ),
                     FormComponentRemark(
                         id ="happyFaceRemarkScreen9",
                         type = ComponentType.REMARK,
-                        text = "Jämna och - för området"+
-                                "och jordarten - goda" + "skordar.",
+                        text = "Jämna och - för området och jordarten - goda skordar.",
                         image = "happy_face"
                     ),
                 ),
@@ -351,11 +333,6 @@ data class FormGeneralQuestions(
                         color = "green_round_background"
                     ),
                     FormComponentText(
-                        id = "NoteringarTitleScreen11",
-                        type = ComponentType.TITLESMALL,
-                        text = "Noteringar"
-                    ),
-                    FormComponentText(
                         id = "TipsTitleScreen11",
                         type = ComponentType.TITLESMALL,
                         text = "Tips"
@@ -370,13 +347,11 @@ data class FormGeneralQuestions(
                         type = ComponentType.TITLESMALL,
                         text = "Vad vill du göra nu?"
                     ),
-                    FormComponentResultImages(
+                    FormComponentResultsImages(
                         id = "vadNuImagesScreen10",
-                        type = ComponentType.RESULTIMAGES,
-                        text1 = "Nytt test",
-                        text2 = "Vårda",
-                        text3 = "markstruktur",
-                        text4 = "Klar"
+                        type = ComponentType.RESULTSIMAGES,
+                        images = listOf("add_test_icon","plant_icon","check"),
+                        imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                     ),
                 ),
             ),

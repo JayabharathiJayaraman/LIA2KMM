@@ -928,13 +928,11 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?",
                 ),
-                FormComponentResultImages(
+                FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
-                    type = ComponentType.RESULTIMAGES,
-                    text1 = "Nytt test",
-                    text2 = "Vårda",
-                    text3 = "markstruktur",
-                    text4 = "Klar"
+                    type = ComponentType.RESULTSIMAGES,
+                    images = listOf("add_test_icon","plant_icon","check"),
+                    imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                 ),
             )
         ),

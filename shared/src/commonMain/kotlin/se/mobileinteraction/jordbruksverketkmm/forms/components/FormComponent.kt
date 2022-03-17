@@ -16,7 +16,7 @@ enum class ComponentType {
     TIMEFIELD,
     EMPTYLINE,
     RESULTINFOBODY,
-    RESULTIMAGES,
+    RESULTSIMAGES,
     RESULTREMARKSFACE,
 }
 
@@ -89,13 +89,11 @@ class FormComponentResultInfoBody(
     override val id: String,
     val text: String) : FormComponent
 
-class FormComponentResultImages(
+class FormComponentResultsImages(
     override val type: ComponentType,
     override val id: String,
-    val text1: String,
-    val text2: String,
-    val text3: String,
-    val text4: String
+    val images:List<String>,
+    val imagesTextList:List<String>,
 ): FormComponent
 
 class FormComponentResultRemark(

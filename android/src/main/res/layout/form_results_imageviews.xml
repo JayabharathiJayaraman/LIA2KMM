@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -16,9 +15,8 @@
         android:padding="10dp">
         <ImageView
             android:id="@+id/newTest_Image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/add_test_icon"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:padding="20dp"
             android:background="@drawable/round_background"/>
         <TextView
@@ -39,9 +37,8 @@
         android:padding="10dp">
         <ImageView
             android:id="@+id/markstruktur_Image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/plant_icon"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:padding="20dp"
             android:background="@drawable/round_background"/>
         <TextView
@@ -71,9 +68,8 @@
         android:padding="10dp">
         <ImageView
             android:id="@+id/check_Image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/check"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:padding="20dp"
             android:background="@drawable/round_background"/>
         <TextView
@@ -87,4 +83,3 @@
             android:layout_gravity="center"/>
     </LinearLayout>
 </LinearLayout>
-

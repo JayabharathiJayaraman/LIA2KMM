@@ -76,8 +76,8 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
 
                 ComponentType.RESULTREMARKSFACE -> {
-                    val resultatRemarks = (component as FormComponentResultRemark)
-                    mainView.createOrUpdateResultatRemarks(resultatRemarks.text, resultatRemarks.id, resultatRemarks.image, resultatRemarks.color)
+                    val resultRemarks = (component as FormComponentResultRemark)
+                    mainView.createOrUpdateResultRemarks(resultRemarks.text, resultRemarks.id, resultRemarks.image, resultRemarks.color)
                 }
                 ComponentType.TEXTFIELD -> {
                     val textField = (component as FormComponentTextField)
@@ -110,13 +110,12 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.RESULTINFOBODY -> {
                     val resultInfoBody = (component as FormComponentResultInfoBody)
-                    mainView.createOrUpdateResultatInfoBody(resultInfoBody.text, resultInfoBody.id)
+                    mainView.createOrUpdateResultInfoBody(resultInfoBody.text, resultInfoBody.id)
                 }
-                ComponentType.RESULTIMAGES -> {
-                    val resultatImages = (component as FormComponentResultImages)
-                    mainView.addImagesContainer(resultatImages.id,resultatImages.text1,resultatImages.text2,resultatImages.text3,resultatImages.text4)
+                ComponentType.RESULTSIMAGES -> {
+                    val resultsImages = (component as FormComponentResultsImages)
+                    mainView.addResultsImages(resultsImages.id,resultsImages.images,resultsImages.imagesTextList)
                 }
-
                 else -> println("unknown")
             }
         }
@@ -193,7 +192,7 @@ private fun ViewGroup.createOrUpdateRemark(text: String, id: String, image: Stri
     binding.imageview.setImageResource(getImageResource(image))
 }
 
-private fun ViewGroup.createOrUpdateResultatRemarks(text: String, id: String, image: String,color:String) {
+private fun ViewGroup.createOrUpdateResultRemarks(text: String, id: String, image: String,color:String) {
     val binding: FormResultatRemarkfaceBinding = FormResultatRemarkfaceBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formResultatRemarkContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
@@ -245,15 +244,19 @@ private fun ViewGroup.createOrUpdateTimeField(id:String,timeLabel:String,start:S
     binding.timeLabelTextview.text = timeLabel
 }
 
-private fun ViewGroup.addImagesContainer(id:String,text1:String,text2:String,text3:String,text4:String){
-    val binding : FormResultatImageviewsBinding = FormResultatImageviewsBinding.inflate(
+private fun ViewGroup.addResultsImages(id:String,images: List<String>,imagesTextList: List<String>){
+    val binding : FormResultsImageviewsBinding = FormResultsImageviewsBinding.inflate(
         LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.whatNextImagesContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
-    binding.newTestText.text = text1
-    binding.vardaText.text = text2
-    binding.markstrukturText.text = text3
-    binding.klarText.text = text4
+
+    binding.newTestImage.setImageResource(getImageResource(images[0]))
+    binding.markstrukturImage.setImageResource(getImageResource(images[1]))
+    binding.checkImage.setImageResource(getImageResource(images[2]))
+    binding.newTestText.text = imagesTextList[0]
+    binding.vardaText.text = imagesTextList[1]
+    binding.markstrukturText.text = imagesTextList[2]
+    binding.klarText.text = imagesTextList[3]
 }
 
 private fun ViewGroup.createOrUpdateVideo(id: String, text: String) {
@@ -272,7 +275,7 @@ private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String
 
 }
 
-private fun ViewGroup.createOrUpdateResultatInfoBody(text: String, id: String) {
+private fun ViewGroup.createOrUpdateResultInfoBody(text: String, id: String) {
     val binding: FormResultatInfoBodyBinding =
         FormResultatInfoBodyBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formResultatInfoContainer.rootView.apply { tag = id }
