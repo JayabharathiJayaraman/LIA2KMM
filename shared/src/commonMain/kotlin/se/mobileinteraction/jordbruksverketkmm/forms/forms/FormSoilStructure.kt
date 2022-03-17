@@ -31,23 +31,11 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "knife",
-                    caption = "Morakniv",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel","knife","ruler"),
+                    caption =  listOf("Bra grävspade","Morakniv","Tumstock")
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen1",

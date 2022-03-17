@@ -30,35 +30,11 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "cylinder",
-                    caption = "Cylinder",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "waterdrops",
-                    caption = "Vatten",
-                ),
-                FormComponentImage(
-                    id = "litermåttImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "litre",
-                    caption = "Litermått",
-                ),
-                FormComponentImage(
-                    id = "tumstockImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel","cylinder","waterdrops","litre","ruler"),
+                    caption =  listOf("Bra grävspade","Cylinder", "Vatten","Litermåt","Tumstock")
                 ),
                 FormComponentText(
                     id = "utrustningBodyScreen1",

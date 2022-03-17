@@ -102,15 +102,12 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         textFieldNotes.placeholder
                     )
                 }
-                ComponentType.CAPTIONEDIMAGE -> {
-                    if (innerImageLayout.parent == null) {
-                        mainView.addView(innerImageLayout)
-                    }
-                    val captionedImage = (component as FormComponentImage)
-                    innerImageLayout.createOrUpdateCaptionedImage(
-                        captionedImage.id,
-                        captionedImage.image,
-                        captionedImage.caption
+                ComponentType.IMAGESGRID -> {
+                    val imagesGrid = (component as FormComponentImagesGrid)
+                    mainView.addInnerImageLayout(
+                        imagesGrid.id,
+                        imagesGrid.image,
+                        imagesGrid.caption
                     )
                 }
                 ComponentType.TIMEFIELD -> {
@@ -265,6 +262,21 @@ private fun ViewGroup.addTextField(id: String, text: String, placeholder: String
             }
             this.addView(it)
         }
+}
+
+private fun ViewGroup.addInnerImageLayout(id: String, images: List<String>, caption: List<String>)
+{
+    val binding: FormCaptionedimageGridlayoutBinding = FormCaptionedimageGridlayoutBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formImageGridContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+
+    for(i in images.indices){
+        val imageLayout:FormImageviewCaptionBinding = FormImageviewCaptionBinding.inflate(
+            LayoutInflater.from(context))
+        imageLayout.imageview.setImageResource(getImageResource(images[i]))
+        imageLayout.textviewCaption.text = caption[i]
+        binding.formImageGridContainer.addView(imageLayout.formImageviewCaptionContainer)
+    }
 }
 
 private fun ViewGroup.createOrUpdateButtonList(

@@ -13,6 +13,7 @@ enum class ComponentType {
     BUTTON,
     REMARK,
     CAPTIONEDIMAGE,
+    IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,
     RESULTSINFOBODY,
@@ -110,4 +111,11 @@ class FormComponentVideo(
     override val id: String,
     val description: String,
     val source: String,
+) : FormComponent
+
+class FormComponentImagesGrid(
+    override val type: ComponentType,
+    override val id: String,
+    val image: List<String>,
+    val caption: List<String>,
 ) : FormComponent
