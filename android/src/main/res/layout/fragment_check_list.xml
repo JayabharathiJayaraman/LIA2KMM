@@ -21,7 +21,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background='#EDF1E2'>
+        android:background='@color/appBackgroundColor'>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/open_sans_semi_bold"
                 android:text="testtest"
-                android:textColor="#2f651a"
+                android:textColor="@color/darkGreen"
                 android:textSize="18sp" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="@string/check_list_label_atgardslista"
-                android:textColor="#2f651a"
+                android:textColor="@color/darkGreen"
                 android:textSize="18sp" />
 
             <TextView
@@ -89,7 +89,7 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="@string/check_list_label_ej_aktuella_atgarder"
-                android:textColor="#2f651a"
+                android:textColor="@color/darkGreen"
                 android:textSize="18sp" />
 
             <TextView
@@ -106,6 +106,7 @@
                 android:id="@+id/checkListInActiveRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:overScrollMode="never"
                 android:scrollbars="vertical" />
         </LinearLayout>

@@ -27,7 +27,8 @@ class CheckListFragment : Fragment() {
     private lateinit var recyclerViewInActive: RecyclerView
     private var adapterActive: RecyclerView.Adapter<CheckListActiveAdapter.ViewHolder>? = null
     private var adapterInActive: RecyclerView.Adapter<CheckListInActiveAdapter.ViewHolder>? = null
-    private lateinit var viewModel : ChecklistViewModel
+    private lateinit var viewModel: ChecklistViewModel
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,7 +89,6 @@ class CheckListFragment : Fragment() {
         this.recyclerViewActive.adapter!!.notifyDataSetChanged()
         this.recyclerViewInActive.adapter!!.notifyDataSetChanged()
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

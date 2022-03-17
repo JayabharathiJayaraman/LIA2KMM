@@ -2,7 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.checklists
 
 import android.util.Log
 import se.mobileinteraction.jordbruksverketkmm.Checklist
-import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
+import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistItem
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 
@@ -14,12 +14,12 @@ class ChecklistViewModel constructor(
 
     fun triggerStateActive(itemName: String) {
         val tmp = state.value.checklist
-        Log.d("wtf", tmp.stateList.toString())
-        val tmp2 = tmp.stateList.filter { it.id == itemName }[0].copy(active = !tmp.stateList.filter { it.id == itemName }[0].active)
-        val newStateList = mutableListOf<ChecklistState>()
+        Log.d("wtf", tmp.itemList.toString())
+        val tmp2 = tmp.itemList.filter { it.id == itemName }[0].copy(active = !tmp.itemList.filter { it.id == itemName }[0].active)
+        val newStateList = mutableListOf<ChecklistItem>()
 
-        for (elem in tmp.stateList) {
-            if (elem.id == checklist.stateList.filter { it.id == itemName }[0].id) {
+        for (elem in tmp.itemList) {
+            if (elem.id == checklist.itemList.filter { it.id == itemName }[0].id) {
                 newStateList.add(tmp2)
                 Log.d("this change",tmp2.toString())
             } else {

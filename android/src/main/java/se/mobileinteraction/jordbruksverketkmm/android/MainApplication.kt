@@ -3,7 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.android
 import android.app.Application
 import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
-import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
+import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistItem
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormType
@@ -11,28 +11,28 @@ import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormType
 class MainApplication : Application() {
     var formViewModel: FormViewModel = FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
 
-    private val grundforbattringarState = listOf<ChecklistState>(
-        ChecklistState("Huvudavvattning", true, true),
-        ChecklistState("OrganiskaMaterial", true, true),
-        ChecklistState("Detaljdränering", true, true),
-        ChecklistState("Strukturkalkning", true, true),
-        ChecklistState("Alvluckring", true, true)
+    private val grundforbattringarState = listOf<ChecklistItem>(
+        ChecklistItem("Huvudavvattning", true, true),
+        ChecklistItem("OrganiskaMaterial", true, true),
+        ChecklistItem("Detaljdränering", true, true),
+        ChecklistItem("Strukturkalkning", true, true),
+        ChecklistItem("Alvluckring", true, true)
     )
 
-    private val odlingsatgarderState = listOf<ChecklistState>(
-        ChecklistState("GynnaDaggmaskarna", true, true),
-        ChecklistState("GrödorMedBraRotsystem", true, true),
-        ChecklistState("LämnaOrganisktMaterial", true, true),
-        ChecklistState("PlaneraKörningen", true, true),
-        ChecklistState("MinskaBelastningenPåMarken", true, true),
-        ChecklistState("BeväxtMarkÅretOm", true, true)
+    private val odlingsatgarderState = listOf<ChecklistItem>(
+        ChecklistItem("GynnaDaggmaskarna", true, true),
+        ChecklistItem("GrödorMedBraRotsystem", true, true),
+        ChecklistItem("LämnaOrganisktMaterial", true, true),
+        ChecklistItem("PlaneraKörningen", true, true),
+        ChecklistItem("MinskaBelastningenPåMarken", true, true),
+        ChecklistItem("BeväxtMarkÅretOm", true, true)
     )
 
-    private val undvikEllerMinimeraState = listOf<ChecklistState>(
-        ChecklistState("UndvikTungaMaskiner", true, true),
-        ChecklistState("UndvikKörningVidVåtaMarkförhållanden", true, true),
-        ChecklistState("MinimeraAntaletÖverfarter", true, true),
-        ChecklistState("MinimeraAndelenBarMark", true, true)
+    private val undvikEllerMinimeraState = listOf<ChecklistItem>(
+        ChecklistItem("UndvikTungaMaskiner", true, true),
+        ChecklistItem("UndvikKörningVidVåtaMarkförhållanden", true, true),
+        ChecklistItem("MinimeraAntaletÖverfarter", true, true),
+        ChecklistItem("MinimeraAndelenBarMark", true, true)
     )
 
     var checklistViewModel: ChecklistViewModel = ChecklistViewModel(Checklist(Checklist.Category.GRUNDFORBATTRINGAR, grundforbattringarState), 0)

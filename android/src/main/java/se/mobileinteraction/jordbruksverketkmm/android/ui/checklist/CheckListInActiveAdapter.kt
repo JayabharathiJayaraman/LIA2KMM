@@ -13,40 +13,48 @@ import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.Checklist
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
-import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistState
+import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistItem
 
-class CheckListInActiveAdapter(val viewModel: ChecklistViewModel): RecyclerView.Adapter<CheckListInActiveAdapter.ViewHolder>() {
-    private var context: Context?= null
+class CheckListInActiveAdapter(val viewModel: ChecklistViewModel) :
+    RecyclerView.Adapter<CheckListInActiveAdapter.ViewHolder>() {
+    private var context: Context? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): CheckListInActiveAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_checklist_active, parent, false)
+        val v = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recycler_item_checklist_active, parent, false)
         context = parent.context
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: CheckListInActiveAdapter.ViewHolder, position: Int) {
-        val tempList = mutableListOf<ChecklistState>()
-        for(elem in viewModel.state.value.checklist.stateList){
-            if (!elem.active){
-                tempList.add(elem)
+        val listToShow = mutableListOf<ChecklistItem>()
+        for (elem in viewModel.state.value.checklist.itemList) {
+            if (!elem.active) {
+                listToShow.add(elem)
             }
         }
-        holder.itemLabel.text = context?.let { getStringByIdName(it, tempList[position].title) }//tempList[position].title
-        holder.itemText.text = context?.let { getStringByIdName(it, tempList[position].text) }
-        holder.id = tempList[position].id
-        Log.d("run onBind",tempList[position].id)
-        if(viewModel.checklist.id == Checklist.Category.UNDVIKELLERMINIMERA){
+        holder.itemLabel.text = context?.let {
+            getStringByIdName(
+                it,
+                listToShow[position].title
+            )
+        }
+        holder.itemText.text = context?.let { getStringByIdName(it, listToShow[position].text) }
+        holder.itemAdd.setBackgroundResource(R.drawable.plus_small)
+        holder.id = listToShow[position].id
+
+        if (viewModel.checklist.id == Checklist.Category.UNDVIKELLERMINIMERA) {
             holder.itemAdd.visibility = View.INVISIBLE
         }
     }
 
     override fun getItemCount(): Int {
         var inActives = 0
-        for(elem in viewModel.state.value.checklist.stateList){
-            if(!elem.active){
+        for (elem in viewModel.state.value.checklist.itemList) {
+            if (!elem.active) {
                 inActives++
             }
         }
@@ -54,16 +62,16 @@ class CheckListInActiveAdapter(val viewModel: ChecklistViewModel): RecyclerView.
         return inActives
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var itemLabel: TextView = itemView.findViewById(R.id.checklist_active_item_label)
         var itemText: TextView = itemView.findViewById(R.id.checklist_active_item_text)
         var itemAdd: ImageButton = itemView.findViewById(R.id.checkList_item_add)
         var itemSwitch: Switch = itemView.findViewById(R.id.checklist_active_item_switch)
         lateinit var id: String
+
         init {
             itemAdd.setOnClickListener {
                 viewModel.triggerStateActive(id)
-                Log.d("clicked",id)
             }
         }
     }
