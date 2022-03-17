@@ -889,7 +889,7 @@ data class FormSoilStructure(
                 ),
                 FormComponentResultRemark(
                     id = "structureSadRemarkScreen19",
-                    type = ComponentType.RESULTREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = "<4 mm/tim" +
                             "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
@@ -897,7 +897,7 @@ data class FormSoilStructure(
                 ),
                 FormComponentResultRemark(
                     id = "structureIndifferentRemarkScreen19",
-                    type = ComponentType.RESULTREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = "4-12 mm/tim" +
                             "Här finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
@@ -905,7 +905,7 @@ data class FormSoilStructure(
                 ),
                 FormComponentResultRemark(
                     id = "structureHappyRemarkScreen19",
-                    type = ComponentType.RESULTREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = ">12 mm/tim" +
                             "Mycket bra markstruktur!Vårda den!",
                     image = "happy_face",

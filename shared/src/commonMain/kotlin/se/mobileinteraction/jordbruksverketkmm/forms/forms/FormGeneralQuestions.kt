@@ -313,21 +313,21 @@ data class FormGeneralQuestions(
                     ),
                     FormComponentResultRemark(
                         id = "structureSadRemarkScreen10",
-                        type = ComponentType.RESULTREMARKSFACE,
+                        type = ComponentType.RESULTSREMARKSFACE,
                         text = "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                         image = "sad_face",
                         color = "red_round_background"
                     ),
                     FormComponentResultRemark(
                         id = "structureIndifferentRemarkScreen10",
-                        type = ComponentType.RESULTREMARKSFACE,
+                        type = ComponentType.RESULTSREMARKSFACE,
                         text = "Här finns det en del att göra åt markstrukturen!",
                         image = "indifferent_face",
                         color = "orange_round_background"
                     ),
                     FormComponentResultRemark(
                         id = "structureHappyRemarkScreen10",
-                        type = ComponentType.RESULTREMARKSFACE,
+                        type = ComponentType.RESULTSREMARKSFACE,
                         text = "Mycket bra markstruktur!Vårda den!",
                         image = "happy_face",
                         color = "green_round_background"

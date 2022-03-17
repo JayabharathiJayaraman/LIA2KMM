@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/formResultat_remark_container">
+    android:id="@+id/formResults_remark_container">
 
     <RelativeLayout
-        android:id="@+id/remarksResultat_layout"
+        android:id="@+id/remarksResult_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -34,5 +34,6 @@
             android:textColor="#4d4d4d"
             android:textSize="16sp">
         </TextView>
+
     </RelativeLayout>
 </RelativeLayout>

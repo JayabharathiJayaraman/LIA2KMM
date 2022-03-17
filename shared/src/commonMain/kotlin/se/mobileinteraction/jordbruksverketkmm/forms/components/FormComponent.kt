@@ -15,9 +15,9 @@ enum class ComponentType {
     CAPTIONEDIMAGE,
     TIMEFIELD,
     EMPTYLINE,
-    RESULTINFOBODY,
+    RESULTSINFOBODY,
     RESULTSIMAGES,
-    RESULTREMARKSFACE,
+    RESULTSREMARKSFACE,
 }
 
 interface FormComponent {

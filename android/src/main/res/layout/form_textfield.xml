@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_input"
             android:fontFamily="@font/opensans_regular"
-            android:paddingBottom="40dp"/>
+            android:paddingBottom="40dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

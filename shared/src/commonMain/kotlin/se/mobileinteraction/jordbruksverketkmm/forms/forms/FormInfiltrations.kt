@@ -414,7 +414,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentResultInfoBody(
                     id = "resultatInfoBodyScreen10",
-                    type = ComponentType.RESULTINFOBODY,
+                    type = ComponentType.RESULTSINFOBODY,
                     text = "Genomsläppligheten för vatten bör överstiga 4 mm per timme för att du ska få en god effekt av din dränering. Intensiteten i ett sommarregn är ofta ca 3 mm per timme."
                 ),
                 FormComponentText(
@@ -424,7 +424,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentResultRemark(
                     id = "structureSadRemarkScreen10",
-                    type = ComponentType.RESULTREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = "<4 mm/tim" +
                             "Oj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
@@ -432,7 +432,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentResultRemark(
                     id = "structureIndifferentRemarkScreen10",
-                    type = ComponentType.RESULTREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = "4-12 mm/tim" +
                             "Här finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
@@ -440,7 +440,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentResultRemark(
                     id = "structureHappyRemarkScreen10",
-                    type = ComponentType.RESULTREMARKSFACE,
+                    type = ComponentType.RESULTSREMARKSFACE,
                     text = ">12 mm/tim" +
                             "Mycket bra markstruktur!Vårda den!",
                     image = "happy_face",
