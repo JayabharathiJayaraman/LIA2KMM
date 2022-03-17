@@ -92,7 +92,7 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t72-u9-09i">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t72-u9-09i" userLabel="infoButton">
                                             <rect key="frame" x="371" y="-12" width="45" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="31" id="5NC-V3-93f"/>
@@ -153,7 +153,7 @@
                             <items>
                                 <navigationItem id="WN1-k5-CJ5">
                                     <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="sgl-uc-wN8">
-                                        <button key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XmE-cj-g5Q">
+                                        <button key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XmE-cj-g5Q" userLabel="closeButton">
                                             <rect key="frame" x="20" y="0.33333333333333215" width="95" height="43.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
@@ -161,7 +161,7 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="w3m-TW-P6C">
-                                        <button key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UTt-kG-TUK">
+                                        <button key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UTt-kG-TUK" userLabel="menuButton">
                                             <rect key="frame" x="375" y="0.0" width="95" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
@@ -228,7 +228,7 @@
                                     <viewLayoutGuide key="contentLayoutGuide" id="VP9-El-WRz"/>
                                     <viewLayoutGuide key="frameLayoutGuide" id="Ezc-NC-B1j"/>
                                 </scrollView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-eM-7ga">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-eM-7ga" userLabel="closInfoViewButton">
                                     <rect key="frame" x="302" y="0.0" width="48" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
@@ -249,7 +249,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5U-Uh-s2j">
                             <rect key="frame" x="80" y="40" width="268" height="47"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARKSTRUKTURTEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pog-cU-Wx8">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARKSTRUKTURTEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pog-cU-Wx8" userLabel="navigationBarHeader">
                                     <rect key="frame" x="53" y="17.666666666666664" width="162" height="18"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <nil key="textColor"/>
