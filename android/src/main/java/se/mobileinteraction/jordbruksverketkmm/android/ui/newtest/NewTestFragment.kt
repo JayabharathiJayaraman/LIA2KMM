@@ -21,25 +21,23 @@ class NewTestFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_new_test, container, false)
         val binding = FragmentNewTestBinding.bind(view)
+        val application = (activity?.application as MainApplication)
 
         binding.gobackBtn.setOnClickListener {
             view.findNavController().navigateUp()
         }
 
         binding.test1Container.setOnClickListener {
-            val application = (activity?.application as MainApplication)
             application.setViewModel(formType = FormType.GeneralQuestions)
             view.findNavController().navigate(R.id.navigateToFormFragment)
         }
 
         binding.test2Container.setOnClickListener {
-            val application = (activity?.application as MainApplication)
             application.setViewModel(formType = FormType.SoilStructure)
             view.findNavController().navigate(R.id.navigateToFormFragment)
         }
 
         binding.test3Container.setOnClickListener {
-            val application = (activity?.application as MainApplication)
             application.setViewModel(formType = FormType.Infiltration)
             view.findNavController().navigate(R.id.navigateToFormFragment)
         }
