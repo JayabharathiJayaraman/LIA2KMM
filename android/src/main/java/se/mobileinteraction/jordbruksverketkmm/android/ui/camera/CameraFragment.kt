@@ -17,7 +17,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCameraBinding
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.PreviewCameraContainerBinding
 import java.io.File
@@ -171,7 +170,6 @@ class CameraFragment : Fragment() {
     private fun updateUiForAcceptImage() {
         saveImageToPermanentFolder()
         cachedImageFile?.delete()
-        view?.findNavController()?.navigate(R.id.navigateFromCameraToMenu)
     }
 
     private fun saveImageToPermanentFolder() {
