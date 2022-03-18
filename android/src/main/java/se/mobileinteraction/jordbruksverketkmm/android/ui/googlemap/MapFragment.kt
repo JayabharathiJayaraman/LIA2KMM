@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.android.ui.maps
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.model.Circle
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import se.mobileinteraction.jordbruksverketkmm.android.R
+import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentMapBinding
 
 class MapFragment : Fragment(), OnMapReadyCallback {
     companion object {
@@ -29,18 +31,27 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
     private lateinit var map: GoogleMap
     private var wayPointCircle: Circle? = null
-    private lateinit var wayPointLat: TextView
-    private lateinit var wayPointLon: TextView
+    private lateinit var latitude: TextView
+    private lateinit var longitude: TextView
     private lateinit var mapFragment: SupportMapFragment
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         var rootView = inflater.inflate(R.layout.fragment_map, container, false)
-        wayPointLat = rootView.findViewById<TextView>(R.id.wayPointLatitude)
-        wayPointLon = rootView.findViewById<TextView>(R.id.wayPointLongitude)
+        val binding: FragmentMapBinding =
+            FragmentMapBinding.inflate(LayoutInflater.from(context))
+        binding.wayPointLatitude.text = latitude.toString()
+        binding.wayPointLongitude.text = longitude.toString()
+        latitude = rootView.findViewById<TextView>(R.id.wayPointLatitude)
+        longitude = rootView.findViewById<TextView>(R.id.wayPointLongitude)
         return rootView
     }
 
@@ -118,8 +129,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                     .strokeColor(Color.WHITE)
                     .fillColor(Color.YELLOW)
             )
-            wayPointLat.text = "lon:" + wayPointLatitude.toString()
-            wayPointLon.text = "lat:" + wayPointLongitude.toString()
+            latitude.text = "lon:" + wayPointLatitude.toString()
+            longitude.text = "lat:" + wayPointLongitude.toString()
         }
     }
 
