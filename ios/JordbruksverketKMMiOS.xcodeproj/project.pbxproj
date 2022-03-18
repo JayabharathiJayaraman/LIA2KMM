@@ -13,6 +13,8 @@
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */; };
+		512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */; };
 		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
@@ -140,6 +142,8 @@
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VardaMarkstrukturViewController.swift; sourceTree = "<group>"; };
+		512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VardaMarkstrukturViewController.xib; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
@@ -246,6 +250,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		512382BD27E4D45D00016913 /* VardaMarkstrukturViewController */ = {
+			isa = PBXGroup;
+			children = (
+				512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */,
+				512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */,
+			);
+			path = VardaMarkstrukturViewController;
+			sourceTree = "<group>";
+		};
 		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +359,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				512382BD27E4D45D00016913 /* VardaMarkstrukturViewController */,
 				9D5A8C9D27DB52C200239E45 /* NewTestViewController */,
 				9D5A8C9427DA37C400239E45 /* SettingsViewController */,
 				9D5A8C8B27DA2A8D00239E45 /* MenuViewController */,
@@ -578,6 +592,7 @@
 			files = (
 				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
+				512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */,
 				9D07BE3427BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D5A8C8427DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
@@ -673,6 +688,7 @@
 				9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
+				512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,

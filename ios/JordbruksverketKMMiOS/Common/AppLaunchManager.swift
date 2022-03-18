@@ -8,6 +8,6 @@ struct DefaultAppLaunchManager: AppLaunchManager {
     let rootViewController: UIViewController
    
     init() {
-        rootViewController = MainNavigationController(rootViewController: FormViewController())
+        rootViewController = MainNavigationController(rootViewController: StartScreenViewController())//FormViewController())
     }
 }

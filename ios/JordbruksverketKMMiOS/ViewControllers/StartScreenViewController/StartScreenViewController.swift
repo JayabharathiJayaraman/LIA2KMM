@@ -56,5 +56,7 @@ final class StartScreenViewController: UIViewController {
     }
     
     @IBAction func checklistsButtonTapped(_ sender: Any) {
+        let vardaMarkstrukturViewController = VardaMarkstrukturViewController()
+        navigationController?.pushViewController(vardaMarkstrukturViewController, animated: true)
     }
 }
