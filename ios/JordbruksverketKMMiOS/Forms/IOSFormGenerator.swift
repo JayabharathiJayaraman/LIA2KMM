@@ -104,7 +104,7 @@ extension UIStackView {
             
             let label = getDefaultLabel()
             label.text = text
-            label.font = UIFont(name: UIFont.fontNameSemiBold, size: 32.0)
+            label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
             
             self.addArrangedSubview(label)
@@ -119,7 +119,7 @@ extension UIStackView {
             let label = getDefaultLabel()
             label.text = text
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
-            label.font = UIFont(name: UIFont.fontNameSemiBold, size:32.0)
+            label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title1)
             
             self.addArrangedSubview(label)
         }
@@ -135,7 +135,7 @@ extension UIStackView {
             let label = getDefaultLabel()
             label.tag = screenTag
             label.text = text
-            label.font = UIFont(name: UIFont.fontNameRegular,size:24.0)
+            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         
             stackView.addArrangedSubview(label)
         }
@@ -183,7 +183,7 @@ extension UIStackView {
                 button.layer.shadowRadius = 5
                 button.layer.shadowOpacity = 0.5
                 button.layer.shadowOffset = CGSize(width: 0, height: 3)
-                button.titleLabel?.font = UIFont(name: UIFont.fontNameRegular, size: 32)
+                button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
                 button.titleLabel?.adjustsFontForContentSizeCategory = true
                 
                 self.addArrangedSubview(button)
@@ -205,7 +205,7 @@ extension UIStackView {
         button.setTitleColor(UIColor.Jordbruksverket.buttonTitleColor, for: .normal)
         button.contentHorizontalAlignment = .center
         button.backgroundColor = .white
-        button.titleLabel?.font = UIFont(name: UIFont.fontNameRegular, size: 32.0)
+        button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
                                          
         self.addArrangedSubview(button)
@@ -228,7 +228,7 @@ extension UIStackView {
             let label = getDefaultLabel()
             label.text = text
             label.textColor =  UIColor.Jordbruksverket.defaultTextColor
-            label.font = UIFont(name: UIFont.fontNameRegular, size: 24.0)
+            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             
             
             let stackView = UIStackView()
@@ -257,7 +257,7 @@ extension UIStackView {
             textField.placeholder = placeholder
             textField.backgroundColor = .white
             textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.top
-            textField.font = UIFont(name: UIFont.fontNameRegular, size: 32.0)
+            textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             textField.textColor = UIColor.Jordbruksverket.defaultTextColor
             textField.heightAnchor.constraint(equalToConstant: 300).isActive = true
             
@@ -294,7 +294,7 @@ extension UIStackView {
             let label = getDefaultLabel()
             label.textAlignment = .left
             label.text = text
-            label.font = UIFont(name: UIFont.fontNameRegular, size: 24.0)
+            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             
             let stackView = UIStackView()
             stackView.axis = .horizontal
@@ -329,8 +329,6 @@ extension UIStackView {
         horizontalImageView1.spacing = 10
         horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
         self.addArrangedSubview(horizontalImageView1)
-         /*  let verticalSpace = getVerticalSpacingView(withHeight: 10)
-          horizontalImageView1.addArrangedSubview(verticalSpace)*/
         }
         if imageNames.count > 3
         {
