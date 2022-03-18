@@ -305,10 +305,10 @@ data class FormGeneralQuestions(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
-                    id = "skrivnoteringarNotesScreen10",
+                    id = FormGeneralQuestions.ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här.",
+                    text = (data as? FormDataGeneralQuestions)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             ),
         ),
@@ -390,6 +390,7 @@ data class FormGeneralQuestions(
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
                 ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataGeneralQuestions).comment = text
             }
         }
 
@@ -427,6 +428,7 @@ data class FormGeneralQuestions(
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
     }
 }
 
