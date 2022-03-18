@@ -140,7 +140,7 @@ extension UIStackView {
     @objc
     func textFieldChange(_ sender: TextFieldWithId) {
         guard let id = sender.idString else { return }
-        IOSFormViewModel.shared.setTextData(id: id, text: sender.text ?? "")
+        IOSFormViewModel.shared.formViewModel.setTextData(id: id, text: sender.text ?? "")
     }
     
     func addButtonList(screenTag: Int, id: String, title: String, list: [String], value: String, placeholder: String) {
