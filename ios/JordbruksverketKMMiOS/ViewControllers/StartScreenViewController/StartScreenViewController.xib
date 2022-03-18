@@ -247,7 +247,7 @@
         <image name="appikon1024" width="1024" height="1024"/>
         <image name="curveBottom" width="1040" height="77"/>
         <image name="jv-logo-black" width="118" height="94"/>
-        <image name="meny_m_text" width="68" height="59"/>
+        <image name="meny_m_text" width="34" height="29.5"/>
         <image name="plantIcon" width="144" height="189"/>
         <image name="testDoneIcon" width="138" height="180"/>
         <namedColor name="defaultTitleText">
