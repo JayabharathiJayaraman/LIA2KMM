@@ -34,7 +34,7 @@ class FormViewController: UIViewController {
             
             self.updateProgress(totalScreens: Int(newState.totalScreens), currentScreen: Int(newState.currentScreen))
 
-            self.currentScreenLabel.text = "\(newState.currentScreen) " + "av".localized + " \(newState.totalScreens)"
+            self.currentScreenLabel.text = "\(newState.currentScreen + 1) " + "av".localized + " \(newState.totalScreens)"
             self.displayComponents(components: newState.components, currentScreen: newState.currentScreen)
         }
     }
