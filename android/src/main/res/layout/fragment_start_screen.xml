@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#edf1e2">
 
-
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="80dp"
@@ -17,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/jv_logo_black" />
-
 
     <ImageButton
         android:id="@+id/image_button_menu"
@@ -30,53 +28,38 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <LinearLayout
         android:id="@+id/content_layout"
-        android:layout_width="345dp"
-        android:layout_height="407dp"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingTop="64dp"
         android:paddingBottom="36dp"
         app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toTopOf="@id/curvedImage"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoImage"
-        app:layout_constraintVertical_bias="0.165">
+        app:layout_constraintTop_toBottomOf="@+id/logoImage">
 
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_semi_bold"
-            android:text="VÄLKOMMEN TILL"
+            android:text="@string/välkommen"
             android:textColor="#2f651a"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appIcon"
-            app:layout_constraintVertical_bias="0.569" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/appNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_bold"
-            android:text="Hur mår min jord?"
+            android:text="@string/hur_mår_min_jord"
             android:textColor="#2f651a"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appIcon"
-            app:layout_constraintVertical_bias="0.569" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/appIcon"
@@ -84,21 +67,29 @@
             android:layout_height="213dp"
             app:srcCompat="@drawable/appikon1024" />
 
-        <TextView
-            android:id="@+id/aboutAppText"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Läs mer om appen och testerna   >"
-            android:textColor="#2f651a"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appIcon"
-            app:layout_constraintVertical_bias="0.569" />
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/aboutAppText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/läs_mer_om_appen_och_testerna"
+                android:textColor="#2f651a"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/ic_baseline_keyboard_arrow_right_24">
+            </ImageView>
+
+        </LinearLayout>
 
     </LinearLayout>
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -121,32 +112,31 @@
         android:layout_marginBottom="48dp"
         android:scaleType="fitXY"
         android:src="@drawable/curve_bottom"
-        app:layout_constraintBottom_toTopOf="@id/image_add_test_button" />
+        app:layout_constraintBottom_toTopOf="@id/image_new_test_button" />
 
     <ImageButton
-        android:id="@+id/image_add_test_button"
+        android:id="@+id/image_new_test_button"
         android:layout_width="48dp"
         android:layout_height="60dp"
         android:background="@drawable/add_test_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922"
+        app:layout_constraintVertical_bias="0.925"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/mina_test_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/opensans_semi_bold"
-        android:text="Mina test"
+        android:text="@string/mina_test"
         android:textColor="#2f651a"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_test_done_button" />
 
@@ -157,25 +147,25 @@
         android:background="@drawable/test_done_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872"
+        app:layout_constraintVertical_bias="0.896"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/nytt_test_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/opensans_semi_bold"
-        android:text="Nytt test"
+        android:text="@string/nytt_test"
         android:textColor="#2f651a"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_add_test_button" />
+        app:layout_constraintTop_toBottomOf="@id/image_new_test_button" />
 
     <ImageButton
         android:id="@+id/image_plant_icon_button"
@@ -184,19 +174,19 @@
         android:background="@drawable/plant_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871"
+        app:layout_constraintVertical_bias="0.895"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/plant_icon_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/opensans_semi_bold"
-        android:text="Vårda"
+        android:text="@string/vårda"
         android:textColor="#2f651a"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -208,15 +198,14 @@
         android:id="@+id/plant_icon_label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/opensans_semi_bold"
-        android:text="markstruktur"
+        android:text="@string/markstruktur"
         android:textColor="#2f651a"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_plant_icon_button" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
