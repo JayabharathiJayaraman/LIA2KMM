@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/form_radiobtn_container">
+    android:id="@+id/form_radio_group">
 
-        <RadioButton
-            android:id="@+id/checklist_button"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:button="@drawable/btn_radio_satetlist"
-            android:fontFamily="@font/open_sans_regular"
-            android:textColor="@color/aboutSectionDescriptionColor"
-            android:textSize="18sp">
-        </RadioButton>
+            android:id="@+id/title"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:textColor="@color/green"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"></TextView>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></RadioGroup>
 
 </LinearLayout>

@@ -6,7 +6,7 @@
     android:id="@+id/formResults_remark_container">
 
     <RelativeLayout
-        android:id="@+id/remarksResult_layout"
+        android:id="@+id/remarksResults_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"

@@ -14,7 +14,7 @@ class FormViewController: UIViewController {
     init() {
         let interfaceGenerator = IOSFormGenerator()
         self.interfaceGenerator = interfaceGenerator
-        
+
         let nibName = String(describing: FormViewController.self)
         super.init(nibName: nibName, bundle: nil)
     }
@@ -22,10 +22,10 @@ class FormViewController: UIViewController {
     required init?(coder: NSCoder) {
         return nil
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         progressBarStackView.layer.cornerRadius = 6.0
         progressBarStackView.clipsToBounds = true
 
@@ -49,7 +49,7 @@ class FormViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+
         listeningJob?.close()
     }
 }

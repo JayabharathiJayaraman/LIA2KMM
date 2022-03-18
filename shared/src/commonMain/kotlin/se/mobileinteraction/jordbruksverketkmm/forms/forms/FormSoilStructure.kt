@@ -3,7 +3,6 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
@@ -32,23 +31,11 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "knife",
-                    caption = "Morakniv",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel", "knife", "ruler"),
+                    caption = listOf("Bra grävspade", "Morakniv", "Tumstock")
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen1",
@@ -107,30 +94,12 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "testPlaceTitleScreen3",
-                    type = ComponentType.TITLESMALL,
-                    text = "Testets plats"
-                ),
                 FormComponentChecklist(
                     id = "representativeChecklistScreen3",
                     type = ComponentType.CHECKLIST,
-                    text = "Representativ",
-                ),
-                FormComponentChecklist(
-                    id = "goodChecklistScreen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Bra plats",
-                ),
-                FormComponentChecklist(
-                    id = "badChecklistScreen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Dålig plats",
-                ),
-                FormComponentChecklist(
-                    id = "otherChecklistScreen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Annan",
+                    title = "Testets plats",
+                    options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
+                    active = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     id = "placeTextfieldScreen3",
@@ -198,7 +167,7 @@ data class FormSoilStructure(
                         "Mulljord (torvjord under)",
                         "Mulljord (gyttjejord under)"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.soilType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -247,7 +216,7 @@ data class FormSoilStructure(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.crop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -273,7 +242,7 @@ data class FormSoilStructure(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.precedingCrop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -281,7 +250,7 @@ data class FormSoilStructure(
                     type = ComponentType.BUTTONLIST,
                     title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.soilAssesment?.soilHandling ?: "",
                     placeholder = "Välj...",
                 ),
             )
@@ -314,25 +283,12 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "groundRatioTitleScreen8",
-                    type = ComponentType.TITLESMALL,
-                    text = "Markförhållanden"
-                ),
                 FormComponentChecklist(
                     id = "moistChecklisScreen8",
                     type = ComponentType.CHECKLIST,
-                    text = "Fuktigt",
-                ),
-                FormComponentChecklist(
-                    id = "dryChecklisScreen8",
-                    type = ComponentType.CHECKLIST,
-                    text = "Torrt",
-                ),
-                FormComponentChecklist(
-                    id = "wetChecklisScreen8",
-                    type = ComponentType.CHECKLIST,
-                    text = "Blött",
+                    title = "Markförhållanden",
+                    options = listOf("Fuktigt", "Torrt", "Blött"),
+                    active = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
                 ),
             )
         ),
@@ -356,7 +312,8 @@ data class FormSoilStructure(
                 FormComponentVideo(
                     id = "videoScreen9",
                     type = ComponentType.VIDEO,
-                    text = "Video..."
+                    description = "Markprofil video",
+                    source = "markprofilen"
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen9",
@@ -421,7 +378,7 @@ data class FormSoilStructure(
                     id = "groundSurfaceButtonListScreen11",
                     title = "Markyta/Markjord",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.stompData?.level1 ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -429,15 +386,23 @@ data class FormSoilStructure(
                     id = "MachiningsoleButtonListScreen11",
                     title = "Bearbetningssula",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.stompData?.level2 ?: "",
                     placeholder = "Välj...",
                 ),
+                /*FormComponentButtonList(
+                    type = ComponentType.BUTTONLIST,
+                    id = "subSoil2ButtonListScreen11",
+                    title = "Bearbetningssula 2",
+                    list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
+                    value = (data as? FormDataSoilStructure)?.stompData?.level3 ?: "",
+                    placeholder = "Välj...",
+                ),*/
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = "subSoilButtonListScreen11",
                     title = "Alv",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
-                    value = "ett",
+                    value = (data as? FormDataSoilStructure)?.stompData?.level4 ?: "",
                     placeholder = "Välj...",
                 ),
             )
@@ -502,9 +467,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "notesTextfieldScreen12",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -564,9 +529,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "notesTextFieldScreen13",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -628,9 +593,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen14",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -689,9 +654,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen15",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -763,9 +728,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen16",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -832,9 +797,9 @@ data class FormSoilStructure(
                     text = "Noteringar",
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen17",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -852,10 +817,10 @@ data class FormSoilStructure(
                     text = "Noteringar och kommentarer",
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen18",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här.",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             )
         ),
@@ -887,27 +852,27 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Vilken symbol dominerar?",
                 ),
-                FormComponentResultRemark(
+                FormComponentResultsRemark(
                     id = "structureSadRemarkScreen19",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = "<4 mm/tim" +
-                            "Oj, här behövs det krafttag för att förbättra markstrukturen!",
+                            "\nOj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
                     color = "red_round_background"
                 ),
-                FormComponentResultRemark(
+                FormComponentResultsRemark(
                     id = "structureIndifferentRemarkScreen19",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = "4-12 mm/tim" +
-                            "Här finns det en del att göra åt markstrukturen!",
+                            "\nHär finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
                     color = "orange_round_background"
                 ),
-                FormComponentResultRemark(
+                FormComponentResultsRemark(
                     id = "structureHappyRemarkScreen19",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = ">12 mm/tim" +
-                            "Mycket bra markstruktur!Vårda den!",
+                            "\nMycket bra markstruktur!Vårda den!",
                     image = "happy_face",
                     color = "green_round_background"
                 ),
@@ -931,6 +896,10 @@ data class FormSoilStructure(
                 FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
                     type = ComponentType.RESULTSIMAGES,
+                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
+                FormComponentResultsImages(
+                    id = "vadNuImagesScreen10",
+                    type = ComponentType.RESULTSIMAGES,
                     images = listOf("add_test_icon","plant_icon","check"),
                     imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                 ),
@@ -938,13 +907,18 @@ data class FormSoilStructure(
         ),
     )
 
-    override fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State {
+    override fun setText(
+        id: String,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
         println("logg: FORMDEF $text")
         with(state.form.data) {
             when (id) {
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
-                ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
+                ID_SOILTYPE -> (this as FormDataSoilStructure).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataSoilStructure).comment = text
             }
         }
 
@@ -954,11 +928,34 @@ data class FormSoilStructure(
         return state
     }
 
+    override fun setChecklistActive(
+        id: String,
+        active: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = active
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
+            active
+        return state
+    }
+
+    override fun setButtonlistActive(
+        id: String,
+        value: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.soilAssesment?.crop = value
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
+            value
+        return state
+    }
+
     companion object {
         const val ID_FARMNAME = "FARMNAME"
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
     }
 }
 

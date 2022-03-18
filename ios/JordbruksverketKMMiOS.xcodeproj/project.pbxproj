@@ -584,9 +584,6 @@
 				9D5A8C8427DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
-				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
-				2E22F6D227C92275005C893A /* (null) in Resources */,
-				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8CA327DB52E100239E45 /* NewTestViewController.xib in Resources */,
 				9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */,
 				9D5A8C9127DA2AEC00239E45 /* MenuViewController.xib in Resources */,
@@ -613,8 +610,6 @@
 				9D5A8C6627D8D7C800239E45 /* Localizable.strings in Resources */,
 				9D07BE3527BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D07BE2627BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
-				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
-				2E22F6D327C92276005C893A /* (null) in Resources */,
 				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8C9227DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54927A150180043B5A1 /* FormViewController.xib in Resources */,
@@ -672,10 +667,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
-				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
-				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
-				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D5A8C8827DA261400239E45 /* UIView.swift in Sources */,
@@ -929,7 +920,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -962,7 +953,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;

@@ -10,6 +10,12 @@ interface Form {
     val data: FormData
 
     fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
+    fun setChecklistActive(id: String, active: Int, state: FormViewModel.State): FormViewModel.State
+    fun setButtonlistActive(
+        id: String,
+        value: String,
+        state: FormViewModel.State
+    ): FormViewModel.State
 }
 
 enum class FormType {

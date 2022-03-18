@@ -31,35 +31,11 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "cylinder",
-                    caption = "Cylinder",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "waterdrops",
-                    caption = "Vatten",
-                ),
-                FormComponentImage(
-                    id = "litermåttImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "litre",
-                    caption = "Litermått",
-                ),
-                FormComponentImage(
-                    id = "tumstockImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel","cylinder","waterdrops","litre","ruler"),
+                    caption =  listOf("Bra grävspade","Cylinder", "Vatten","Litermåt","Tumstock")
                 ),
                 FormComponentText(
                     id = "utrustningBodyScreen1",
@@ -72,7 +48,7 @@ data class FormInfiltrations(
                     text = "Tips!"
                 ),
                 FormComponentText(
-                    id  = "tipsBodyScreen1",
+                    id = "tipsBodyScreen1",
                     type = ComponentType.BODY,
                     text = "Använd brädlapp och gummiklubba för att få ner cylindern om det är hårt i marken."
                 ),
@@ -123,30 +99,12 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "testetsPlatsScreen3",
-                    type = ComponentType.TITLESMALL,
-                    text = "Testets plats"
-                ),
                 FormComponentChecklist(
-                    id = "radioButton1Screen3",
+                    id = "representativeChecklistScreen3",
                     type = ComponentType.CHECKLIST,
-                    text = "Representativ",
-                ),
-                FormComponentChecklist(
-                    id = "radioButton2Screen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Bra plats",
-                ),
-                FormComponentChecklist(
-                    id = "radioButton3Screen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Dålig plats",
-                ),
-                FormComponentChecklist(
-                    id = "radioButton4Screen3",
-                    type = ComponentType.CHECKLIST,
-                    text = "Annan",
+                    title = "Testets plats",
+                    options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
+                    active = (data as? FormDataInfiltration)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
@@ -207,7 +165,7 @@ data class FormInfiltrations(
                         "Mulljord (torvjord under)",
                         "Mulljord (gyttjejord under)"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.soilType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -253,7 +211,7 @@ data class FormInfiltrations(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.crop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -279,7 +237,7 @@ data class FormInfiltrations(
                         "Stubb",
                         "Ingen gröda - öppen jord"
                     ),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.precedingCrop ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
@@ -287,7 +245,7 @@ data class FormInfiltrations(
                     id = "soilBearbetningScreen6",
                     title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
-                    value = "ett",
+                    value = (data as? FormDataInfiltration)?.soilAssesment?.soilHandling ?: "",
                     placeholder = "Välj...",
                 ),
             ),
@@ -356,7 +314,7 @@ data class FormInfiltrations(
                         "Bearbetningssula 2",
                         "Alv"
                     ),
-                    value = "ett",
+                    value = (data as FormDataInfiltration).infiltrationTest.measurementType ?: "",
                     placeholder = "Välj...",
                 ),
                 FormComponentTextField(
@@ -371,13 +329,13 @@ data class FormInfiltrations(
                     text = "",
                     placeholder = "mm till vattenytan (stopp)",
                 ),
-               FormComponentTime(
-                   id = "timeScreen8",
-                   type = ComponentType.TIMEFIELD,
-                   timeLabel = "Tidsåtgång:",
-                   start = "",
-                   stopp = ""
-               ),
+                FormComponentTime(
+                    id = "timeScreen8",
+                    type = ComponentType.TIMEFIELD,
+                    timeLabel = "Tidsåtgång:",
+                    start = "",
+                    stop = ""
+                ),
                 FormComponentLine(
                     id = "dividerScreen8",
                     type = ComponentType.EMPTYLINE,
@@ -398,10 +356,10 @@ data class FormInfiltrations(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
+                    id = FormInfiltrations.ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    id = "id",
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här",
+                    text = (data as? FormDataGeneralQuestions)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             ),
         ),
@@ -412,7 +370,7 @@ data class FormInfiltrations(
                     type = ComponentType.TITLEBIG,
                     text = "Resultat"
                 ),
-                FormComponentResultInfoBody(
+                FormComponentResultsInfoBody(
                     id = "resultatInfoBodyScreen10",
                     type = ComponentType.RESULTSINFOBODY,
                     text = "Genomsläppligheten för vatten bör överstiga 4 mm per timme för att du ska få en god effekt av din dränering. Intensiteten i ett sommarregn är ofta ca 3 mm per timme."
@@ -422,27 +380,27 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Vad betyder symbolen?"
                 ),
-                FormComponentResultRemark(
+                FormComponentResultsRemark(
                     id = "structureSadRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = "<4 mm/tim" +
-                            "Oj, här behövs det krafttag för att förbättra markstrukturen!",
+                            "\nOj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
                     color = "red_round_background"
                 ),
-                FormComponentResultRemark(
+                FormComponentResultsRemark(
                     id = "structureIndifferentRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = "4-12 mm/tim" +
-                            "Här finns det en del att göra åt markstrukturen!",
+                            "\nHär finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
                     color = "orange_round_background"
                 ),
-                FormComponentResultRemark(
+                FormComponentResultsRemark(
                     id = "structureHappyRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = ">12 mm/tim" +
-                            "Mycket bra markstruktur!Vårda den!",
+                            "\nMycket bra markstruktur!Vårda den!",
                     image = "happy_face",
                     color = "green_round_background"
                 ),
@@ -464,36 +422,67 @@ data class FormInfiltrations(
                 FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
                     type = ComponentType.RESULTSIMAGES,
+                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
+                    type = ComponentType.RESULTSIMAGES,
                     images = listOf("add_test_icon","plant_icon","check"),
                     imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                 ),
 
-            ),
+                ),
         ),
     )
-        override fun setText(
-            id: String,
-            text: String,
-            state: FormViewModel.State
-        ): FormViewModel.State {
-            with(state.form.data) {
-                when (id) {
-                    FormGeneralQuestions.ID_FARMNAME -> commonData.farmInformation.farmName = text
-                    FormGeneralQuestions.ID_FARMLAND -> commonData.farmInformation.farmLand = text
-                    FormGeneralQuestions.ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType =
-                        text
-                }
+
+    override fun setText(
+        id: String,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        println("logg: FORMDEF $text")
+        with(state.form.data) {
+            when (id) {
+                ID_FARMNAME -> commonData.farmInformation.farmName = text
+                ID_FARMLAND -> commonData.farmInformation.farmLand = text
+                ID_SOILTYPE -> (this as FormDataInfiltration).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataInfiltration).comment = text
             }
-            return state
         }
 
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text =
+            text
+
+        return state
+    }
+
+    override fun setChecklistActive(
+        id: String,
+        active: Int,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating = active
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
+            active
+        return state
+    }
+
+    override fun setButtonlistActive(
+        id: String,
+        value: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        (state.form.data as? FormDataInfiltration)?.soilAssesment?.crop = value
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
+            value
+        return state
+    }
+
     companion object {
-            const val ID_FARMNAME = "FARMNAME"
-            const val ID_FARMLAND = "FARMLAND"
-            const val ID_DATE = "DATE"
-            const val ID_SOILTYPE = "SOILTYPE"
-            const val ID_ALTERNATE = "ALTERNATE_REMARK"
-            const val ID_VATTENYTAN_START = "VATTENYTAN_START"
-            const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"
-        }
+        const val ID_FARMNAME = "FARMNAME"
+        const val ID_FARMLAND = "FARMLAND"
+        const val ID_DATE = "DATE"
+        const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
+        const val ID_ALTERNATE = "ALTERNATE_REMARK"
+        const val ID_VATTENYTAN_START = "VATTENYTAN_START"
+        const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"
+    }
 }
