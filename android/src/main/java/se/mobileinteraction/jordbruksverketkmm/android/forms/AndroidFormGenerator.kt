@@ -47,7 +47,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.IMAGE -> {
                     val image = (component as FormComponentImage)
-                    mainView.createOrUpdateImage(image.image, image.caption)
+                    mainView.createOrUpdateImage(image.id, image.image, image.caption)
                 }
                 ComponentType.VIDEO -> {
                     val video = (component as FormComponentVideo)
@@ -227,7 +227,6 @@ private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, pla
 
     this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
         .also {
-
             binding.textfield.hint = placeholder
             this.addView(it)
         }
@@ -328,7 +327,7 @@ private fun ViewGroup.createOrUpdateButtonList(
         }
 }
 
-private fun ViewGroup.createOrUpdateImage(imageName: String, caption: String) {
+private fun ViewGroup.createOrUpdateImage(id: String, imageName: String, caption: String) {
     val binding: FormImageBinding = FormImageBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formImageviewContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
