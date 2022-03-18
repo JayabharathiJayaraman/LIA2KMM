@@ -3,6 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
@@ -31,35 +32,11 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "cylinder",
-                    caption = "Cylinder",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "waterdrops",
-                    caption = "Vatten",
-                ),
-                FormComponentImage(
-                    id = "litermåttImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "litre",
-                    caption = "Litermått",
-                ),
-                FormComponentImage(
-                    id = "tumstockImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel","cylinder","waterdrops","litre","ruler"),
+                    caption =  listOf("Bra grävspade","Cylinder", "Vatten","Litermåt","Tumstock")
                 ),
                 FormComponentText(
                     id = "utrustningBodyScreen1",
@@ -380,10 +357,10 @@ data class FormInfiltrations(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
+                    id = FormInfiltrations.ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    id = "id",
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här",
+                    text = (data as? FormDataGeneralQuestions)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             ),
         ),
@@ -464,6 +441,7 @@ data class FormInfiltrations(
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
                 ID_SOILTYPE -> (this as FormDataInfiltration).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataInfiltration).comment = text
             }
         }
 
@@ -511,6 +489,7 @@ data class FormInfiltrations(
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
         const val ID_ALTERNATE = "ALTERNATE_REMARK"
         const val ID_VATTENYTAN_START = "VATTENYTAN_START"
         const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"

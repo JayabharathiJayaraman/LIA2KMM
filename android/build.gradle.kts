@@ -3,7 +3,6 @@ plugins {
     kotlin("android")
     id("kotlin-android")
     id("androidx.navigation.safeargs")
-
 }
 
 android {

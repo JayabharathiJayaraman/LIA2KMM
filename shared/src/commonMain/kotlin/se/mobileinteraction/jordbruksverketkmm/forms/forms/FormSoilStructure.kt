@@ -31,23 +31,11 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "knife",
-                    caption = "Morakniv",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel", "knife", "ruler"),
+                    caption = listOf("Bra grävspade", "Morakniv", "Tumstock")
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen1",
@@ -468,9 +456,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "notesTextfieldScreen12",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -521,9 +509,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "notesTextFieldScreen13",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -575,9 +563,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen14",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -628,9 +616,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen15",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -694,9 +682,9 @@ data class FormSoilStructure(
                     text = "Noteringar"
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen16",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -755,9 +743,9 @@ data class FormSoilStructure(
                     text = "Noteringar",
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen17",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
                 ),
                 FormComponentButton(
@@ -775,10 +763,10 @@ data class FormSoilStructure(
                     text = "Noteringar och kommentarer",
                 ),
                 FormComponentTextField(
-                    id = "textFieldNotesScreen18",
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här.",
+                    text = (data as? FormDataSoilStructure)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             )
         ),
@@ -871,6 +859,7 @@ data class FormSoilStructure(
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
                 ID_SOILTYPE -> (this as FormDataSoilStructure).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataSoilStructure).comment = text
             }
         }
 
@@ -918,6 +907,7 @@ data class FormSoilStructure(
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
     }
 }
 

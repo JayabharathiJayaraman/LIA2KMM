@@ -25,9 +25,6 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         it.layoutParams = params
         it.orientation = LinearLayout.VERTICAL
     }
-    private var innerImageLayout: GridLayout = GridLayout(context).also {
-        it.columnCount = 3
-    }
     private var currentScreenRendered: Int = 0
 
     override fun generateInterface(components: List<FormComponent>, currentScreen: Int?) {
@@ -96,7 +93,11 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.TEXTFIELD -> {
                     val textField = (component as FormComponentTextField)
-                    mainView.addTextField(textField.id, textField.text, textField.placeholder)
+                    mainView.createOrUpdateTextfield(
+                        textField.id,
+                        textField.text,
+                        textField.placeholder
+                    )
                 }
                 ComponentType.TEXTFIELDNOTES -> {
                     val textFieldNotes = (component as FormComponentTextField)
@@ -106,15 +107,12 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         textFieldNotes.placeholder
                     )
                 }
-                ComponentType.CAPTIONEDIMAGE -> {
-                    if (innerImageLayout.parent == null) {
-                        mainView.addView(innerImageLayout)
-                    }
-                    val captionedImage = (component as FormComponentImage)
-                    innerImageLayout.createOrUpdateCaptionedImage(
-                        captionedImage.id,
-                        captionedImage.image,
-                        captionedImage.caption
+                ComponentType.IMAGESGRID -> {
+                    val imagesGrid = (component as FormComponentImagesGrid)
+                    mainView.addInnerImageLayout(
+                        imagesGrid.id,
+                        imagesGrid.image,
+                        imagesGrid.caption
                     )
                 }
                 ComponentType.TIMEFIELD -> {
@@ -227,6 +225,19 @@ private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, pla
 
     this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
         .also {
+            binding.textfield.setText(text)
+            binding.textfield.hint = placeholder
+            binding.textfield.addTextChangedListener { editable ->
+                println("logg: TEXT LISTENER: ${editable.toString()}")
+                if (text != editable.toString()) getApplication().formViewModel.setTextData(
+                    id,
+                    editable.toString()
+                )
+            }
+            this.addView(it)
+        }
+    this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
+        .also {
             binding.textfield.hint = placeholder
             this.addView(it)
         }
@@ -268,13 +279,12 @@ private fun ViewGroup.createOrUpdateResultsRemarks(
     binding.imageview.setBackgroundResource(getFaceBackgroundColor(color))
 }
 
-private fun ViewGroup.addTextField(id: String, text: String, placeholder: String) {
-    val editText = this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
+private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
+    this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
         .also {
             it.setText(text)
             it.hint = placeholder
             it.addTextChangedListener { editable ->
-                println("logg: TEXT LISTENER: ${editable.toString()}")
                 if (text != editable.toString()) getApplication().formViewModel.setTextData(
                     id,
                     editable.toString()
@@ -282,6 +292,22 @@ private fun ViewGroup.addTextField(id: String, text: String, placeholder: String
             }
             this.addView(it)
         }
+}
+
+private fun ViewGroup.addInnerImageLayout(id: String, images: List<String>, caption: List<String>) {
+    val binding: FormCaptionedimageGridlayoutBinding =
+        FormCaptionedimageGridlayoutBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formImageGridContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+
+    for (i in images.indices) {
+        val imageLayout: FormImageviewCaptionBinding = FormImageviewCaptionBinding.inflate(
+            LayoutInflater.from(context)
+        )
+        imageLayout.imageview.setImageResource(getImageResource(images[i]))
+        imageLayout.textviewCaption.text = caption[i]
+        binding.formImageGridContainer.addView(imageLayout.formImageviewCaptionContainer)
+    }
 }
 
 private fun ViewGroup.createOrUpdateButtonList(
@@ -312,9 +338,7 @@ private fun ViewGroup.createOrUpdateButtonList(
                     getApplication().formViewModel.setButtonListActive(id, itemId.toString())
                 }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
 
             if (value != "") {
@@ -326,6 +350,7 @@ private fun ViewGroup.createOrUpdateButtonList(
 
 private fun ViewGroup.createOrUpdateImage(id: String, imageName: String, caption: String) {
     val binding: FormImageBinding = FormImageBinding.inflate(LayoutInflater.from(context))
+
     this.findViewWithTag(id) ?: binding.formImageviewContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
 
