@@ -13,8 +13,10 @@
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
-		63C33FED27E361B200264125 /* ButtonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEB27E361B200264125 /* ButtonListViewController.swift */; };
-		63C33FEE27E361B200264125 /* ButtonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C33FEC27E361B200264125 /* ButtonListViewController.xib */; };
+		6314C35427E4C409006DE489 /* ButtonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314C35227E4C409006DE489 /* ButtonListViewController.swift */; };
+		6314C35527E4C409006DE489 /* ButtonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6314C35327E4C409006DE489 /* ButtonListViewController.xib */; };
+		63C33FED27E361B200264125 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEB27E361B200264125 /* ModalViewController.swift */; };
+		63C33FEE27E361B200264125 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C33FEC27E361B200264125 /* ModalViewController.xib */; };
 		63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEF27E3810900264125 /* ButtonWithList.swift */; };
 		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
@@ -143,8 +145,10 @@
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
-		63C33FEB27E361B200264125 /* ButtonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonListViewController.swift; sourceTree = "<group>"; };
-		63C33FEC27E361B200264125 /* ButtonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonListViewController.xib; sourceTree = "<group>"; };
+		6314C35227E4C409006DE489 /* ButtonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonListViewController.swift; sourceTree = "<group>"; };
+		6314C35327E4C409006DE489 /* ButtonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonListViewController.xib; sourceTree = "<group>"; };
+		63C33FEB27E361B200264125 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		63C33FEC27E361B200264125 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		63C33FEF27E3810900264125 /* ButtonWithList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithList.swift; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
@@ -264,8 +268,10 @@
 		63C33FF127E386D400264125 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				63C33FEB27E361B200264125 /* ButtonListViewController.swift */,
-				63C33FEC27E361B200264125 /* ButtonListViewController.xib */,
+				6314C35227E4C409006DE489 /* ButtonListViewController.swift */,
+				6314C35327E4C409006DE489 /* ButtonListViewController.xib */,
+				63C33FEB27E361B200264125 /* ModalViewController.swift */,
+				63C33FEC27E361B200264125 /* ModalViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -601,13 +607,14 @@
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D5A8CA327DB52E100239E45 /* NewTestViewController.xib in Resources */,
 				9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */,
+				6314C35527E4C409006DE489 /* ButtonListViewController.xib in Resources */,
 				9D5A8C9127DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 				9D5A8C9727DA37E500239E45 /* SettingsViewController.xib in Resources */,
 				9D07BE3727BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
-				63C33FEE27E361B200264125 /* ButtonListViewController.xib in Resources */,
+				63C33FEE27E361B200264125 /* ModalViewController.xib in Resources */,
 				9D07BE2527BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
 				9D07BE2E27BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
@@ -693,10 +700,11 @@
 				63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
-				63C33FED27E361B200264125 /* ButtonListViewController.swift in Sources */,
+				63C33FED27E361B200264125 /* ModalViewController.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
 				9D07BE1327BBFE7A00FF1D55 /* UIFont.swift in Sources */,
+				6314C35427E4C409006DE489 /* ButtonListViewController.swift in Sources */,
 				9D5A8C8127DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D5A8CA027DB52E100239E45 /* NewTestViewController.swift in Sources */,
 				2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */,

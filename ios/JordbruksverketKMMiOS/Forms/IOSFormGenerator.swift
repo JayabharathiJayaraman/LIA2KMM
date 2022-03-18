@@ -109,13 +109,15 @@ private extension IOSFormGenerator {
         else { return }
 
         let buttonListViewController = ButtonListViewController(list: list)
+        let modalViewController = ModalViewController(contentViewController: buttonListViewController)
 
-        let dismissButtonList = { [weak buttonListViewController] in
+        let dismissButtonList = { [weak modalViewController] in
             UIView.animate(withDuration: 0.25) {
-                buttonListViewController?.view.alpha = .zero
+                modalViewController?.view.alpha = .zero
             } completion: { _ in
-                buttonListViewController?.view.removeFromSuperview()
-                buttonListViewController?.removeFromParent()
+                modalViewController?.willMove(toParent: nil)
+                modalViewController?.removeFromParent()
+                modalViewController?.view.removeFromSuperview()
             }
 
         }
@@ -125,15 +127,15 @@ private extension IOSFormGenerator {
 //            IOSFormViewModel.shared.setTextData(id: id, text: item)
             dismissButtonList()
         }
-        buttonListViewController.closeButtonTapHandler = dismissButtonList
+        modalViewController.closeButtonTapHandler = dismissButtonList
 
-        buttonListViewController.view.alpha = .zero
-        presentingViewController.addChild(buttonListViewController)
-        presentingViewController.view.addSubview(buttonListViewController.view)
-        buttonListViewController.didMove(toParent: presentingViewController)
+        modalViewController.view.alpha = .zero
+        presentingViewController.view.addSubview(modalViewController.view)
+        presentingViewController.addChild(modalViewController)
+        modalViewController.didMove(toParent: modalViewController)
 
         UIView.animate(withDuration: 0.25) {
-            buttonListViewController.view.alpha = 1.0
+            modalViewController.view.alpha = 1.0
         }
     }
 }
