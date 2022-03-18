@@ -11,8 +11,7 @@ enum class ComponentType {
     IMAGE,
     VIDEO,
     BUTTON,
-    REMARK,
-    CAPTIONEDIMAGE,
+    QUESTIONNAIRE,
     IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,
@@ -63,7 +62,7 @@ class FormComponentChecklist(
     var active: Int,
 ) : FormComponent
 
-class FormComponentRemark(
+class FormComponentQuestionnaire(
     override val type: ComponentType,
     override val id: String,
     val text: List<String>,

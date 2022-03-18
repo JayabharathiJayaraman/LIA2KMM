@@ -115,9 +115,9 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är det lätt att bearbeta jorden?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "bearbetaJordenRemarkScreen4",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Svårbearbetad jord som kräver många överfarter. Stort dragkraftsbehov.",
                         "Jordbearbetningen kräver ibland många överfarter. Relativt stort dragkraftsbehov.",
@@ -134,9 +134,9 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är grödans etablering god?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "grödansEtableringRemarkScreen5",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Ojämn uppkomst och luckiga bestånd.",
                         "Något ojämn uppkomst och etablering av grödan.",
@@ -153,9 +153,9 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är grödan frisk och frodig och konkurrerar väl med ogräsen?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "grödanFriskRemarkScreen6",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Hämmad tillväxt, missfärgning, eller stora ogräsproblem.",
                         "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
@@ -172,9 +172,9 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Infiltrerar vatten snabbt?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "InfiltrerarRemarkScreen7",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Stående vatten kvar länge efter kraftiga regn eller bevattning.",
                         "Vattnet rinner undan sakta, lite pölar.",
@@ -191,9 +191,9 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Förekommer skorpbildning?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "förekommerRemarkScreen8",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Skorpa bildas ofta, även efter lätta regn.",
                         "Skorpa förekommer ibland, särskilt efter kraftigt regn eller bevattning.",
@@ -220,9 +220,9 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är skördenivåerna stabila?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "skördenivåernaRemarkScreen9",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Stor skördevariation inom fältet och mellan åren.",
                         "Viss skördevariation inom fält och mellan år.",
@@ -364,7 +364,7 @@ data class FormGeneralQuestions(
         state: FormViewModel.State
     ): FormViewModel.State {
         (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentRemark).active =
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).active =
             answer
         return state
     }

@@ -73,12 +73,12 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         checklist.active
                     )
                 }
-                ComponentType.REMARK -> {
-                    val remark = (component as FormComponentRemark)
+                ComponentType.QUESTIONNAIRE -> {
+                    val questionnaire = (component as FormComponentQuestionnaire)
                     mainView.createOrUpdateRemark(
-                        remark.id,
-                        remark.text,
-                        remark.active
+                        questionnaire.id,
+                        questionnaire.text,
+                        questionnaire.active
                     )
                 }
 

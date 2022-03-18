@@ -479,7 +479,7 @@ data class FormInfiltrations(
         state: FormViewModel.State
     ): FormViewModel.State {
         (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentRemark).active =
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).active =
             answer
         return state
     }

@@ -414,9 +414,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har matjorden bra struktur?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "structureRemarkScreen12",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Matjorden har kokig, pulvrig, massiv, skiktad eller enkelkornsstruktur. Släta brottytor om man bryter isär jordklump",
                         "Matjorden har skarpkantade aggregat som kan falla sönder i mindre, kompakta aggregat. Brottytor lite ojämna.",
@@ -475,9 +475,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har matjorden hög mullhalt?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "topSoilRemarkScreen13",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Matjorden har låg mullhalt - samma ljusa färg som alven.",
                         "Matjorden är något mörkare än alven.",
@@ -528,9 +528,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har jorden täta skikt?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "layerRemarkScreen14",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Ett eller flera täta skikt. Tydlig bearbetningssula. Rötterna böjer av.",
                         "Det finns kompakta skikt. Rottillväxt lite hämmad.",
@@ -582,9 +582,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Hur ser växtresterna ut?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "plantStructureSadRemarkScreen15",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Växtresterna är dåligt omsatta, jorden luktar unket.",
                         "Växtresterna är varken bra eller dåligt omsatta.",
@@ -635,9 +635,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har ser växtrötterna ut?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "goodRootsRemarkScreen16",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Rötterna finns bara i stora porer och sprickor, böjer ofta av. Gulbruna rötter. Förtjockade rotspetsar.",
                         "En del finrötter, de flesta friska. Rötter mest mellan större aggregat. Böjer av ibland.",
@@ -701,9 +701,9 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Finns det daggmaskar?"
                 ),
-                FormComponentRemark(
+                FormComponentQuestionnaire(
                     id = "wormsRemarkScreen17",
-                    type = ComponentType.REMARK,
+                    type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Varken maskar eller maskgångar finns.",
                         "Enstaka maskar eller maskgångar.",
@@ -886,7 +886,7 @@ data class FormSoilStructure(
         state: FormViewModel.State
     ): FormViewModel.State {
         (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentRemark).active =
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).active =
             answer
         return state
     }
