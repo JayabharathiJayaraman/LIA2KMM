@@ -98,7 +98,7 @@
                                         <constraint firstAttribute="width" constant="40" id="fT4-r3-YjL"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_yest_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Hh-X5O">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_test_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Hh-X5O">
                                     <rect key="frame" x="175" y="30" width="40" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="Z9t-yy-zqk"/>
@@ -243,7 +243,7 @@
         </view>
     </objects>
     <resources>
-        <image name="add_yest_icon" width="138" height="180"/>
+        <image name="add_test_icon" width="138" height="180"/>
         <image name="appikon1024" width="1024" height="1024"/>
         <image name="curveBottom" width="1040" height="77"/>
         <image name="jv-logo-black" width="118" height="94"/>
