@@ -105,15 +105,4 @@
     <string name="check_list_text_3">Flytta reglaget åt höger om åtgärden är utförd.</string>
     <string name="check_list_label_ej_aktuella_atgarder">Ej Aktuella åtgärder</string>
     <string name="check_list_text_4">De åtgärder du tar bort från gårdens lista hamnar här. Lägg till åtgärder till gårdens lista igen genom att trycka på plusset</string>
-    <string name="bottom_navbar_text">av</string>
-    <string name="new_test_title">Om testerna</string>
-    <string name="new_test_text">Du har tre deltester att välja på. Testerna går att göra var för sig men bäst koll på ditt skifte får du om du gör alla tre. Resultaten från de tre deltesten kan summeras i Mina test. \n\nAllmänna frågor om skiftet ger dig en översiktlig bild av skiftets generella status och om det finns strukturproblem som kan behöva åtgärdas. Detta test kan göras inomhus. \n\nMarkstrukturtest i fält och Infiltrationstest hjälper dig att lära känna dina odlingsjordar bättre. Dessa två tester görs ute i fält och ger en beskrivning av markens strukturtillstånd på platsen. Fälttesterna fungerar bäst när marken är fuktig och rötter studeras bäst på hösten. \n\nAlla uppgifter sparas löpande i appen. Du kan bläddra framåt och tillbaka, gå ur ett påbörjat test eller tappa uppkopplingen, utan att förlora data. Testen hittar du under Mina Test.</string>
-    <string name="newtest_test_1_title">Test 1</string>
-    <string name="newtest_test_1_text">Allmänna frågor om skiftet</string>
-    <string name="newtest_test_2_title">Test 2</string>
-    <string name="newtest_test_2_text">Markstrukturtest</string>
-    <string name="newtest_test_3_title">Test 3</string>
-    <string name="newtest_test_3_text">Infiltrationstest</string>
-    <string name="navigation_back">Gå bakåt till testets förra sida</string>
-    <string name="navigation_forward">Gå framåt till testets nästa sida</string>
 </resources>
