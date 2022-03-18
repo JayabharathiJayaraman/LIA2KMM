@@ -1,3 +1,4 @@
+import shared
 import UIKit
 
 class NewTestViewController: UIViewController {
@@ -43,17 +44,17 @@ class NewTestViewController: UIViewController {
     }
     
     @IBAction func createGeneralQuestionsFormTapped(_ sender: Any) {
-        let newTestViewController = FormViewController()
-                navigationController?.pushViewController(newTestViewController, animated: true)
+        IOSFormViewModel.shared.changeForm(toType: FormType.generalquestions)
+        navigationController?.pushViewController(FormViewController(), animated: true)
     }
     
     @IBAction func createSoilStructureFormTapped(_ sender: Any) {
-        let newTestViewController = FormViewController()
-                navigationController?.pushViewController(newTestViewController, animated: true)
+        IOSFormViewModel.shared.changeForm(toType: FormType.soilstructure)
+        navigationController?.pushViewController(FormViewController(), animated: true)
     }
     
     @IBAction func createInfiltrationFormTapped(_ sender: Any) {
-        let newTestViewController = FormViewController()
-                navigationController?.pushViewController(newTestViewController, animated: true)
+        IOSFormViewModel.shared.changeForm(toType: FormType.infiltration)
+        navigationController?.pushViewController(FormViewController(), animated: true)
     }
 }

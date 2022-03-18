@@ -7,7 +7,7 @@ class FormViewController: UIViewController {
 
     @IBOutlet weak var progressBarStackView: UIStackView!
     @IBOutlet weak var currentScreenLabel: UILabel!
-    private var viewModel = IOSFormViewModel.shared
+    private var viewModel = IOSFormViewModel.shared.formViewModel
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
 
