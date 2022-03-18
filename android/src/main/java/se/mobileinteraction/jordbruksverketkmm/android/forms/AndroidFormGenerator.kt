@@ -230,7 +230,6 @@ private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, pla
             binding.textfield.hint = placeholder
             this.addView(it)
         }
-
 }
 
 private fun ViewGroup.createOrUpdateRemark(
@@ -252,7 +251,6 @@ private fun ViewGroup.createOrUpdateRemark(
             binding.radioGroup.check(active)
             this.addView(it)
         }
-
 }
 
 private fun ViewGroup.createOrUpdateResultsRemarks(
@@ -319,7 +317,6 @@ private fun ViewGroup.createOrUpdateButtonList(
                 }
             }
 
-            println("BUTTON LIST INFILTRATION: $value")
             if (value != "") {
                 binding.spinner.setSelection(value.toInt())
             }
