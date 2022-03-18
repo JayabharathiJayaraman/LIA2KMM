@@ -69,7 +69,7 @@ class IOSFormGenerator: FormGenerator {
                     mainView.addTextFieldNotes(id: textfieldNotes.id, text: textfieldNotes.text, placeholder: textfieldNotes.placeholder)
                 }
             case .resultsremarksface:
-                if let resultRemarks = component as? FormComponentResultRemark {
+                if let resultRemarks = component as? FormComponentResultsRemark {
                     mainView.addResultRemarks(screenTag:screenTag, text: resultRemarks.text, id: resultRemarks.id, image: resultRemarks.image, color: resultRemarks.color)
                 }
             case .resultsimages:

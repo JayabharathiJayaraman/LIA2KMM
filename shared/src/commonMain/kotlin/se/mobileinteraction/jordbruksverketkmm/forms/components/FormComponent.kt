@@ -100,8 +100,9 @@ class FormComponentResultsInfoBody(
 class FormComponentResultsImages(
     override val type: ComponentType,
     override val id: String,
-    val imagesTextList: List<String>
-) : FormComponent
+    val images:List<String>,
+    val imagesTextList:List<String>,
+): FormComponent
 
 class FormComponentResultsRemark(
     override val type: ComponentType,

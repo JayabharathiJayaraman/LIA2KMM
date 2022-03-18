@@ -125,7 +125,11 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.RESULTSIMAGES -> {
                     val resultsImages = (component as FormComponentResultsImages)
-                    mainView.addImagesContainer(resultsImages.id, resultsImages.imagesTextList)
+                    mainView.addResultsImages(
+                        resultsImages.id,
+                        resultsImages.images,
+                        resultsImages.imagesTextList
+                    )
                 }
 
                 else -> println("unknown")
@@ -349,18 +353,26 @@ private fun ViewGroup.createOrUpdateTimeField(
     binding.timeLabelTextview.text = timeLabel
 }
 
-private fun ViewGroup.addImagesContainer(id: String, imagesTextList: List<String>) {
+private fun ViewGroup.addResultsImages(
+    id: String,
+    images: List<String>,
+    imagesTextList: List<String>
+) {
     val binding: FormResultsImageviewsBinding = FormResultsImageviewsBinding.inflate(
         LayoutInflater.from(context)
     )
     this.findViewWithTag(id) ?: binding.whatNextImagesContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
 
+    binding.newTestImage.setImageResource(getImageResource(images[0]))
+    binding.markstrukturImage.setImageResource(getImageResource(images[1]))
+    binding.checkImage.setImageResource(getImageResource(images[2]))
     binding.newTestText.text = imagesTextList[0]
     binding.vardaText.text = imagesTextList[1]
     binding.markstrukturText.text = imagesTextList[2]
     binding.klarText.text = imagesTextList[3]
 }
+
 
 private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
     val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))

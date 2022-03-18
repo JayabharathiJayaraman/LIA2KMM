@@ -34,8 +34,8 @@ data class FormInfiltrations(
                 FormComponentImagesGrid(
                     id = "braGrävspadeImage",
                     type = ComponentType.IMAGESGRID,
-                    image = listOf("shovel","cylinder","waterdrops","litre","ruler"),
-                    caption =  listOf("Bra grävspade","Cylinder", "Vatten","Litermåt","Tumstock")
+                    image = listOf("shovel", "cylinder", "waterdrops", "litre", "ruler"),
+                    caption = listOf("Bra grävspade", "Cylinder", "Vatten", "Litermåt", "Tumstock")
                 ),
                 FormComponentText(
                     id = "utrustningBodyScreen1",
@@ -422,13 +422,10 @@ data class FormInfiltrations(
                 FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
                     type = ComponentType.RESULTSIMAGES,
+                    images = listOf("add_test_icon", "plant_icon", "check"),
                     imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
-                    type = ComponentType.RESULTSIMAGES,
-                    images = listOf("add_test_icon","plant_icon","check"),
-                    imagesTextList = listOf("Nytt test","Vårda", "markstruktur","klar")
                 ),
-
-                ),
+            ),
         ),
     )
 
