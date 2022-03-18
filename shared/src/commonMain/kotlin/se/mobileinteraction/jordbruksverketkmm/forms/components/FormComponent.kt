@@ -26,7 +26,11 @@ interface FormComponent {
     val id: String
 }
 
-class FormComponentText(override val type: ComponentType, override val id: String, val text: String) :
+class FormComponentText(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String
+) :
     FormComponent
 
 class FormComponentButton(
@@ -76,7 +80,7 @@ class FormComponentImage(
 class FormComponentTime(
     override val type: ComponentType,
     override val id: String,
-    val timeLabel:String,
+    val timeLabel: String,
     val start: String,
     val stop: String,
 ) : FormComponent
@@ -84,19 +88,20 @@ class FormComponentTime(
 class FormComponentLine(
     override val type: ComponentType,
     override val id: String,
-   val text: String
-): FormComponent
+    val text: String
+) : FormComponent
 
 class FormComponentResultsInfoBody(
     override val type: ComponentType,
     override val id: String,
-    val text: String) : FormComponent
+    val text: String
+) : FormComponent
 
 class FormComponentResultsImages(
     override val type: ComponentType,
     override val id: String,
-    val imagesTextList:List<String>
-): FormComponent
+    val imagesTextList: List<String>
+) : FormComponent
 
 class FormComponentResultsRemark(
     override val type: ComponentType,
