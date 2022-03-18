@@ -16,6 +16,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentFormB
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
 
 class FormFragment : Fragment() {
     private var binding: FragmentFormBinding? = null

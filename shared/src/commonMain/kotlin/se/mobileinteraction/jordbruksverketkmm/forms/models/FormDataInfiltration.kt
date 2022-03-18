@@ -5,7 +5,7 @@ data class FormDataInfiltration(
     val placeAssesment: PlaceAssesment = PlaceAssesment(),
     val coordinates: Coordinates = Coordinates(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
-    val infiltrationTest: List<InfiltrationTest> = emptyList(),
+    val infiltrationTest: InfiltrationTest = InfiltrationTest(),
     var comment: String = "",
 ) : FormData
 

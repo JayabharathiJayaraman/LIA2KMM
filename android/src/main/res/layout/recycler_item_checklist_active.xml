@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="10dp">
+
+        <ImageButton
+            android:id="@+id/checkList_item_add"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_marginEnd="10dp"
+            android:background="@android:drawable/ic_input_add"
+            android:layout_alignParentStart="true" />
+
+        <Switch
+            android:id="@+id/checklist_active_item_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:minHeight="40dp"
+            android:layout_marginStart="10dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/checkList_item_add"
+            android:layout_toStartOf="@id/checklist_active_item_switch"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/checklist_active_item_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="TextView"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:textColor="#2f651a"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/checklist_active_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:fontFamily="@font/open_sans_regular"
+                android:textSize="16sp"/>
+        </LinearLayout>
+</RelativeLayout>
