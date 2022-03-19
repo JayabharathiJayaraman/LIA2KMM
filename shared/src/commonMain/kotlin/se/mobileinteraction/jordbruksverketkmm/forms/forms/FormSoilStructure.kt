@@ -270,7 +270,7 @@ data class FormSoilStructure(
                             "(om det inte är det du vill titta på)\n\n" +
                             "Det kan vara intressant att gräva djupare om du gjort djupa " +
                             "jordbearbetningar eller det finns rötter som går ner långt, " +
-                            "men behövs inte för att" +
+                            "men behövs inte för att " +
                             "genomföra testet."
                 ),
                 FormComponentImage(
@@ -418,7 +418,7 @@ data class FormSoilStructure(
                     id = "structureSadRemarkScreen12",
                     type = ComponentType.REMARK,
                     text = "Matjorden har kokig, pulvrig, massiv, skiktad eller enkelkornsstruktur." +
-                            " Släta brottytor om man bryter isär jordklump",
+                            " Släta brottytor om man bryter isär jordklump.",
                     image = "sad_face"
                 ),
                 FormComponentRemark(
@@ -470,7 +470,7 @@ data class FormSoilStructure(
                     id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
                     text = (data as? FormDataSoilStructure)?.comment ?: "",
-                    placeholder = "Skriv dina anteckningar här",
+                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här.",
                 ),
                 FormComponentButton(
                     id = "photoButtonScreen12",
@@ -872,7 +872,7 @@ data class FormSoilStructure(
                     id = "structureHappyRemarkScreen19",
                     type = ComponentType.RESULTSREMARKSFACE,
                     text = ">12 mm/tim" +
-                            "\nMycket bra markstruktur!Vårda den!",
+                            "\nMycket bra markstruktur! Vårda den!",
                     image = "happy_face",
                     color = "green_round_background"
                 ),

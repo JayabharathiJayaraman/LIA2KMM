@@ -53,7 +53,7 @@ data class FormGeneralQuestions(
                 FormComponentButton(
                     id = "getRecordsButtonScreen2",
                     type = ComponentType.BUTTON,
-                    text = "Hämta uppgifter från annat test",
+                    text = "Hämta uppgifter från annat test>",
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen2",
@@ -118,20 +118,20 @@ data class FormGeneralQuestions(
                     id = "sadFaceRemarkScreen4",
                     type = ComponentType.REMARK,
                     text = "Svårbearbetad jord som kräver många överfarter." +
-                            "Stort dragkraftsbehov",
+                            "Stort dragkraftsbehov.",
                     image = "sad_face"
                 ),
                 FormComponentRemark(
                     id = "indifferentFaceRemarkScreen4",
                     type = ComponentType.REMARK,
                     text = "Jordbearbetningen kräver ibland många överfarter." +
-                            "Relativt stort dragkraftsbehov",
+                            "Relativt stort dragkraftsbehov.",
                     image = "indifferent_face"
                 ),
                 FormComponentRemark(
                     id = "happyFaceRemarkScreen4",
                     type = ComponentType.REMARK,
-                    text = "Lättbearbetad jord, litet dragkraftsbehov",
+                    text = "Lättbearbetad jord, litet dragkraftsbehov.",
                     image = "happy_face"
                 ),
             ),
@@ -158,7 +158,7 @@ data class FormGeneralQuestions(
                 FormComponentRemark(
                     id = "happyFaceRemarkScreen5",
                     type = ComponentType.REMARK,
-                    text = "Jämn och snabb uppkomst. Jämnhöga bestånd",
+                    text = "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     image = "happy_face"
                 ),
             ),
@@ -239,7 +239,7 @@ data class FormGeneralQuestions(
                     id = "sadFaceRemarkScreen8",
                     type = ComponentType.REMARK,
                     text = "Skorpa bildas ofta, även" +
-                            "efter lätta regn",
+                            "efter lätta regn.",
                     image = "sad_face"
                 ),
                 FormComponentRemark(
@@ -277,8 +277,7 @@ data class FormGeneralQuestions(
                 FormComponentRemark(
                     id = "sadFaceRemarkScreen9",
                     type = ComponentType.REMARK,
-                    text = "Stor skördevariation" + "inom fältet och mellan"
-                            + "åren.",
+                    text = "Stor skördevariation inom fältet och mellan åren.",
                     image = "sad_face"
                 ),
                 FormComponentRemark(
@@ -308,7 +307,7 @@ data class FormGeneralQuestions(
                     id = FormGeneralQuestions.ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
                     text = (data as? FormDataGeneralQuestions)?.comment ?: "",
-                    placeholder = "Skriv dina anteckningar här",
+                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här",
                 ),
             ),
         ),
@@ -346,14 +345,9 @@ data class FormGeneralQuestions(
                 FormComponentResultsRemark(
                     id = "structureHappyRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
-                    text = "Mycket bra markstruktur!Vårda den!",
+                    text = "Mycket bra markstruktur! Vårda den!",
                     image = "happy_face",
                     color = "green_round_background"
-                ),
-                FormComponentText(
-                    id = "NoteringarTitleScreen11",
-                    type = ComponentType.TITLESMALL,
-                    text = "Noteringar"
                 ),
                 FormComponentText(
                     id = "TipsTitleScreen11",

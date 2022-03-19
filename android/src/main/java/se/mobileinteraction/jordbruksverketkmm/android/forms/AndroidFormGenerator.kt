@@ -307,7 +307,7 @@ private fun ViewGroup.createOrUpdateButtonList(
 
             binding.spinner.adapter = dataAdapter
             binding.textView.text = title
-
+            binding.textView.hint = placeholder
             binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
