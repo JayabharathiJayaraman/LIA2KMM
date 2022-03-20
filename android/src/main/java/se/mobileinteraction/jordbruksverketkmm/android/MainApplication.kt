@@ -14,46 +14,22 @@ class MainApplication : Application() {
     var formViewModel: FormViewModel =
         FormViewModel(FormGeneralQuestions(FormType.GeneralQuestions))
 
-    private val grundforbattringarState = listOf<ChecklistItem>(
-        ChecklistItem("Huvudavvattning", true, true),
-        ChecklistItem("OrganiskaMaterial", true, true),
-        ChecklistItem("Detaljdränering", true, true),
-        ChecklistItem("Strukturkalkning", true, true),
-        ChecklistItem("Alvluckring", true, true)
-    )
-
-    private val odlingsatgarderState = listOf<ChecklistItem>(
-        ChecklistItem("GynnaDaggmaskarna", true, true),
-        ChecklistItem("GrödorMedBraRotsystem", true, true),
-        ChecklistItem("LämnaOrganisktMaterial", true, true),
-        ChecklistItem("PlaneraKörningen", true, true),
-        ChecklistItem("MinskaBelastningenPåMarken", true, true),
-        ChecklistItem("BeväxtMarkÅretOm", true, true)
-    )
-
-    private val undvikEllerMinimeraState = listOf<ChecklistItem>(
-        ChecklistItem("UndvikTungaMaskiner", true, true),
-        ChecklistItem("UndvikKörningVidVåtaMarkförhållanden", true, true),
-        ChecklistItem("MinimeraAntaletÖverfarter", true, true),
-        ChecklistItem("MinimeraAndelenBarMark", true, true)
-    )
-
     private var grundforbattringarChecklist: ChecklistViewModel = ChecklistViewModel(
         Checklist(
             Checklist.Category.GRUNDFORBATTRINGAR,
-            grundforbattringarState
+            Checklist.ItemStates.GRUNDFORBATTRINGAR.state
         ), 0
     )
     private var odlingsatgarderChecklist: ChecklistViewModel = ChecklistViewModel(
         Checklist(
             Checklist.Category.ODLINGSATGARDER,
-            odlingsatgarderState
+            Checklist.ItemStates.ODLINGSATGARDER.state
         ), 0
     )
     private var undvikellerminimerChecklist: ChecklistViewModel = ChecklistViewModel(
         Checklist(
             Checklist.Category.UNDVIKELLERMINIMERA,
-            undvikEllerMinimeraState
+            Checklist.ItemStates.UNDVIKELLERMINIMERA.state
         ), 0
     )
     var checklistViewModel: ChecklistViewModel = grundforbattringarChecklist
