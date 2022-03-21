@@ -45,15 +45,4 @@ class VardaMarkstrukturViewController: UIViewController {
         UndvikBtn.text = "varda_markstruktur_undvik_eller_minimera".localized
         PDF_Btn_label.text = "varda_markstruktur_export_button".localized
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
