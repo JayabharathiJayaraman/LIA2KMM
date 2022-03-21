@@ -59,7 +59,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .maps:
                 if let mapImage = component as? FormComponentMap {
-                    mainView.addImage(imageName: mapImage.image, caption: mapImage.text)
+                    mainView.addMap(screenTag: screenTag, text: mapImage.text, imageName: mapImage.image)
                 }
             default:
                 print("unknown component")
@@ -80,9 +80,33 @@ extension UIStackView {
         let verticalSpace = getVerticalSpacingView(withHeight: 3)
         
         self.addArrangedSubview(imageView)
+        self.addArrangedSubview(imageView)
         self.addArrangedSubview(verticalSpace)
         self.addArrangedSubview(label)
     }
+    func addMap(screenTag: Int, text: String, imageName: String) {
+      //  let mapView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "customView") as! MapScreenViewController
+        
+       //  let mapView = MapScreenViewController()
+       //  mapView.viewDidLoad()
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: imageName)
+        
+        let label = getDefaultLabel()
+        label.text = text
+        label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
+        
+        self.addArrangedSubview(label)
+        self.addArrangedSubview(imageView)
+
+       // self.addChildViewController(mapView)
+      //  self.view.addSubview(mapView.view)
+      //  mapView.didMove(toParentViewController: self)
+     //   self.addArrangedSubview(mapView)
+        
+    }
+
     func addBigTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let label = getDefaultLabel()

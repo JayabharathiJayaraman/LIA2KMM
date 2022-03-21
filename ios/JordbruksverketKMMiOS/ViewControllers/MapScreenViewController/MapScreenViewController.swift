@@ -22,9 +22,9 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkLocationServices()
-        mapView.mapType = .satellite
-        initView()
+     //   checkLocationServices()
+     //   mapView.mapType = .satellite
+      //  initView()
     }
     
     @IBOutlet weak var infoButton: UIButton!
@@ -113,7 +113,7 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
            }
        }
        
-       func checkLocationAuthorization() {
+      func checkLocationAuthorization() {
            switch CLLocationManager.authorizationStatus() {
            case .authorizedWhenInUse:
                mapView.showsUserLocation = true
@@ -130,16 +130,15 @@ class MapScreenViewController: UIViewController, CLLocationManagerDelegate {
                break
            }
        }
-       
        func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
            checkLocationServices()
        }
        
        func initView(){
            
-           titleLabel.text = "TitleNameLabel".localized
-           descriptionLabel.text = "DescriptionLabel".localized
-           infoViewLabel.text = "InfoLabel".localized
+//           titleLabel.text = "TitleNameLabel".localized
+     //      descriptionLabel.text = "DescriptionLabel".localized
+     //      infoViewLabel.text = "InfoLabel".localized
            
        }
        

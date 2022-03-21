@@ -164,9 +164,9 @@ data class FormInfiltrations(
                     text = "Tryck på kartan för att välja din exakta position",
                 ),
                 FormComponentMap(
-                    id = "mapScreen",
+                    id = "mapScreen4",
                     type = ComponentType.MAPS,
-                    text = "",
+                    text = "Test text",
                     image = "jv-logga",
                 ),
             ),
