@@ -100,11 +100,11 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentChecklist(
-                    id = "representativeChecklistScreen3",
+                    id = ID_PLACEASSESSMENT,
                     type = ComponentType.CHECKLIST,
                     title = "Testets plats",
                     options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
-                    active = (data as? FormDataInfiltration)?.placeAssesment?.rating ?: -1,
+                    rating = (data as? FormDataInfiltration)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
@@ -452,12 +452,17 @@ data class FormInfiltrations(
 
     override fun setChecklistActive(
         id: String,
-        active: Int,
+        rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating = active
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
-            active
+        when (id) {
+            FormSoilStructure.ID_PLACEASSESSMENT -> (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating =
+                rating
+        }
+
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
+            rating
+
         return state
     }
 
@@ -481,5 +486,6 @@ data class FormInfiltrations(
         const val ID_ALTERNATE = "ALTERNATE_REMARK"
         const val ID_VATTENYTAN_START = "VATTENYTAN_START"
         const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"
+        const val ID_PLACEASSESSMENT = "PLACEASSESSMENT"
     }
 }

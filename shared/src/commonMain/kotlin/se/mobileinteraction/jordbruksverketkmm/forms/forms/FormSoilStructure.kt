@@ -95,11 +95,11 @@ data class FormSoilStructure(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentChecklist(
-                    id = "representativeChecklistScreen3",
+                    id = ID_PLACEASSESSMENT,
                     type = ComponentType.CHECKLIST,
                     title = "Testets plats",
                     options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
-                    active = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
+                    rating = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     id = "placeTextfieldScreen3",
@@ -284,11 +284,11 @@ data class FormSoilStructure(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentChecklist(
-                    id = "moistChecklisScreen8",
+                    id = ID_SOILCONDITION,
                     type = ComponentType.CHECKLIST,
                     title = "Markförhållanden",
                     options = listOf("Fuktigt", "Torrt", "Blött"),
-                    active = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
+                    rating = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
                 ),
             )
         ),
@@ -925,12 +925,20 @@ data class FormSoilStructure(
 
     override fun setChecklistActive(
         id: String,
-        active: Int,
+        rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = active
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
-            active
+        when (id) {
+            ID_PLACEASSESSMENT -> (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating =
+                rating
+
+            ID_SOILCONDITION -> (state.form.data as? FormDataSoilStructure)?.soilCondition?.condition =
+                rating
+        }
+
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
+            rating
+
         return state
     }
 
@@ -951,6 +959,8 @@ data class FormSoilStructure(
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
         const val ID_COMMENT = "COMMENT"
+        const val ID_PLACEASSESSMENT = "PLACEASSESSMENT"
+        const val ID_SOILCONDITION = "SOILCONDITION"
     }
 }
 
