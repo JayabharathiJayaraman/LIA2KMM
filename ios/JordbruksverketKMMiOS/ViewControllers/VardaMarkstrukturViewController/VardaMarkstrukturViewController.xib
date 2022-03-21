@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -118,7 +117,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="qo3-9q-n3C" secondAttribute="bottom" constant="20" id="3JY-d2-jgy"/>
                                                         <constraint firstItem="Ije-UV-J1M" firstAttribute="centerY" secondItem="oSP-xN-vFb" secondAttribute="centerY" id="8E5-0T-MsK"/>
@@ -168,7 +167,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="aVz-sV-uP4" firstAttribute="top" secondItem="mye-Nl-brC" secondAttribute="top" id="0Jj-6T-Ecz"/>
                                                         <constraint firstItem="awa-kJ-IGL" firstAttribute="top" secondItem="mye-Nl-brC" secondAttribute="top" constant="20" id="44p-dv-0d6"/>
@@ -217,7 +216,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="bBP-t2-ebl" firstAttribute="leading" secondItem="Yar-i9-Ql5" secondAttribute="leading" constant="20" id="2OG-fG-BN3"/>
                                                         <constraint firstAttribute="trailing" secondItem="ze5-S4-8co" secondAttribute="trailing" constant="20" id="9Nu-Qs-jAG"/>
@@ -308,7 +307,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="6LR-ra-jQO" firstAttribute="centerX" secondItem="EQQ-y5-c4X" secondAttribute="centerX" id="1Du-tk-ddF"/>
                                 <constraint firstAttribute="trailing" secondItem="6LR-ra-jQO" secondAttribute="trailing" constant="10" id="2Ze-LC-sSW"/>
@@ -360,8 +359,5 @@
         <namedColor name="defaultTitleText">
             <color red="0.17254901960784313" green="0.396078431372549" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
