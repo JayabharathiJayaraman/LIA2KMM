@@ -3,8 +3,6 @@ import UIKit
 final class ModalViewController: UIViewController {
     typealias CloseButtonTapHandler = () -> Void
 
-    var closeButtonTapHandler: CloseButtonTapHandler?
-
     private let contentViewController: UIViewController
 
     @IBOutlet private var contentView: UIView!
@@ -33,7 +31,31 @@ final class ModalViewController: UIViewController {
         contentViewController.didMove(toParent: self)
     }
 
+    func present(using presentingViewController: UIViewController) {
+        view.alpha = .zero
+        presentingViewController.view.addSubview(view)
+        presentingViewController.addChild(self)
+        didMove(toParent: presentingViewController)
+
+        navigationController?.navigationBar.layer.zPosition = -1.0
+
+        UIView.animate(withDuration: 0.25) {
+            self.view.alpha = 1.0
+        }
+    }
+
+    func dismiss() {
+        UIView.animate(withDuration: 0.25) {
+            self.view.alpha = .zero
+            self.navigationController?.navigationBar.layer.zPosition = .zero
+        } completion: { _ in
+            self.willMove(toParent: nil)
+            self.removeFromParent()
+            self.view.removeFromSuperview()
+        }
+    }
+
     @IBAction private func handleCloseButtonTap(_: UIButton) {
-        closeButtonTapHandler?()
+        dismiss()
     }
 }

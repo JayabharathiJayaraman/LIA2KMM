@@ -18,6 +18,9 @@
 		63C33FED27E361B200264125 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEB27E361B200264125 /* ModalViewController.swift */; };
 		63C33FEE27E361B200264125 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C33FEC27E361B200264125 /* ModalViewController.xib */; };
 		63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEF27E3810900264125 /* ButtonWithList.swift */; };
+		63F33ADE27E8783A0047BD1D /* ButtonWithComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F33ADD27E8783A0047BD1D /* ButtonWithComponents.swift */; };
+		63F33AE127E8A1E00047BD1D /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F33ADF27E8A1E00047BD1D /* InformationViewController.swift */; };
+		63F33AE227E8A1E00047BD1D /* InformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F33AE027E8A1E00047BD1D /* InformationViewController.xib */; };
 		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
@@ -150,6 +153,9 @@
 		63C33FEB27E361B200264125 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		63C33FEC27E361B200264125 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		63C33FEF27E3810900264125 /* ButtonWithList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithList.swift; sourceTree = "<group>"; };
+		63F33ADD27E8783A0047BD1D /* ButtonWithComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithComponents.swift; sourceTree = "<group>"; };
+		63F33ADF27E8A1E00047BD1D /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		63F33AE027E8A1E00047BD1D /* InformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationViewController.xib; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
@@ -270,6 +276,8 @@
 			children = (
 				6314C35227E4C409006DE489 /* ButtonListViewController.swift */,
 				6314C35327E4C409006DE489 /* ButtonListViewController.xib */,
+				63F33ADF27E8A1E00047BD1D /* InformationViewController.swift */,
+				63F33AE027E8A1E00047BD1D /* InformationViewController.xib */,
 				63C33FEB27E361B200264125 /* ModalViewController.swift */,
 				63C33FEC27E361B200264125 /* ModalViewController.xib */,
 			);
@@ -461,6 +469,7 @@
 		9D65F40827CCFE7700646C73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63F33ADD27E8783A0047BD1D /* ButtonWithComponents.swift */,
 				63C33FEF27E3810900264125 /* ButtonWithList.swift */,
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
 			);
@@ -610,6 +619,7 @@
 				6314C35527E4C409006DE489 /* ButtonListViewController.xib in Resources */,
 				9D5A8C9127DA2AEC00239E45 /* MenuViewController.xib in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
+				63F33AE227E8A1E00047BD1D /* InformationViewController.xib in Resources */,
 				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 				9D5A8C9727DA37E500239E45 /* SettingsViewController.xib in Resources */,
@@ -703,6 +713,7 @@
 				63C33FED27E361B200264125 /* ModalViewController.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
+				63F33AE127E8A1E00047BD1D /* InformationViewController.swift in Sources */,
 				9D07BE1327BBFE7A00FF1D55 /* UIFont.swift in Sources */,
 				6314C35427E4C409006DE489 /* ButtonListViewController.swift in Sources */,
 				9D5A8C8127DA258D00239E45 /* NavigationBar.swift in Sources */,
@@ -719,6 +730,7 @@
 				2E22F6D527CCD275005C893A /* StartScreenViewController.swift in Sources */,
 				9D5A8C8E27DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 				9D5A8C9A27DA37E500239E45 /* SettingsViewController.swift in Sources */,
+				63F33ADE27E8783A0047BD1D /* ButtonWithComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,6 +58,10 @@ class IOSFormGenerator: FormGenerator {
                 if let image = component as? FormComponentImage {
                     mainView.addImage(imageName: image.image, caption: image.caption)
                 }
+            case .information:
+                if let information = component as? FormComponentInformation {
+                    addInformationView(screenTag: screenTag, id: information.id, components: information.components)
+                }
             default:
                 print("unknown component")
             }
@@ -111,32 +115,42 @@ private extension IOSFormGenerator {
         let buttonListViewController = ButtonListViewController(list: list)
         let modalViewController = ModalViewController(contentViewController: buttonListViewController)
 
-        let dismissButtonList = { [weak modalViewController] in
-            UIView.animate(withDuration: 0.25) {
-                modalViewController?.view.alpha = .zero
-            } completion: { _ in
-                modalViewController?.willMove(toParent: nil)
-                modalViewController?.removeFromParent()
-                modalViewController?.view.removeFromSuperview()
-            }
-
-        }
-
-        buttonListViewController.itemSelectionHandler = { item in
+        buttonListViewController.itemSelectionHandler = { [weak modalViewController] item in
             button.setTitle(item, for: .normal)
 //            IOSFormViewModel.shared.setTextData(id: id, text: item)
-            dismissButtonList()
+            modalViewController?.dismiss()
         }
-        modalViewController.closeButtonTapHandler = dismissButtonList
 
-        modalViewController.view.alpha = .zero
-        presentingViewController.view.addSubview(modalViewController.view)
-        presentingViewController.addChild(modalViewController)
-        modalViewController.didMove(toParent: modalViewController)
+        modalViewController.present(using: presentingViewController)
+    }
 
-        UIView.animate(withDuration: 0.25) {
-            modalViewController.view.alpha = 1.0
-        }
+    func addInformationView(screenTag: Int, id: String, components: [FormComponent]) {
+        let button = ButtonWithComponents()
+        button.components = components
+        button.setImage(UIImage(named: "infoIcon"), for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(handleInformationButtonTap), for: .touchUpInside)
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 53.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+
+        let stackView = UIStackView(arrangedSubviews: [UIView(), button])
+        stackView.axis = .horizontal
+
+        mainView.addArrangedSubview(stackView)
+    }
+
+    @objc
+    func handleInformationButtonTap(_ button: ButtonWithComponents) {
+        guard
+            let components = button.components,
+            let presentingViewController = presentingViewController
+        else { return }
+
+        let informationViewController = InformationViewController(components: components)
+        let modalViewController = ModalViewController(contentViewController: informationViewController)
+        modalViewController.present(using: presentingViewController)
     }
 }
 
