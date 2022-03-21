@@ -19,6 +19,7 @@ enum class ComponentType {
     RESULTSINFOBODY,
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
+    INFORMATION,
 }
 
 interface FormComponent {
@@ -123,4 +124,10 @@ class FormComponentImagesGrid(
     override val id: String,
     val image: List<String>,
     val caption: List<String>,
+) : FormComponent
+
+class FormComponentInformation(
+    override val type: ComponentType,
+    override val id: String,
+    val components: List<FormComponent>,
 ) : FormComponent
