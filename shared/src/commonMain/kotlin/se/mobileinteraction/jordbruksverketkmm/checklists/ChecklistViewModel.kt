@@ -35,6 +35,17 @@ class ChecklistViewModel constructor(
         }
     }
 
+    fun changeChecklistStates(newStateList : List<ChecklistItem>){
+        if(checklist.itemList.size == newStateList.size){
+            updateStateAndSave {
+                copy(
+                    checklist = Checklist(checklist.category, newStateList),
+                    count = state.value.count + 1
+                )
+            }
+        }
+    }
+
     private fun updateStateAndSave(state: State.() -> State) {
         updateState(state).also(::save)
     }

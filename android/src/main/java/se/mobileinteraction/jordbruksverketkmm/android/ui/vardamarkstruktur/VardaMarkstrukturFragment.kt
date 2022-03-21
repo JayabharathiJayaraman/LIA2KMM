@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.Checklist
+import se.mobileinteraction.jordbruksverketkmm.ChecklistCategory
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentVardaMarkstrukturBinding
@@ -28,22 +29,22 @@ class VardaMarkstrukturFragment : Fragment() {
         }
 
         binding.tempForward.setOnClickListener {
-            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.GRUNDFORBATTRINGAR)
+            (activity?.application as MainApplication).setChecklistViewModel(ChecklistCategory.GRUNDFORBATTRINGAR)
             view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         binding.grunforbattringarutton.setOnClickListener {
-            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.GRUNDFORBATTRINGAR)
+            (activity?.application as MainApplication).setChecklistViewModel(ChecklistCategory.GRUNDFORBATTRINGAR)
             view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         binding.odlingsatgarderButton.setOnClickListener {
-            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.ODLINGSATGARDER)
+            (activity?.application as MainApplication).setChecklistViewModel(ChecklistCategory.ODLINGSATGARDER)
             view.findNavController().navigate(R.id.navigateTocheckList)
         }
 
         binding.undvikEllerMinimeraButton.setOnClickListener {
-            (activity?.application as MainApplication).setChecklistViewModel(Checklist.Category.UNDVIKELLERMINIMERA)
+            (activity?.application as MainApplication).setChecklistViewModel(ChecklistCategory.UNDVIKELLERMINIMERA)
             view.findNavController().navigate(R.id.navigateTocheckList)
         }
 

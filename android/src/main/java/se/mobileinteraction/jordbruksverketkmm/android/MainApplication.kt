@@ -2,6 +2,8 @@ package se.mobileinteraction.jordbruksverketkmm.android
 
 import android.app.Application
 import se.mobileinteraction.jordbruksverketkmm.Checklist
+import se.mobileinteraction.jordbruksverketkmm.ChecklistCategory
+import se.mobileinteraction.jordbruksverketkmm.ChecklistItemStates
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistItem
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
@@ -16,29 +18,29 @@ class MainApplication : Application() {
 
     private var grundforbattringarChecklist: ChecklistViewModel = ChecklistViewModel(
         Checklist(
-            Checklist.Category.GRUNDFORBATTRINGAR,
-            Checklist.ItemStates.GRUNDFORBATTRINGAR.state
+            ChecklistCategory.GRUNDFORBATTRINGAR,
+            ChecklistItemStates.GRUNDFORBATTRINGAR.state
         ), 0
     )
     private var odlingsatgarderChecklist: ChecklistViewModel = ChecklistViewModel(
         Checklist(
-            Checklist.Category.ODLINGSATGARDER,
-            Checklist.ItemStates.ODLINGSATGARDER.state
+            ChecklistCategory.ODLINGSATGARDER,
+            ChecklistItemStates.ODLINGSATGARDER.state
         ), 0
     )
     private var undvikellerminimerChecklist: ChecklistViewModel = ChecklistViewModel(
         Checklist(
-            Checklist.Category.UNDVIKELLERMINIMERA,
-            Checklist.ItemStates.UNDVIKELLERMINIMERA.state
+            ChecklistCategory.UNDVIKELLERMINIMERA,
+            ChecklistItemStates.UNDVIKELLERMINIMERA.state
         ), 0
     )
     var checklistViewModel: ChecklistViewModel = grundforbattringarChecklist
 
-    fun setChecklistViewModel(category: Checklist.Category) {
+    fun setChecklistViewModel(category: ChecklistCategory) {
         checklistViewModel = when (category) {
-            Checklist.Category.GRUNDFORBATTRINGAR -> grundforbattringarChecklist
-            Checklist.Category.ODLINGSATGARDER -> odlingsatgarderChecklist
-            Checklist.Category.UNDVIKELLERMINIMERA -> undvikellerminimerChecklist
+            ChecklistCategory.GRUNDFORBATTRINGAR -> grundforbattringarChecklist
+            ChecklistCategory.ODLINGSATGARDER -> odlingsatgarderChecklist
+            ChecklistCategory.UNDVIKELLERMINIMERA -> undvikellerminimerChecklist
         }
     }
 

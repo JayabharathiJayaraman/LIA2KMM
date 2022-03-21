@@ -11,6 +11,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.Checklist
+import se.mobileinteraction.jordbruksverketkmm.ChecklistCategory
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.checklists.ChecklistViewModel
 import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistItem
@@ -46,7 +47,7 @@ class CheckListInActiveAdapter(val viewModel: ChecklistViewModel) :
         holder.itemAdd.setBackgroundResource(R.drawable.plus_small)
         holder.id = listToShow[position].id
 
-        if (viewModel.checklist.id == Checklist.Category.UNDVIKELLERMINIMERA) {
+        if (viewModel.checklist.id == ChecklistCategory.UNDVIKELLERMINIMERA) {
             holder.itemAdd.visibility = View.INVISIBLE
         }
     }

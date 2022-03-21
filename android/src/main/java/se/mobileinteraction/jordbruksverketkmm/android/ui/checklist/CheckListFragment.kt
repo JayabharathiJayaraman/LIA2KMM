@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import se.mobileinteraction.jordbruksverketkmm.Checklist
+import se.mobileinteraction.jordbruksverketkmm.ChecklistCategory
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCheckListBinding
@@ -64,7 +65,7 @@ class CheckListFragment : Fragment() {
             view.findNavController().navigateUp()
         }
 
-        if (viewModel.checklist.category == Checklist.Category.UNDVIKELLERMINIMERA) {
+        if (viewModel.checklist.category == ChecklistCategory.UNDVIKELLERMINIMERA) {
             binding.testLabelEjAktuellaAtgarder.visibility = View.GONE
             binding.testText3.visibility = View.GONE
             binding.testText4.visibility = View.GONE

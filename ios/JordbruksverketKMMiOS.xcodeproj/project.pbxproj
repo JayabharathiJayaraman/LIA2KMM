@@ -15,6 +15,7 @@
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
 		512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */; };
 		512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */; };
+		516983B627E8792F00FB6826 /* IOSChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */; };
 		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
@@ -144,6 +145,7 @@
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
 		512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VardaMarkstrukturViewController.swift; sourceTree = "<group>"; };
 		512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VardaMarkstrukturViewController.xib; sourceTree = "<group>"; };
+		516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChecklistViewModel.swift; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
 		9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataPrivacyViewController.xib; sourceTree = "<group>"; };
@@ -259,6 +261,14 @@
 			path = VardaMarkstrukturViewController;
 			sourceTree = "<group>";
 		};
+		516983B427E878FA00FB6826 /* Checklist */ = {
+			isa = PBXGroup;
+			children = (
+				516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */,
+			);
+			path = Checklist;
+			sourceTree = "<group>";
+		};
 		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 		9D34C50B27A14C740043B5A1 /* JordbruksverketKMMiOS */ = {
 			isa = PBXGroup;
 			children = (
+				516983B427E878FA00FB6826 /* Checklist */,
 				9D07BE0527BBC37600FF1D55 /* Forms */,
 				9D8E1E8327A7F9C1002E7D94 /* Resources */,
 				9D34C53C27A14DED0043B5A1 /* Common */,
@@ -683,6 +694,7 @@
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D5A8C8827DA261400239E45 /* UIView.swift in Sources */,
+				516983B627E8792F00FB6826 /* IOSChecklistViewModel.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
