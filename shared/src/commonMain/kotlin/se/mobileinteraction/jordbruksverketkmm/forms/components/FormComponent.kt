@@ -116,7 +116,5 @@ class FormComponentVideo(
 class FormComponentMap(
     override val type: ComponentType,
     override val id: String,
-    val text: String,
-    val image: String,
 ) : FormComponent
 

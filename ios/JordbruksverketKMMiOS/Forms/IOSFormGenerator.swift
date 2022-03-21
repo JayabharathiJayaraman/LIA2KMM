@@ -59,7 +59,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .maps:
                 if let mapImage = component as? FormComponentMap {
-                    mainView.addMap(screenTag: screenTag, text: mapImage.text, imageName: mapImage.image)
+                    mainView.addMap(screenTag: screenTag)
                 }
             default:
                 print("unknown component")
@@ -72,7 +72,7 @@ extension UIStackView {
     func addImage(imageName: String, caption: String) {
         let imageView = UIImageView()
         imageView.image = UIImage(named: imageName)
-        
+
         let label = getDefaultLabel()
         label.text = caption
         label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
@@ -84,27 +84,11 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpace)
         self.addArrangedSubview(label)
     }
-    func addMap(screenTag: Int, text: String, imageName: String) {
-      //  let mapView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "customView") as! MapScreenViewController
+    func addMap(screenTag: Int) {
         
-       //  let mapView = MapScreenViewController()
-       //  mapView.viewDidLoad()
+           let mapView = MapScreenViewController()
         
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: imageName)
-        
-        let label = getDefaultLabel()
-        label.text = text
-        label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
-        
-        self.addArrangedSubview(label)
-        self.addArrangedSubview(imageView)
-
-       // self.addChildViewController(mapView)
-      //  self.view.addSubview(mapView.view)
-      //  mapView.didMove(toParentViewController: self)
-     //   self.addArrangedSubview(mapView)
-        
+           self.addArrangedSubview(mapView.view)
     }
 
     func addBigTitleLabel(screenTag: Int,text: String) {
@@ -116,6 +100,7 @@ extension UIStackView {
             self.addArrangedSubview(label)
         }
     }
+    
     func addSmallTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             var verticalSpacing = getVerticalSpacingView(withHeight: 20)

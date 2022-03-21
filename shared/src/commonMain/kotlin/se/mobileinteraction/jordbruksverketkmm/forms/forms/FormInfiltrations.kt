@@ -166,8 +166,6 @@ data class FormInfiltrations(
                 FormComponentMap(
                     id = "mapScreen4",
                     type = ComponentType.MAPS,
-                    text = "Test text",
-                    image = "jv-logga",
                 ),
             ),
         ),
