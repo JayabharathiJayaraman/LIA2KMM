@@ -928,14 +928,15 @@ data class FormSoilStructure(
         rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        when (id) {
-            ID_PLACEASSESSMENT -> (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating =
-                rating
+        with(state.form.data) {
+            when (id) {
+                ID_PLACEASSESSMENT -> (this as? FormDataSoilStructure)?.placeAssesment?.rating =
+                    rating
 
-            ID_SOILCONDITION -> (state.form.data as? FormDataSoilStructure)?.soilCondition?.condition =
-                rating
+                ID_SOILCONDITION -> (this as? FormDataSoilStructure)?.soilCondition?.condition =
+                    rating
+            }
         }
-
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
             rating
 

@@ -406,11 +406,12 @@ data class FormGeneralQuestions(
         rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        when (id) {
-            FormSoilStructure.ID_PLACEASSESSMENT -> (state.form.data as? FormDataGeneralQuestions)?.placeAssesment?.rating =
-                rating
+        with(state.form.data) {
+            when (id) {
+                FormSoilStructure.ID_PLACEASSESSMENT -> (this as? FormDataGeneralQuestions)?.placeAssesment?.rating =
+                    rating
+            }
         }
-
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
             rating
 

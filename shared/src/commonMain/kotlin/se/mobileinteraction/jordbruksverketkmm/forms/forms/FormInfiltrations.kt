@@ -34,8 +34,8 @@ data class FormInfiltrations(
                 FormComponentImagesGrid(
                     id = "braGrävspadeImage",
                     type = ComponentType.IMAGESGRID,
-                    image = listOf("shovel","cylinder","waterdrops","litre","ruler"),
-                    caption =  listOf("Bra grävspade","Cylinder", "Vatten","Litermåt","Tumstock")
+                    image = listOf("shovel", "cylinder", "waterdrops", "litre", "ruler"),
+                    caption = listOf("Bra grävspade", "Cylinder", "Vatten", "Litermåt", "Tumstock")
                 ),
                 FormComponentText(
                     id = "utrustningBodyScreen1",
@@ -455,9 +455,11 @@ data class FormInfiltrations(
         rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        when (id) {
-            FormSoilStructure.ID_PLACEASSESSMENT -> (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating =
-                rating
+        with(state.form.data) {
+            when (id) {
+                FormSoilStructure.ID_PLACEASSESSMENT -> (this as? FormDataInfiltration)?.placeAssesment?.rating =
+                    rating
+            }
         }
 
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
