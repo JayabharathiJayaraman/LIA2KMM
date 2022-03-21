@@ -401,14 +401,19 @@ data class FormGeneralQuestions(
         return state
     }
 
-    override fun setChecklistActive(
+    override fun setChecklistRating(
         id: String,
-        active: Int,
+        rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataGeneralQuestions)?.placeAssesment?.rating = active
+        when (id) {
+            FormSoilStructure.ID_PLACEASSESSMENT -> (state.form.data as? FormDataGeneralQuestions)?.placeAssesment?.rating =
+                rating
+        }
+
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
-            active
+            rating
+
         return state
     }
 

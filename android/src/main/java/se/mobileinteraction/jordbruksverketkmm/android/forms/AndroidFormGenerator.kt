@@ -201,7 +201,7 @@ private fun ViewGroup.createOrUpdateChecklist(
             }
 
             binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
-                getApplication().formViewModel.setChecklistActive(id, checkedId)
+                getApplication().formViewModel.setChecklistRating(id, checkedId)
             }
             binding.radioGroup.check(rating)
             this.addView(it)

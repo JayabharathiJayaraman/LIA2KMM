@@ -923,7 +923,7 @@ data class FormSoilStructure(
         return state
     }
 
-    override fun setChecklistActive(
+    override fun setChecklistRating(
         id: String,
         rating: Int,
         state: FormViewModel.State
