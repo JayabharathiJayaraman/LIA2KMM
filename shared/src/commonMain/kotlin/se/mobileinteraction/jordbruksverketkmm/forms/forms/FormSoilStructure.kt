@@ -288,7 +288,7 @@ data class FormSoilStructure(
                     type = ComponentType.CHECKLIST,
                     title = "Markförhållanden",
                     options = listOf("Fuktigt", "Torrt", "Blött"),
-                    rating = (data as? FormDataSoilStructure)?.placeAssesment?.rating ?: -1,
+                    rating = (data as? FormDataSoilStructure)?.soilCondition?.condition ?: -1,
                 ),
             )
         ),
