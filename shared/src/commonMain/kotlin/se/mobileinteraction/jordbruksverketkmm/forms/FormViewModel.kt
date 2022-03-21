@@ -50,11 +50,11 @@ class FormViewModel constructor(
         updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
     }
 
-    fun setChecklistActive(id: String, active: Int) = state.value.components.firstOrNull {
+    fun setChecklistActive(id: String, rating: Int) = state.value.components.firstOrNull {
         it is FormComponentChecklist
     }.let {
         updateStateAndSave {
-            form.setChecklistActive(id, active, state.value).copy(counter = counter + 1)
+            form.setChecklistActive(id, rating, state.value).copy(counter = counter + 1)
         }
     }
 

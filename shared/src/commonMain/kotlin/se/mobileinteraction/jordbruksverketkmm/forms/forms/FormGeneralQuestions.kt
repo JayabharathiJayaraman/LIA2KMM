@@ -407,7 +407,7 @@ data class FormGeneralQuestions(
         state: FormViewModel.State
     ): FormViewModel.State {
         (state.form.data as? FormDataGeneralQuestions)?.placeAssesment?.rating = active
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
             active
         return state
     }

@@ -70,7 +70,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         checklist.id,
                         checklist.title,
                         checklist.options,
-                        checklist.active
+                        checklist.rating
                     )
                 }
                 ComponentType.REMARK -> {
@@ -177,7 +177,7 @@ private fun ViewGroup.createOrUpdateChecklist(
     id: String,
     title: String,
     options: List<String>,
-    active: Int
+    rating: Int
 ) {
     val binding: FormChecklistBinding = FormChecklistBinding.inflate(LayoutInflater.from(context))
     binding.title.text = title
@@ -203,7 +203,7 @@ private fun ViewGroup.createOrUpdateChecklist(
             binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
                 getApplication().formViewModel.setChecklistActive(id, checkedId)
             }
-            binding.radioGroup.check(active)
+            binding.radioGroup.check(rating)
             this.addView(it)
         }
 }

@@ -60,7 +60,7 @@ class FormComponentChecklist(
     override val id: String,
     val title: String,
     val options: List<String>,
-    var active: Int,
+    var rating: Int,
 ) : FormComponent
 
 class FormComponentRemark(
