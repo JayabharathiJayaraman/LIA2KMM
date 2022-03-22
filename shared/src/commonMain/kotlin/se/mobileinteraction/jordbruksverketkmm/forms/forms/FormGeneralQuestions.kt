@@ -159,9 +159,9 @@ data class FormGeneralQuestions(
                     id = ID_QUESTIONNAIRECROPHEALTH,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Ojämn uppkomst och luckiga bestånd.",
-                        "Något ojämn uppkomst och etablering av grödan.",
-                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
+                        "Hämmad tillväxt, missfärgning, eller stora ogräsproblem.",
+                        "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
+                        "Frisk och frodig gröda, och mycket små ogräsproblem.",
                     ),
                     answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRECROPHEALTH
@@ -180,9 +180,9 @@ data class FormGeneralQuestions(
                     id = ID_QUESTIONNAIREWATERINFERTATION,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Ojämn uppkomst och luckiga bestånd.",
-                        "Något ojämn uppkomst och etablering av grödan.",
-                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
+                        "Stående vatten kvar länge efter kraftiga regn eller bevattning.",
+                        "Vattnet rinner undan sakta, lite pölar.",
+                        "Vanligen inget vatten stående kvar efter kraftiga regn eller bevattning.",
                     ),
                     answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIREWATERINFERTATION
@@ -201,9 +201,9 @@ data class FormGeneralQuestions(
                     id = ID_QUESTIONNAIRESOILCRUST,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Ojämn uppkomst och luckiga bestånd.",
-                        "Något ojämn uppkomst och etablering av grödan.",
-                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
+                        "Skorpa bildas ofta, även efter lätta regn.",
+                        "Skorpa förekommer ibland, särskilt efter kraftigt regn eller bevattning.",
+                        "Skorpa bildas aldrig.",
                     ),
                     answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRESOILCRUST
@@ -232,9 +232,9 @@ data class FormGeneralQuestions(
                     id = ID_QUESTIONNAIRESTABLEHARVEST,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Ojämn uppkomst och luckiga bestånd.",
-                        "Något ojämn uppkomst och etablering av grödan.",
-                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
+                        "Stor skördevariation inom fältet och mellan åren.",
+                        "Viss skördevariation inom fält och mellan år.",
+                        "Jämna och - för området och jordarten - goda skördar.",
                     ),
                     answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRESTABLEHARVEST
