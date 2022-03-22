@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 
@@ -55,13 +56,14 @@ class FormViewModel constructor(
         }
     }
 
-    fun setQuestionnaireAnswer(id: String, answer: Int) = state.value.components.firstOrNull {
-        it is FormComponentQuestionnaire
-    }.let {
-        updateStateAndSave {
-            form.setQuestionnaireAnswer(id, answer, state.value).copy(counter = counter + 1)
+    fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer) =
+        state.value.components.firstOrNull {
+            it is FormComponentQuestionnaire
+        }.let {
+            updateStateAndSave {
+                form.setQuestionnaireAnswer(id, answer, state.value).copy(counter = counter + 1)
+            }
         }
-    }
 
     fun setButtonListActive(id: String, value: String) = state.value.components.firstOrNull {
         it is FormComponentButtonList
