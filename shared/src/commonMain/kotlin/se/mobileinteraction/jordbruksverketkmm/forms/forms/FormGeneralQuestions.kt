@@ -2,9 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
+import se.mobileinteraction.jordbruksverketkmm.forms.models.*
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormGeneralQuestions(
@@ -116,15 +114,17 @@ data class FormGeneralQuestions(
                     text = "Är det lätt att bearbeta jorden?"
                 ),
                 FormComponentQuestionnaire(
-                    id = "bearbetaJordenRemarkScreen4",
+                    id = ID_QUESTIONNAIRECULTIVATE,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Svårbearbetad jord som kräver många överfarter. Stort dragkraftsbehov.",
                         "Jordbearbetningen kräver ibland många överfarter. Relativt stort dragkraftsbehov.",
                         "Lättbearbetad jord, litet dragkraftsbehov.",
                     ),
-                    active = -1,
-                )
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRECULTIVATE
+                    }?.answer
+                ),
             )
         ),
         FormScreen(
@@ -135,15 +135,17 @@ data class FormGeneralQuestions(
                     text = "Är grödans etablering god?"
                 ),
                 FormComponentQuestionnaire(
-                    id = "grödansEtableringRemarkScreen5",
+                    id = ID_QUESTIONNAIRECROPESTABLISHMENT,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
                         "Ojämn uppkomst och luckiga bestånd.",
                         "Något ojämn uppkomst och etablering av grödan.",
                         "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     ),
-                    active = -1,
-                )
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRECROPESTABLISHMENT
+                    }?.answer
+                ),
             ),
         ),
         FormScreen(
@@ -154,15 +156,17 @@ data class FormGeneralQuestions(
                     text = "Är grödan frisk och frodig och konkurrerar väl med ogräsen?"
                 ),
                 FormComponentQuestionnaire(
-                    id = "grödanFriskRemarkScreen6",
+                    id = ID_QUESTIONNAIRECROPHEALTH,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Hämmad tillväxt, missfärgning, eller stora ogräsproblem.",
-                        "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
-                        "Frisk och frodig gröda, och mycket små ogräsproblem.",
+                        "Ojämn uppkomst och luckiga bestånd.",
+                        "Något ojämn uppkomst och etablering av grödan.",
+                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     ),
-                    active = -1,
-                )
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRECROPHEALTH
+                    }?.answer
+                ),
             ),
         ),
         FormScreen(
@@ -173,15 +177,17 @@ data class FormGeneralQuestions(
                     text = "Infiltrerar vatten snabbt?"
                 ),
                 FormComponentQuestionnaire(
-                    id = "InfiltrerarRemarkScreen7",
+                    id = ID_QUESTIONNAIREWATERINFERTATION,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Stående vatten kvar länge efter kraftiga regn eller bevattning.",
-                        "Vattnet rinner undan sakta, lite pölar.",
-                        "Vanligen inget vatten stående kvar efter kraftiga regn eller bevattning.",
+                        "Ojämn uppkomst och luckiga bestånd.",
+                        "Något ojämn uppkomst och etablering av grödan.",
+                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     ),
-                    active = -1,
-                )
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREWATERINFERTATION
+                    }?.answer
+                ),
             ),
         ),
         FormScreen(
@@ -192,14 +198,16 @@ data class FormGeneralQuestions(
                     text = "Förekommer skorpbildning?"
                 ),
                 FormComponentQuestionnaire(
-                    id = "förekommerRemarkScreen8",
+                    id = ID_QUESTIONNAIRESOILCRUST,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Skorpa bildas ofta, även efter lätta regn.",
-                        "Skorpa förekommer ibland, särskilt efter kraftigt regn eller bevattning.",
-                        "Skorpa bildas aldrig.",
+                        "Ojämn uppkomst och luckiga bestånd.",
+                        "Något ojämn uppkomst och etablering av grödan.",
+                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     ),
-                    active = -1,
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRESOILCRUST
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "skorpbildningTittleScreen8",
@@ -221,14 +229,16 @@ data class FormGeneralQuestions(
                     text = "Är skördenivåerna stabila?"
                 ),
                 FormComponentQuestionnaire(
-                    id = "skördenivåernaRemarkScreen9",
+                    id = ID_QUESTIONNAIRESTABLEHARVEST,
                     type = ComponentType.QUESTIONNAIRE,
                     text = listOf(
-                        "Stor skördevariation inom fältet och mellan åren.",
-                        "Viss skördevariation inom fält och mellan år.",
-                        "Jämna och - för området och jordarten - goda skördar.",
+                        "Ojämn uppkomst och luckiga bestånd.",
+                        "Något ojämn uppkomst och etablering av grödan.",
+                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     ),
-                    active = -1,
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRESTABLEHARVEST
+                    }?.answer
                 ),
             ),
         ),
@@ -240,7 +250,7 @@ data class FormGeneralQuestions(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
-                    id = FormGeneralQuestions.ID_COMMENT,
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
                     text = (data as? FormDataGeneralQuestions)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
@@ -347,6 +357,30 @@ data class FormGeneralQuestions(
         return state
     }
 
+    override fun setQuestionnaireAnswer(
+        id: String,
+        answer: QuestionnaireAnswer,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        with(state.form.data as? FormDataGeneralQuestions) {
+            val existingAnswer = this?.questionnaire?.answers?.firstOrNull { it.id == id }
+
+            if (existingAnswer != null) {
+                val newAnswer = existingAnswer.copy(answer = answer)
+                val index = this?.questionnaire?.answers?.indexOf(existingAnswer)
+                index?.let { this?.questionnaire?.answers?.set(index, newAnswer) }
+            } else {
+                val newAnswer = QuestionnaireAnswers(answer, id)
+                this?.questionnaire?.answers?.add(newAnswer)
+            }
+        }
+
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).answer =
+            answer
+
+        return state
+    }
+
     override fun setButtonlistActive(
         id: String,
         value: String,
@@ -358,23 +392,18 @@ data class FormGeneralQuestions(
         return state
     }
 
-    override fun setQuestionnaireAnswer(
-        id: String,
-        answer: Int,
-        state: FormViewModel.State
-    ): FormViewModel.State {
-        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).active =
-            answer
-        return state
-    }
-
     companion object {
         const val ID_FARMNAME = "FARMNAME"
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
         const val ID_COMMENT = "COMMENT"
+        const val ID_QUESTIONNAIRECULTIVATE = "QUESTIONNAIRECULTIVATE"
+        const val ID_QUESTIONNAIRECROPESTABLISHMENT = "QUESTIONNAIRECROPESTABLISHMENT"
+        const val ID_QUESTIONNAIRECROPHEALTH = "QUESTIONNAIRECROPHEALTH"
+        const val ID_QUESTIONNAIREWATERINFERTATION = "QUESTIONNAIREWATERINFERTATION"
+        const val ID_QUESTIONNAIRESOILCRUST = "QUESTIONNAIRESOILCRUST"
+        const val ID_QUESTIONNAIRESTABLEHARVEST = "QUESTIONNAIRESTABLEHARVEST"
     }
 }
 
