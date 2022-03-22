@@ -1,6 +1,5 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.maps
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -11,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -142,7 +140,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                     .strokeColor(Color.WHITE)
                     .fillColor(Color.YELLOW)
             )
-
             fragmentMapBinding?.wayPointLatitude?.text = "lat: $wayPointLatitude"
             fragmentMapBinding?.wayPointLongitude?.text = "lon: $wayPointLongitude"
 
@@ -154,43 +151,4 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             wayPointCircle!!.remove();
         }
     }
-
-    /*override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            MY_PERMISSION_FINE_LOCATION -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.checkSelfPermission(
-                        requireContext(),
-                        android.Manifest.permission.ACCESS_FINE_LOCATION
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    showCurrentLocation()
-                } else {
-                    if (ActivityCompat.shouldShowRequestPermissionRationale(
-                            requireActivity(),
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                        )
-                    ) {
-                        ActivityCompat.requestPermissions(
-                            requireActivity(),
-                            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                            MY_PERMISSION_FINE_LOCATION
-                        )
-                    } else {
-                        ActivityCompat.requestPermissions(
-                            requireActivity(),
-                            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                            MY_PERMISSION_FINE_LOCATION
-                        )
-                    }
-                }
-            } else {
-                showSwedenMap()
-            }
-        }
-    }*/
 }
