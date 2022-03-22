@@ -11,5 +11,10 @@ data class FormDataGeneralQuestions(
 // Only used by test 1
 
 data class Questionnaire(
-    val answers: List<QuestionnaireAnswer> = emptyList()
+    val answers: MutableList<QuestionnaireAnswers> = mutableListOf()
+)
+
+data class QuestionnaireAnswers(
+    var answer: QuestionnaireAnswer? = null,
+    var id: String = "",
 )
