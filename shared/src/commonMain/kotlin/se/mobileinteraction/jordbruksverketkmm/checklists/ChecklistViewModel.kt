@@ -5,7 +5,7 @@ import se.mobileinteraction.jordbruksverketkmm.checklists.models.ChecklistItem
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 
-class ChecklistViewModel constructor(
+class ChecklistViewModel (
     val checklist: Checklist,
     private val count: Int
 ) : ViewModelState<ChecklistViewModel.State> by ViewModelStateImpl(State(checklist, count)) {

@@ -103,6 +103,9 @@
                                                                     <real key="value" value="20"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="GrundforbattringarBtn:" destination="-1" eventType="touchUpInside" id="GyC-Sg-yFG"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-UV-J1M" userLabel="GrundLabelBtn">
                                                             <rect key="frame" x="20" y="20" width="57.5" height="30"/>
@@ -153,6 +156,9 @@
                                                                     <real key="value" value="20"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="OdlingsatgarderBtn:" destination="-1" eventType="touchUpInside" id="jjd-CK-c07"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nv-zR-Tn3" userLabel="OdlingsLabelBtn">
                                                             <rect key="frame" x="20" y="20" width="57.5" height="30"/>
@@ -202,6 +208,9 @@
                                                                     <real key="value" value="20"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="UndvikBtn:" destination="-1" eventType="touchUpInside" id="jay-kc-eIF"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBP-t2-ebl" userLabel="UndvikLabelBtn">
                                                             <rect key="frame" x="20" y="20" width="57.5" height="81.5"/>

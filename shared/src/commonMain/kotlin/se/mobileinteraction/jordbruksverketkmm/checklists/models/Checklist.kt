@@ -15,6 +15,7 @@ enum class ChecklistCategory(val categoryName: String) {
     UNDVIKELLERMINIMERA("UndvikEllerMinimera")
 }
 
+
 enum class ChecklistItemStates(val state: List<ChecklistItem>) {
     GRUNDFORBATTRINGAR(
         listOf<ChecklistItem>(

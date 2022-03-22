@@ -34,7 +34,24 @@ class VardaMarkstrukturViewController: UIViewController {
 
         setUpLabels()
     }
-
+    
+    @IBAction func GrundforbattringarBtn(_ sender: UIButton) {
+        navigateToChecklistfunNavigateToChecklist()
+    }
+    
+    @IBAction func OdlingsatgarderBtn(_ sender: UIButton) {
+        navigateToChecklistfunNavigateToChecklist()
+    }
+    
+    @IBAction func UndvikBtn(_ sender: UIButton) {
+        navigateToChecklistfunNavigateToChecklist()
+    }
+    
+    func navigateToChecklistfunNavigateToChecklist(){
+        let checklistViewController = ChecklistViewController()
+        navigationController?.pushViewController(checklistViewController, animated: true)
+    }
+    
     func setUpLabels(){
         Label_1.text = "varda_markstruktur_beskrivning".localized
         MainText.text = "varda_markstruktur_main_text".localized

@@ -15,6 +15,8 @@
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
 		512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */; };
 		512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */; };
+		513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */; };
+		513BD48327E8C1DE004FC538 /* ChecklistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 513BD48127E8C1DE004FC538 /* ChecklistViewController.xib */; };
 		516983B627E8792F00FB6826 /* IOSChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */; };
 		9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
 		9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */; };
@@ -145,6 +147,8 @@
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
 		512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VardaMarkstrukturViewController.swift; sourceTree = "<group>"; };
 		512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VardaMarkstrukturViewController.xib; sourceTree = "<group>"; };
+		513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		513BD48127E8C1DE004FC538 /* ChecklistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChecklistViewController.xib; sourceTree = "<group>"; };
 		516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChecklistViewModel.swift; sourceTree = "<group>"; };
 		9D07BE0627BBC39B00FF1D55 /* IOSFormGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFormGenerator.swift; sourceTree = "<group>"; };
 		9D07BE0A27BBD57100FF1D55 /* DataPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPrivacyViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +265,15 @@
 			path = VardaMarkstrukturViewController;
 			sourceTree = "<group>";
 		};
+		513BD47F27E8C1A9004FC538 /* ChecklistViewController */ = {
+			isa = PBXGroup;
+			children = (
+				513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */,
+				513BD48127E8C1DE004FC538 /* ChecklistViewController.xib */,
+			);
+			path = ChecklistViewController;
+			sourceTree = "<group>";
+		};
 		516983B427E878FA00FB6826 /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +383,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				513BD47F27E8C1A9004FC538 /* ChecklistViewController */,
 				512382BD27E4D45D00016913 /* VardaMarkstrukturViewController */,
 				9D5A8C9D27DB52C200239E45 /* NewTestViewController */,
 				9D5A8C9427DA37C400239E45 /* SettingsViewController */,
@@ -619,6 +633,7 @@
 				9D07BE2527BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
 				9D07BE2E27BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
+				513BD48327E8C1DE004FC538 /* ChecklistViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
+				513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D5A8C8827DA261400239E45 /* UIView.swift in Sources */,
 				516983B627E8792F00FB6826 /* IOSChecklistViewModel.swift in Sources */,
