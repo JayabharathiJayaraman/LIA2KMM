@@ -33,9 +33,19 @@ final class ModalViewController: UIViewController {
 
     func present(using presentingViewController: UIViewController) {
         view.alpha = .zero
+
         presentingViewController.view.addSubview(view)
         presentingViewController.addChild(self)
         didMove(toParent: presentingViewController)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            view.topAnchor.constraint(equalTo: presentingViewController.view.topAnchor),
+            view.trailingAnchor.constraint(equalTo: presentingViewController.view.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: presentingViewController.view.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: presentingViewController.view.leadingAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
 
         navigationController?.navigationBar.layer.zPosition = -1.0
 
