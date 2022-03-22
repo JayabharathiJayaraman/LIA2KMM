@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ButtonListViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="zbU-8U-tuD" id="XfS-2X-fNg"/>
+                <outlet property="tableView" destination="PCS-mu-P9F" id="oVT-ks-Kwj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-WV-s4k" userLabel="Container View">
+                    <rect key="frame" x="16" y="70" width="382" height="756"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PCS-mu-P9F">
+                            <rect key="frame" x="16" y="16" width="350" height="724"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbU-8U-tuD" userLabel="Close Button">
+                            <rect key="frame" x="327" y="8" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="LCd-EV-x3v"/>
+                                <constraint firstAttribute="height" constant="44" id="lTK-7c-1j7"/>
+                            </constraints>
+                            <color key="tintColor" name="AboutSectionTitleColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="kryss-small"/>
+                            <connections>
+                                <action selector="handleCloseButtonTap:" destination="-1" eventType="touchUpInside" id="Qcd-R2-ID5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="PCS-mu-P9F" secondAttribute="trailing" constant="16" id="Ahx-oY-DVp"/>
+                        <constraint firstAttribute="trailing" secondItem="zbU-8U-tuD" secondAttribute="trailing" constant="11" id="Db0-fj-iSh"/>
+                        <constraint firstItem="zbU-8U-tuD" firstAttribute="top" secondItem="OVc-WV-s4k" secondAttribute="top" constant="8" id="Mi7-RB-RTY"/>
+                        <constraint firstAttribute="bottom" secondItem="PCS-mu-P9F" secondAttribute="bottom" constant="16" id="UKl-Dh-lwd"/>
+                        <constraint firstItem="PCS-mu-P9F" firstAttribute="leading" secondItem="OVc-WV-s4k" secondAttribute="leading" constant="16" id="bn3-Vi-CFO"/>
+                        <constraint firstItem="PCS-mu-P9F" firstAttribute="top" secondItem="OVc-WV-s4k" secondAttribute="top" constant="16" id="pCr-mW-IdY"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="b6o-kS-ZMn"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79541347789115646" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="OVc-WV-s4k" secondAttribute="bottom" constant="70" id="3aV-UJ-Udx"/>
+                <constraint firstItem="b6o-kS-ZMn" firstAttribute="trailing" secondItem="OVc-WV-s4k" secondAttribute="trailing" constant="16" id="5XK-Bh-zcm"/>
+                <constraint firstItem="OVc-WV-s4k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="8VD-Nt-Ahz"/>
+                <constraint firstItem="OVc-WV-s4k" firstAttribute="leading" secondItem="b6o-kS-ZMn" secondAttribute="leading" constant="16" id="hgc-bm-Lf7"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="kryss-small" width="15" height="15"/>
+        <namedColor name="AboutSectionTitleColor">
+            <color red="0.19499999284744263" green="0.40400001406669617" blue="0.11299999803304672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
