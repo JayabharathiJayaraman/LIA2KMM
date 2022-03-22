@@ -95,10 +95,10 @@ extension UIStackView {
         imageView.image = UIImage(named: imageName)
         imageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        
+        imageView.contentMode = .scaleAspectFit
         let label = getDefaultLabel()
         label.text = caption
-        label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .caption2)
+        label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true
         label.textAlignment = .left
         
@@ -225,30 +225,32 @@ extension UIStackView {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpace = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpace)
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: image)
-            imageView.frame = CGRect(x: 20, y: 75, width: 75, height: 75)
-            
-            let paddedView = UIView()
-            paddedView.addSubview(imageView)
-            paddedView.backgroundColor = .white
-            paddedView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-            paddedView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            
-            let label = getDefaultLabel()
-            label.text = text
-            label.textColor =  UIColor.Jordbruksverket.defaultTextColor
-            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .caption1)
             
             let stackView = UIStackView()
             stackView.axis = .horizontal
+           // stackView.distribution = .fillEqually
             stackView.backgroundColor = .white
-            self.addArrangedSubview(stackView)
-            stackView.heightAnchor.constraint(equalToConstant: 230).isActive = true
             stackView.cornerRadius = 10
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: image)
+           imageView.frame = CGRect(x: 0, y:20, width: 75, height: 75)
+            
+            let paddedView = UIView()
+            
+            paddedView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            paddedView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+            
+            let label = getDefaultLabel()
+            label.text = text
+            label.textAlignment = .left
+            
+            label.textColor =  UIColor.Jordbruksverket.defaultTextColor
+            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
+            
+            self.addArrangedSubview(stackView)
+            paddedView.addSubview(imageView)
             stackView.addArrangedSubview(paddedView)
             stackView.addArrangedSubview(label)
-
        }
     }
     
@@ -303,12 +305,11 @@ extension UIStackView {
             let label = getDefaultLabel()
             label.textAlignment = .left
             label.text = text
-            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .caption1)
+            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
             
             let stackView = UIStackView()
             stackView.axis = .horizontal
             self.addArrangedSubview(stackView)
-            stackView.heightAnchor.constraint(equalToConstant: 170).isActive = true
             stackView.cornerRadius = 10
             stackView.addArrangedSubview(paddedView)
             stackView.addArrangedSubview(label)
