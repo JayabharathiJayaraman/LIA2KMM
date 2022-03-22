@@ -1,11 +1,6 @@
-//
-//  VardaMarkstrukturViewController.swift
-//  JordbruksverketKMMiOS
-//
-//  Created by David Dahlman on 2022-03-18.
-//
 
 import UIKit
+import shared
 
 class VardaMarkstrukturViewController: UIViewController {
 
@@ -36,14 +31,17 @@ class VardaMarkstrukturViewController: UIViewController {
     }
     
     @IBAction func GrundforbattringarBtn(_ sender: UIButton) {
+        IOSChecklistViewModel.shared = IOSChecklistViewModel.grundforbattringarViewModel
         navigateToChecklistfunNavigateToChecklist()
     }
     
     @IBAction func OdlingsatgarderBtn(_ sender: UIButton) {
+        IOSChecklistViewModel.shared = IOSChecklistViewModel.odlingsatgarderrViewModel
         navigateToChecklistfunNavigateToChecklist()
     }
     
     @IBAction func UndvikBtn(_ sender: UIButton) {
+        IOSChecklistViewModel.shared = IOSChecklistViewModel.undvikViewModel
         navigateToChecklistfunNavigateToChecklist()
     }
     

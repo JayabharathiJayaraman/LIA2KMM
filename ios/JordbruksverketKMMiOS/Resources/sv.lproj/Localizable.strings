@@ -6,12 +6,12 @@
 "StartScreenPlantLabel" = "Vårda markstruktur";
 "Hej" = "Hej!";
 "dummy"="dummy";
-"CheckList_Grundförbättringar_title" = "Grundförbättringar";
-"CheckList_Grundförbättringar_text" = "Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.";
-"CheckList_Odlingsåtgärder_title"="Odlingsåtgärder";
-"CheckList_Odlingsåtgärder_text"="Åtgärder i odlingssystemet med positiv effekt på markstrukturen";
-"CheckList_UndvikEllerMinimera_title"="Undvik eller minimera";
- "CheckList_UndvikEllerMinimera_text"="Lika viktigt som det är att införa åtgärder som bygger upp markstrukturen lika viktigt är det att undvika att förstöra den goda markstruktur man byggt upp.";
+"CheckList_Grundförbättringar_title" = "Grundförbättringar\n";
+"CheckList_Grundförbättringar_text" = "Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.\n";
+"CheckList_Odlingsåtgärder_title"="Odlingsåtgärder\n";
+"CheckList_Odlingsåtgärder_text"="Åtgärder i odlingssystemet med positiv effekt på markstrukturen\n";
+"CheckList_UndvikEllerMinimera_title"="Undvik eller minimera\n";
+ "CheckList_UndvikEllerMinimera_text"="Lika viktigt som det är att införa åtgärder som bygger upp markstrukturen lika viktigt är det att undvika att förstöra den goda markstruktur man byggt upp.\n";
 "CheckListItem_Huvudavvattning_title" = "Huvudavvattning";
 "CheckListItem_Huvudavvattning_text" = "God dränering och att avleda dräneringsvattenet från fältet är den viktigaste åtgärden. Se över brunnar, underhåll öppna diken och kulvertar.";
 "CheckListItem_OrganiskaMaterial_title" = "Organiska material";
@@ -42,6 +42,12 @@
  "CheckListItem_MinimeraAntaletÖverfarter_text" = "Minskar risken för att man kör vid ogynnsamma tillfällen";
 "CheckListItem_MinimeraAndelenBarMark_title" = "Undvik tunga maskiner";
 "CheckListItem_MinimeraAndelenBarMark_text" = "Bevuxen mark skyddar mot erosion och ger bra upptorkning";
+"check_list_text1" = "Anpassa listan efter dina egna förutsättningar. Välj bort de åtgärder som inte är aktuella genom att trycka på krysset till vänster. Du kan alltid lägga till åtgärderna igen om något förändras.";
+"check_list_label_atgardslista" = "Åtgärdslista";
+"check_list_text_3" = "Flytta reglaget åt höger om åtgärden är utförd.";
+"check_list_label_ej_aktuella_atgarder" = "Ej Aktuella åtgärder";
+"check_list_text_4" = "De åtgärder du tar bort från gårdens lista hamnar här. Lägg till åtgärder till gårdens lista igen genom att trycka på plusset";
+
 "DataPrivacyPolicyTILLBAKA" = "TILLBAKA";
 "DataPrivacyPolicyPageLabel" = "UTVECKLARE";
 "DataPrivacyPolicyApplikationen" = "Applikationen";
