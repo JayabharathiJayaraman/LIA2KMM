@@ -5,7 +5,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormInfiltrations(
@@ -475,12 +475,10 @@ data class FormInfiltrations(
 
     override fun setQuestionnaireAnswer(
         id: String,
-        answer: Int,
+        answer: QuestionnaireAnswer,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataSoilStructure)?.placeAssesment?.rating = answer
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).active =
-            answer
+        // TODO: Find a way to implement function only where used (test 1 and 2)
         return state
     }
 
