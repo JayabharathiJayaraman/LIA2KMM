@@ -75,7 +75,7 @@ class IOSFormGenerator: FormGenerator {
             case .resultsimages:
                 if let resultsImages = component as? FormComponentResultsImages{
                     mainView.addCaptionedImages(screenTag: screenTag, id: resultsImages.id,imageNames: resultsImages.images,captions: resultsImages.imagesTextList)
-                    }
+                }
             default:
                 print("unknown component")
             }
@@ -99,7 +99,6 @@ extension UIStackView {
         let label = getDefaultLabel()
         label.text = caption
         label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
-        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
         label.textAlignment = .left
         
         stackView.addArrangedSubview(imageView)
@@ -111,12 +110,11 @@ extension UIStackView {
     
     func addBigTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
-            
             let label = getDefaultLabel()
             label.text = text
             label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
-
+            
             self.addArrangedSubview(label)
         }
     }
@@ -125,12 +123,12 @@ extension UIStackView {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 20)
             self.addArrangedSubview(verticalSpacing)
-            
+
             let label = getDefaultLabel()
             label.text = text
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
             label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
-     //       label.heightAnchor.constraint(equalToConstant: 90).isActive = true
+            
             self.addArrangedSubview(label)
         }
     }
@@ -139,6 +137,7 @@ extension UIStackView {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
+            
             let stackView = UIStackView()
             stackView.axis = .vertical
             self.addArrangedSubview(stackView)
@@ -146,29 +145,29 @@ extension UIStackView {
             label.tag = screenTag
             label.text = text
             label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-        
+            
             stackView.addArrangedSubview(label)
         }
     }
     
     func createOrUpdateTextField(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
-                (view as? TextFieldWithId)?.idString == id
-            }) as? TextFieldWithId) {
-                existingView.text = text
-            } else {
-                let verticalSpacing = getVerticalSpacingView(withHeight: 10)
-                self.addArrangedSubview(verticalSpacing)
-                
-                let textField = TextFieldWithId()
-                textField.text = text
-                textField.placeholder = placeholder
-                textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-                textField.textColor = UIColor.Jordbruksverket.defaultTextColor
-                textField.idString = id
-                textField.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
-                
-                self.addArrangedSubview(textField)
+            (view as? TextFieldWithId)?.idString == id
+        }) as? TextFieldWithId) {
+            existingView.text = text
+        } else {
+            let verticalSpacing = getVerticalSpacingView(withHeight: 10)
+            self.addArrangedSubview(verticalSpacing)
+            
+            let textField = TextFieldWithId()
+            textField.text = text
+            textField.placeholder = placeholder
+            textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+            textField.textColor = UIColor.Jordbruksverket.defaultTextColor
+            textField.idString = id
+            textField.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+            
+            self.addArrangedSubview(textField)
         }
     }
     
@@ -180,44 +179,45 @@ extension UIStackView {
     
     func addButtonList(screenTag: Int, id: String, title: String, list: [String], value: String, placeholder: String) {
         addSmallTitleLabel(screenTag: screenTag, text: title)
-                let verticalSpacing = getVerticalSpacingView(withHeight: 5)
-                self.addArrangedSubview(verticalSpacing)
-                let button = UIButton()
-                button.setTitle(placeholder, for: .normal)
-                button.setTitleColor(UIColor.Jordbruksverket.buttonTitleColor, for: .normal)
-                button.contentHorizontalAlignment = .left
-                button.backgroundColor = .white
-                button.contentEdgeInsets = UIEdgeInsets(top: 11, left: 12, bottom: 11, right: 12)
-                button.layer.cornerRadius = 4
-                button.layer.shadowColor = UIColor.black.cgColor
-                button.layer.shadowRadius = 5
-                button.layer.shadowOpacity = 0.5
-                button.layer.shadowOffset = CGSize(width: 0, height: 3)
-                button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .caption1)
-                button.titleLabel?.adjustsFontForContentSizeCategory = true
-                
-                self.addArrangedSubview(button)
+        let verticalSpacing = getVerticalSpacingView(withHeight: 5)
+        self.addArrangedSubview(verticalSpacing)
+        
+        let button = UIButton()
+        button.setTitle(placeholder, for: .normal)
+        button.setTitleColor(UIColor.Jordbruksverket.buttonTitleColor, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.backgroundColor = .white
+        button.contentEdgeInsets = UIEdgeInsets(top: 11, left: 12, bottom: 11, right: 12)
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 5
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .caption1)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        
+        self.addArrangedSubview(button)
     }
     
     func addButton(screenTag: Int, id: String, text: String){
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
-        let verticalSpacing = getVerticalSpacingView(withHeight: 30)
-        self.addArrangedSubview(verticalSpacing)
-        let button = UIButton()
-        
-        let widthConstraint = button.widthAnchor.constraint(equalToConstant: 30.0)
-        let heightConstraint = button.heightAnchor.constraint(equalToConstant: 30.0)
-        NSLayoutConstraint.activate([widthConstraint, heightConstraint])
-        heightConstraint.constant = 80
-        button.setTitle(text, for: .normal)
-        button.titleLabel!.lineBreakMode = .byWordWrapping
-        button.setTitleColor(UIColor.Jordbruksverket.buttonTitleColor, for: .normal)
-        button.contentHorizontalAlignment = .center
-        button.backgroundColor = .white
-        button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-                                         
-        self.addArrangedSubview(button)
+            let verticalSpacing = getVerticalSpacingView(withHeight: 30)
+            self.addArrangedSubview(verticalSpacing)
+            
+            let button = UIButton()
+            let widthConstraint = button.widthAnchor.constraint(equalToConstant: 30.0)
+            let heightConstraint = button.heightAnchor.constraint(equalToConstant: 30.0)
+            NSLayoutConstraint.activate([widthConstraint, heightConstraint])
+            heightConstraint.constant = 80
+            button.setTitle(text, for: .normal)
+            button.titleLabel!.lineBreakMode = .byWordWrapping
+            button.setTitleColor(UIColor.Jordbruksverket.buttonTitleColor, for: .normal)
+            button.contentHorizontalAlignment = .center
+            button.backgroundColor = .white
+            button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
+            button.titleLabel?.adjustsFontForContentSizeCategory = true
+            
+            self.addArrangedSubview(button)
         }
     }
     
@@ -226,32 +226,12 @@ extension UIStackView {
             let verticalSpace = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpace)
             
-            let stackView = UIStackView()
-            stackView.axis = .horizontal
-           // stackView.distribution = .fillEqually
-            stackView.backgroundColor = .white
-            stackView.cornerRadius = 10
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: image)
-           imageView.frame = CGRect(x: 0, y:20, width: 75, height: 75)
-            
-            let paddedView = UIView()
-            
-            paddedView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-            paddedView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-            
-            let label = getDefaultLabel()
-            label.text = text
-            label.textAlignment = .left
-            
-            label.textColor =  UIColor.Jordbruksverket.defaultTextColor
-            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
-            
-            self.addArrangedSubview(stackView)
-            paddedView.addSubview(imageView)
-            stackView.addArrangedSubview(paddedView)
-            stackView.addArrangedSubview(label)
-       }
+            let faceRemarkView = FaceRemarkView()
+            faceRemarkView.configure(image: UIImage(named: image), text: text){
+                print("buttonTapped")
+            }
+            self.addArrangedSubview(faceRemarkView)
+        }
     }
     
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
@@ -262,6 +242,7 @@ extension UIStackView {
         } else {
             let verticalSpacing = getVerticalSpacingView(withHeight: 30)
             self.addArrangedSubview(verticalSpacing)
+            
             let textField = TextFieldWithId()
             let stackView = UIStackView()
             self.addArrangedSubview(stackView)
@@ -280,94 +261,64 @@ extension UIStackView {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpace = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpace)
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: image)
-            imageView.frame = CGRect(x: 20, y: 35, width: 75, height: 75)
-            imageView.layer.cornerRadius = 40
-            if(color == "red_round_background")
-            {
-                imageView.backgroundColor =  UIColor.Jordbruksverket.redRoundBackGround
-            }
-            if(color == "orange_round_background")
-            {
-                imageView.backgroundColor =  UIColor.Jordbruksverket.orangeRoundBackGround
-            }
-            if(color == "green_round_background")
-            {
-                imageView.backgroundColor =  UIColor.Jordbruksverket.greenRoundBackGround
-            }
             
-            let paddedView = UIView()
-            paddedView.addSubview(imageView)
-            paddedView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-            paddedView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            
-            let label = getDefaultLabel()
-            label.textAlignment = .left
-            label.text = text
-            label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
-            
-            let stackView = UIStackView()
-            stackView.axis = .horizontal
-            self.addArrangedSubview(stackView)
-            stackView.cornerRadius = 10
-            stackView.addArrangedSubview(paddedView)
-            stackView.addArrangedSubview(label)
-            
-       }
+            let faceRemarkView = FaceRemarkView()
+            faceRemarkView.configureResult(image: UIImage(named: image), text: text, color: color)
         
+            self.addArrangedSubview(faceRemarkView)
+        }
     }
     
     func addCaptionedImages(screenTag: Int, id: String, imageNames: [String], captions: [String])
-      {
+    {
         if imageNames.count == 3
         {
-          var captionedImages = [UIStackView]()
-          for i in 0...2{
-            captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
-          }
-          if (id == "vadNuImagesScreen10"){
             var captionedImages = [UIStackView]()
             for i in 0...2{
-              captionedImages += [addResultsImages(id: id,names: imageNames[i],captions:captions[i])]
+                captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
             }
-          }
-        let horizontalImageView1 = UIStackView(arrangedSubviews: captionedImages)
-        horizontalImageView1.axis = .horizontal
-        horizontalImageView1.distribution = .fillEqually
-        horizontalImageView1.alignment = .fill
-        horizontalImageView1.spacing = 10
-        horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
-        self.addArrangedSubview(horizontalImageView1)
+            if (id == "vadNuImagesScreen10"){
+                var captionedImages = [UIStackView]()
+                for i in 0...2{
+                    captionedImages += [addResultsImages(id: id,names: imageNames[i],captions:captions[i])]
+                }
+            }
+            let horizontalImageView1 = UIStackView(arrangedSubviews: captionedImages)
+            horizontalImageView1.axis = .horizontal
+            horizontalImageView1.distribution = .fillEqually
+            horizontalImageView1.alignment = .fill
+            horizontalImageView1.spacing = 10
+            horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
+            self.addArrangedSubview(horizontalImageView1)
         }
         if imageNames.count > 3
         {
-          var captionedImages1 = [UIStackView]()
-          for i in 0...2{
-            captionedImages1 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
-          }
-          let horizontalImageView1 = UIStackView(arrangedSubviews: captionedImages1)
-          horizontalImageView1.axis = .horizontal
-          horizontalImageView1.distribution = .fillEqually
-          horizontalImageView1.alignment = .fill
-          horizontalImageView1.spacing = 10
-          horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
-              self.addArrangedSubview(horizontalImageView1)
-          var captionedImages2 = [UIStackView]()
-          for i in 3...4{
-            captionedImages2 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
-          }
-          let horizontalImageView2 = UIStackView(arrangedSubviews: captionedImages2)
-          horizontalImageView2.axis = .horizontal
-          horizontalImageView2.distribution = .fillEqually
-          horizontalImageView2.alignment = .fill
-          horizontalImageView2.spacing = 10
-          horizontalImageView2.translatesAutoresizingMaskIntoConstraints = false
-              self.addArrangedSubview(horizontalImageView2)
+            var captionedImages1 = [UIStackView]()
+            for i in 0...2{
+                captionedImages1 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
+            }
+            let horizontalImageView1 = UIStackView(arrangedSubviews: captionedImages1)
+            horizontalImageView1.axis = .horizontal
+            horizontalImageView1.distribution = .fillEqually
+            horizontalImageView1.alignment = .fill
+            horizontalImageView1.spacing = 10
+            horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
+            self.addArrangedSubview(horizontalImageView1)
+            var captionedImages2 = [UIStackView]()
+            for i in 3...4{
+                captionedImages2 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
+            }
+            let horizontalImageView2 = UIStackView(arrangedSubviews: captionedImages2)
+            horizontalImageView2.axis = .horizontal
+            horizontalImageView2.distribution = .fillEqually
+            horizontalImageView2.alignment = .fill
+            horizontalImageView2.spacing = 10
+            horizontalImageView2.translatesAutoresizingMaskIntoConstraints = false
+            self.addArrangedSubview(horizontalImageView2)
         }
-      }
+    }
     
-      func addGridImages(id: String,names:String,captions:String) -> UIStackView{
+    func addGridImages(id: String,names:String,captions:String) -> UIStackView{
         let imageStackView = UIStackView()
         imageStackView.axis = .vertical
         imageStackView.distribution = .fillEqually
@@ -392,10 +343,9 @@ extension UIStackView {
         imageStackView.addArrangedSubview(imageView)
         imageStackView.addArrangedSubview(captionStackView)
         return imageStackView
-      }
+    }
     
     func addResultsImages(id: String,names:String,captions:String)-> UIStackView{
-        print("ID inside addResultsImages:", id)
         let imageStackView = UIStackView()
         imageStackView.axis = .vertical
         imageStackView.distribution = .fillEqually
@@ -423,8 +373,8 @@ extension UIStackView {
         imageStackView.addArrangedSubview(imageView)
         imageStackView.addArrangedSubview(captionStackView)
         return imageStackView
-      }
-        
+    }
+    
     func getDefaultLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
