@@ -12,6 +12,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
 
 class AndroidFormGenerator(private val context: Context, private val viewModel: FormViewModel) :
@@ -75,10 +76,10 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.QUESTIONNAIRE -> {
                     val questionnaire = (component as FormComponentQuestionnaire)
-                    mainView.createOrUpdateRemark(
+                    mainView.createOrUpdateQuestionnaire(
                         questionnaire.id,
                         questionnaire.text,
-                        questionnaire.active
+                        questionnaire.answer
                     )
                 }
 
@@ -243,10 +244,10 @@ private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, pla
         }
 }
 
-private fun ViewGroup.createOrUpdateRemark(
+private fun ViewGroup.createOrUpdateQuestionnaire(
     id: String,
     text: List<String>,
-    active: Int
+    answer: QuestionnaireAnswer?
 ) {
     val binding: FormQuestionnaireChecklistBinding =
         FormQuestionnaireChecklistBinding.inflate(LayoutInflater.from(context))
@@ -256,10 +257,31 @@ private fun ViewGroup.createOrUpdateRemark(
             binding.radioButtonSad.text = text[0]
             binding.radioButtonIndifferent.text = text[1]
             binding.radioButtonHappy.text = text[2]
-            binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
-                getApplication().formViewModel.setQuestionnaireAnswer(id, checkedId)
+
+            binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
+                when (checkedId) {
+                    binding.radioButtonSad.id -> getApplication().formViewModel.setQuestionnaireAnswer(
+                        id,
+                        QuestionnaireAnswer.Poor
+                    )
+                    binding.radioButtonIndifferent.id -> getApplication().formViewModel.setQuestionnaireAnswer(
+                        id,
+                        QuestionnaireAnswer.Mediocre
+                    )
+                    binding.radioButtonHappy.id -> getApplication().formViewModel.setQuestionnaireAnswer(
+                        id,
+                        QuestionnaireAnswer.Good
+                    )
+                }
             }
-            binding.radioGroup.check(active)
+            when (answer) {
+                QuestionnaireAnswer.Good -> binding.radioGroup.check(binding.radioButtonHappy.id)
+                QuestionnaireAnswer.Mediocre -> binding.radioGroup.check(binding.radioButtonIndifferent.id)
+                QuestionnaireAnswer.Poor -> binding.radioGroup.check(binding.radioButtonSad.id)
+                else -> {
+                    binding.radioGroup.check(-1)
+                }
+            }
             this.addView(it)
         }
 }
@@ -393,17 +415,6 @@ private fun ViewGroup.createOrUpdateVideo(id: String, description: String, sourc
     binding.videoview.setMediaController(mc)
     binding.videoview.setVideoURI(Uri.parse(getVideoPath(source)))
     binding.videoview.seekTo(1)
-}
-
-private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String, caption: String) {
-    val binding: FormImageviewCaptionBinding =
-        FormImageviewCaptionBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formImageviewCaptionContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-
-    binding.imageview.setImageResource(getImageResource(imageName))
-    binding.textviewCaption.text = caption
-
 }
 
 private fun ViewGroup.createOrUpdateResultsInfoBody(text: String, id: String) {
