@@ -1,4 +1,5 @@
 package se.mobileinteraction.jordbruksverketkmm.forms.components
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
 enum class ComponentType {
     TITLEBIG,
@@ -66,7 +67,7 @@ class FormComponentQuestionnaire(
     override val type: ComponentType,
     override val id: String,
     val text: List<String>,
-    var active: Int
+    var answer: QuestionnaireAnswer?
 ) : FormComponent
 
 class FormComponentImage(
