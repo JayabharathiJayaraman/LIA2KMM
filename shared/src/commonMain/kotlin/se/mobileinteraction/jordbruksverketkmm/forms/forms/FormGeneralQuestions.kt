@@ -93,6 +93,7 @@ data class FormGeneralQuestions(
                     title = "Jordart",
                     value = (data as? FormDataGeneralQuestions)?.soilAssesment?.soilType ?: "",
                     placeholder = "Välj...",
+                    position = -1
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen3",
@@ -418,14 +419,20 @@ data class FormGeneralQuestions(
         return state
     }
 
-    override fun setButtonlistActive(
+    override fun setButtonlistData(
         id: String,
         value: String,
+        active: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataGeneralQuestions)?.soilAssesment?.crop = value
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
-            value
+        with(state.form.data) {
+            when (id) {
+                ID_SOILTYPE -> (this as? FormDataGeneralQuestions)?.soilAssesment?.soilType = value
+            }
+        }
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).position =
+            active
+
         return state
     }
 

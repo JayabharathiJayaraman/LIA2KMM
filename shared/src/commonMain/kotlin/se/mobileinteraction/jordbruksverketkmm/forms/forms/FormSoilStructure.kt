@@ -153,7 +153,7 @@ data class FormSoilStructure(
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = FormGeneralQuestions.ID_SOILTYPE,
+                    id = ID_SOILTYPE,
                     title = "Jordart",
                     list = listOf(
                         "Sand, grovmo",
@@ -168,6 +168,7 @@ data class FormSoilStructure(
                         "Mulljord (gyttjejord under)"
                     ),
                     value = (data as? FormDataSoilStructure)?.soilAssesment?.soilType ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -194,7 +195,7 @@ data class FormSoilStructure(
                     text = "Grundförutsättningar"
                 ),
                 FormComponentButtonList(
-                    id = "cropChecklistScreen6",
+                    id = ID_CROP,
                     type = ComponentType.BUTTONLIST,
                     title = "Gröda",
                     list = listOf(
@@ -217,10 +218,11 @@ data class FormSoilStructure(
                         "Ingen gröda - öppen jord"
                     ),
                     value = (data as? FormDataSoilStructure)?.soilAssesment?.crop ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
-                    id = "preFruitChecklistScreen6",
+                    id = ID_PRECEDINGCROP,
                     type = ComponentType.BUTTONLIST,
                     title = "Förfruktsgröda",
                     list = listOf(
@@ -243,14 +245,16 @@ data class FormSoilStructure(
                         "Ingen gröda - öppen jord"
                     ),
                     value = (data as? FormDataSoilStructure)?.soilAssesment?.precedingCrop ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
-                    id = "tillageChecklistScreen6",
+                    id = ID_SOILHANDLING,
                     type = ComponentType.BUTTONLIST,
                     title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
                     value = (data as? FormDataSoilStructure)?.soilAssesment?.soilHandling ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
             )
@@ -284,7 +288,7 @@ data class FormSoilStructure(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentChecklist(
-                    id = ID_SOILCONDITION,
+                    id = ID_CROP,
                     type = ComponentType.CHECKLIST,
                     title = "Markförhållanden",
                     options = listOf("Fuktigt", "Torrt", "Blött"),
@@ -302,12 +306,10 @@ data class FormSoilStructure(
                 FormComponentText(
                     id = "groundProfileBodyScreen9",
                     type = ComponentType.BODY,
-                    text = "Gräv en grop som är minst 40cm djup och minst 50cm bred." +
-                            " Undvik körspår och annat som avviker" +
-                            " (om det inte är det du vill titta på)\n\n" +
-                            "Det kan vara intressant att gräva djupare om du gjort djupa" +
-                            " jordbearbetningar eller det finns rötter som går ner långt," +
-                            " men behövs inte för att genomföra testet."
+                    text = "Gropväggen är din markprofil, som du nu ska undersöka närmare." +
+                            " Kan du hitta olika skikt? Marken består oftast av minst två skikt: matjord och alv." +
+                            " Vanligen finns även tätare skikt, som plog- eller bearbetningssula." +
+                            " Använd kniven och bänd loss jord så framträder olika markskikt tydligare."
                 ),
                 FormComponentVideo(
                     id = "videoScreen9",
@@ -375,18 +377,20 @@ data class FormSoilStructure(
 
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = "groundSurfaceButtonListScreen11",
+                    id = ID_STOMPLEVEL1,
                     title = "Markyta/Markjord",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
                     value = (data as? FormDataSoilStructure)?.stompData?.level1 ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = "MachiningsoleButtonListScreen11",
+                    id = ID_STOMPLEVEL2,
                     title = "Bearbetningssula",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
                     value = (data as? FormDataSoilStructure)?.stompData?.level2 ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 /*FormComponentButtonList(
@@ -399,10 +403,11 @@ data class FormSoilStructure(
                 ),*/
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = "subSoilButtonListScreen11",
+                    id = ID_STOMPLEVEL4,
                     title = "Alv",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
                     value = (data as? FormDataSoilStructure)?.stompData?.level4 ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
             )
@@ -932,25 +937,39 @@ data class FormSoilStructure(
             when (id) {
                 ID_PLACEASSESSMENT -> (this as? FormDataSoilStructure)?.placeAssesment?.rating =
                     rating
-
-                ID_SOILCONDITION -> (this as? FormDataSoilStructure)?.soilCondition?.condition =
-                    rating
+                ID_CROP -> (this as? FormDataSoilStructure)?.soilCondition?.condition = rating
             }
         }
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
-            rating
+        (screens[state.currentScreen].components.firstOrNull {
+            it.id == id
+        } as FormComponentChecklist).rating = rating
 
         return state
     }
 
-    override fun setButtonlistActive(
+    override fun setButtonlistData(
         id: String,
-        value: String,
+        selected: String,
+        position: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataSoilStructure)?.soilAssesment?.crop = value
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
-            value
+        with(state.form.data) {
+            when (id) {
+                ID_SOILTYPE -> (this as? FormDataSoilStructure)?.soilAssesment?.soilType = selected
+                ID_CROP -> (this as? FormDataSoilStructure)?.soilAssesment?.crop = selected
+                ID_PRECEDINGCROP -> (this as? FormDataSoilStructure)?.soilAssesment?.precedingCrop =
+                    selected
+                ID_SOILHANDLING -> (this as? FormDataSoilStructure)?.soilAssesment?.soilHandling =
+                    selected
+                ID_STOMPLEVEL1 -> (this as? FormDataSoilStructure)?.stompData?.level1 = selected
+                ID_STOMPLEVEL2 -> (this as? FormDataSoilStructure)?.stompData?.level2 = selected
+                ID_STOMPLEVEL4 -> (this as? FormDataSoilStructure)?.stompData?.level4 = selected
+            }
+        }
+        println("Logg active: $position")
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).position =
+            position
+
         return state
     }
 
@@ -961,7 +980,12 @@ data class FormSoilStructure(
         const val ID_SOILTYPE = "SOILTYPE"
         const val ID_COMMENT = "COMMENT"
         const val ID_PLACEASSESSMENT = "PLACEASSESSMENT"
-        const val ID_SOILCONDITION = "SOILCONDITION"
+        const val ID_CROP = "CROP"
+        const val ID_PRECEDINGCROP = "PRECEDINGCROP"
+        const val ID_SOILHANDLING = "SOILHANDLING"
+        const val ID_STOMPLEVEL1 = "STOMPLEVEL1"
+        const val ID_STOMPLEVEL2 = "STOMPLEVEL2"
+        const val ID_STOMPLEVEL4 = "STOMPLEVEL4"
     }
 }
 
