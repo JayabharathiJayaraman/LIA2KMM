@@ -5,12 +5,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.GridLayout
-import android.widget.LinearLayout
-import androidx.core.net.toUri
 import android.widget.*
+import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
@@ -93,15 +89,6 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                     val remark = (component as FormComponentRemark)
                     mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
                 }
-
-                ComponentType.RESULTATREMARKSFACE -> {
-                    val resultatRemarks = (component as FormComponentResultatRemark)
-                    mainView.createOrUpdateResultatRemarks(
-                        resultatRemarks.text,
-                        resultatRemarks.id,
-                        resultatRemarks.image,
-                        resultatRemarks.color
-                    )
                 ComponentType.RESULTSREMARKSFACE -> {
                     val resultsRemark = (component as FormComponentResultsRemark)
                     mainView.createOrUpdateResultsRemarks(
@@ -146,7 +133,10 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 }
                 ComponentType.RESULTSINFOBODY -> {
                     val resultInfoBody = (component as FormComponentResultsInfoBody)
-                    mainView.createOrUpdateResultsInfoBody(resultInfoBody.text, resultInfoBody.id)
+                    mainView.createOrUpdateResultsInfoBody(
+                        resultInfoBody.text,
+                        resultInfoBody.id
+                    )
                 }
                 ComponentType.RESULTSIMAGES -> {
                     val resultsImages = (component as FormComponentResultsImages)
@@ -171,308 +161,310 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
         }
         generateInterface(components)
     }
-}
 
-private fun ViewGroup.createOrUpdateBigTitleLabel(text: String, id: String) {
-    val binding: FormBigTitleLabelBinding =
-        FormBigTitleLabelBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formBigTitleLabelContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.bigTitleLabelTextview.text = text
-}
 
-private fun ViewGroup.createOrUpdateSmallTitleLabel(text: String, id: String) {
-    val binding: FormSmallTitleLabelBinding =
-        FormSmallTitleLabelBinding.inflate(LayoutInflater.from(context))
-
-    this.findViewWithTag(id) ?: binding.formSmallTitleLabelContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.title.text = text
-}
-
-private fun ViewGroup.createOrUpdateButton(text: String, id: String) {
-    val binding: FormButtonBinding = FormButtonBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formButtonContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.button.text = text
-}
-
-private fun ViewGroup.createOrUpdateChecklist(
-    id: String,
-    title: String,
-    options: List<String>,
-    rating: Int
-) {
-    val binding: FormChecklistBinding = FormChecklistBinding.inflate(LayoutInflater.from(context))
-    binding.title.text = title
-
-    val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.WRAP_CONTENT,
-        LinearLayout.LayoutParams.WRAP_CONTENT
-    )
-    params.setMargins(0, 10, 0, 10)
-
-    this.findViewWithTag(id) ?: binding.formRadioGroup.rootView.apply { tag = id }
-        .also {
-            for (i in options.indices) {
-                val radiobutton = RadioButton(context)
-                radiobutton.setButtonDrawable(R.drawable.checklist_button_states)
-                radiobutton.setPadding(20, 0, 0, 0)
-                radiobutton.layoutParams = params
-                radiobutton.id = i
-                radiobutton.text = options[i]
-                binding.radioGroup.addView(radiobutton)
-            }
-
-            binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
-                getApplication().formViewModel.setChecklistRating(id, checkedId)
-            }
-            binding.radioGroup.check(rating)
-            this.addView(it)
-        }
-}
-
-private fun ViewGroup.createOrUpdateBodyLabel(text: String, id: String) {
-    val binding: FormBodyLabelBinding = FormBodyLabelBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formBodyLabelContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.bodyLabelTextview.text = text
-}
-
-private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, placeholder: String) {
-    val binding: FormTextfieldNotesBinding =
-        FormTextfieldNotesBinding.inflate(LayoutInflater.from(context))
-private fun ViewGroup.createOrUpdateCaptureImage(
-    imageUri: String?,
-    placeholderImage: String,
-    title: String,
-    body: String,
-    button_text: String,
-    id: String
-) {
-    val binding: FormCaptureImageBinding =
-        FormCaptureImageBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.title.text = title
-    binding.body.text = body
-    binding.button.text = button_text
-
-    if (imageUri != null) {
-        binding.imageview.setImageURI(imageUri.toUri())
-    } else {
-        binding.imageview.setImageResource(getImageResource(placeholderImage))
+    private fun ViewGroup.createOrUpdateBigTitleLabel(text: String, id: String) {
+        val binding: FormBigTitleLabelBinding =
+            FormBigTitleLabelBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formBigTitleLabelContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.bigTitleLabelTextview.text = text
     }
 
-    binding.button.setOnClickListener {
-       findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
+    private fun ViewGroup.createOrUpdateSmallTitleLabel(text: String, id: String) {
+        val binding: FormSmallTitleLabelBinding =
+            FormSmallTitleLabelBinding.inflate(LayoutInflater.from(context))
+
+        this.findViewWithTag(id) ?: binding.formSmallTitleLabelContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.title.text = text
     }
-}
 
-private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, placeholder: String) {
-    println("logg: addTextField: $text")
-    val binding: FormTextfieldNotesBinding =
-        FormTextfieldNotesBinding.inflate(LayoutInflater.from(context))
+    private fun ViewGroup.createOrUpdateButton(text: String, id: String) {
+        val binding: FormButtonBinding = FormButtonBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formButtonContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.button.text = text
+    }
 
-    this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
-        .also {
-            binding.textfield.setText(text)
-            binding.textfield.hint = placeholder
-            binding.textfield.addTextChangedListener { editable ->
-                println("logg: TEXT LISTENER: ${editable.toString()}")
-                if (text != editable.toString()) getApplication().formViewModel.setTextData(
-                    id,
-                    editable.toString()
-                )
-            }
-            this.addView(it)
-        }
-}
+    private fun ViewGroup.createOrUpdateChecklist(
+        id: String,
+        title: String,
+        options: List<String>,
+        rating: Int
+    ) {
+        val binding: FormChecklistBinding =
+            FormChecklistBinding.inflate(LayoutInflater.from(context))
+        binding.title.text = title
 
-private fun ViewGroup.createOrUpdateRemark(text: String, id: String, image: String) {
-    val binding: FormRemarkBinding = FormRemarkBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formRemarkContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.textview.text = text
-    binding.imageview.setImageResource(getImageResource(image))
-}
-
-private fun ViewGroup.createOrUpdateResultsRemarks(
-    text: String,
-    id: String,
-    image: String,
-    color: String
-) {
-    val binding: FormResultsRemarkfaceBinding =
-        FormResultsRemarkfaceBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formResultsRemarkContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.textview.text = text
-    binding.imageview.setImageResource(getImageResource(image))
-    binding.imageview.setBackgroundResource(getFaceBackgroundColor(color))
-}
-
-private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
-    this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
-        .also {
-            it.setText(text)
-            it.hint = placeholder
-            it.addTextChangedListener { editable ->
-                if (text != editable.toString()) getApplication().formViewModel.setTextData(
-                    id,
-                    editable.toString()
-                )
-            }
-            this.addView(it)
-        }
-}
-
-private fun ViewGroup.addInnerImageLayout(id: String, images: List<String>, caption: List<String>) {
-    val binding: FormCaptionedimageGridlayoutBinding =
-        FormCaptionedimageGridlayoutBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formImageGridContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-
-    for (i in images.indices) {
-        val imageLayout: FormImageviewCaptionBinding = FormImageviewCaptionBinding.inflate(
-            LayoutInflater.from(context)
+        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        imageLayout.imageview.setImageResource(getImageResource(images[i]))
-        imageLayout.textviewCaption.text = caption[i]
-        binding.formImageGridContainer.addView(imageLayout.formImageviewCaptionContainer)
-    }
-}
+        params.setMargins(0, 10, 0, 10)
 
-private fun ViewGroup.createOrUpdateButtonList(
-    title: String,
-    id: String,
-    list: List<String>,
-    value: String,
-    placeholder: String
-) {
-    val binding: FormButtonListBinding = FormButtonListBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formButtonlistContainer.rootView.apply { tag = id }
-        .also {
-
-            val dataAdapter: ArrayAdapter<String> =
-                ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list)
-
-            binding.spinner.adapter = dataAdapter
-            binding.textView.text = title
-
-            binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View,
-                    pos: Int,
-                    spinnerId: Long
-                ) {
-                    val itemId = parent.getItemIdAtPosition(pos)
-                    getApplication().formViewModel.setButtonListActive(id, itemId.toString())
+        this.findViewWithTag(id) ?: binding.formRadioGroup.rootView.apply { tag = id }
+            .also {
+                for (i in options.indices) {
+                    val radiobutton = RadioButton(context)
+                    radiobutton.setButtonDrawable(R.drawable.checklist_button_states)
+                    radiobutton.setPadding(20, 0, 0, 0)
+                    radiobutton.layoutParams = params
+                    radiobutton.id = i
+                    radiobutton.text = options[i]
+                    binding.radioGroup.addView(radiobutton)
                 }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
+                binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
+                    getApplication().formViewModel.setChecklistRating(id, checkedId)
+                }
+                binding.radioGroup.check(rating)
+                this.addView(it)
             }
+    }
 
-            println("BUTTON LIST INFILTRATION: $value")
-            if (value != "") {
-                binding.spinner.setSelection(value.toInt())
-            }
-            this.addView(it)
+    private fun ViewGroup.createOrUpdateBodyLabel(text: String, id: String) {
+        val binding: FormBodyLabelBinding =
+            FormBodyLabelBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formBodyLabelContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.bodyLabelTextview.text = text
+    }
+
+    private fun ViewGroup.createOrUpdateCaptureImage(
+        imageUri: String?,
+        placeholderImage: String,
+        title: String,
+        body: String,
+        button_text: String,
+        id: String
+    ) {
+        val binding: FormCaptureImageBinding =
+            FormCaptureImageBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.title.text = title
+        binding.body.text = body
+        binding.button.text = button_text
+
+        if (imageUri != null) {
+            binding.imageview.setImageURI(imageUri.toUri())
+        } else {
+            binding.imageview.setImageResource(getImageResource(placeholderImage))
         }
-}
 
-private fun ViewGroup.createOrUpdateImage(id: String, imageName: String, caption: String) {
-    val binding: FormImageBinding = FormImageBinding.inflate(LayoutInflater.from(context))
-
-    this.findViewWithTag(id) ?: binding.formImageviewContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.imageview.setImageResource(getImageResource(imageName))
-    binding.textView.text = caption
-}
-
-private fun ViewGroup.createOrUpdateTimeField(
-    id: String,
-    timeLabel: String,
-    start: String,
-    stop: String
-) {
-    val binding: FormTimeTextviewBinding =
-        FormTimeTextviewBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.timeViewContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.timeLabelTextview.text = timeLabel
-}
-
-private fun ViewGroup.addImagesContainer(id: String, imagesTextList: List<String>) {
-    val binding: FormResultsImageviewsBinding = FormResultsImageviewsBinding.inflate(
-        LayoutInflater.from(context)
-    )
-    this.findViewWithTag(id) ?: binding.whatNextImagesContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-
-    binding.newTestText.text = imagesTextList[0]
-    binding.vardaText.text = imagesTextList[1]
-    binding.markstrukturText.text = imagesTextList[2]
-    binding.klarText.text = imagesTextList[3]
-}
-
-private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
-    val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formVideoviewContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-
-    val mc = MediaController(context)
-    binding.videoview.setMediaController(mc)
-    binding.videoview.setVideoURI(Uri.parse(getVideoPath(source)))
-    binding.videoview.seekTo(1)
-}
-
-private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String, caption: String) {
-    val binding: FormImageviewCaptionBinding =
-        FormImageviewCaptionBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formImageviewCaptionContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-
-    binding.imageview.setImageResource(getImageResource(imageName))
-    binding.textviewCaption.text = caption
-
-}
-
-private fun ViewGroup.createOrUpdateResultsInfoBody(text: String, id: String) {
-    val binding: FormResultsInfoBodyBinding =
-        FormResultsInfoBodyBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formResultsInfoContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.resultsBodyTextview.text = text
-}
-
-private fun ViewGroup.getImageResource(name: String): Int {
-    return context.resources.getIdentifier("drawable/$name", null, context.packageName)
-}
-
-private fun ViewGroup.getVideoPath(source: String): String {
-    val videoResource = resources.getIdentifier(source, "raw", context.packageName)
-    return "android.resource://" + context.packageName.toString() + "/" + videoResource
-}
-
-private fun ViewGroup.getFaceBackgroundColor(colorName: String): Int {
-    var resourceId: Int = 0
-    if (colorName == "red_round_background") {
-        resourceId =
-            context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
+        }
     }
-    if (colorName == "orange_round_background") {
-        resourceId =
-            context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
-    }
-    if (colorName == "green_round_background") {
-        resourceId =
-            context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
-    }
-    return resourceId
-}
 
-private fun ViewGroup.getApplication(): MainApplication {
-    return context.applicationContext as MainApplication
+    private fun ViewGroup.createOrUpdateTextFieldNotes(
+        id: String,
+        text: String,
+        placeholder: String
+    ) {
+        println("logg: addTextField: $text")
+        val binding: FormTextfieldNotesBinding =
+            FormTextfieldNotesBinding.inflate(LayoutInflater.from(context))
+
+        this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
+            .also {
+                binding.textfield.setText(text)
+                binding.textfield.hint = placeholder
+                binding.textfield.addTextChangedListener { editable ->
+                    println("logg: TEXT LISTENER: ${editable.toString()}")
+                    if (text != editable.toString()) getApplication().formViewModel.setTextData(
+                        id,
+                        editable.toString()
+                    )
+                }
+                this.addView(it)
+            }
+    }
+
+    private fun ViewGroup.createOrUpdateRemark(text: String, id: String, image: String) {
+        val binding: FormRemarkBinding = FormRemarkBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formRemarkContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.textview.text = text
+        binding.imageview.setImageResource(getImageResource(image))
+    }
+
+    private fun ViewGroup.createOrUpdateResultsRemarks(
+        text: String,
+        id: String,
+        image: String,
+        color: String
+    ) {
+        val binding: FormResultsRemarkfaceBinding =
+            FormResultsRemarkfaceBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formResultsRemarkContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.textview.text = text
+        binding.imageview.setImageResource(getImageResource(image))
+        binding.imageview.setBackgroundResource(getFaceBackgroundColor(color))
+    }
+
+    private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
+        this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
+            .also {
+                it.setText(text)
+                it.hint = placeholder
+                it.addTextChangedListener { editable ->
+                    if (text != editable.toString()) getApplication().formViewModel.setTextData(
+                        id,
+                        editable.toString()
+                    )
+                }
+                this.addView(it)
+            }
+    }
+
+    private fun ViewGroup.addInnerImageLayout(
+        id: String,
+        images: List<String>,
+        caption: List<String>
+    ) {
+        val binding: FormCaptionedimageGridlayoutBinding =
+            FormCaptionedimageGridlayoutBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formImageGridContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+
+        for (i in images.indices) {
+            val imageLayout: FormImageviewCaptionBinding = FormImageviewCaptionBinding.inflate(
+                LayoutInflater.from(context)
+            )
+            imageLayout.imageview.setImageResource(getImageResource(images[i]))
+            imageLayout.textviewCaption.text = caption[i]
+            binding.formImageGridContainer.addView(imageLayout.formImageviewCaptionContainer)
+        }
+    }
+
+    private fun ViewGroup.createOrUpdateButtonList(
+        title: String,
+        id: String,
+        list: List<String>,
+        value: String,
+        placeholder: String
+    ) {
+        val binding: FormButtonListBinding =
+            FormButtonListBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formButtonlistContainer.rootView.apply { tag = id }
+            .also {
+
+                val dataAdapter: ArrayAdapter<String> =
+                    ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list)
+
+                binding.spinner.adapter = dataAdapter
+                binding.textView.text = title
+
+                binding.spinner.onItemSelectedListener =
+                    object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(
+                            parent: AdapterView<*>,
+                            view: View,
+                            pos: Int,
+                            spinnerId: Long
+                        ) {
+                            val itemId = parent.getItemIdAtPosition(pos)
+                            getApplication().formViewModel.setButtonListActive(
+                                id,
+                                itemId.toString()
+                            )
+                        }
+
+                        override fun onNothingSelected(parent: AdapterView<*>?) {}
+                    }
+
+                println("BUTTON LIST INFILTRATION: $value")
+                if (value != "") {
+                    binding.spinner.setSelection(value.toInt())
+                }
+                this.addView(it)
+            }
+    }
+
+    private fun ViewGroup.createOrUpdateImage(id: String, imageName: String, caption: String) {
+        val binding: FormImageBinding = FormImageBinding.inflate(LayoutInflater.from(context))
+
+        this.findViewWithTag(id) ?: binding.formImageviewContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.imageview.setImageResource(getImageResource(imageName))
+        binding.textView.text = caption
+    }
+
+    private fun ViewGroup.createOrUpdateTimeField(
+        id: String,
+        timeLabel: String,
+        start: String,
+        stop: String
+    ) {
+        val binding: FormTimeTextviewBinding =
+            FormTimeTextviewBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.timeViewContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.timeLabelTextview.text = timeLabel
+    }
+
+    private fun ViewGroup.addImagesContainer(id: String, imagesTextList: List<String>) {
+        val binding: FormResultsImageviewsBinding = FormResultsImageviewsBinding.inflate(
+            LayoutInflater.from(context)
+        )
+        this.findViewWithTag(id) ?: binding.whatNextImagesContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+
+        binding.newTestText.text = imagesTextList[0]
+        binding.vardaText.text = imagesTextList[1]
+        binding.markstrukturText.text = imagesTextList[2]
+        binding.klarText.text = imagesTextList[3]
+    }
+
+    private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
+        val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formVideoviewContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+
+        val mc = MediaController(context)
+        binding.videoview.setMediaController(mc)
+        binding.videoview.setVideoURI(Uri.parse(getVideoPath(source)))
+        binding.videoview.seekTo(1)
+    }
+
+    private fun ViewGroup.createOrUpdateResultsInfoBody(text: String, id: String) {
+        val binding: FormResultsInfoBodyBinding =
+            FormResultsInfoBodyBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formResultsInfoContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.resultsBodyTextview.text = text
+    }
+
+    private fun ViewGroup.getImageResource(name: String): Int {
+        return context.resources.getIdentifier("drawable/$name", null, context.packageName)
+    }
+
+    private fun ViewGroup.getVideoPath(source: String): String {
+        val videoResource = resources.getIdentifier(source, "raw", context.packageName)
+        return "android.resource://" + context.packageName.toString() + "/" + videoResource
+    }
+
+    private fun ViewGroup.getFaceBackgroundColor(colorName: String): Int {
+        var resourceId: Int = 0
+        if (colorName == "red_round_background") {
+            resourceId =
+                context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
+        }
+        if (colorName == "orange_round_background") {
+            resourceId =
+                context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
+        }
+        if (colorName == "green_round_background") {
+            resourceId =
+                context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
+        }
+        return resourceId
+    }
+
+    private fun ViewGroup.getApplication(): MainApplication {
+        return context.applicationContext as MainApplication
+    }
 }
