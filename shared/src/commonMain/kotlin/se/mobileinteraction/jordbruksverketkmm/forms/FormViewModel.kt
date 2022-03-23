@@ -56,12 +56,13 @@ class FormViewModel constructor(
         }
     }
 
-    fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer) =
+    fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer, text: String) =
         state.value.components.firstOrNull {
             it is FormComponentQuestionnaire
         }.let {
             updateStateAndSave {
-                form.setQuestionnaireAnswer(id, answer, state.value).copy(counter = counter + 1)
+                form.setQuestionnaireAnswer(id, answer, text, state.value)
+                    .copy(counter = counter + 1)
             }
         }
 
