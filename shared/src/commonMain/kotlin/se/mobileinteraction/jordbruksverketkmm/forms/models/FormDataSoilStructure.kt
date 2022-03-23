@@ -41,6 +41,7 @@ data class QuestionnaireWithPhotos(
 data class AnswerWithPhoto(
     var answer: QuestionnaireAnswer? = null,
     var id: String = "",
+    val text: String = "",
     val photoUri: String? = null,
     var comment: String = "",
 )
