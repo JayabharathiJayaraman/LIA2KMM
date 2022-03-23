@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/form_capture_image_container">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/open_sans_semi_bold"
-        android:text="Text"
+        tools:text="Text"
         android:textColor="@color/green"
         android:textSize="17sp" />
 
@@ -21,17 +22,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_regular"
-        android:text="Text"
+        tools:text="Text"
         android:textColor="#4d4d4d"
         android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/imageview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="25dp"
+        tools:src="@drawable/markprofil_illustration">
 
     </ImageView>
 
