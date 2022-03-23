@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapScreenViewController" customModule="JordbruksverketKMMiOS" customModuleProvider="target">
             <connections>
-                <outlet property="mapView" destination="32L-VM-cQo" id="bXM-hS-DI6"/>
+                <outlet property="mapView" destination="32L-VM-cQo" id="I8b-aq-5TX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
