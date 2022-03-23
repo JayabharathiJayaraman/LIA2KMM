@@ -21,6 +21,7 @@
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
 		6314C35427E4C409006DE489 /* ButtonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314C35227E4C409006DE489 /* ButtonListViewController.swift */; };
 		6314C35527E4C409006DE489 /* ButtonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6314C35327E4C409006DE489 /* ButtonListViewController.xib */; };
+		632E00D027EA2362004BBA67 /* markprofilen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 632E00CF27EA2080004BBA67 /* markprofilen.mp4 */; };
 		63C33FED27E361B200264125 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEB27E361B200264125 /* ModalViewController.swift */; };
 		63C33FEE27E361B200264125 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C33FEC27E361B200264125 /* ModalViewController.xib */; };
 		63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C33FEF27E3810900264125 /* ButtonWithList.swift */; };
@@ -158,6 +159,7 @@
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
 		6314C35227E4C409006DE489 /* ButtonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonListViewController.swift; sourceTree = "<group>"; };
 		6314C35327E4C409006DE489 /* ButtonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonListViewController.xib; sourceTree = "<group>"; };
+		632E00CF27EA2080004BBA67 /* markprofilen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = markprofilen.mp4; sourceTree = "<group>"; };
 		63C33FEB27E361B200264125 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		63C33FEC27E361B200264125 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		63C33FEF27E3810900264125 /* ButtonWithList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithList.swift; sourceTree = "<group>"; };
@@ -286,6 +288,14 @@
 				9D07BE0B27BBD57100FF1D55 /* DataPrivacyViewController.xib */,
 			);
 			path = DataPrivacyViewController;
+			sourceTree = "<group>";
+		};
+		632E00CE27EA206F004BBA67 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				632E00CF27EA2080004BBA67 /* markprofilen.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		63C33FF127E386D400264125 /* ViewControllers */ = {
@@ -498,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				9D07BE1427BBFED600FF1D55 /* Fonts */,
+				632E00CE27EA206F004BBA67 /* Videos */,
 				9D5A8C6927D8D7C800239E45 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -647,6 +658,7 @@
 				9D07BE2527BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
 				9D07BE2E27BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
+				632E00D027EA2362004BBA67 /* markprofilen.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,3 +1,5 @@
+import AVFoundation
+import AVKit
 import Foundation
 import shared
 import UIKit
@@ -12,31 +14,35 @@ class IOSFormGenerator: FormGenerator {
         mainView.axis = .vertical
         mainView.distribution = .fillProportionally
     }
-    
+
     func updateInterface(components: [FormComponent], currentScreen: Int32) {
         if currentScreen != currentScreenRendered {
+            presentingViewController?.children.forEach { child in
+                child.willMove(toParent: nil)
+                child.removeFromParent()
+            }
             mainView.subviews.forEach { $0.removeFromSuperview() }
             currentScreenRendered = currentScreen
         }
 
         generateInterface(components: components, currentScreen: currentScreen.asKotlinInt)
     }
-    
+
     func createInterface(components: [FormComponent], currentScreen: Int32) -> Any {
         generateInterface(components: components, currentScreen: currentScreen.asKotlinInt)
-        
+
         return mainView
     }
-    
+
     func generateInterface(components: [FormComponent], currentScreen: KotlinInt?) {
         guard let currentScreen = currentScreen else { return }
         let screenTag = Int(truncating: currentScreen)
-        
+
         for component in components {
             switch component.type {
             case .body:
                 if let body = component as? FormComponentText {
-                    mainView.createBodyLabel(screenTag: screenTag, text: body.text)
+                    mainView.creatBodyLabel(screenTag: screenTag, text: body.text)
                 }
             case .titlebig:
                 if let title = component as? FormComponentText {
@@ -69,6 +75,10 @@ class IOSFormGenerator: FormGenerator {
             case .information:
                 if let information = component as? FormComponentInformation {
                     addInformationView(screenTag: screenTag, id: information.id, components: information.components)
+                }
+            case .video:
+                if let video = component as? FormComponentVideo {
+                    addVideo(source: video.source)
                 }
             case .textfieldnotes:
                 if let textfieldNotes = component as? FormComponentTextField {
@@ -171,6 +181,22 @@ private extension IOSFormGenerator {
         let modalViewController = ModalViewController(contentViewController: informationViewController)
         modalViewController.present(using: presentingViewController)
     }
+
+    func addVideo(source: String) {
+        guard let url = Bundle.main.url(forResource: source, withExtension: "mp4") else { return }
+
+        let player = AVPlayer(url: url)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        playerViewController.videoGravity = .resizeAspectFill
+
+        playerViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        playerViewController.view.heightAnchor.constraint(equalTo: playerViewController.view.widthAnchor).isActive = true
+
+        mainView.addArrangedSubview(playerViewController.view)
+        presentingViewController?.addChild(playerViewController)
+        playerViewController.didMove(toParent: presentingViewController)
+    }
 }
 
 extension UIStackView {
@@ -196,7 +222,7 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpace)
         self.addArrangedSubview(label)
     }
-    
+
     func addBigTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let label = getDefaultLabel()
@@ -207,7 +233,7 @@ extension UIStackView {
             self.addArrangedSubview(label)
         }
     }
-    
+
     func addSmallTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 20)
@@ -238,7 +264,7 @@ extension UIStackView {
             stackView.addArrangedSubview(label)
         }
     }
-    
+
     func createOrUpdateTextField(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
             (view as? TextFieldWithId)?.idString == id
@@ -448,15 +474,15 @@ extension UIStackView {
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontForContentSizeCategory = true
         label.textColor = UIColor.Jordbruksverket.defaultTextColor
-        
+
         return label
     }
-    
+
     func getVerticalSpacingView(withHeight height: CGFloat) -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: height).isActive = true
-        
+
         return view
     }
 }
