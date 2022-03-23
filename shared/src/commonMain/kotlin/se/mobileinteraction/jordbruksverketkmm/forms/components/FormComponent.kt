@@ -1,4 +1,5 @@
 package se.mobileinteraction.jordbruksverketkmm.forms.components
+import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
 enum class ComponentType {
@@ -13,12 +14,14 @@ enum class ComponentType {
     VIDEO,
     BUTTON,
     QUESTIONNAIRE,
+    QUESTIONNAIRERESULT,
     IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,
     RESULTSINFOBODY,
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
+
 }
 
 interface FormComponent {
@@ -68,6 +71,12 @@ class FormComponentQuestionnaire(
     override val id: String,
     val text: List<String>,
     var answer: QuestionnaireAnswer?
+) : FormComponent
+
+class FormComponentQuestionnaireResult(
+    override val type: ComponentType,
+    override val id: String,
+    val answers: MutableList<AnswerWithPhoto>?,
 ) : FormComponent
 
 class FormComponentImage(
