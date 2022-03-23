@@ -42,7 +42,7 @@ class IOSFormGenerator: FormGenerator {
             switch component.type {
             case .body:
                 if let body = component as? FormComponentText {
-                    mainView.creatBodyLabel(screenTag: screenTag, text: body.text)
+                    mainView.createBodyLabel(screenTag: screenTag, text: body.text)
                 }
             case .titlebig:
                 if let title = component as? FormComponentText {
