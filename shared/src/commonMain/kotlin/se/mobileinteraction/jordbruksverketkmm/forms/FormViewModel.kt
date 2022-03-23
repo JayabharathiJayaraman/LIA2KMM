@@ -1,7 +1,5 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
-import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentButtonList
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentChecklist
@@ -10,6 +8,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
+
 
 class FormViewModel constructor(
     val form: Form
