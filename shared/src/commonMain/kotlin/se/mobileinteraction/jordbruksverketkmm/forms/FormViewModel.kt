@@ -1,6 +1,10 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
+import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
+import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
+import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentButtonList
+import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentChecklist
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructure
@@ -43,11 +47,17 @@ class FormViewModel constructor(
         val totalScreens: Int = form.screens.size
     }
 
-    fun setTextData(id: String, text: String) {
-        state.value.components.firstOrNull {
-            it is FormComponentTextField
-        }.let {
-            updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
+    fun setTextData(id: String, text: String) = state.value.components.firstOrNull {
+        it is FormComponentTextField
+    }.let {
+        updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
+    }
+
+    fun setChecklistRating(id: String, rating: Int) = state.value.components.firstOrNull {
+        it is FormComponentChecklist
+    }.let {
+        updateStateAndSave {
+            form.setChecklistRating(id, rating, state.value).copy(counter = counter + 1)
         }
     }
 
@@ -56,6 +66,14 @@ class FormViewModel constructor(
             (form as? FormSoilStructure)?.setSoilStructurePhoto(id, state.value, imageUri)
                 ?.copy(counter = counter + 1)
                 ?: this
+        }
+    }
+
+    fun setButtonListActive(id: String, value: String) = state.value.components.firstOrNull {
+        it is FormComponentButtonList
+    }.let {
+        updateStateAndSave {
+            form.setButtonlistActive(id, value, state.value).copy(counter = counter + 1)
         }
     }
 }

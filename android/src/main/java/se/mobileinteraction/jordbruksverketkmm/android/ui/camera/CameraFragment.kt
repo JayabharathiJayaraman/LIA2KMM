@@ -147,7 +147,8 @@ class CameraFragment : Fragment() {
     private fun updateUiForImagePreview(cachedImageUri: Uri?) {
         previewBinding = PreviewCameraContainerBinding.inflate(
             LayoutInflater.from(requireContext()),
-            fragmentCameraBinding.root, true
+            fragmentCameraBinding.root,
+            true
         )
 
         cameraBinding?.imageCaptureButton?.isVisible = false

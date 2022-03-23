@@ -53,6 +53,7 @@ final class StartScreenViewController: UIViewController {
     }
     
     @IBAction func newTestButtonTapped(_ sender: Any) {
+        navigationController?.pushViewController(NewTestViewController(), animated: true)
     }
     
     @IBAction func checklistsButtonTapped(_ sender: Any) {
