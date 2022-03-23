@@ -249,6 +249,9 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
 
         if (imageUri != null) {
             binding.imageview.setImageURI(imageUri.toUri())
+            binding.imageview.adjustViewBounds = true
+            binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+
         } else {
             binding.imageview.setImageResource(getImageResource(placeholderImage))
         }
