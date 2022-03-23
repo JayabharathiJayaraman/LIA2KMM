@@ -13,6 +13,8 @@
                 <outlet property="AnpassaTextLabel" destination="jHd-mg-Yxg" id="9ca-Ig-FJl"/>
                 <outlet property="AtgardlistaLabel" destination="cQp-OR-Dcs" id="cpl-kX-Yxd"/>
                 <outlet property="AtgardslistaTextLabel" destination="GNO-q7-XcB" id="otf-rC-RDl"/>
+                <outlet property="EjAktuellaTextLabel" destination="4Us-M0-4VU" id="hLw-AP-z7T"/>
+                <outlet property="EjAktullaLabel" destination="feb-d5-GwR" id="ynE-1y-NVF"/>
                 <outlet property="MainTextLabel" destination="jxT-fC-Cbz" id="vY5-It-MFD"/>
                 <outlet property="TitleLabel" destination="CHr-cX-g7g" id="QXB-On-85b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -82,7 +84,32 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuR-El-hbg" userLabel="SecondTextView">
                                     <rect key="frame" x="0.0" y="256" width="374" height="128"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ynu-e2-1sj">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feb-d5-GwR" userLabel="EjAktuellaLabel">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Us-M0-4VU" userLabel="EjAktuellaTextLabel">
+                                                    <rect key="frame" x="0.0" y="20.5" width="374" height="107.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Ynu-e2-1sj" secondAttribute="trailing" id="Gtp-hX-GGQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ynu-e2-1sj" secondAttribute="bottom" id="cjM-FX-c90"/>
+                                        <constraint firstItem="Ynu-e2-1sj" firstAttribute="leading" secondItem="uuR-El-hbg" secondAttribute="leading" id="cu4-di-Dwx"/>
+                                        <constraint firstItem="Ynu-e2-1sj" firstAttribute="top" secondItem="uuR-El-hbg" secondAttribute="top" id="uRu-Ed-qsf"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYu-zF-noR" userLabel="SecondListView">
                                     <rect key="frame" x="0.0" y="384" width="374" height="394"/>

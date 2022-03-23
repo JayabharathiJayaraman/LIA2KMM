@@ -45,8 +45,8 @@
 "check_list_text1" = "Anpassa listan efter dina egna förutsättningar. Välj bort de åtgärder som inte är aktuella genom att trycka på krysset till vänster. Du kan alltid lägga till åtgärderna igen om något förändras.";
 "check_list_label_atgardslista" = "Åtgärdslista";
 "check_list_text_3" = "Flytta reglaget åt höger om åtgärden är utförd.";
-"check_list_label_ej_aktuella_atgarder" = "Ej Aktuella åtgärder";
-"check_list_text_4" = "De åtgärder du tar bort från gårdens lista hamnar här. Lägg till åtgärder till gårdens lista igen genom att trycka på plusset";
+"check_list_label_ej_aktuella_atgarder" = "Ej Aktuella åtgärder\n";
+"check_list_text_4" = "De åtgärder du tar bort från gårdens lista hamnar här. Lägg till åtgärder till gårdens lista igen genom att trycka på plusset\n";
 
 "DataPrivacyPolicyTILLBAKA" = "TILLBAKA";
 "DataPrivacyPolicyPageLabel" = "UTVECKLARE";
