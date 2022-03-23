@@ -53,7 +53,7 @@ data class FormGeneralQuestions(
                 FormComponentButton(
                     id = "getRecordsButtonScreen2",
                     type = ComponentType.BUTTON,
-                    text = "Hämta uppgifter från annat test>",
+                    text = "Hämta uppgifter från annat test",
                 ),
                 FormComponentText(
                     id = "tipsTitleScreen2",
@@ -73,22 +73,6 @@ data class FormGeneralQuestions(
                     id = "grundförutsättningarTitleScreen3",
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
-                ),
-                FormComponentInformation(
-                    type = ComponentType.INFORMATION,
-                    id = "",
-                    components = listOf(
-                        FormComponentText(
-                            id = "titleIdentifier",
-                            type = ComponentType.TITLEBIG,
-                            text = "Title"
-                        ),
-                        FormComponentText(
-                            id = "TextIdentifier",
-                            type = ComponentType.BODY,
-                            text = "Lorem ipsum, Lorem ipsum, Lorem ipsum......"
-                        )
-                    )
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
