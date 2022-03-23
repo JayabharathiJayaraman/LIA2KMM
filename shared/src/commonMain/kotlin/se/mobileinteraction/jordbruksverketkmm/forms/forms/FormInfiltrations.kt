@@ -476,6 +476,7 @@ data class FormInfiltrations(
     override fun setQuestionnaireAnswer(
         id: String,
         answer: QuestionnaireAnswer,
+        text: String,
         state: FormViewModel.State
     ): FormViewModel.State {
         // TODO: Find a way to implement function only where used (test 1 and 2)
