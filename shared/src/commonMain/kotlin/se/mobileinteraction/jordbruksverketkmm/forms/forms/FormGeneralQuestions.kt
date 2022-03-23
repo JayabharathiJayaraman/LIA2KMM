@@ -2,7 +2,10 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
-import se.mobileinteraction.jordbruksverketkmm.forms.models.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormGeneralQuestions(
@@ -121,7 +124,7 @@ data class FormGeneralQuestions(
                         "Jordbearbetningen kräver ibland många överfarter. Relativt stort dragkraftsbehov.",
                         "Lättbearbetad jord, litet dragkraftsbehov.",
                     ),
-                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRECULTIVATE
                     }?.answer
                 ),
@@ -142,7 +145,7 @@ data class FormGeneralQuestions(
                         "Något ojämn uppkomst och etablering av grödan.",
                         "Jämn och snabb uppkomst. Jämnhöga bestånd.",
                     ),
-                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRECROPESTABLISHMENT
                     }?.answer
                 ),
@@ -163,7 +166,7 @@ data class FormGeneralQuestions(
                         "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
                         "Frisk och frodig gröda, och mycket små ogräsproblem.",
                     ),
-                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRECROPHEALTH
                     }?.answer
                 ),
@@ -184,7 +187,7 @@ data class FormGeneralQuestions(
                         "Vattnet rinner undan sakta, lite pölar.",
                         "Vanligen inget vatten stående kvar efter kraftiga regn eller bevattning.",
                     ),
-                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIREWATERINFERTATION
                     }?.answer
                 ),
@@ -205,7 +208,7 @@ data class FormGeneralQuestions(
                         "Skorpa förekommer ibland, särskilt efter kraftigt regn eller bevattning.",
                         "Skorpa bildas aldrig.",
                     ),
-                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRESOILCRUST
                     }?.answer
                 ),
@@ -236,7 +239,7 @@ data class FormGeneralQuestions(
                         "Viss skördevariation inom fält och mellan år.",
                         "Jämna och - för området och jordarten - goda skördar.",
                     ),
-                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
                         it.id == ID_QUESTIONNAIRESTABLEHARVEST
                     }?.answer
                 ),
@@ -268,6 +271,11 @@ data class FormGeneralQuestions(
                     id = "hurFungerarTitleScreen11",
                     type = ComponentType.TITLESMALL,
                     text = "Hur fungerar skiftet för min växtodling?"
+                ),
+                FormComponentQuestionnaireResult(
+                    id = ID_QUESTIONNAIRERESULT,
+                    type = ComponentType.QUESTIONNAIRERESULT,
+                    answers = (data as? FormDataGeneralQuestions)?.questionnaire?.answers
                 ),
                 FormComponentText(
                     id = "symbolTitleScreen11",
@@ -360,6 +368,7 @@ data class FormGeneralQuestions(
     override fun setQuestionnaireAnswer(
         id: String,
         answer: QuestionnaireAnswer,
+        text: String,
         state: FormViewModel.State
     ): FormViewModel.State {
         with(state.form.data as? FormDataGeneralQuestions) {
@@ -370,7 +379,7 @@ data class FormGeneralQuestions(
                 val index = this?.questionnaire?.answers?.indexOf(existingAnswer)
                 index?.let { this?.questionnaire?.answers?.set(index, newAnswer) }
             } else {
-                val newAnswer = QuestionnaireAnswers(answer, id)
+                val newAnswer = AnswerWithPhoto(answer, id, text)
                 this?.questionnaire?.answers?.add(newAnswer)
             }
         }
@@ -404,6 +413,7 @@ data class FormGeneralQuestions(
         const val ID_QUESTIONNAIREWATERINFERTATION = "QUESTIONNAIREWATERINFERTATION"
         const val ID_QUESTIONNAIRESOILCRUST = "QUESTIONNAIRESOILCRUST"
         const val ID_QUESTIONNAIRESTABLEHARVEST = "QUESTIONNAIRESTABLEHARVEST"
+        const val ID_QUESTIONNAIRERESULT = "QUESTIONNAIRERESULT"
     }
 }
 
