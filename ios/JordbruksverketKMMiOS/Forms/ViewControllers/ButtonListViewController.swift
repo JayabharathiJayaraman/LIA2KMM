@@ -2,15 +2,12 @@ import UIKit
 
 final class ButtonListViewController: UIViewController {
     typealias ItemSelectionHandler = (String) -> Void
-    typealias CloseButtonTapHandler = () -> Void
 
     var itemSelectionHandler: ItemSelectionHandler?
-    var closeButtonTapHandler: CloseButtonTapHandler?
 
     private let list: [String]
 
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var closeButton: UIButton!
 
     init(list: [String]) {
         self.list = list
@@ -25,10 +22,6 @@ final class ButtonListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
-    }
-
-    @IBAction private func handleCloseButtonTap(_: UIButton) {
-        closeButtonTapHandler?()
     }
 }
 
