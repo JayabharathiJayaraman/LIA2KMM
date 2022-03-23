@@ -12,7 +12,7 @@ data class FormDataInfiltration(
 // Only used by test 3
 
 data class InfiltrationTest(
-    val measurementType: String? = null,
+    var measurementType: String? = null,
     val distanceStart: Int? = null,
     val distanceStop: Int? = null,
     val timeElapsed: Int? = null,
