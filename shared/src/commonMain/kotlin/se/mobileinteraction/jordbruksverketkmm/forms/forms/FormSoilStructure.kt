@@ -792,20 +792,14 @@ data class FormSoilStructure(
                     text = "Resultat",
                 ),
                 FormComponentText(
-                    id = "groundProfileTitleScreen19",
-                    type = ComponentType.TITLESMALL,
-                    text = "Markprofil",
-                ),
-                FormComponentImage(
-                    id = "remarkImageScreen19",
-                    type = ComponentType.IMAGE,
-                    caption = "Image with remark results",
-                    image = "",
-                ),
-                FormComponentText(
                     id = "groundProfileAppearanceTitleScreen19",
                     type = ComponentType.TITLESMALL,
                     text = "Hur ser markprofilen ut?",
+                ),
+                FormComponentQuestionnaireResult(
+                    id = ID_QUESTIONNAIRERESULT,
+                    type = ComponentType.QUESTIONNAIRERESULT,
+                    answers = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers,
                 ),
                 FormComponentText(
                     id = "dominationgSymbolTitleScreen19",
@@ -897,6 +891,7 @@ data class FormSoilStructure(
     override fun setQuestionnaireAnswer(
         id: String,
         answer: QuestionnaireAnswer,
+        text: String,
         state: FormViewModel.State
     ): FormViewModel.State {
         with(state.form.data as? FormDataSoilStructure) {
@@ -907,7 +902,7 @@ data class FormSoilStructure(
                 val index = this?.questionnaireWithPhotos?.answers?.indexOf(existingAnswer)
                 index?.let { this?.questionnaireWithPhotos?.answers?.set(index, newAnswer) }
             } else {
-                val newAnswer = AnswerWithPhoto(answer, id)
+                val newAnswer = AnswerWithPhoto(answer, id, text)
                 this?.questionnaireWithPhotos?.answers?.add(newAnswer)
             }
         }
@@ -941,5 +936,6 @@ data class FormSoilStructure(
         const val ID_QUESTIONNAIREPLANTSTRUCTURE = "QUESTIONNAIREPLANTSTRUCTURE"
         const val ID_QUESTIONNAIREROOTS = "QUESTIONNAIREROOTS"
         const val ID_QUESTIONNAIREWORMS = "QUESTIONNAIREWORMS"
+        const val ID_QUESTIONNAIRERESULT = "QUESTIONNAIRERESULT"
     }
 }
