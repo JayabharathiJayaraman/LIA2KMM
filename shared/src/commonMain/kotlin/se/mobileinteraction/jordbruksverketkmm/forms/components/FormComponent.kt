@@ -52,6 +52,7 @@ class FormComponentButtonList(
     val title: String,
     val list: List<String>,
     var value: String,
+    var position: Int,
     val placeholder: String,
 ) : FormComponent
 
