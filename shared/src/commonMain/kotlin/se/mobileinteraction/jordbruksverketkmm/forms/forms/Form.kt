@@ -15,6 +15,7 @@ interface Form {
     fun setQuestionnaireAnswer(
         id: String,
         answer: QuestionnaireAnswer,
+        text: String,
         state: FormViewModel.State
     ): FormViewModel.State
 
