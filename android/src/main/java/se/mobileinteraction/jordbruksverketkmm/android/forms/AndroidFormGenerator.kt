@@ -262,15 +262,18 @@ private fun ViewGroup.createOrUpdateQuestionnaire(
                 when (checkedId) {
                     binding.radioButtonSad.id -> getApplication().formViewModel.setQuestionnaireAnswer(
                         id,
-                        QuestionnaireAnswer.Poor
+                        QuestionnaireAnswer.Poor,
+                        text[0]
                     )
                     binding.radioButtonIndifferent.id -> getApplication().formViewModel.setQuestionnaireAnswer(
                         id,
-                        QuestionnaireAnswer.Mediocre
+                        QuestionnaireAnswer.Mediocre,
+                        text[1]
                     )
                     binding.radioButtonHappy.id -> getApplication().formViewModel.setQuestionnaireAnswer(
                         id,
-                        QuestionnaireAnswer.Good
+                        QuestionnaireAnswer.Good,
+                        text[2]
                     )
                 }
             }
