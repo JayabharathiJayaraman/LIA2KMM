@@ -64,6 +64,8 @@ class FormViewModel constructor(
                 form.setButtonlistData(id, selected, position, state.value)
                     .copy(counter = counter + 1)
             }
+        }
+
     fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer, text: String) =
         state.value.components.firstOrNull {
             it is FormComponentQuestionnaire
@@ -72,8 +74,6 @@ class FormViewModel constructor(
                 form.setQuestionnaireAnswer(id, answer, text, state.value)
                     .copy(counter = counter + 1)
             }
-        }
-
         }
 }
 

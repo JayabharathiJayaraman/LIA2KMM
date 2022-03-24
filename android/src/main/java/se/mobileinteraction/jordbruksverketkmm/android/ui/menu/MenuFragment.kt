@@ -38,7 +38,7 @@ class MenuFragment : Fragment() {
         binding.textViewAboutApp.setOnClickListener {
             view.findNavController().navigate(R.id.navigateToAboutApp)
         }
-        
+
         return view
     }
 
