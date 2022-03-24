@@ -126,6 +126,9 @@
 		9DDC751B27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */; };
 		9DDC751C27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */; };
 		9DDC751D27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */; };
+		9DDC751F27EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
+		9DDC752027EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
+		9DDC752127EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
 		A2E3C9C42D84B45B91E6638A /* Pods_JordbruksverketKMMiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +212,7 @@
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9DDC751627EC6EB300EE3EC5 /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
 		9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
+		9DDC751E27EC701300EE3EC5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +519,7 @@
 				9D5A8C6B27DA0DE600239E45 /* Int32.swift */,
 				9D5A8C7427DA240500239E45 /* UINavigationController.swift */,
 				9D5A8C8727DA261400239E45 /* UIView.swift */,
+				9DDC751E27EC701300EE3EC5 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -746,6 +751,7 @@
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				63C33FED27E361B200264125 /* ModalViewController.swift in Sources */,
+				9DDC751F27EC701300EE3EC5 /* UIImage.swift in Sources */,
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
 				63F33AE127E8A1E00047BD1D /* InformationViewController.swift in Sources */,
@@ -774,6 +780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5A8C8927DA261400239E45 /* UIView.swift in Sources */,
+				9DDC752027EC701300EE3EC5 /* UIImage.swift in Sources */,
 				9D5A8C5727D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D34C53F27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
@@ -820,6 +827,7 @@
 				9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */,
 				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
+				9DDC752127EC701300EE3EC5 /* UIImage.swift in Sources */,
 				9D5A8CAA27DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
 				9DDC751D27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */,
 				9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */,
