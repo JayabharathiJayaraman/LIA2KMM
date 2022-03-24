@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="välkommen">WELCOME</string>
+    <string name="hur_mår_min_jord">How is my soil?</string>
+    <string name="läs_mer_om_appen_och_testerna">Read more about the app and tests</string>
+    <string name="mina_test">My test</string>
+    <string name="nytt_test">New test</string>
+    <string name="vårda">Nature</string>
+    <string name="markstruktur">soil structure</string>
     <string name="dummy">dummy</string>
     <string name="CheckList_Grundförbättringar_title">Grundförbättringar</string>
     <string name="CheckList_Grundförbättringar_text">Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.</string>
