@@ -41,7 +41,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val rootView = inflater.inflate(R.layout.fragment_map, container, false)
         val binding = FragmentMapBinding.bind(rootView)
         fragmentMapBinding = binding
@@ -107,6 +106,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private fun showCurrentLocation() {
         fusedLocationClient.lastLocation?.addOnSuccessListener {
             if (it == null) {
+                showSwedenMap()
             } else it.apply {
                 val currentLatitude = it.latitude
                 val currentLongitude = it.longitude
