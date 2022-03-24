@@ -13,6 +13,11 @@
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */; };
+		512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */; };
+		513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */; };
+		513BD48327E8C1DE004FC538 /* ChecklistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 513BD48127E8C1DE004FC538 /* ChecklistViewController.xib */; };
+		516983B627E8792F00FB6826 /* IOSChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */; };
 		6314C35427E4C409006DE489 /* ButtonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314C35227E4C409006DE489 /* ButtonListViewController.swift */; };
 		6314C35527E4C409006DE489 /* ButtonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6314C35327E4C409006DE489 /* ButtonListViewController.xib */; };
 		632E00D027EA2362004BBA67 /* markprofilen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 632E00CF27EA2080004BBA67 /* markprofilen.mp4 */; };
@@ -158,6 +163,11 @@
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VardaMarkstrukturViewController.swift; sourceTree = "<group>"; };
+		512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VardaMarkstrukturViewController.xib; sourceTree = "<group>"; };
+		513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		513BD48127E8C1DE004FC538 /* ChecklistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChecklistViewController.xib; sourceTree = "<group>"; };
+		516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSChecklistViewModel.swift; sourceTree = "<group>"; };
 		6314C35227E4C409006DE489 /* ButtonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonListViewController.swift; sourceTree = "<group>"; };
 		6314C35327E4C409006DE489 /* ButtonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonListViewController.xib; sourceTree = "<group>"; };
 		632E00CF27EA2080004BBA67 /* markprofilen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = markprofilen.mp4; sourceTree = "<group>"; };
@@ -276,6 +286,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		512382BD27E4D45D00016913 /* VardaMarkstrukturViewController */ = {
+			isa = PBXGroup;
+			children = (
+				512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */,
+				512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */,
+			);
+			path = VardaMarkstrukturViewController;
+			sourceTree = "<group>";
+		};
+		513BD47F27E8C1A9004FC538 /* ChecklistViewController */ = {
+			isa = PBXGroup;
+			children = (
+				513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */,
+				513BD48127E8C1DE004FC538 /* ChecklistViewController.xib */,
+			);
+			path = ChecklistViewController;
+			sourceTree = "<group>";
+		};
+		516983B427E878FA00FB6826 /* Checklist */ = {
+			isa = PBXGroup;
+			children = (
+				516983B527E8792F00FB6826 /* IOSChecklistViewModel.swift */,
+			);
+			path = Checklist;
+			sourceTree = "<group>";
+		};
 		51C7154627B281730005FE91 /* DataPrivacyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +389,7 @@
 		9D34C50B27A14C740043B5A1 /* JordbruksverketKMMiOS */ = {
 			isa = PBXGroup;
 			children = (
+				516983B427E878FA00FB6826 /* Checklist */,
 				9D07BE0527BBC37600FF1D55 /* Forms */,
 				9D8E1E8327A7F9C1002E7D94 /* Resources */,
 				9D34C53C27A14DED0043B5A1 /* Common */,
@@ -398,6 +435,8 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				513BD47F27E8C1A9004FC538 /* ChecklistViewController */,
+				512382BD27E4D45D00016913 /* VardaMarkstrukturViewController */,
 				9DDC751527EC6EB300EE3EC5 /* TakePhoto */,
 				9D5A8C9D27DB52C200239E45 /* NewTestViewController */,
 				9D5A8C9427DA37C400239E45 /* SettingsViewController */,
@@ -645,6 +684,7 @@
 			files = (
 				2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */,
 				9D34C51927A14C760043B5A1 /* LaunchScreen.storyboard in Resources */,
+				512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */,
 				9D07BE3427BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D5A8C8427DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
@@ -664,6 +704,7 @@
 				9D07BE2527BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
 				9D07BE2E27BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */,
+				513BD48327E8C1DE004FC538 /* ChecklistViewController.xib in Resources */,
 				632E00D027EA2362004BBA67 /* markprofilen.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,8 +781,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
+				513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
 				9D5A8C8827DA261400239E45 /* UIView.swift in Sources */,
+				516983B627E8792F00FB6826 /* IOSChecklistViewModel.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
@@ -749,6 +792,7 @@
 				9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */,
 				63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
+				512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				63C33FED27E361B200264125 /* ModalViewController.swift in Sources */,
 				9DDC751F27EC701300EE3EC5 /* UIImage.swift in Sources */,

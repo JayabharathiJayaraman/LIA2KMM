@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.checklist.CheckListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tmpBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tmpBack" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background='@color/appBackgroundColor'>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/testLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:text="testtest"
+                android:textColor="@color/darkGreen"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/testText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/testText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/check_list_text1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/testLabelAtgarder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/check_list_label_atgardslista"
+                android:textColor="@color/darkGreen"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/testText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/check_list_text_3"
+                android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/checkListActiveRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="vertical" />
+
+            <TextView
+                android:id="@+id/testLabelEjAktuellaAtgarder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/check_list_label_ej_aktuella_atgarder"
+                android:textColor="@color/darkGreen"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/testText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/check_list_text_4"
+                android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/checkListInActiveRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:overScrollMode="never"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
