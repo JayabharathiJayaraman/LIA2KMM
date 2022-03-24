@@ -67,6 +67,8 @@
          \n\nIt is possible to export performed tests from the app, and to import them back, with position information. So you should be able to come back and follow up on previous tests.
          \n\nYou can also email individual test results as a PDF to yourself or, for example, an advisor. You can also create a PDF with a summary of your three subtests for a site.
     </string>
+    <string name="map_place">Place</string>
+    <string name="map_description">Tap on the map to select your exact location.</string>
 
 
 

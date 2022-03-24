@@ -22,6 +22,7 @@
         <action
             android:id="@+id/navigateToAboutApp"
             app:destination="@id/aboutAppFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/startScreenFragment"

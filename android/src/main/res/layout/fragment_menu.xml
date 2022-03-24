@@ -124,5 +124,33 @@
             android:textStyle="normal" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        >
+
+        <ImageView
+            android:id="@+id/image_map"
+            android:layout_width="20dp"
+            android:layout_height="35dp"
+            android:background="@drawable/menu_version"
+            android:contentDescription="@string/version_icon" />
+
+        <TextView
+            android:id="@+id/text_view_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/opensans_semi_bold"
+            android:text="Maps"
+            android:textColor="@color/tree_green"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

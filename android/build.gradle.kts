@@ -3,6 +3,8 @@ plugins {
     kotlin("android")
     id("kotlin-android")
     id("androidx.navigation.safeargs")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
 }
 
 android {
@@ -33,6 +35,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation ("com.google.android.gms:play-services-maps:18.0.2")
+    implementation("com.google.android.gms:play-services-location:19.0.1")
     //Camera X
     val cameraxVersion = "1.1.0-beta01"
     implementation("androidx.camera:camera-core:$cameraxVersion")
