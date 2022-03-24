@@ -67,7 +67,7 @@ class FormViewModel constructor(
                     .copy(counter = counter + 1)
             }
         }
-        
+
     fun setSoilStructurePhoto(id: String, imageUri: String) {
         updateStateAndSave {
             (form as? FormSoilStructure)?.setSoilStructurePhoto(id, state.value, imageUri)
@@ -75,7 +75,7 @@ class FormViewModel constructor(
                 ?: this
         }
     }
-        
+
 
     fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer, text: String) =
         state.value.components.firstOrNull {
