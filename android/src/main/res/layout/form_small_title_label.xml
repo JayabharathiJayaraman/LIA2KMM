@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/form_small_title_label_container"
-    >
+    android:id="@+id/form_small_title_label_container">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,8 +12,7 @@
         android:textColor="@color/green"
         android:textSize="17sp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        >
+        android:layout_marginBottom="10dp">
     </TextView>
 
 </LinearLayout>

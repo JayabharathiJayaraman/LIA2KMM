@@ -428,10 +428,10 @@ data class FormInfiltrations(
                 FormComponentResultsImages(
                     id = "vadNuImagesScreen10",
                     type = ComponentType.RESULTSIMAGES,
+                    images = listOf("add_test_icon", "plant_icon", "check"),
                     imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
                 ),
-
-                ),
+            ),
         ),
     )
 

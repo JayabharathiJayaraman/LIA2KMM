@@ -2,7 +2,7 @@ import shared
 import UIKit
 
 class FormViewController: UIViewController {
-    
+
     @IBOutlet private weak var containerView: UIView!
 
     @IBOutlet weak var progressBarStackView: UIStackView!
@@ -10,11 +10,11 @@ class FormViewController: UIViewController {
     private var viewModel = IOSFormViewModel.shared.formViewModel
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
-   
+
     init() {
         let interfaceGenerator = IOSFormGenerator()
         self.interfaceGenerator = interfaceGenerator
-        
+
         let nibName = String(describing: FormViewController.self)
         super.init(nibName: nibName, bundle: nil)
         interfaceGenerator.presentingViewController = self
@@ -23,34 +23,34 @@ class FormViewController: UIViewController {
     required init?(coder: NSCoder) {
         return nil
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         progressBarStackView.layer.cornerRadius = 6.0
         progressBarStackView.clipsToBounds = true
-        
+
         listeningJob = viewModel.wrappedState.onChange { newState in
             print("iOS, new state recieved: \(newState)")
-            
+
             self.updateProgress(totalScreens: Int(newState.totalScreens), currentScreen: Int(newState.currentScreen))
 
             self.currentScreenLabel.text = "\(newState.currentScreen + 1) " + "av".localized + " \(newState.totalScreens)"
             self.displayComponents(components: newState.components, currentScreen: newState.currentScreen)
         }
     }
-        
+
     @IBAction func nextViewButton(_ sender: Any) {
         viewModel.nextScreen()
     }
-    
+
     @IBAction func previousViewButton(_ sender: Any) {
         viewModel.previousScreen()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+
         listeningJob?.close()
     }
 }
@@ -64,7 +64,7 @@ private extension FormViewController {
             progressBarStackView.addArrangedSubview(customView)
         }
     }
-    
+
     func displayComponents(components: [FormComponent], currentScreen: Int32) {
         if containerView.subviews.count == 0 {
             guard let mainView = interfaceGenerator.createInterface(components: components, currentScreen: currentScreen) as? UIStackView else { return }

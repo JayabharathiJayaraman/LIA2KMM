@@ -14,5 +14,12 @@ extension UIColor {
         static let defaultBackgroundColor = UIColor(named: "defaultBackground")
         static let progressFilled = UIColor(named: "progressFilled")
         static let progressUnfilled = UIColor(named: "progressUnfilled")
+        static let labelTitleColor = UIColor(named: "labelTitleColor")
+        static let buttonListPlaceholerColor = UIColor(named: "buttonListPlaceholerColor")
+        static let buttonTitleColor = UIColor(named: "buttonTitleColor")
+        static let redRoundBackGround = UIColor(named: "redRoundBackGround")
+        static let orangeRoundBackGround = UIColor(named: "orangeRoundBackGround")
+        static let greenRoundBackGround = UIColor(named: "greenRoundBackGround")
     }
 }
+

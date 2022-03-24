@@ -422,6 +422,7 @@ data class FormSoilStructure(
                         it.id == ID_QUESTIONNAIRESTRUCTUREANSWER
                     }?.answer
                 ),
+
                 FormComponentText(
                     id = "instructionsTitleScreen12",
                     type = ComponentType.TITLESMALL,
@@ -485,6 +486,7 @@ data class FormSoilStructure(
                         it.id == ID_QUESTIONNAIREHIGHSOIL
                     }?.answer
                 ),
+
                 FormComponentText(
                     id = "instructionsTitleScreen13",
                     type = ComponentType.TITLESMALL,
@@ -540,6 +542,7 @@ data class FormSoilStructure(
                         it.id == ID_QUESTIONNAIREDENSESOIL
                     }?.answer
                 ),
+
                 FormComponentText(
                     id = "instructionsTitleScreen14",
                     type = ComponentType.TITLESMALL,

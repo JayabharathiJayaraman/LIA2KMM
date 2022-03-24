@@ -77,22 +77,6 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
-                FormComponentInformation(
-                    type = ComponentType.INFORMATION,
-                    id = "",
-                    components = listOf(
-                        FormComponentText(
-                            id = "titleIdentifier",
-                            type = ComponentType.TITLEBIG,
-                            text = "Title"
-                        ),
-                        FormComponentText(
-                            id = "TextIdentifier",
-                            type = ComponentType.BODY,
-                            text = "Lorem ipsum, Lorem ipsum, Lorem ipsum......"
-                        )
-                    )
-                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
@@ -166,6 +150,7 @@ data class FormGeneralQuestions(
                         it.id == ID_QUESTIONNAIRECROPESTABLISHMENT
                     }?.answer
                 ),
+
             ),
         ),
         FormScreen(
@@ -187,6 +172,7 @@ data class FormGeneralQuestions(
                         it.id == ID_QUESTIONNAIRECROPHEALTH
                     }?.answer
                 ),
+
             ),
         ),
         FormScreen(
@@ -208,6 +194,7 @@ data class FormGeneralQuestions(
                         it.id == ID_QUESTIONNAIREWATERINFERTATION
                     }?.answer
                 ),
+
             ),
         ),
         FormScreen(
@@ -229,6 +216,7 @@ data class FormGeneralQuestions(
                         it.id == ID_QUESTIONNAIRESOILCRUST
                     }?.answer
                 ),
+
                 FormComponentText(
                     id = "skorpbildningTittleScreen8",
                     type = ComponentType.TITLESMALL,
@@ -260,6 +248,7 @@ data class FormGeneralQuestions(
                         it.id == ID_QUESTIONNAIRESTABLEHARVEST
                     }?.answer
                 ),
+
             ),
         ),
         FormScreen(
@@ -445,4 +434,3 @@ data class FormGeneralQuestions(
         const val ID_QUESTIONNAIRERESULT = "QUESTIONNAIRERESULT"
     }
 }
-

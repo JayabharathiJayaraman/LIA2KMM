@@ -98,14 +98,14 @@
                                         <constraint firstAttribute="width" constant="40" id="fT4-r3-YjL"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addTestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Hh-X5O">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_test_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Hh-X5O">
                                     <rect key="frame" x="175" y="30" width="40" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="Z9t-yy-zqk"/>
                                         <constraint firstAttribute="height" constant="74" id="a5b-ui-oOt"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantIcon" translatesAutoresizingMaskIntoConstraints="NO" id="alS-Vh-BdQ">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant_icon" translatesAutoresizingMaskIntoConstraints="NO" id="alS-Vh-BdQ">
                                     <rect key="frame" x="300" y="8" width="40" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="52g-75-Dqm"/>
@@ -243,12 +243,12 @@
         </view>
     </objects>
     <resources>
-        <image name="addTestIcon" width="138" height="180"/>
+        <image name="add_test_icon" width="138" height="180"/>
         <image name="appikon1024" width="1024" height="1024"/>
         <image name="curveBottom" width="1040" height="77"/>
         <image name="jv-logo-black" width="118" height="94"/>
         <image name="meny_m_text" width="68" height="59"/>
-        <image name="plantIcon" width="144" height="189"/>
+        <image name="plant_icon" width="144" height="189"/>
         <image name="testDoneIcon" width="138" height="180"/>
         <namedColor name="defaultTitleText">
             <color red="0.17254901960784313" green="0.396078431372549" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
