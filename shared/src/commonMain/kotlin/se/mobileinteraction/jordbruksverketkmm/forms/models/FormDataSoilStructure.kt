@@ -27,10 +27,10 @@ data class PhotoLine(
 )
 
 data class StompData(
-    val level1: String? = null,
-    val level2: String? = null,
+    var level1: String? = null,
+    var level2: String? = null,
     val level3: String? = null,
-    val level4: String? = null,
+    var level4: String? = null,
     val showLevel3: Boolean = false,
 )
 

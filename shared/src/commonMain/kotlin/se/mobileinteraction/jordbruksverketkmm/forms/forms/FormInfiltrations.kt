@@ -166,6 +166,7 @@ data class FormInfiltrations(
                         "Mulljord (gyttjejord under)"
                     ),
                     value = (data as? FormDataInfiltration)?.soilAssesment?.soilType ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentText(
@@ -190,7 +191,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = ID_SOILTYPE,
+                    id = ID_CROP,
                     title = "Gröda",
                     list = listOf(
                         "Vårstråsäd",
@@ -212,11 +213,12 @@ data class FormInfiltrations(
                         "Ingen gröda - öppen jord"
                     ),
                     value = (data as? FormDataInfiltration)?.soilAssesment?.crop ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = "CropButtonListScreen6",
+                    id = ID_PRECEDINGCROP,
                     title = "Förfuktrsgröda",
                     list = listOf(
                         "Vårstråsäd",
@@ -238,14 +240,16 @@ data class FormInfiltrations(
                         "Ingen gröda - öppen jord"
                     ),
                     value = (data as? FormDataInfiltration)?.soilAssesment?.precedingCrop ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = "soilBearbetningScreen6",
+                    id = ID_SOILHANDLING,
                     title = "Jordbearbetning",
                     list = listOf("Plöjt", "Reducerad bearbetning", "Direktsådd", "Fräsning"),
                     value = (data as? FormDataInfiltration)?.soilAssesment?.soilHandling ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
             ),
@@ -306,7 +310,7 @@ data class FormInfiltrations(
                 ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
-                    id = ID_SOILTYPE,
+                    id = ID_MEASUREMENTTYPE,
                     title = "På vilket skikt mäter du infiltrationen?",
                     list = listOf(
                         "Markyta/Matjord",
@@ -315,6 +319,7 @@ data class FormInfiltrations(
                         "Alv"
                     ),
                     value = (data as FormDataInfiltration).infiltrationTest.measurementType ?: "",
+                    position = -1,
                     placeholder = "Välj...",
                 ),
                 FormComponentTextField(
@@ -468,14 +473,27 @@ data class FormInfiltrations(
         return state
     }
 
-    override fun setButtonlistActive(
+    override fun setButtonlistData(
         id: String,
-        value: String,
+        selected: String,
+        position: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataInfiltration)?.soilAssesment?.crop = value
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).value =
-            value
+        with(state.form.data) {
+            when (id) {
+                ID_SOILTYPE -> (this as? FormDataInfiltration)?.soilAssesment?.soilType = selected
+                ID_CROP -> (this as? FormDataInfiltration)?.soilAssesment?.crop = selected
+                ID_PRECEDINGCROP -> (this as? FormDataInfiltration)?.soilAssesment?.precedingCrop =
+                    selected
+                ID_SOILHANDLING -> (this as? FormDataInfiltration)?.soilAssesment?.soilHandling =
+                    selected
+                ID_MEASUREMENTTYPE -> (this as? FormDataInfiltration)?.infiltrationTest?.measurementType =
+                    selected
+            }
+        }
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).position =
+            position
+
         return state
     }
 
@@ -484,6 +502,10 @@ data class FormInfiltrations(
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_CROP = "CROP"
+        const val ID_PRECEDINGCROP = "PRECEDINGCROP"
+        const val ID_SOILHANDLING = "SOILHANDLING"
+        const val ID_MEASUREMENTTYPE = "MEASUREMENTTYPE"
         const val ID_COMMENT = "COMMENT"
         const val ID_ALTERNATE = "ALTERNATE_REMARK"
         const val ID_VATTENYTAN_START = "VATTENYTAN_START"

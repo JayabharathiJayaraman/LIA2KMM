@@ -61,6 +61,7 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         buttonList.id,
                         buttonList.list,
                         buttonList.value,
+                        buttonList.position,
                         buttonList.placeholder
                     )
                 }
@@ -224,7 +225,6 @@ private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, pla
             binding.textfield.setText(text)
             binding.textfield.hint = placeholder
             binding.textfield.addTextChangedListener { editable ->
-                println("logg: TEXT LISTENER: ${editable.toString()}")
                 if (text != editable.toString()) getApplication().formViewModel.setTextData(
                     id,
                     editable.toString()
@@ -293,6 +293,7 @@ private fun ViewGroup.createOrUpdateButtonList(
     id: String,
     list: List<String>,
     value: String,
+    position: Int,
     placeholder: String
 ) {
     val binding: FormButtonListBinding = FormButtonListBinding.inflate(LayoutInflater.from(context))
@@ -312,16 +313,15 @@ private fun ViewGroup.createOrUpdateButtonList(
                     pos: Int,
                     spinnerId: Long
                 ) {
-                    val itemId = parent.getItemIdAtPosition(pos)
-                    getApplication().formViewModel.setButtonListActive(id, itemId.toString())
+                    val selectedItem = parent.getItemAtPosition(pos).toString()
+                    val itemPosition = parent.getItemIdAtPosition(pos).toInt()
+                    getApplication().formViewModel.setButtonListData(id, selectedItem, itemPosition)
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
-
-            println("BUTTON LIST INFILTRATION: $value")
-            if (value != "") {
-                binding.spinner.setSelection(value.toInt())
+            if (position != -1) {
+                binding.spinner.setSelection(position)
             }
             this.addView(it)
         }

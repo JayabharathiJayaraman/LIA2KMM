@@ -13,9 +13,10 @@ interface Form {
 
     fun setChecklistRating(id: String, rating: Int, state: FormViewModel.State): FormViewModel.State
 
-    fun setButtonlistActive(
+    fun setButtonlistData(
         id: String,
-        value: String,
+        selected: String,
+        position: Int,
         state: FormViewModel.State
     ): FormViewModel.State
 }

@@ -58,13 +58,15 @@ class FormViewModel constructor(
         }
     }
 
-    fun setButtonListActive(id: String, value: String) = state.value.components.firstOrNull {
-        it is FormComponentButtonList
-    }.let {
-        updateStateAndSave {
-            form.setButtonlistActive(id, value, state.value).copy(counter = counter + 1)
+    fun setButtonListData(id: String, selected: String, position: Int) =
+        state.value.components.firstOrNull {
+            it is FormComponentButtonList
+        }.let {
+            updateStateAndSave {
+                form.setButtonlistData(id, selected, position, state.value)
+                    .copy(counter = counter + 1)
+            }
         }
-    }
 }
 
 
