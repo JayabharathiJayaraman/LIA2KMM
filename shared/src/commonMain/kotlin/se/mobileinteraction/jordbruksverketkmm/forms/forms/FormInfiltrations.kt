@@ -138,7 +138,7 @@ data class FormInfiltrations(
                 FormComponentText(
                     id = "platsBodyScreen4",
                     type = ComponentType.BODY,
-                    text = "Tryck på kartan för att välja din exakta position",
+                    text = "Tryck på kartan",
                 ),
                 FormComponentMap(
                     id = "mapScreen4",

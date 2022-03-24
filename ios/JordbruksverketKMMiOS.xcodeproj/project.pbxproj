@@ -990,7 +990,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
@@ -1006,7 +1006,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverket.kmm;
+				PRODUCT_BUNDLE_IDENTIFIER = mobileinteraction.jordbruksverket.kmm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1024,7 +1024,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8QSKY9M895;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
@@ -1040,7 +1040,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverket.kmm;
+				PRODUCT_BUNDLE_IDENTIFIER = mobileinteraction.jordbruksverket.kmm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

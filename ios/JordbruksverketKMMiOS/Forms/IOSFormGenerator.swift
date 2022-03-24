@@ -205,7 +205,7 @@ extension UIStackView {
     func addMap(screenTag: Int) {
 
            let mapView = MapScreenViewController()
-
+         //  mapView.viewDidLoad()
            self.addArrangedSubview(mapView.view)
     }
 
