@@ -120,6 +120,12 @@
 		9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
+		9DDC751827EC6EB300EE3EC5 /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC751627EC6EB300EE3EC5 /* TakePhotoViewController.xib */; };
+		9DDC751927EC6EB300EE3EC5 /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC751627EC6EB300EE3EC5 /* TakePhotoViewController.xib */; };
+		9DDC751A27EC6EB300EE3EC5 /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC751627EC6EB300EE3EC5 /* TakePhotoViewController.xib */; };
+		9DDC751B27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */; };
+		9DDC751C27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */; };
+		9DDC751D27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */; };
 		A2E3C9C42D84B45B91E6638A /* Pods_JordbruksverketKMMiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +207,8 @@
 		9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9DDC751627EC6EB300EE3EC5 /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
+		9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +394,7 @@
 		9D34C54127A14FD50043B5A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC751527EC6EB300EE3EC5 /* TakePhoto */,
 				9D5A8C9D27DB52C200239E45 /* NewTestViewController */,
 				9D5A8C9427DA37C400239E45 /* SettingsViewController */,
 				9D5A8C8B27DA2A8D00239E45 /* MenuViewController */,
@@ -510,6 +519,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9DDC751527EC6EB300EE3EC5 /* TakePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC751627EC6EB300EE3EC5 /* TakePhotoViewController.xib */,
+				9DDC751727EC6EB300EE3EC5 /* TakePhotoViewController.swift */,
+			);
+			name = TakePhoto;
+			path = ../../../../../Documents/TakePhoto;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -625,6 +644,7 @@
 				9D5A8C8427DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D34C51627A14C760043B5A1 /* Assets.xcassets in Resources */,
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
+				9DDC751827EC6EB300EE3EC5 /* TakePhotoViewController.xib in Resources */,
 				9D5A8CA327DB52E100239E45 /* NewTestViewController.xib in Resources */,
 				9D5A8C6527D8D7C800239E45 /* Localizable.strings in Resources */,
 				6314C35527E4C409006DE489 /* ButtonListViewController.xib in Resources */,
@@ -647,6 +667,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DDC751927EC6EB300EE3EC5 /* TakePhotoViewController.xib in Resources */,
 				9D5A8C8527DA258D00239E45 /* NavigationBar.xib in Resources */,
 				9D07BE3827BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
 				9D5A8C9827DA37E500239E45 /* SettingsViewController.xib in Resources */,
@@ -668,6 +689,7 @@
 			files = (
 				9D07BE3927BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
 				9D5A8CA527DB52E100239E45 /* NewTestViewController.xib in Resources */,
+				9DDC751A27EC6EB300EE3EC5 /* TakePhotoViewController.xib in Resources */,
 				9D07BE3027BBFF1C00FF1D55 /* OpenSans-Italic.ttf in Resources */,
 				9D07BE3627BBFF1C00FF1D55 /* OpenSans-SemiBold.ttf in Resources */,
 				9D07BE2727BBFF1C00FF1D55 /* OpenSans-Regular.ttf in Resources */,
@@ -718,6 +740,7 @@
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C7A27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
+				9DDC751B27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */,
 				9D5A8C7527DA240500239E45 /* UINavigationController.swift in Sources */,
 				63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
@@ -769,6 +792,7 @@
 				9D34C54627A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C7B27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */,
+				9DDC751C27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */,
 				9D5A8C9B27DA37E500239E45 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,6 +821,7 @@
 				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,
 				9D5A8CAA27DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
+				9DDC751D27EC6EB300EE3EC5 /* TakePhotoViewController.swift in Sources */,
 				9D5A8C7727DA240500239E45 /* UINavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
