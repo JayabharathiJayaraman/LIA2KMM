@@ -5,6 +5,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormInfiltrations(
@@ -494,6 +495,16 @@ data class FormInfiltrations(
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).position =
             position
 
+        return state
+    }
+
+    override fun setQuestionnaireAnswer(
+        id: String,
+        answer: QuestionnaireAnswer,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        // TODO: Find a way to implement function only where used (test 1 and 2)
         return state
     }
 

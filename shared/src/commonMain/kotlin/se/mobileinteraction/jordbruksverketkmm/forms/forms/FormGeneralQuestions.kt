@@ -2,8 +2,10 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormGeneralQuestions(
@@ -131,27 +133,19 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är det lätt att bearbeta jorden?"
                 ),
-                FormComponentRemark(
-                    id = "sadFaceRemarkScreen4",
-                    type = ComponentType.REMARK,
-                    text = "Svårbearbetad jord som kräver många överfarter." +
-                            "Stort dragkraftsbehov",
-                    image = "sad_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIRECULTIVATE,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Svårbearbetad jord som kräver många överfarter. Stort dragkraftsbehov.",
+                        "Jordbearbetningen kräver ibland många överfarter. Relativt stort dragkraftsbehov.",
+                        "Lättbearbetad jord, litet dragkraftsbehov.",
+                    ),
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRECULTIVATE
+                    }?.answer
                 ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen4",
-                    type = ComponentType.REMARK,
-                    text = "Jordbearbetningen kräver ibland många överfarter." +
-                            "Relativt stort dragkraftsbehov",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen4",
-                    type = ComponentType.REMARK,
-                    text = "Lättbearbetad jord, litet dragkraftsbehov",
-                    image = "happy_face"
-                ),
-            ),
+            )
         ),
         FormScreen(
             components = listOf<FormComponent>(
@@ -160,27 +154,20 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är grödans etablering god?"
                 ),
-                FormComponentRemark(
-                    id = "sadFaceRemarkScreen5",
-                    type = ComponentType.REMARK,
-                    text = "Ojämn uppkomst och luckiga bestånd.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen5",
-                    type = ComponentType.REMARK,
-                    text = "Något ojämn uppkomst och etablering av grödan.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen5",
-                    type = ComponentType.REMARK,
-                    text = "Jämn och snabb uppkomst. Jämnhöga bestånd",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIRECROPESTABLISHMENT,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Ojämn uppkomst och luckiga bestånd.",
+                        "Något ojämn uppkomst och etablering av grödan.",
+                        "Jämn och snabb uppkomst. Jämnhöga bestånd.",
+                    ),
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRECROPESTABLISHMENT
+                    }?.answer
                 ),
             ),
-
-            ),
+        ),
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentText(
@@ -188,29 +175,17 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är grödan frisk och frodig och konkurrerar väl med ogräsen?"
                 ),
-                FormComponentRemark(
-                    id = "sadFaceRemarkScreen6",
-                    type = ComponentType.REMARK,
-                    text = "Hämmad tillväxt," +
-                            "missfärgning, eller stora" +
-                            "ogräsproblem.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen6",
-                    type = ComponentType.REMARK,
-                    text = "Något ojämn tillväxt, lite" +
-                            "missfärgning, eller vissa" +
-                            "ogräsproblem.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen6",
-                    type = ComponentType.REMARK,
-                    text = "Frisk och frodig gröda," +
-                            "och mycket små" +
-                            "ogräsproblem.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIRECROPHEALTH,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Hämmad tillväxt, missfärgning, eller stora ogräsproblem.",
+                        "Något ojämn tillväxt, lite missfärgning, eller vissa ogräsproblem.",
+                        "Frisk och frodig gröda, och mycket små ogräsproblem.",
+                    ),
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRECROPHEALTH
+                    }?.answer
                 ),
             ),
         ),
@@ -221,27 +196,17 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Infiltrerar vatten snabbt?"
                 ),
-                FormComponentRemark(
-                    id = "sadFaceRemarkScreen7",
-                    type = ComponentType.REMARK,
-                    text = "Stående vatten kvar länge," +
-                            "efter kraftiga regn eller" +
-                            "bevattning.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen7",
-                    type = ComponentType.REMARK,
-                    text = "Vattnet rinner undan" +
-                            "sakta, lite pölar.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen7",
-                    type = ComponentType.REMARK,
-                    text = "Vanligen inget vatten" + "stående kvar efter" +
-                            "kraftiga regn eller" + "bevattning.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIREWATERINFERTATION,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Stående vatten kvar länge efter kraftiga regn eller bevattning.",
+                        "Vattnet rinner undan sakta, lite pölar.",
+                        "Vanligen inget vatten stående kvar efter kraftiga regn eller bevattning.",
+                    ),
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREWATERINFERTATION
+                    }?.answer
                 ),
             ),
         ),
@@ -252,25 +217,17 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Förekommer skorpbildning?"
                 ),
-                FormComponentRemark(
-                    id = "sadFaceRemarkScreen8",
-                    type = ComponentType.REMARK,
-                    text = "Skorpa bildas ofta, även" +
-                            "efter lätta regn",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen8",
-                    type = ComponentType.REMARK,
-                    text = "Skorpa förekommer ibland, särskilt " +
-                            "efter kraftigt regn eller bevattning bevattning.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen8",
-                    type = ComponentType.REMARK,
-                    text = "Skorpa bildas aldrig.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIRESOILCRUST,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Skorpa bildas ofta, även efter lätta regn.",
+                        "Skorpa förekommer ibland, särskilt efter kraftigt regn eller bevattning.",
+                        "Skorpa bildas aldrig.",
+                    ),
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRESOILCRUST
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "skorpbildningTittleScreen8",
@@ -291,26 +248,17 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Är skördenivåerna stabila?"
                 ),
-                FormComponentRemark(
-                    id = "sadFaceRemarkScreen9",
-                    type = ComponentType.REMARK,
-                    text = "Stor skördevariation" + "inom fältet och mellan"
-                            + "åren.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "indifferentFaceRemarkScreen9",
-                    type = ComponentType.REMARK,
-                    text = "Viss skördevariation inom" +
-                            "fält och mellan år.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "happyFaceRemarkScreen9",
-                    type = ComponentType.REMARK,
-                    text = "Jämna och - för området" +
-                            "och jordarten - goda" + "skordar.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIRESTABLEHARVEST,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Stor skördevariation inom fältet och mellan åren.",
+                        "Viss skördevariation inom fält och mellan år.",
+                        "Jämna och - för området och jordarten - goda skördar.",
+                    ),
+                    answer = (data as? FormDataGeneralQuestions)?.questionnaire?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRESTABLEHARVEST
+                    }?.answer
                 ),
             ),
         ),
@@ -322,7 +270,7 @@ data class FormGeneralQuestions(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
-                    id = FormGeneralQuestions.ID_COMMENT,
+                    id = ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
                     text = (data as? FormDataGeneralQuestions)?.comment ?: "",
                     placeholder = "Skriv dina anteckningar här",
@@ -435,6 +383,31 @@ data class FormGeneralQuestions(
         return state
     }
 
+    override fun setQuestionnaireAnswer(
+        id: String,
+        answer: QuestionnaireAnswer,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        with(state.form.data as? FormDataGeneralQuestions) {
+            val existingAnswer = this?.questionnaire?.answers?.firstOrNull { it.id == id }
+
+            if (existingAnswer != null) {
+                val newAnswer = existingAnswer.copy(answer = answer)
+                val index = this?.questionnaire?.answers?.indexOf(existingAnswer)
+                index?.let { this?.questionnaire?.answers?.set(index, newAnswer) }
+            } else {
+                val newAnswer = AnswerWithPhoto(answer, id, text)
+                this?.questionnaire?.answers?.add(newAnswer)
+            }
+        }
+
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).answer =
+            answer
+
+        return state
+    }
+
     override fun setButtonlistData(
         id: String,
         value: String,
@@ -458,6 +431,12 @@ data class FormGeneralQuestions(
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
         const val ID_COMMENT = "COMMENT"
+        const val ID_QUESTIONNAIRECULTIVATE = "QUESTIONNAIRECULTIVATE"
+        const val ID_QUESTIONNAIRECROPESTABLISHMENT = "QUESTIONNAIRECROPESTABLISHMENT"
+        const val ID_QUESTIONNAIRECROPHEALTH = "QUESTIONNAIRECROPHEALTH"
+        const val ID_QUESTIONNAIREWATERINFERTATION = "QUESTIONNAIREWATERINFERTATION"
+        const val ID_QUESTIONNAIRESOILCRUST = "QUESTIONNAIRESOILCRUST"
+        const val ID_QUESTIONNAIRESTABLEHARVEST = "QUESTIONNAIRESTABLEHARVEST"
     }
 }
 

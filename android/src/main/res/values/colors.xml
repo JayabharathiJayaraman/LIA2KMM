@@ -15,10 +15,14 @@
     <color name="toolbarBackgroundColor">#F7F8F5</color>
     <color name="testButtonColor">#FFFF</color>
     <color name="tree_green">#2f651a</color>
+    <color name="progress_bar_uncolored">#ced7b2</color>
     <color name="colorBlack">#141414</color>
     <color name="green">#2d6a01</color>
     <color name="white">#FFFFFF</color>
     <color name="progress_bar_uncolored">#ced7b2</color>
     <color name="black">#000000</color>
     <color name="darkGray">#3B3B3B</color>
+    <color name="questionnaire_sad">#e7906d</color>
+    <color name="questionnaire_indifferent">#e9c567</color>
+    <color name="questionnaire_happy">#acba82</color>
 </resources>

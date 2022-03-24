@@ -35,11 +35,13 @@ data class StompData(
 )
 
 data class QuestionnaireWithPhotos(
-    val answers: List<AnswerWithPhoto> = emptyList()
+    val answers: MutableList<AnswerWithPhoto> = mutableListOf()
 )
 
 data class AnswerWithPhoto(
-    val answer: QuestionnaireAnswer? = null,
+    var answer: QuestionnaireAnswer? = null,
+    var id: String = "",
+    val text: String = "",
     val photoUri: String? = null,
-    val comment: String = "",
+    var comment: String = "",
 )

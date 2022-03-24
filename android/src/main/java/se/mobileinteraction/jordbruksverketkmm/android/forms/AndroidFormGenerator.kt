@@ -12,6 +12,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
 
 class AndroidFormGenerator(private val context: Context, private val viewModel: FormViewModel) :
@@ -74,9 +75,13 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         checklist.rating
                     )
                 }
-                ComponentType.REMARK -> {
-                    val remark = (component as FormComponentRemark)
-                    mainView.createOrUpdateRemark(remark.text, remark.id, remark.image)
+                ComponentType.QUESTIONNAIRE -> {
+                    val questionnaire = (component as FormComponentQuestionnaire)
+                    mainView.createOrUpdateQuestionnaire(
+                        questionnaire.id,
+                        questionnaire.text,
+                        questionnaire.answer
+                    )
                 }
 
                 ComponentType.RESULTSREMARKSFACE -> {
@@ -232,14 +237,56 @@ private fun ViewGroup.createOrUpdateTextFieldNotes(id: String, text: String, pla
             }
             this.addView(it)
         }
+    this.findViewWithTag(id) ?: binding.textfield.rootView.apply { tag = id }
+        .also {
+            binding.textfield.hint = placeholder
+            this.addView(it)
+        }
 }
 
-private fun ViewGroup.createOrUpdateRemark(text: String, id: String, image: String) {
-    val binding: FormRemarkBinding = FormRemarkBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formRemarkContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-    binding.textview.text = text
-    binding.imageview.setImageResource(getImageResource(image))
+private fun ViewGroup.createOrUpdateQuestionnaire(
+    id: String,
+    text: List<String>,
+    answer: QuestionnaireAnswer?
+) {
+    val binding: FormQuestionnaireChecklistBinding =
+        FormQuestionnaireChecklistBinding.inflate(LayoutInflater.from(context))
+
+    this.findViewWithTag(id) ?: binding.radioGroup.rootView.apply { tag = id }
+        .also {
+            binding.radioButtonSad.text = text[0]
+            binding.radioButtonIndifferent.text = text[1]
+            binding.radioButtonHappy.text = text[2]
+
+            binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
+                when (checkedId) {
+                    binding.radioButtonSad.id -> getApplication().formViewModel.setQuestionnaireAnswer(
+                        id,
+                        QuestionnaireAnswer.Poor,
+                        text[0]
+                    )
+                    binding.radioButtonIndifferent.id -> getApplication().formViewModel.setQuestionnaireAnswer(
+                        id,
+                        QuestionnaireAnswer.Mediocre,
+                        text[1]
+                    )
+                    binding.radioButtonHappy.id -> getApplication().formViewModel.setQuestionnaireAnswer(
+                        id,
+                        QuestionnaireAnswer.Good,
+                        text[2]
+                    )
+                }
+            }
+            when (answer) {
+                QuestionnaireAnswer.Good -> binding.radioGroup.check(binding.radioButtonHappy.id)
+                QuestionnaireAnswer.Mediocre -> binding.radioGroup.check(binding.radioButtonIndifferent.id)
+                QuestionnaireAnswer.Poor -> binding.radioGroup.check(binding.radioButtonSad.id)
+                else -> {
+                    binding.radioGroup.check(-1)
+                }
+            }
+            this.addView(it)
+        }
 }
 
 private fun ViewGroup.createOrUpdateResultsRemarks(
@@ -372,17 +419,6 @@ private fun ViewGroup.createOrUpdateVideo(id: String, description: String, sourc
     binding.videoview.setMediaController(mc)
     binding.videoview.setVideoURI(Uri.parse(getVideoPath(source)))
     binding.videoview.seekTo(1)
-}
-
-private fun ViewGroup.createOrUpdateCaptionedImage(id: String, imageName: String, caption: String) {
-    val binding: FormImageviewCaptionBinding =
-        FormImageviewCaptionBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formImageviewCaptionContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
-
-    binding.imageview.setImageResource(getImageResource(imageName))
-    binding.textviewCaption.text = caption
-
 }
 
 private fun ViewGroup.createOrUpdateResultsInfoBody(text: String, id: String) {

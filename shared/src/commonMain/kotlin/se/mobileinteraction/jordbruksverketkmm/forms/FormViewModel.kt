@@ -1,10 +1,8 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentButtonList
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentChecklist
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
 
@@ -66,6 +64,16 @@ class FormViewModel constructor(
                 form.setButtonlistData(id, selected, position, state.value)
                     .copy(counter = counter + 1)
             }
+    fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer, text: String) =
+        state.value.components.firstOrNull {
+            it is FormComponentQuestionnaire
+        }.let {
+            updateStateAndSave {
+                form.setQuestionnaireAnswer(id, answer, text, state.value)
+                    .copy(counter = counter + 1)
+            }
+        }
+
         }
 }
 

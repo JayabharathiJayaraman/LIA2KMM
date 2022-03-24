@@ -2,8 +2,10 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
 data class FormSoilStructure(
@@ -419,26 +421,17 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har matjorden bra struktur?"
                 ),
-                FormComponentRemark(
-                    id = "structureSadRemarkScreen12",
-                    type = ComponentType.REMARK,
-                    text = "Matjorden har kokig, pulvrig, massiv, skiktad eller enkelkornsstruktur." +
-                            " Släta brottytor om man bryter isär jordklump",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "structureIndifferentRemarkScreen12",
-                    type = ComponentType.REMARK,
-                    text = "Matjorden har skarpkantade aggregat som kan falla sönder i mindre, " +
-                            "kompakta aggregat. Brottytor lite ojämna.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "structureHappyRemarkScreen12",
-                    type = ComponentType.REMARK,
-                    text = "Matjorden har avrundade aggregat sim faller sömder i mindre, " +
-                            "porösa, aggregat. Skrovliga brottytor.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIRESTRUCTUREANSWER,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Matjorden har kokig, pulvrig, massiv, skiktad eller enkelkornsstruktur. Släta brottytor om man bryter isär jordklump",
+                        "Matjorden har skarpkantade aggregat som kan falla sönder i mindre, kompakta aggregat. Brottytor lite ojämna.",
+                        "Matjorden har avrundade aggregat som faller sönder i mindre porösa aggregat. Skrovliga brottytor."
+                    ),
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIRESTRUCTUREANSWER
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "instructionsTitleScreen12",
@@ -491,24 +484,17 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har matjorden hög mullhalt?"
                 ),
-                FormComponentRemark(
-                    id = "topsoilSadRemarkScreen13",
-                    type = ComponentType.REMARK,
-                    text = "Matjorden har låg mullhalt - samma ljusa färg som alven.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "topsoilIndifferentRemarkScreen13",
-                    type = ComponentType.REMARK,
-                    text = "Matjorden är något mörkare än alven.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "topsoilHappyRemarkScreen13",
-                    type = ComponentType.REMARK,
-                    text = "Matjorden är mycket mörkare än alven. " +
-                            "Eller hela markprofilen har hög mullhalt (mörk färg).",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIREHIGHSOIL,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Matjorden har låg mullhalt - samma ljusa färg som alven.",
+                        "Matjorden är något mörkare än alven.",
+                        "Matjorden är mycket mörkare än alven. Eller hela markprofilen har hög mullhalt (mörk färg).",
+                    ),
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREHIGHSOIL
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "instructionsTitleScreen13",
@@ -553,25 +539,17 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har jorden täta skikt?"
                 ),
-                FormComponentRemark(
-                    id = "layerSadRemarkScreen14",
-                    type = ComponentType.REMARK,
-                    text = "Ett eller flera täta skikt. Tydlig bearbetningssula. " +
-                            "Rötterna böjer av.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "layerIndifferentRemarkScreen14",
-                    type = ComponentType.REMARK,
-                    text = "Det finns kompakta skikt. Rottillväxt lite hämmad.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "layerHappyRemarkScreen14",
-                    type = ComponentType.REMARK,
-                    text = "Saknar tydliga täta skikt. Det går att sticka kniven i gropväggen " +
-                            "utan större motstånd.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIREDENSESOIL,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Ett eller flera täta skikt. Tydlig bearbetningssula. Rötterna böjer av.",
+                        "Det finns kompakta skikt. Rottillväxt lite hämmad.",
+                        "Saknar tydliga täta skikt. Det går att sticka kniven i gropväggen utan större motstånd.",
+                    ),
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREDENSESOIL
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "instructionsTitleScreen14",
@@ -617,23 +595,17 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Hur ser växtresterna ut?"
                 ),
-                FormComponentRemark(
-                    id = "plantStructureSadRemarkScreen15",
-                    type = ComponentType.REMARK,
-                    text = "Växtresterna är dåligt omsatta, jorden luktar unket.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "plantStructureIndifferentRemarkScreen15",
-                    type = ComponentType.REMARK,
-                    text = "Växtresterna är varken bra eller dåligt omsatta.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "plantStructureHappyRemarkScreen15",
-                    type = ComponentType.REMARK,
-                    text = "Växtresterna är väl förmultnade, jorden har en frisk doft.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIREPLANTSTRUCTURE,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Växtresterna är dåligt omsatta, jorden luktar unket.",
+                        "Växtresterna är varken bra eller dåligt omsatta.",
+                        "Växtresterna är väl förmultnade, jorden har en frisk doft.",
+                    ),
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREPLANTSTRUCTURE
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "instructionsTitleScreen15",
@@ -678,23 +650,17 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Har ser växtrötterna ut?"
                 ),
-                FormComponentRemark(
-                    id = "goodRootsSadRemarkScreen16",
-                    type = ComponentType.REMARK,
-                    text = "Rötterna finns bara i stora porer och sprickor, böjer ofta av. Gulbruna rötter. Förtjockade rotspetsar.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "goodRootsIndifferentRemarkScreen16",
-                    type = ComponentType.REMARK,
-                    text = "En del finrötter, de flesta friska. Rötter mest mellan större aggregat. Böjer av ibland.",
-                    image = "indifferent_face"
-                ),
-                FormComponentRemark(
-                    id = "goodRootsHappyRemarkScreen16",
-                    type = ComponentType.REMARK,
-                    text = "Frodiga, friska, vita rotsystem, jämnt fördelade.",
-                    image = "happy_face"
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIREROOTS,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Rötterna finns bara i stora porer och sprickor, böjer ofta av. Gulbruna rötter. Förtjockade rotspetsar.",
+                        "En del finrötter, de flesta friska. Rötter mest mellan större aggregat. Böjer av ibland.",
+                        "Frodiga, friska, vita rotsystem, jämnt fördelade.",
+                    ),
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREROOTS
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "instructionsTitleScreen16",
@@ -752,23 +718,17 @@ data class FormSoilStructure(
                     type = ComponentType.TITLESMALL,
                     text = "Finns det daggmaskar?"
                 ),
-                FormComponentRemark(
-                    id = "wormsSadRemarkScreen17",
-                    type = ComponentType.REMARK,
-                    text = "Varken maskar eller maskgångar finns.",
-                    image = "sad_face"
-                ),
-                FormComponentRemark(
-                    id = "wormsIndifferentRemarkScreen17",
-                    type = ComponentType.REMARK,
-                    text = "Enstaka maskar eller maskgångar.",
-                    image = "indifferent_face",
-                ),
-                FormComponentRemark(
-                    id = "wormsHappyRemarkScreen17",
-                    type = ComponentType.REMARK,
-                    text = "Flera maskar eller maskgångar.",
-                    image = "happy_face",
+                FormComponentQuestionnaire(
+                    id = ID_QUESTIONNAIREWORMS,
+                    type = ComponentType.QUESTIONNAIRE,
+                    text = listOf(
+                        "Varken maskar eller maskgångar finns.",
+                        "Enstaka maskar eller maskgångar.",
+                        "Flera maskar eller maskgångar.",
+                    ),
+                    answer = (data as? FormDataSoilStructure)?.questionnaireWithPhotos?.answers?.firstOrNull {
+                        it.id == ID_QUESTIONNAIREWORMS
+                    }?.answer
                 ),
                 FormComponentText(
                     id = "instructionsTitleScreen17",
@@ -947,6 +907,31 @@ data class FormSoilStructure(
         return state
     }
 
+    override fun setQuestionnaireAnswer(
+        id: String,
+        answer: QuestionnaireAnswer,
+        text: String,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        with(state.form.data as? FormDataSoilStructure) {
+            val existingAnswer = this?.questionnaireWithPhotos?.answers?.firstOrNull { it.id == id }
+
+            if (existingAnswer != null) {
+                val newAnswer = existingAnswer.copy(answer = answer)
+                val index = this?.questionnaireWithPhotos?.answers?.indexOf(existingAnswer)
+                index?.let { this?.questionnaireWithPhotos?.answers?.set(index, newAnswer) }
+            } else {
+                val newAnswer = AnswerWithPhoto(answer, id)
+                this?.questionnaireWithPhotos?.answers?.add(newAnswer)
+            }
+        }
+
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentQuestionnaire).answer =
+            answer
+
+        return state
+    }
+
     override fun setButtonlistData(
         id: String,
         selected: String,
@@ -986,6 +971,11 @@ data class FormSoilStructure(
         const val ID_STOMPLEVEL1 = "STOMPLEVEL1"
         const val ID_STOMPLEVEL2 = "STOMPLEVEL2"
         const val ID_STOMPLEVEL4 = "STOMPLEVEL4"
+        const val ID_QUESTIONNAIRESTRUCTUREANSWER = "QUESTIONNAIRESTRUCTURE"
+        const val ID_QUESTIONNAIREHIGHSOIL = "QUESTIONNAIREHIGHSOIL"
+        const val ID_QUESTIONNAIREDENSESOIL = "QUESTIONNAIREDENSESOIL"
+        const val ID_QUESTIONNAIREPLANTSTRUCTURE = "QUESTIONNAIREPLANTSTRUCTURE"
+        const val ID_QUESTIONNAIREROOTS = "QUESTIONNAIREROOTS"
+        const val ID_QUESTIONNAIREWORMS = "QUESTIONNAIREWORMS"
     }
 }
-
