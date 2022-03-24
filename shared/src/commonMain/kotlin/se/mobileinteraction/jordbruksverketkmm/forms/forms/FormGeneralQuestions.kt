@@ -289,6 +289,11 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Hur fungerar skiftet för min växtodling?"
                 ),
+                FormComponentQuestionnaireResult(
+                    id = ID_QUESTIONNAIRERESULT,
+                    type = ComponentType.QUESTIONNAIRERESULT,
+                    answers = (data as? FormDataGeneralQuestions)?.questionnaire?.answers
+                ),
                 FormComponentText(
                     id = "symbolTitleScreen11",
                     type = ComponentType.TITLESMALL,
@@ -437,6 +442,7 @@ data class FormGeneralQuestions(
         const val ID_QUESTIONNAIREWATERINFERTATION = "QUESTIONNAIREWATERINFERTATION"
         const val ID_QUESTIONNAIRESOILCRUST = "QUESTIONNAIRESOILCRUST"
         const val ID_QUESTIONNAIRESTABLEHARVEST = "QUESTIONNAIRESTABLEHARVEST"
+        const val ID_QUESTIONNAIRERESULT = "QUESTIONNAIRERESULT"
     }
 }
 

@@ -12,6 +12,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
 
@@ -81,6 +82,14 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                         questionnaire.id,
                         questionnaire.text,
                         questionnaire.answer
+                    )
+                }
+
+                ComponentType.QUESTIONNAIRERESULT -> {
+                    val questionnaireResult = (component as FormComponentQuestionnaireResult)
+                    mainView.createOrUpdateQuestionnaireResult(
+                        questionnaireResult.id,
+                        questionnaireResult.answers
                     )
                 }
 
@@ -288,6 +297,46 @@ private fun ViewGroup.createOrUpdateQuestionnaire(
             this.addView(it)
         }
 }
+
+private fun ViewGroup.createOrUpdateQuestionnaireResult(
+    id: String,
+    answers: MutableList<AnswerWithPhoto>?,
+) {
+    val binding: FormGroundProfileResultBinding =
+        FormGroundProfileResultBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.questionnaireResultContainer.rootView.apply { tag = id }
+        .also {
+            if (answers != null) {
+                for (i in 0 until answers.size) {
+                    val imageLayout: FormQuestionnaireResultItemBinding =
+                        FormQuestionnaireResultItemBinding.inflate(
+                            LayoutInflater.from(context)
+                        )
+
+                    when (answers[i].answer) {
+                        QuestionnaireAnswer.Good -> {
+                            imageLayout.tableRow.setBackgroundResource(R.drawable.questionnaire_happy_selected)
+                            imageLayout.imageView.setImageResource(getImageResource("happy_face"))
+                        }
+                        QuestionnaireAnswer.Mediocre -> {
+                            imageLayout.tableRow.setBackgroundResource(R.drawable.questionnaire_indifferent_selected)
+                            imageLayout.imageView.setImageResource(getImageResource("indifferent_face"))
+                        }
+                        QuestionnaireAnswer.Poor -> {
+                            imageLayout.tableRow.setBackgroundResource(R.drawable.questionnaire_sad_selected)
+                            imageLayout.imageView.setImageResource(getImageResource("sad_face"))
+                        }
+                        null -> println("Null")
+                    }
+
+                    imageLayout.textView.text = answers[i].text
+                    binding.questionnaireResultContainer.addView(imageLayout.questionnaireResultItem)
+                }
+            }
+            this.addView(it)
+        }
+}
+
 
 private fun ViewGroup.createOrUpdateResultsRemarks(
     text: String,
