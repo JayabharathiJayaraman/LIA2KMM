@@ -845,8 +845,9 @@ data class FormSoilStructure(
                     text = "Vad vill du göra nu?",
                 ),
                 FormComponentResultsImages(
-                    id = "vadNuImagesScreen10",
+                    id = "vadNuImagesScreen19",
                     type = ComponentType.RESULTSIMAGES,
+                    images = listOf("add_test_icon", "plant_icon", "check"),
                     imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
                 ),
             )

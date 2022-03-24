@@ -64,10 +64,6 @@ class IOSFormGenerator: FormGenerator {
                 if let button = component as? FormComponentButton {
                     mainView.addButton(screenTag: screenTag, id: button.id, text: button.text)
                 }
-            case .remark:
-                if let remark = component as? FormComponentRemark {
-                    mainView.addRemark(screenTag: screenTag, text: remark.text, id: remark.id, image: remark.image)
-                }
             case .image:
                 if let image = component as? FormComponentImage {
                     mainView.addImage(imageName: image.image, caption: image.caption)
