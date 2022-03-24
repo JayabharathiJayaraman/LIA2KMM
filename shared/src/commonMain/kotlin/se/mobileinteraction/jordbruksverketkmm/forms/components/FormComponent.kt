@@ -13,11 +13,13 @@ enum class ComponentType {
     BUTTON,
     REMARK,
     CAPTIONEDIMAGE,
+    IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,
     RESULTSINFOBODY,
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
+    INFORMATION,
     MAPS,
 }
 
@@ -26,7 +28,11 @@ interface FormComponent {
     val id: String
 }
 
-class FormComponentText(override val type: ComponentType, override val id: String, val text: String) :
+class FormComponentText(
+    override val type: ComponentType,
+    override val id: String,
+    val text: String
+) :
     FormComponent
 
 class FormComponentButton(
@@ -56,7 +62,7 @@ class FormComponentChecklist(
     override val id: String,
     val title: String,
     val options: List<String>,
-    var active: Int,
+    var rating: Int,
 ) : FormComponent
 
 class FormComponentRemark(
@@ -76,7 +82,7 @@ class FormComponentImage(
 class FormComponentTime(
     override val type: ComponentType,
     override val id: String,
-    val timeLabel:String,
+    val timeLabel: String,
     val start: String,
     val stop: String,
 ) : FormComponent
@@ -84,19 +90,20 @@ class FormComponentTime(
 class FormComponentLine(
     override val type: ComponentType,
     override val id: String,
-   val text: String
-): FormComponent
+    val text: String
+) : FormComponent
 
 class FormComponentResultsInfoBody(
     override val type: ComponentType,
     override val id: String,
-    val text: String) : FormComponent
+    val text: String
+) : FormComponent
 
 class FormComponentResultsImages(
     override val type: ComponentType,
     override val id: String,
-    val imagesTextList:List<String>
-): FormComponent
+    val imagesTextList: List<String>
+) : FormComponent
 
 class FormComponentResultsRemark(
     override val type: ComponentType,
@@ -118,3 +125,16 @@ class FormComponentMap(
     override val id: String,
 ) : FormComponent
 
+
+class FormComponentImagesGrid(
+    override val type: ComponentType,
+    override val id: String,
+    val image: List<String>,
+    val caption: List<String>,
+) : FormComponent
+
+class FormComponentInformation(
+    override val type: ComponentType,
+    override val id: String,
+    val components: List<FormComponent>,
+) : FormComponent

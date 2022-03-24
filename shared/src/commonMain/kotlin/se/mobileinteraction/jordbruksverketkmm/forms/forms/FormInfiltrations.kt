@@ -3,6 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
 
@@ -30,35 +31,11 @@ data class FormInfiltrations(
                     type = ComponentType.TITLESMALL,
                     text = "Utrustning"
                 ),
-                FormComponentImage(
+                FormComponentImagesGrid(
                     id = "braGrävspadeImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "shovel",
-                    caption = "Bra grävspade",
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "cylinder",
-                    caption = "Cylinder",
-                ),
-                FormComponentImage(
-                    id = "vattenImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "waterdrops",
-                    caption = "Vatten",
-                ),
-                FormComponentImage(
-                    id = "litermåttImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "litre",
-                    caption = "Litermått",
-                ),
-                FormComponentImage(
-                    id = "tumstockImage",
-                    type = ComponentType.CAPTIONEDIMAGE,
-                    image = "ruler",
-                    caption = "Tumstock",
+                    type = ComponentType.IMAGESGRID,
+                    image = listOf("shovel", "cylinder", "waterdrops", "litre", "ruler"),
+                    caption = listOf("Bra grävspade", "Cylinder", "Vatten", "Litermåt", "Tumstock")
                 ),
                 FormComponentText(
                     id = "utrustningBodyScreen1",
@@ -123,11 +100,11 @@ data class FormInfiltrations(
         FormScreen(
             components = listOf<FormComponent>(
                 FormComponentChecklist(
-                    id = "representativeChecklistScreen3",
+                    id = ID_PLACEASSESSMENT,
                     type = ComponentType.CHECKLIST,
                     title = "Testets plats",
                     options = listOf("Representativ", "Bra plats", "Dålig plats", "Annan"),
-                    active = (data as? FormDataInfiltration)?.placeAssesment?.rating ?: -1,
+                    rating = (data as? FormDataInfiltration)?.placeAssesment?.rating ?: -1,
                 ),
                 FormComponentTextField(
                     type = ComponentType.TEXTFIELD,
@@ -383,10 +360,10 @@ data class FormInfiltrations(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
+                    id = FormInfiltrations.ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    id = "id",
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här",
+                    text = (data as? FormDataGeneralQuestions)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             ),
         ),
@@ -467,6 +444,7 @@ data class FormInfiltrations(
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
                 ID_SOILTYPE -> (this as FormDataInfiltration).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataInfiltration).comment = text
             }
         }
 
@@ -476,14 +454,21 @@ data class FormInfiltrations(
         return state
     }
 
-    override fun setChecklistActive(
+    override fun setChecklistRating(
         id: String,
-        active: Int,
+        rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataInfiltration)?.placeAssesment?.rating = active
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
-            active
+        with(state.form.data) {
+            when (id) {
+                FormSoilStructure.ID_PLACEASSESSMENT -> (this as? FormDataInfiltration)?.placeAssesment?.rating =
+                    rating
+            }
+        }
+
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
+            rating
+
         return state
     }
 
@@ -503,8 +488,10 @@ data class FormInfiltrations(
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
         const val ID_ALTERNATE = "ALTERNATE_REMARK"
         const val ID_VATTENYTAN_START = "VATTENYTAN_START"
         const val ID_VATTENYTAN_STOPP = "VATTENYTAN_STOPP"
+        const val ID_PLACEASSESSMENT = "PLACEASSESSMENT"
     }
 }

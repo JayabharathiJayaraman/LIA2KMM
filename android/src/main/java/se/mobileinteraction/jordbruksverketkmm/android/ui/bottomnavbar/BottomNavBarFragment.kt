@@ -1,9 +1,9 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.bottomnavbar
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentBottomNavBarBinding
-
 
 class BottomNavBarFragment : Fragment() {
 
@@ -28,7 +27,7 @@ class BottomNavBarFragment : Fragment() {
         val binding = FragmentBottomNavBarBinding.bind(view)
         val application = (activity?.application as MainApplication)
         var currentScreen: Int = application.formViewModel.state.value.currentScreen
-        var totalScreens:Int = application.formViewModel.state.value.totalScreens
+        val totalScreens: Int = application.formViewModel.state.value.totalScreens
 
         binding.bottomNavbarBack.setOnClickListener {
             application.formViewModel.previousScreen()
@@ -49,29 +48,36 @@ class BottomNavBarFragment : Fragment() {
         return view
     }
 
-    private fun setContent(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+    private fun setContent(
+        binding: FragmentBottomNavBarBinding,
+        totalScreens: Int,
+        currentScreen: Int
+    ) {
         setProgress(binding, totalScreens, currentScreen)
         setText(binding, totalScreens, currentScreen)
     }
 
-    private fun setProgress(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
+    private fun setProgress(
+        binding: FragmentBottomNavBarBinding,
+        totalScreens: Int,
+        currentScreen: Int
+    ) {
         binding.progressLayout.removeAllViews()
-        val containerWidth = binding.progressLayout.width
-        val usableContainerWidth = (containerWidth * 0.8).toInt()
-        for (i in 0 until totalScreens){
+        val usableContainerWidth = (binding.progressLayout.width * 0.8).toInt()
+        for (i in 0 until totalScreens) {
             val progressItem = ImageView(this.requireContext())
             progressItem.layoutParams =
                 LinearLayout.LayoutParams(usableContainerWidth / totalScreens, 50)
-            (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(2, 0, 2, 0);
-            progressItem.setBackgroundResource(if (i <= currentScreen) R.drawable.bottom_navbar_progress_filled else R.drawable.bottom_navbar_progress_unfilled)
-            if(i==0){
-                progressItem.background = getFirstDrawableWithRadius();
+            (progressItem.layoutParams as LinearLayout.LayoutParams).setMargins(2, 0, 2, 0)
+            progressItem.setBackgroundResource(if (i <= currentScreen) R.color.lightOlive else R.color.progress_bar_uncolored)
+            if (i == 0) {
+                progressItem.background = getDrawableWithRadius(R.color.lightOlive, true)
             }
-            if(i==totalScreens - 1){
-                if(i==currentScreen){
-                    progressItem.background = getLastColoredDrawableWithRadius();
-                }else{
-                    progressItem.background = getLastDrawableWithRadius();
+            if (i == totalScreens - 1) {
+                if (i == currentScreen) {
+                    progressItem.background = getDrawableWithRadius(R.color.lightOlive, false)
+                } else {
+                    progressItem.background = getDrawableWithRadius(R.color.progress_bar_uncolored, false)
                 }
             }
             binding.progressLayout.addView(progressItem)
@@ -79,28 +85,29 @@ class BottomNavBarFragment : Fragment() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setText(binding: FragmentBottomNavBarBinding, totalScreens: Int, currentScreen: Int){
-        binding.bottomNavbarProgressText.text = "${currentScreen + 1} av $totalScreens"
+    private fun setText(
+        binding: FragmentBottomNavBarBinding,
+        totalScreens: Int,
+        currentScreen: Int
+    ) {
+        binding.bottomNavbarProgressText.text = "${currentScreen + 1} ${getString(R.string.bottom_navbar_text)} $totalScreens"
     }
 
-    private fun getFirstDrawableWithRadius(): Drawable? {
+    private fun getDrawableWithRadius(color: Int, isStart: Boolean): Drawable {
         val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(40f, 40f, 0f, 0f, 0f, 0f, 40f, 40f)
-        gradientDrawable.setColor(Color.parseColor("#CED7B2"))
-        return gradientDrawable
-    }
+        if(isStart){
+            gradientDrawable.cornerRadii = floatArrayOf(20f, 20f, 0f, 0f, 0f, 0f, 20f, 20f)
+        }else{
+            gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
+        }
 
-    private fun getLastDrawableWithRadius(): Drawable? {
-        val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 40f, 40f, 40f, 40f, 0f, 0f)
-        gradientDrawable.setColor(Color.parseColor("#EDF1E2"))
-        return gradientDrawable
-    }
-
-    private fun getLastColoredDrawableWithRadius(): Drawable? {
-        val gradientDrawable = GradientDrawable()
-        gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 40f, 40f, 40f, 40f, 0f, 0f)
-        gradientDrawable.setColor(Color.parseColor("#CED7B2"))
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            gradientDrawable.setColor(resources.getColor(color,
+                getActivity()?.getTheme()
+            ))
+        }else{
+            gradientDrawable.setColor(resources.getColor(color))
+        }
         return gradientDrawable
     }
 

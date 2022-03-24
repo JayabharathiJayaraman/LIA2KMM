@@ -75,6 +75,22 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "",
+                    components = listOf(
+                        FormComponentText(
+                            id = "titleIdentifier",
+                            type = ComponentType.TITLEBIG,
+                            text = "Title"
+                        ),
+                        FormComponentText(
+                            id = "TextIdentifier",
+                            type = ComponentType.BODY,
+                            text = "Lorem ipsum, Lorem ipsum, Lorem ipsum......"
+                        )
+                    )
+                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
@@ -245,8 +261,8 @@ data class FormGeneralQuestions(
                 FormComponentRemark(
                     id = "indifferentFaceRemarkScreen8",
                     type = ComponentType.REMARK,
-                    text = "Skoråa förekommer" + "ibland, särskilt efter" +
-                            "ibland, särskilt efter" + "bevattning.",
+                    text = "Skorpa förekommer ibland, särskilt " +
+                            "efter kraftigt regn eller bevattning bevattning.",
                     image = "indifferent_face"
                 ),
                 FormComponentRemark(
@@ -305,10 +321,10 @@ data class FormGeneralQuestions(
                     text = "Noteringar och kommentarer"
                 ),
                 FormComponentTextField(
-                    id = "skrivnoteringarNotesScreen10",
+                    id = FormGeneralQuestions.ID_COMMENT,
                     type = ComponentType.TEXTFIELDNOTES,
-                    text = "Notes",
-                    placeholder = "Skriv dina noteringar och kommentarer om frågorna här.",
+                    text = (data as? FormDataGeneralQuestions)?.comment ?: "",
+                    placeholder = "Skriv dina anteckningar här",
                 ),
             ),
         ),
@@ -390,6 +406,7 @@ data class FormGeneralQuestions(
                 ID_FARMNAME -> commonData.farmInformation.farmName = text
                 ID_FARMLAND -> commonData.farmInformation.farmLand = text
                 ID_SOILTYPE -> (this as FormDataGeneralQuestions).soilAssesment.soilType = text
+                ID_COMMENT -> (this as FormDataGeneralQuestions).comment = text
             }
         }
 
@@ -400,14 +417,20 @@ data class FormGeneralQuestions(
         return state
     }
 
-    override fun setChecklistActive(
+    override fun setChecklistRating(
         id: String,
-        active: Int,
+        rating: Int,
         state: FormViewModel.State
     ): FormViewModel.State {
-        (state.form.data as? FormDataGeneralQuestions)?.placeAssesment?.rating = active
-        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).active =
-            active
+        with(state.form.data) {
+            when (id) {
+                FormSoilStructure.ID_PLACEASSESSMENT -> (this as? FormDataGeneralQuestions)?.placeAssesment?.rating =
+                    rating
+            }
+        }
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentChecklist).rating =
+            rating
+
         return state
     }
 
@@ -427,6 +450,7 @@ data class FormGeneralQuestions(
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_COMMENT = "COMMENT"
     }
 }
 

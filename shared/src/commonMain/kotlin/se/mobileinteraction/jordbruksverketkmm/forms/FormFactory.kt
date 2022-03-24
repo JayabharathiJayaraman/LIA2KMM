@@ -1,10 +1,13 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormGeneralQuestions
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.*
 
 class FormFactory() {
-    fun createForm(): FormInfiltrations {
-        return FormInfiltrations()
+    fun createForm(type: FormType): Form {
+        return when (type) {
+            FormType.GeneralQuestions -> FormGeneralQuestions()
+            FormType.SoilStructure -> FormSoilStructure()
+            FormType.Infiltration -> FormInfiltrations()
+        }
     }
 }

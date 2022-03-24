@@ -7,7 +7,7 @@ class FormViewController: UIViewController {
 
     @IBOutlet weak var progressBarStackView: UIStackView!
     @IBOutlet weak var currentScreenLabel: UILabel!
-    private var viewModel = IOSFormViewModel.shared
+    private var viewModel = IOSFormViewModel.shared.formViewModel
     private let interfaceGenerator: IOSFormGenerator
     private var listeningJob: Closeable?
    
@@ -17,6 +17,7 @@ class FormViewController: UIViewController {
         
         let nibName = String(describing: FormViewController.self)
         super.init(nibName: nibName, bundle: nil)
+        interfaceGenerator.presentingViewController = self
     }
 
     required init?(coder: NSCoder) {
