@@ -3,8 +3,10 @@ package se.mobileinteraction.jordbruksverketkmm.forms
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
+
 
 class FormViewModel constructor(
     val form: Form
@@ -65,6 +67,15 @@ class FormViewModel constructor(
                     .copy(counter = counter + 1)
             }
         }
+        
+    fun setSoilStructurePhoto(id: String, imageUri: String) {
+        updateStateAndSave {
+            (form as? FormSoilStructure)?.setSoilStructurePhoto(id, state.value, imageUri)
+                ?.copy(counter = counter + 1)
+                ?: this
+        }
+    }
+        
 
     fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer, text: String) =
         state.value.components.firstOrNull {

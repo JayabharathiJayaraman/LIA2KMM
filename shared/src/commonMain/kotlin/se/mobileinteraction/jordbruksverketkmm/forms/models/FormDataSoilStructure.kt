@@ -15,7 +15,7 @@ data class FormDataSoilStructure(
 // Only used by test 2
 
 data class PhotoData(
-    val photoUri: String? = null,
+    var photoUri: String? = null,
     val photoLines: List<PhotoLine> = emptyList()
 )
 

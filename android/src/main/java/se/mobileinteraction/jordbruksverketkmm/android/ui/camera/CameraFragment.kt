@@ -11,12 +11,14 @@ import android.view.LayoutInflater
 import android.view.Surface.ROTATION_0
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentCameraBinding
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.PreviewCameraContainerBinding
 import java.io.File
@@ -38,6 +40,14 @@ class CameraFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    // Handle the back button event
+                    view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onCreateView(
@@ -45,7 +55,8 @@ class CameraFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        cameraBinding = FragmentCameraBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_camera, container, false)
+        cameraBinding = FragmentCameraBinding.bind(view)
         return fragmentCameraBinding.root
     }
 
@@ -57,8 +68,8 @@ class CameraFragment : Fragment() {
             cameraBinding?.imageCaptureButton?.setOnClickListener {
                 takePhoto()
             }
-            cameraBinding?.btnCameraClose?.setOnClickListener {
-                view.findNavController().navigateUp()
+            cameraBinding?.buttonCameraClose?.setOnClickListener {
+                view.findNavController().navigate(R.id.navigateFromCameraToFormFragment)
             }
         }
     }
@@ -148,9 +159,9 @@ class CameraFragment : Fragment() {
     }
 
     private fun previewOnClick() = previewBinding?.apply {
-        btnContainerClose.setOnClickListener {
+        buttonContainerClose.setOnClickListener {
             cachedImageFile?.delete()
-            view?.findNavController()?.navigateUp()
+            view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment)
         }
         btnAcceptImage.setOnClickListener {
             updateUiForAcceptImage()
@@ -168,14 +179,19 @@ class CameraFragment : Fragment() {
     }
 
     private fun updateUiForAcceptImage() {
-        saveImageToPermanentFolder()
+        val targetFile = saveImageToPermanentFolder().toString()
         cachedImageFile?.delete()
+        val bundle = Bundle()
+        bundle.putString("uri", targetFile)
+        cameraBinding?.root?.let { fragmentCameraBinding.root.removeView(it) }
+        view?.findNavController()?.navigate(R.id.navigateFromCameraToFormFragment, bundle)
     }
 
-    private fun saveImageToPermanentFolder() {
+    private fun saveImageToPermanentFolder(): File {
         val imageDirectory = context?.getDir(IMAGES_FOLDER, Context.MODE_PRIVATE)
         val targetFile = File(imageDirectory, cachedImageFile?.name.toString())
-        cachedImageFile?.let { it.copyTo(targetFile) }
+        cachedImageFile?.copyTo(targetFile)
+        return targetFile
     }
 
     override fun onDestroyView() {

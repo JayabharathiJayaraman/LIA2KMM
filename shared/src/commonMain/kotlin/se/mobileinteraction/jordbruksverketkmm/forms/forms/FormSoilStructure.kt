@@ -4,6 +4,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
@@ -336,28 +337,16 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "photoTitleScreen10",
-                    type = ComponentType.TITLESMALL,
-                    text = "Ta kort på profilen rakt framifrån!"
-                ),
-                FormComponentText(
-                    id = "photoBodyScreen10",
-                    type = ComponentType.BODY,
-                    text = "Försök att fota så lodrätt som möjligt för att göra det" +
-                            " enklare att i nästa steg markera de olika skikten."
-                ),
-                FormComponentImage(
-                    id = "groundProfileImageScreen10",
-                    type = ComponentType.IMAGE,
-                    caption = "Markprofil illustration",
-                    image = "markprofil_illustration"
-                ),
-                FormComponentButton(
-                    id = "photoButtonScreen10",
-                    type = ComponentType.BUTTON,
-                    text = "Fota markprofilen."
-                ),
+                FormComponentCaptureImage(
+                    id = ID_SOILSTRUCTUREIMAGE,
+                    type = ComponentType.CAPTUREIMAGE,
+                    title = "Ta kort på profilen rakt framifrån",
+                    body = "Försök att fota så lodrätt som möjligt för att göra det enklare att i " +
+                            "nästa steg markera de olika skikten",
+                    placeholderImage = "markprofil_illustration",
+                    imageUri = (data as? FormDataSoilStructure)?.photoData?.photoUri,
+                    button_text = "Fota markprofilen"
+                )
             )
         ),
         FormScreen(
@@ -952,11 +941,25 @@ data class FormSoilStructure(
         return state
     }
 
+    fun setSoilStructurePhoto(
+        id: String,
+        state: FormViewModel.State,
+        imageUri: String
+    ): FormViewModel.State {
+        (state.form.data as? FormDataSoilStructure)?.photoData?.photoUri = imageUri
+        (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentCaptureImage).imageUri =
+            imageUri
+
+        return state
+
+    }
+
     companion object {
         const val ID_FARMNAME = "FARMNAME"
         const val ID_FARMLAND = "FARMLAND"
         const val ID_DATE = "DATE"
         const val ID_SOILTYPE = "SOILTYPE"
+        const val ID_SOILSTRUCTUREIMAGE = "SOILSTRUCTUREIMAGE"
         const val ID_COMMENT = "COMMENT"
         const val ID_PLACEASSESSMENT = "PLACEASSESSMENT"
         const val ID_CROP = "CROP"

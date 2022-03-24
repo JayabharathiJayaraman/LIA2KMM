@@ -48,6 +48,17 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                     val image = (component as FormComponentImage)
                     mainView.createOrUpdateImage(image.id, image.image, image.caption)
                 }
+                ComponentType.CAPTUREIMAGE -> {
+                    val capture = (component as FormComponentCaptureImage)
+                    mainView.createOrUpdateCaptureImage(
+                        capture.imageUri,
+                        capture.placeholderImage,
+                        capture.title,
+                        capture.body,
+                        capture.button_text,
+                        capture.id
+                    )
+                }
                 ComponentType.VIDEO -> {
                     val video = (component as FormComponentVideo)
                     mainView.createOrUpdateVideo(video.id, video.description, video.source)
@@ -352,6 +363,37 @@ private fun ViewGroup.createOrUpdateResultsRemarks(
     binding.imageview.setImageResource(getImageResource(image))
     binding.imageview.setBackgroundResource(getFaceBackgroundColor(color))
 }
+
+private fun ViewGroup.createOrUpdateCaptureImage(
+        imageUri: String?,
+        placeholderImage: String,
+        title: String,
+        body: String,
+        button_text: String,
+        id: String
+    ) {
+        val binding: FormCaptureImageBinding =
+            FormCaptureImageBinding.inflate(LayoutInflater.from(context))
+        this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
+            .also { this.addView(it) }
+        binding.title.text = title
+        binding.body.text = body
+        binding.button.text = button_text
+
+        if (imageUri != null) {
+            binding.imageview.setImageURI(imageUri.toUri())
+            binding.imageview.adjustViewBounds = true
+            binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+
+        } else {
+            binding.imageview.setImageResource(getImageResource(placeholderImage))
+        }
+
+
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
+        }
+    }
 
 private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
     this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
