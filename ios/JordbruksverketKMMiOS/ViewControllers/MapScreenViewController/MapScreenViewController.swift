@@ -36,6 +36,13 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         checkLocationServices()
         print("Inside ViewDidLoad")
         mapView.mapType = .satellite
+        mapView.delegate = self
+        
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.addTarget(self, action: #selector(addPinAnnotation(_:)))
+
+        mapView.addGestureRecognizer(tapGestureRecognizer)
     //    initView()
     }
     
@@ -94,10 +101,20 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         return .portrait
     }
     
-    private func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
-        
-        return MKAnnotationView()
+    internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+            let identifier = "Annotation"
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+            if annotationView == nil {
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView!.canShowCallout = true
+            } else {
+                annotationView!.annotation = annotation
+            }
+
+            return annotationView
     }
     
     private func setupLocationManger() {
@@ -151,6 +168,28 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
     }
   */
     
+    @objc
+    func addPinAnnotation(_ sender: UITapGestureRecognizer) {
+        print("==> addPinAnnotation called...")
+        let location = sender.location(in: self.mapView)
+        let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
+        let lat:Double = locCoord.latitude
+        let lng:Double = locCoord.longitude
+        
+    //    txtLat.text = ("  lat: \(lat)")
+      //  txtLng.text = ("  lon: \(lng)")
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = locCoord
+        annotation.subtitle = "My mark"
+        
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotation(annotation)
+        
+        print("==> \(mapView.annotations) ——— a.COunt: \(mapView.annotations.count)")
+    }
+    
     @IBAction private func addPin(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: self.mapView)
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
@@ -167,5 +206,15 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         
         self.mapView.removeAnnotations(mapView.annotations)
         self.mapView.addAnnotation(annotation)
+    }
+}
+
+extension MapScreenViewController: MKMapViewDelegate {
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        print(#function)
+    }
+    
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        print("===> mapViewDidChangeVisibleRegion")
     }
 }

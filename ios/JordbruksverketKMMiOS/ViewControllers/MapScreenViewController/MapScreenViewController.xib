@@ -29,10 +29,10 @@
                             <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="NeO-kG-ZlN">
-                            <rect key="frame" x="8" y="158" width="435" height="666"/>
+                            <rect key="frame" x="8" y="60" width="435" height="666"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-CP-P8Y">
-                                    <rect key="frame" x="0.0" y="-110" width="428" height="850"/>
+                                    <rect key="frame" x="0.0" y="-185" width="428" height="850"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xXm-W1-ePT">
                                             <rect key="frame" x="0.0" y="141" width="428" height="366"/>
@@ -43,9 +43,6 @@
                                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="32L-VM-cQo">
                                                             <rect key="frame" x="0.0" y="8" width="411" height="366"/>
                                                             <gestureRecognizers/>
-                                                            <connections>
-                                                                <outletCollection property="gestureRecognizers" destination="3KG-5U-xRo" appends="YES" id="7iX-ZA-Cp4"/>
-                                                            </connections>
                                                         </mapView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,10 +69,10 @@
                             </subviews>
                             <color key="backgroundColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="kf5-CP-P8Y" firstAttribute="top" secondItem="0GR-RW-hXc" secondAttribute="top" constant="-110" id="Oxm-B9-cSJ"/>
+                                <constraint firstItem="kf5-CP-P8Y" firstAttribute="top" secondItem="0GR-RW-hXc" secondAttribute="top" constant="-185" id="Oxm-B9-cSJ"/>
                                 <constraint firstItem="kf5-CP-P8Y" firstAttribute="trailing" secondItem="0GR-RW-hXc" secondAttribute="trailing" id="TsI-Cg-sh6"/>
-                                <constraint firstItem="kf5-CP-P8Y" firstAttribute="bottom" secondItem="0GR-RW-hXc" secondAttribute="bottom" constant="-110" id="ZeX-cG-05r"/>
-                                <constraint firstItem="kf5-CP-P8Y" firstAttribute="centerY" secondItem="NeO-kG-ZlN" secondAttribute="centerY" priority="250" constant="-18" id="mmp-w3-BjG"/>
+                                <constraint firstItem="kf5-CP-P8Y" firstAttribute="bottom" secondItem="0GR-RW-hXc" secondAttribute="bottom" constant="-185" id="ZeX-cG-05r"/>
+                                <constraint firstItem="kf5-CP-P8Y" firstAttribute="centerY" secondItem="NeO-kG-ZlN" secondAttribute="centerY" priority="250" constant="-93" id="mmp-w3-BjG"/>
                                 <constraint firstItem="kf5-CP-P8Y" firstAttribute="leading" secondItem="0GR-RW-hXc" secondAttribute="leading" id="nrl-5m-r70"/>
                                 <constraint firstItem="kf5-CP-P8Y" firstAttribute="width" secondItem="NeO-kG-ZlN" secondAttribute="width" constant="-7" id="psv-gZ-7Zw"/>
                                 <constraint firstItem="kf5-CP-P8Y" firstAttribute="centerX" secondItem="NeO-kG-ZlN" secondAttribute="centerX" priority="250" constant="-3.5" id="vMu-FM-sHr"/>
@@ -87,9 +84,9 @@
                     <viewLayoutGuide key="safeArea" id="hKD-MT-cfF"/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="hKD-MT-cfF" firstAttribute="top" secondItem="NeO-kG-ZlN" secondAttribute="top" constant="-114" id="Izg-eG-H4U"/>
+                        <constraint firstItem="hKD-MT-cfF" firstAttribute="top" secondItem="NeO-kG-ZlN" secondAttribute="top" constant="-16" id="Izg-eG-H4U"/>
                         <constraint firstItem="hKD-MT-cfF" firstAttribute="trailing" secondItem="NeO-kG-ZlN" secondAttribute="trailing" constant="-15" id="RGq-BA-DCH"/>
-                        <constraint firstItem="NeO-kG-ZlN" firstAttribute="bottom" secondItem="hKD-MT-cfF" secondAttribute="bottom" constant="-95" id="Zt2-FD-g8Q"/>
+                        <constraint firstItem="NeO-kG-ZlN" firstAttribute="bottom" secondItem="hKD-MT-cfF" secondAttribute="bottom" constant="-193" id="Zt2-FD-g8Q"/>
                         <constraint firstItem="NeO-kG-ZlN" firstAttribute="leading" secondItem="hKD-MT-cfF" secondAttribute="leading" constant="8" id="eTj-8c-dLQ"/>
                     </constraints>
                 </view>
@@ -98,11 +95,6 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <point key="canvasLocation" x="150" y="73.21814254859612"/>
         </view>
-        <tapGestureRecognizer id="3KG-5U-xRo">
-            <connections>
-                <action selector="addPin:" destination="-1" id="Fvu-c6-KPg"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">

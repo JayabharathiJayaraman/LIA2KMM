@@ -75,7 +75,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .maps:
                 if let mapImage = component as? FormComponentMap {
-                    mainView.addMap(screenTag: screenTag)
+                    addMap(screenTag: screenTag)
                 }
             default:
                 print("unknown component")
@@ -183,6 +183,17 @@ private extension IOSFormGenerator {
         presentingViewController?.addChild(playerViewController)
         playerViewController.didMove(toParent: presentingViewController)
     }
+    
+    func addMap(screenTag: Int) {
+        let mapViewController = MapScreenViewController()
+        
+        mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        mapViewController.view.heightAnchor.constraint(equalTo: mapViewController.view.widthAnchor).isActive = true
+        
+        mainView.addArrangedSubview(mapViewController.view)
+        presentingViewController?.addChild(mapViewController)
+        mapViewController.didMove(toParent: presentingViewController)
+    }
 }
 
 extension UIStackView {
@@ -202,13 +213,6 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpace)
         self.addArrangedSubview(label)
     }
-    func addMap(screenTag: Int) {
-
-           let mapView = MapScreenViewController()
-         //  mapView.viewDidLoad()
-           self.addArrangedSubview(mapView.view)
-    }
-
 
     func addBigTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
