@@ -90,10 +90,10 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .questionnaire:
                 if let questionnaire = component as? FormComponentQuestionnaire {
-                    mainView.addQuestionnaire(questionnaire.id, questionnaire.text, questionnaire.answer)
+                    mainView.addQuestionnaire(id: questionnaire.id, text: questionnaire.text, answer: questionnaire.answer)
                 }
             default:
-                print("unknown component")
+                print("unknown component \(component.type)")
             }
         }
     }
@@ -314,21 +314,17 @@ extension UIStackView {
         }
     }
 
-    func addQuestionnaire(screenTag: Int, text: String, id: String, image: String)
-(screenTag: Int, id: String,
-    text: List<String>,
-    answer: QuestionnaireAnswer?)
+    func addQuestionnaire(id: String, text: [String],answer: QuestionnaireAnswer?)
     {
-        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+            print("addQuestionnaire")
             let verticalSpace = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpace)
 
             let faceRemarkView = FaceRemarkView()
-            faceRemarkView.configure(image: UIImage(named: image), text: text){
+            faceRemarkView.configure(image: UIImage(named: "sad_face"), text: text[0]){
                 print("buttonTapped")
             }
             self.addArrangedSubview(faceRemarkView)
-        }
     }
 
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
