@@ -23,6 +23,7 @@ enum class ComponentType {
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
     INFORMATION,
+    STOMPLEVEL3,
 }
 
 interface FormComponent {
