@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
@@ -72,6 +71,17 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 ComponentType.BUTTONLIST -> {
                     val buttonList = (component as FormComponentButtonList)
                     mainView.createOrUpdateButtonList(
+                        buttonList.title,
+                        buttonList.id,
+                        buttonList.list,
+                        buttonList.value,
+                        buttonList.position,
+                        buttonList.placeholder
+                    )
+                }
+                ComponentType.STOMPLEVEL3 -> {
+                    val buttonList = (component as FormComponentButtonList)
+                    mainView.createOrUpdateLevel3(
                         buttonList.title,
                         buttonList.id,
                         buttonList.list,
@@ -371,35 +381,35 @@ private fun ViewGroup.createOrUpdateResultsRemarks(
 }
 
 private fun ViewGroup.createOrUpdateCaptureImage(
-        imageUri: String?,
-        placeholderImage: String,
-        title: String,
-        body: String,
-        button_text: String,
-        id: String
-    ) {
-        val binding: FormCaptureImageBinding =
-            FormCaptureImageBinding.inflate(LayoutInflater.from(context))
-        this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
-            .also { this.addView(it) }
-        binding.title.text = title
-        binding.body.text = body
-        binding.button.text = button_text
+    imageUri: String?,
+    placeholderImage: String,
+    title: String,
+    body: String,
+    button_text: String,
+    id: String
+) {
+    val binding: FormCaptureImageBinding =
+        FormCaptureImageBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+    binding.title.text = title
+    binding.body.text = body
+    binding.button.text = button_text
 
-        if (imageUri != null) {
-            binding.imageview.setImageURI(imageUri.toUri())
-            binding.imageview.adjustViewBounds = true
-            binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+    if (imageUri != null) {
+        binding.imageview.setImageURI(imageUri.toUri())
+        binding.imageview.adjustViewBounds = true
+        binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
 
-        } else {
-            binding.imageview.setImageResource(getImageResource(placeholderImage))
-        }
-
-
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
-        }
+    } else {
+        binding.imageview.setImageResource(getImageResource(placeholderImage))
     }
+
+
+    binding.button.setOnClickListener {
+        findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
+    }
+}
 
 private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
     this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
@@ -441,9 +451,9 @@ private fun ViewGroup.createOrUpdateButtonList(
     placeholder: String
 ) {
     val binding: FormButtonListBinding = FormButtonListBinding.inflate(LayoutInflater.from(context))
-    this.findViewWithTag(id) ?: binding.formButtonlistContainer.rootView.apply { tag = id }
-        .also {
 
+    this.findViewWithTag(id) ?: binding.formButtonlistContainer.rootView.apply { tag = id }
+        .also { it ->
             val dataAdapter: ArrayAdapter<String> =
                 ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list)
 
@@ -465,6 +475,57 @@ private fun ViewGroup.createOrUpdateButtonList(
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
             if (position != -1) {
+                binding.spinner.setSelection(position)
+            }
+            this.addView(it)
+        }
+}
+
+
+private fun ViewGroup.createOrUpdateLevel3(
+    title: String,
+    id: String,
+    list: List<String>,
+    value: String,
+    position: Int,
+    placeholder: String
+) {
+    val binding: FormStompLevel3Binding =
+        FormStompLevel3Binding.inflate(LayoutInflater.from(context))
+
+    val dataAdapter: ArrayAdapter<String> =
+        ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list)
+
+    this.findViewWithTag(id) ?: binding.stompLevel3Container.rootView.apply { tag = id }
+        .also {
+
+            binding.textView.setOnClickListener {
+                binding.textView.visibility = View.GONE
+                binding.spinner.visibility = View.VISIBLE
+                binding.title.visibility = View.VISIBLE
+                binding.title.text = title
+            }
+
+            binding.spinner.adapter = dataAdapter
+            binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    pos: Int,
+                    spinnerId: Long
+                ) {
+                    val selectedItem = parent.getItemAtPosition(pos).toString()
+                    val itemPosition = parent.getItemIdAtPosition(pos).toInt()
+                    getApplication().formViewModel.setButtonListData(id, selectedItem, itemPosition)
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+            if (position != -1) {
+                binding.textView.visibility = View.GONE
+                binding.title.visibility = View.VISIBLE
+                binding.spinner.visibility = View.VISIBLE
+                binding.title.text = title
                 binding.spinner.setSelection(position)
             }
             this.addView(it)
