@@ -6,14 +6,8 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
   //  @IBOutlet private weak var titleLabel: UILabel!
    // @IBOutlet private weak var descriptionLabel: UILabel!
       @IBOutlet private weak var mapView: MKMapView!
-  //  @IBOutlet private weak var infoView: UIView!
-   // @IBOutlet private weak var infoViewLabel: UILabel!
-   // @IBOutlet private weak var infoViewBackground: UIView!
-   // @IBOutlet private weak var navigationTitleView: UIView!
-  //  @IBOutlet private weak var infoButton: UIButton!
-  //  @IBOutlet private weak var closeInfoButton: UIButton!
-   // @IBOutlet private weak var txtLat: UITextField!
-  //  @IBOutlet private weak var txtLng: UITextField!
+      @IBOutlet private weak var txtLat: UITextField!
+      @IBOutlet private weak var txtLng: UITextField!
     
     let locationManger = CLLocationManager()
     let regionInMeters: Double = 105
@@ -176,8 +170,8 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         let lat:Double = locCoord.latitude
         let lng:Double = locCoord.longitude
         
-    //    txtLat.text = ("  lat: \(lat)")
-      //  txtLng.text = ("  lon: \(lng)")
+          txtLat.text = ("  lat: \(lat)")
+          txtLng.text = ("  lon: \(lng)")
         
         let annotation = MKPointAnnotation()
         
@@ -187,10 +181,13 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         self.mapView.removeAnnotations(mapView.annotations)
         self.mapView.addAnnotation(annotation)
         
+        print("lat: \(lat)")
+        print("lat: \(lng)")
+        
         print("==> \(mapView.annotations) ——— a.COunt: \(mapView.annotations.count)")
     }
     
-    @IBAction private func addPin(_ sender: UITapGestureRecognizer) {
+   /* @IBAction private func addPin(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: self.mapView)
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
         let lat:Double = locCoord.latitude
@@ -207,7 +204,9 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         self.mapView.removeAnnotations(mapView.annotations)
         self.mapView.addAnnotation(annotation)
     }
+    */
 }
+
 
 extension MapScreenViewController: MKMapViewDelegate {
     func mapViewWillStartLoadingMap(_ mapView: MKMapView) {

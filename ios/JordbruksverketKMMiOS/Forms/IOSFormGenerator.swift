@@ -187,8 +187,8 @@ private extension IOSFormGenerator {
     func addMap(screenTag: Int) {
         let mapViewController = MapScreenViewController()
         
-        mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        mapViewController.view.heightAnchor.constraint(equalTo: mapViewController.view.widthAnchor).isActive = true
+      //  mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
+       // mapViewController.view.heightAnchor.constraint(equalTo: mapViewController.view.widthAnchor).isActive = true
         
         mainView.addArrangedSubview(mapViewController.view)
         presentingViewController?.addChild(mapViewController)
