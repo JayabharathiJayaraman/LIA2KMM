@@ -7,6 +7,7 @@ class FaceRemarkView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     var completionHandler: FaceRemarkCompletion?
+    @IBOutlet var contentView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
