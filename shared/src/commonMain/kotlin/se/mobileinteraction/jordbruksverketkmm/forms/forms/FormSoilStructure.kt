@@ -4,7 +4,6 @@ import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
@@ -135,6 +134,22 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "locationInformationScreen4",
+                    components = listOf(
+                        FormComponentText(
+                            id = "titleIdentifier",
+                            type = ComponentType.TITLEBIG,
+                            text = "Title"
+                        ),
+                        FormComponentText(
+                            id = "TextIdentifier",
+                            type = ComponentType.BODY,
+                            text = "Lorem ipsum, Lorem ipsum, Lorem ipsum......"
+                        )
+                    )
+                ),
                 FormComponentText(
                     id = "locationTitleScreen4",
                     type = ComponentType.TITLESMALL,
