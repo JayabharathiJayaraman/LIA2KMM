@@ -130,16 +130,6 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
-                FormComponentText(
-                    id = "platsTitleScreen4",
-                    type = ComponentType.TITLESMALL,
-                    text = "Plats",
-                ),
-                FormComponentText(
-                    id = "platsBodyScreen4",
-                    type = ComponentType.BODY,
-                    text = "Tryck på kartan för att välja din exakta position",
-                ),
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
                     id = "",
@@ -155,6 +145,16 @@ data class FormInfiltrations(
                             text = "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder."
                         )
                     )
+                ),
+                FormComponentText(
+                    id = "platsTitleScreen4",
+                    type = ComponentType.TITLESMALL,
+                    text = "Plats",
+                ),
+                FormComponentText(
+                    id = "platsBodyScreen4",
+                    type = ComponentType.BODY,
+                    text = "Tryck på kartan för att välja din exakta position",
                 ),
                 FormComponentMap(
                     id = "mapScreen4",
