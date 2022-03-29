@@ -8,15 +8,17 @@ class FaceRemarkView: UIView {
     @IBOutlet weak var label: UILabel!
     var completionHandler: FaceRemarkCompletion?
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var button: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         initFromSelfNib()
     }
+    
     required init?(coder: NSCoder) {
         return nil
     }
-    
+
     func configure(image:UIImage?, text: String, completionHandler:@escaping FaceRemarkCompletion){
         imageView?.image = image
         label.text = text
@@ -44,6 +46,7 @@ class FaceRemarkView: UIView {
         label.text = text
         label.textColor =  UIColor.Jordbruksverket.defaultTextColor
         label.adjustsFontForContentSizeCategory = true
+        contentView.backgroundColor = UIColor.Jordbruksverket.defaultBackgroundColor
     }
     
     @IBAction func buttonTapped(_ sender: Any) {

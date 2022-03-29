@@ -320,7 +320,7 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpace)
         
         let faceRemarkViewSad = FaceRemarkView()
-        faceRemarkViewSad.verticalSpacingView.backgroundColor = UIColor.Jordbruksverket.defaultBackgroundColor
+      //  faceRemarkViewSad.button.addTarget(self, action: #selector(handleQuestionnaireAnswers), for: .touchUpInside)
         faceRemarkViewSad.configure(image: UIImage(named: "sad_face"), text: text[0]){
             faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
         }
@@ -334,10 +334,17 @@ extension UIStackView {
         faceRemarkViewHappy.configure(image: UIImage(named: "happy_face"), text: text[2]){
             faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
         }
+        
         self.addArrangedSubview(faceRemarkViewSad)
         self.addArrangedSubview(faceRemarkViewIndifferent)
         self.addArrangedSubview(faceRemarkViewHappy)
     }
+    
+    /*@objc
+    func handleQuestionnaireAnswers(_ sender: QuestionnaireAnswers){
+        guard let id = sender.idString else { return }
+        IOSFormViewModel.shared.formViewModel.setQuestionnaireAnswer(id: id, answer: QuestionnaireAnswer, text: "")
+    }*/
     
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
