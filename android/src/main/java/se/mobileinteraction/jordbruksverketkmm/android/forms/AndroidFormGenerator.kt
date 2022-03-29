@@ -495,7 +495,7 @@ private fun ViewGroup.createOrUpdateInformation(id: String, components: List<For
                 val componentsView = formGenerator.createInterface(components)
 
                 val dialogBinding = DialogBinding.inflate(LayoutInflater.from(context))
-                dialogBinding.root.addView(componentsView)
+                dialogBinding.componentScrollview.addView(componentsView)
 
                 val customDialog = AlertDialog.Builder(context).create()
                 customDialog.setView(dialogBinding.root)
