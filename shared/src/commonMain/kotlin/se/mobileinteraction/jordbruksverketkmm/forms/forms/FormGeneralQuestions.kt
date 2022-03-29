@@ -77,22 +77,6 @@ data class FormGeneralQuestions(
                     type = ComponentType.TITLESMALL,
                     text = "Grundförutsättningar"
                 ),
-                FormComponentInformation(
-                    type = ComponentType.INFORMATION,
-                    id = "",
-                    components = listOf(
-                        FormComponentText(
-                            id = "titleIdentifier",
-                            type = ComponentType.TITLEBIG,
-                            text = "Title"
-                        ),
-                        FormComponentText(
-                            id = "TextIdentifier",
-                            type = ComponentType.BODY,
-                            text = "Lorem ipsum, Lorem ipsum, Lorem ipsum......"
-                        )
-                    )
-                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_SOILTYPE,
