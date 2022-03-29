@@ -140,6 +140,22 @@ data class FormInfiltrations(
                     type = ComponentType.BODY,
                     text = "Tryck på kartan för att välja din exakta position",
                 ),
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "",
+                    components = listOf(
+                        FormComponentText(
+                            id = "titleIdentifier",
+                            type = ComponentType.TITLEBIG,
+                            text = ""
+                        ),
+                        FormComponentText(
+                            id = "TextIdentifier",
+                            type = ComponentType.BODY,
+                            text = "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder."
+                        )
+                    )
+                ),
                 FormComponentMap(
                     id = "mapScreen4",
                     type = ComponentType.MAPS,
