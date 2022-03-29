@@ -3,9 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.android.forms
 import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
 import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
@@ -374,35 +372,35 @@ private fun ViewGroup.createOrUpdateResultsRemarks(
 }
 
 private fun ViewGroup.createOrUpdateCaptureImage(
-        imageUri: String?,
-        placeholderImage: String,
-        title: String,
-        body: String,
-        button_text: String,
-        id: String
-    ) {
-        val binding: FormCaptureImageBinding =
-            FormCaptureImageBinding.inflate(LayoutInflater.from(context))
-        this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
-            .also { this.addView(it) }
-        binding.title.text = title
-        binding.body.text = body
-        binding.button.text = button_text
+    imageUri: String?,
+    placeholderImage: String,
+    title: String,
+    body: String,
+    button_text: String,
+    id: String
+) {
+    val binding: FormCaptureImageBinding =
+        FormCaptureImageBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+    binding.title.text = title
+    binding.body.text = body
+    binding.button.text = button_text
 
-        if (imageUri != null) {
-            binding.imageview.setImageURI(imageUri.toUri())
-            binding.imageview.adjustViewBounds = true
-            binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+    if (imageUri != null) {
+        binding.imageview.setImageURI(imageUri.toUri())
+        binding.imageview.adjustViewBounds = true
+        binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
 
-        } else {
-            binding.imageview.setImageResource(getImageResource(placeholderImage))
-        }
-
-
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
-        }
+    } else {
+        binding.imageview.setImageResource(getImageResource(placeholderImage))
     }
+
+
+    binding.button.setOnClickListener {
+        findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
+    }
+}
 
 private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
     this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
@@ -499,9 +497,17 @@ private fun ViewGroup.createOrUpdateInformation(id: String, components: List<For
                 val dialogBinding = DialogBinding.inflate(LayoutInflater.from(context))
                 dialogBinding.root.addView(componentsView)
 
-                val customDialog = AlertDialog.Builder(context, 0).create()
+                val customDialog = AlertDialog.Builder(context).create()
                 customDialog.setView(dialogBinding.root)
+
+                val params = WindowManager.LayoutParams()
+                val height = (resources.displayMetrics.heightPixels * 0.85).toInt()
+                params.width = WindowManager.LayoutParams.MATCH_PARENT
+                params.height = height
+                params.gravity = Gravity.TOP
+
                 customDialog.show()
+                customDialog.window?.attributes = params
 
                 dialogBinding.closeButton.setOnClickListener {
                     customDialog.dismiss()
