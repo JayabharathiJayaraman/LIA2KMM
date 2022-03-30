@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
@@ -284,23 +283,37 @@ private fun ViewGroup.createOrUpdateQuestionnaire(
             binding.radioButtonIndifferent.text = text[1]
             binding.radioButtonHappy.text = text[2]
 
+            println("Answer when empty: $answer")
+            if (answer == null) {
+                setQuestionnaireAnswered(false)
+            }
+
             binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
-                    binding.radioButtonSad.id -> getApplication().formViewModel.setQuestionnaireAnswer(
-                        id,
-                        QuestionnaireAnswer.Poor,
-                        text[0]
-                    )
-                    binding.radioButtonIndifferent.id -> getApplication().formViewModel.setQuestionnaireAnswer(
-                        id,
-                        QuestionnaireAnswer.Mediocre,
-                        text[1]
-                    )
-                    binding.radioButtonHappy.id -> getApplication().formViewModel.setQuestionnaireAnswer(
-                        id,
-                        QuestionnaireAnswer.Good,
-                        text[2]
-                    )
+                    binding.radioButtonSad.id -> {
+                        getApplication().formViewModel.setQuestionnaireAnswer(
+                            id,
+                            QuestionnaireAnswer.Poor,
+                            text[0]
+                        )
+                        setQuestionnaireAnswered(true)
+                    }
+                    binding.radioButtonIndifferent.id -> {
+                        getApplication().formViewModel.setQuestionnaireAnswer(
+                            id,
+                            QuestionnaireAnswer.Mediocre,
+                            text[1]
+                        )
+                        setQuestionnaireAnswered(true)
+                    }
+                    binding.radioButtonHappy.id -> {
+                        getApplication().formViewModel.setQuestionnaireAnswer(
+                            id,
+                            QuestionnaireAnswer.Good,
+                            text[2]
+                        )
+                        setQuestionnaireAnswered(true)
+                    }
                 }
             }
             when (answer) {
@@ -371,35 +384,35 @@ private fun ViewGroup.createOrUpdateResultsRemarks(
 }
 
 private fun ViewGroup.createOrUpdateCaptureImage(
-        imageUri: String?,
-        placeholderImage: String,
-        title: String,
-        body: String,
-        button_text: String,
-        id: String
-    ) {
-        val binding: FormCaptureImageBinding =
-            FormCaptureImageBinding.inflate(LayoutInflater.from(context))
-        this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
-            .also { this.addView(it) }
-        binding.title.text = title
-        binding.body.text = body
-        binding.button.text = button_text
+    imageUri: String?,
+    placeholderImage: String,
+    title: String,
+    body: String,
+    button_text: String,
+    id: String
+) {
+    val binding: FormCaptureImageBinding =
+        FormCaptureImageBinding.inflate(LayoutInflater.from(context))
+    this.findViewWithTag(id) ?: binding.formCaptureImageContainer.rootView.apply { tag = id }
+        .also { this.addView(it) }
+    binding.title.text = title
+    binding.body.text = body
+    binding.button.text = button_text
 
-        if (imageUri != null) {
-            binding.imageview.setImageURI(imageUri.toUri())
-            binding.imageview.adjustViewBounds = true
-            binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
+    if (imageUri != null) {
+        binding.imageview.setImageURI(imageUri.toUri())
+        binding.imageview.adjustViewBounds = true
+        binding.imageview.layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
 
-        } else {
-            binding.imageview.setImageResource(getImageResource(placeholderImage))
-        }
-
-
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
-        }
+    } else {
+        binding.imageview.setImageResource(getImageResource(placeholderImage))
     }
+
+
+    binding.button.setOnClickListener {
+        findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
+    }
+}
 
 private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placeholder: String) {
     this.findViewWithTag<EditText>(id) ?: EditText(context).apply { tag = id }
@@ -558,6 +571,10 @@ private fun ViewGroup.getFaceBackgroundColor(colorName: String): Int {
             context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
     }
     return resourceId
+}
+
+private fun ViewGroup.setQuestionnaireAnswered(isAnswered: Boolean) {
+    getApplication().formViewModel.form.data.commonData.questionnaireIsAnswered = isAnswered
 }
 
 private fun ViewGroup.getApplication(): MainApplication {
