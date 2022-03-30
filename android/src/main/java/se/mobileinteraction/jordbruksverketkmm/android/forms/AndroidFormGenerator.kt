@@ -367,7 +367,6 @@ private fun ViewGroup.createOrUpdateQuestionnaireResult(
         }
 }
 
-
 private fun ViewGroup.createOrUpdateResultsRemarks(
     text: String,
     id: String,
@@ -407,7 +406,6 @@ private fun ViewGroup.createOrUpdateCaptureImage(
     } else {
         binding.imageview.setImageResource(getImageResource(placeholderImage))
     }
-
 
     binding.button.setOnClickListener {
         findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
@@ -526,7 +524,6 @@ private fun ViewGroup.addResultsImages(
     binding.markstrukturText.text = imagesTextList[2]
     binding.klarText.text = imagesTextList[3]
 }
-
 
 private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
     val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))
