@@ -2,8 +2,6 @@ package se.mobileinteraction.jordbruksverketkmm.forms.models
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
 
 interface FormData {
     val commonData: Common
@@ -14,6 +12,7 @@ interface FormData {
 data class Common(
     val farmInformation: FarmInformation = FarmInformation(),
     var date: Instant = Clock.System.now(),
+    var questionnaireIsAnswered: Boolean = true,
 )
 
 data class FarmInformation(
