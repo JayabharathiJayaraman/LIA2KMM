@@ -316,35 +316,67 @@ extension UIStackView {
     
     func addQuestionnaire(id: String, text: [String],answer: QuestionnaireAnswer?)
     {
-        let verticalSpace = getVerticalSpacingView(withHeight: 20)
+        let verticalSpace = getVerticalSpacingView(withHeight: 30)
         self.addArrangedSubview(verticalSpace)
         
+        let label = QuestionnaireAnswersSad()
         let faceRemarkViewSad = FaceRemarkView()
-      //  faceRemarkViewSad.button.addTarget(self, action: #selector(handleQuestionnaireAnswers), for: .touchUpInside)
-        faceRemarkViewSad.configure(image: UIImage(named: "sad_face"), text: text[0]){
-            faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
-        }
-        
         let faceRemarkViewIndifferent = FaceRemarkView()
-        faceRemarkViewIndifferent.configure(image: UIImage(named: "indifferent_face"), text: text[1]){
-            faceRemarkViewIndifferent.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
-        }
-        
         let faceRemarkViewHappy = FaceRemarkView()
-        faceRemarkViewHappy.configure(image: UIImage(named: "happy_face"), text: text[2]){
-            faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
+        label.idString = id
+        
+
+        faceRemarkViewSad.configure(image: UIImage(named: "sad_face"), text: text[0]){ [self] in
+            faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
+            faceRemarkViewIndifferent.contentView.backgroundColor = .white
+            faceRemarkViewHappy.contentView.backgroundColor = .white
+            faceRemarkViewSad.button.addTarget(self, action: #selector(handleQuestionnaireAnswersSad), for: .touchUpInside)
         }
         
+        faceRemarkViewIndifferent.button.addTarget(self, action: #selector(handleQuestionnaireAnswersIndifferent), for: .touchUpInside)
+        faceRemarkViewIndifferent.configure(image: UIImage(named: "indifferent_face"), text: text[1]){
+            faceRemarkViewSad.contentView.backgroundColor = .white
+            faceRemarkViewIndifferent.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
+            faceRemarkViewHappy.contentView.backgroundColor = .white
+        }
+        
+        faceRemarkViewHappy.button.addTarget(self, action: #selector(handleQuestionnaireAnswersHappy), for: .touchUpInside)
+        faceRemarkViewHappy.configure(image: UIImage(named: "happy_face"), text: text[2]){
+            faceRemarkViewSad.contentView.backgroundColor = .white
+            faceRemarkViewIndifferent.contentView.backgroundColor = .white
+            faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
+            
+        }
+        
+        let verticalSpaceSad = getVerticalSpacingView(withHeight: 15)
+        let verticalSpaceAnswer = getVerticalSpacingView(withHeight: 15)
         self.addArrangedSubview(faceRemarkViewSad)
+        self.addArrangedSubview(verticalSpaceSad)
         self.addArrangedSubview(faceRemarkViewIndifferent)
+        self.addArrangedSubview(verticalSpaceAnswer)
         self.addArrangedSubview(faceRemarkViewHappy)
     }
     
-    /*@objc
-    func handleQuestionnaireAnswers(_ sender: QuestionnaireAnswers){
+    @objc
+    func handleQuestionnaireAnswersSad(_ sender: QuestionnaireAnswersSad){
+        print("handleQuestionnaireAnswers")
         guard let id = sender.idString else { return }
-        IOSFormViewModel.shared.formViewModel.setQuestionnaireAnswer(id: id, answer: QuestionnaireAnswer, text: "")
-    }*/
+        IOSFormViewModel.shared.formViewModel.setQuestionnaireAnswer(id: id, answer: QuestionnaireAnswer.poor, text: sender.text!)
+    }
+    
+    @objc
+    func handleQuestionnaireAnswersIndifferent(){
+        print("handleQuestionnaireAnswersIndifferent")
+        //guard let id = sender.idString else { return }
+        //IOSFormViewModel.shared.formViewModel.setQuestionnaireAnswer(id: id, answer: QuestionnaireAnswer, text: "")
+    }
+    
+    @objc
+    func handleQuestionnaireAnswersHappy(){
+        print("handleQuestionnaireAnswersHappy")
+        //guard let id = sender.idString else { return }
+        //IOSFormViewModel.shared.formViewModel.setQuestionnaireAnswer(id: id, answer: QuestionnaireAnswer, text: "")
+    }
     
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
