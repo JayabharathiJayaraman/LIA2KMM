@@ -115,4 +115,6 @@
     <string name="check_list_text_3">Flytta reglaget åt höger om åtgärden är utförd.</string>
     <string name="check_list_label_ej_aktuella_atgarder">Ej Aktuella åtgärder</string>
     <string name="check_list_text_4">De åtgärder du tar bort från gårdens lista hamnar här. Lägg till åtgärder till gårdens lista igen genom att trycka på plusset</string>
+    <string name="ok">OK</string>
+    <string name="answer_required">Du behöver ange ett svar för att gå vidare.</string>
 </resources>
