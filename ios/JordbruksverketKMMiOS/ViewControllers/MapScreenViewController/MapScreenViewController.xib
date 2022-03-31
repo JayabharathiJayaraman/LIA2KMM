@@ -26,7 +26,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="NeO-kG-ZlN">
-                            <rect key="frame" x="0.0" y="44" width="428" height="1259"/>
+                            <rect key="frame" x="0.0" y="54" width="428" height="1259"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-CP-P8Y">
                                     <rect key="frame" x="0.0" y="-185" width="398" height="527"/>
@@ -38,11 +38,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="398" height="366"/>
                                                     <subviews>
                                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="32L-VM-cQo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="370"/>
+                                                            <rect key="frame" x="9" y="-2" width="380" height="370"/>
                                                             <gestureRecognizers/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="380" id="0li-Az-6jg"/>
+                                                                <constraint firstAttribute="height" constant="370" id="KHL-k4-uIP"/>
+                                                            </constraints>
                                                         </mapView>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  lon:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fK8-15-PLE">
-                                                            <rect key="frame" x="5" y="49" width="245" height="34"/>
+                                                            <rect key="frame" x="12" y="49" width="245" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.64602600499999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +54,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  lat: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyz-HP-jp7">
-                                                            <rect key="frame" x="5" y="82" width="245" height="34"/>
+                                                            <rect key="frame" x="12" y="82" width="245" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.65398240249999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,12 +64,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="32L-VM-cQo" secondAttribute="bottom" constant="-4" id="4w8-rh-puB"/>
-                                                        <constraint firstItem="32L-VM-cQo" firstAttribute="leading" secondItem="fjP-cx-IWd" secondAttribute="leading" id="Dnm-SC-ICx"/>
                                                         <constraint firstAttribute="width" constant="398" id="XtS-VO-ve1"/>
+                                                        <constraint firstItem="32L-VM-cQo" firstAttribute="centerY" secondItem="fjP-cx-IWd" secondAttribute="centerY" id="ej2-Rr-Ezd"/>
                                                         <constraint firstAttribute="height" constant="366" id="lr2-n1-SHC"/>
-                                                        <constraint firstAttribute="trailing" secondItem="32L-VM-cQo" secondAttribute="trailing" constant="48" id="wKE-Ym-Sds"/>
-                                                        <constraint firstItem="32L-VM-cQo" firstAttribute="top" secondItem="fjP-cx-IWd" secondAttribute="top" id="yXO-o6-G0f"/>
+                                                        <constraint firstItem="32L-VM-cQo" firstAttribute="centerX" secondItem="fjP-cx-IWd" secondAttribute="centerX" id="zGG-PH-Ztp"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -97,13 +99,23 @@
                             <viewLayoutGuide key="contentLayoutGuide" id="0GR-RW-hXc"/>
                             <viewLayoutGuide key="frameLayoutGuide" id="sLX-te-m9D"/>
                         </scrollView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uI-KN-nz7">
+                            <rect key="frame" x="395" y="0.0" width="25" height="899"/>
+                            <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="Qcr-xc-A2J"/>
+                                <constraint firstAttribute="height" constant="899" id="wwI-Wi-nr2"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="hKD-MT-cfF"/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="hKD-MT-cfF" firstAttribute="top" secondItem="NeO-kG-ZlN" secondAttribute="top" id="Izg-eG-H4U"/>
-                        <constraint firstItem="NeO-kG-ZlN" firstAttribute="bottom" secondItem="hKD-MT-cfF" secondAttribute="bottom" constant="384" id="Zt2-FD-g8Q"/>
+                        <constraint firstItem="hKD-MT-cfF" firstAttribute="top" secondItem="NeO-kG-ZlN" secondAttribute="top" constant="-10" id="Izg-eG-H4U"/>
+                        <constraint firstItem="NeO-kG-ZlN" firstAttribute="bottom" secondItem="hKD-MT-cfF" secondAttribute="bottom" constant="394" id="Zt2-FD-g8Q"/>
+                        <constraint firstItem="2uI-KN-nz7" firstAttribute="centerX" secondItem="k7h-H8-TGQ" secondAttribute="centerX" constant="193.5" id="dM5-4l-HLB"/>
                         <constraint firstItem="NeO-kG-ZlN" firstAttribute="leading" secondItem="hKD-MT-cfF" secondAttribute="leading" id="eTj-8c-dLQ"/>
+                        <constraint firstItem="2uI-KN-nz7" firstAttribute="centerY" secondItem="k7h-H8-TGQ" secondAttribute="centerY" constant="-27" id="lXE-Pw-cQO"/>
                     </constraints>
                 </view>
             </subviews>
