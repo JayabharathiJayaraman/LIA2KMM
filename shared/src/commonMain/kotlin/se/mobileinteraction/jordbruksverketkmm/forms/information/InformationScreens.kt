@@ -13,12 +13,12 @@ class InformationScreens {
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
                     id = "wormsTitle1",
-                    text = "Daggmaskarna och markstrukturen"
+                    text = "Lorem ipsum title"
                 ),
                 FormComponentText(
                     type = ComponentType.BODY,
                     id = "wormsBody1",
-                    text = "Lorem ipsum, lorem ipsum."
+                    text = "Lorem ipsum body."
                 ),
             )
         ),
