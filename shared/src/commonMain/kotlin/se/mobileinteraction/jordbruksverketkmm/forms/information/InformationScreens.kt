@@ -8,7 +8,6 @@ class InformationScreens {
         InformationScreen(
             title = "Daggmaskarna och markstrukturen",
             id = "wormScreen1",
-            letter = "D",
             components = listOf(
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
@@ -25,7 +24,6 @@ class InformationScreens {
         InformationScreen(
             title = "Infiltrationen och markstrukturen",
             id = "InfiltrationScreen2",
-            letter = "I",
             components = listOf(
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
@@ -42,7 +40,6 @@ class InformationScreens {
         InformationScreen(
             title = "Jordartsbestämning i fält",
             id = "soiltypeScreen3",
-            letter = "J",
             components = listOf(
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
@@ -59,7 +56,6 @@ class InformationScreens {
         InformationScreen(
             title = "Markprofilen",
             id = "groundProfileScreen4",
-            letter = "M",
             components = listOf(
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
@@ -76,7 +72,6 @@ class InformationScreens {
         InformationScreen(
             title = "Markstruktur",
             id = "groundStructureScreen5",
-            letter = "",
             components = listOf(
                 FormComponentText(
                     type = ComponentType.TITLESMALL,
