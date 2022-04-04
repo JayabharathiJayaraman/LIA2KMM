@@ -3,7 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.models
 data class FormDataInfiltration(
     override val commonData: Common = Common(),
     val placeAssesment: PlaceAssesment = PlaceAssesment(),
-    val coordinates: Coordinates = Coordinates(),
+    override val coordinates: Coordinates = Coordinates(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val infiltrationTest: InfiltrationTest = InfiltrationTest(),
     var comment: String = "",

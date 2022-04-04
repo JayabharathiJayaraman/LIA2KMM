@@ -46,11 +46,16 @@ class FormViewModel constructor(
     }.let {
         updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
     }
-    fun setCordinates(id: String, latitude: Double, longitude: Double) = state.value.components.firstOrNull {
-        it is FormComponentMap
-    }.let {
-        updateStateAndSave { form.setCordinates(id, latitude, longitude, state.value).copy(counter = counter + 1) }
-    }
+
+    fun setCoordinates(id: String, latitude: Double, longitude: Double) =
+        state.value.components.firstOrNull {
+            it is FormComponentMap
+        }.let {
+            updateStateAndSave {
+                form.setCoordinates(id, latitude, longitude, state.value)
+                    .copy(counter = counter + 1)
+            }
+        }
 
     fun setChecklistRating(id: String, rating: Int) = state.value.components.firstOrNull {
         it is FormComponentChecklist

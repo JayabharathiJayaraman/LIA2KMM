@@ -10,7 +10,19 @@ interface Form {
     val data: FormData
 
     fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
-    fun setCordinates(id: String, latitude: Double, longitude: Double, state: FormViewModel.State): FormViewModel.State
+
+    fun setCoordinates(
+        id: String,
+        latitude: Double,
+        longitude: Double,
+        state: FormViewModel.State
+    ): FormViewModel.State {
+        with(state.form.data) {
+            this.coordinates.latitude = latitude
+            this.coordinates.longitude = longitude
+        }
+        return state
+    }
 
 
     fun setChecklistRating(id: String, rating: Int, state: FormViewModel.State): FormViewModel.State

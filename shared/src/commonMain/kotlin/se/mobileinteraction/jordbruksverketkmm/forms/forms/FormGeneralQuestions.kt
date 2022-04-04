@@ -417,6 +417,7 @@ data class FormGeneralQuestions(
         return state
     }
 
+
     override fun setChecklistRating(
         id: String,
         rating: Int,
