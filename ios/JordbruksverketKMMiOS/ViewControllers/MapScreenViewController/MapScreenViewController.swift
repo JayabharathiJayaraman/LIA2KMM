@@ -107,18 +107,16 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
     
     @objc
     func addPinAnnotation(_ sender: UITapGestureRecognizer) {
-        print("ÖÖÖÖÖÖ")
-        print(IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.latitude)
+       
         print("==> addPinAnnotation called...")
         let location = sender.location(in: self.mapView)
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
         let lat:Double = locCoord.latitude
         let lng:Double = locCoord.longitude
-        IOSFormViewModel.shared.formViewModel.setCoordinates(id: "hej", latitude: lat, longitude: lng)
+        IOSFormViewModel.shared.formViewModel.setCoordinates(latitude: lat, longitude: lng)
           txtLat.text = ("  lat: \(lat)")
           txtLng.text = ("  lon: \(lng)")
-        print("ÖÖÖÖÖÖ")
-        print(IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.latitude)
+
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = locCoord

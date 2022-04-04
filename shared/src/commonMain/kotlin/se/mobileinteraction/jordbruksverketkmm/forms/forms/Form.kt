@@ -11,7 +11,6 @@ interface Form {
     fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
 
     fun setCoordinates(
-        id: String,
         latitude: Double,
         longitude: Double,
         state: FormViewModel.State

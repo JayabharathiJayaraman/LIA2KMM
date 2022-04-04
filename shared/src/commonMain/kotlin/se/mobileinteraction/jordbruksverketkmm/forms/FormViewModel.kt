@@ -47,12 +47,12 @@ class FormViewModel constructor(
         updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
     }
 
-    fun setCoordinates(id: String, latitude: Double, longitude: Double) =
+    fun setCoordinates(latitude: Double, longitude: Double) =
         state.value.components.firstOrNull {
             it is FormComponentMap
         }.let {
             updateStateAndSave {
-                form.setCoordinates(id, latitude, longitude, state.value)
+                form.setCoordinates(latitude, longitude, state.value)
                     .copy(counter = counter + 1)
             }
         }
