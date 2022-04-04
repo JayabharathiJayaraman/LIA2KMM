@@ -132,7 +132,6 @@ private extension IOSFormGenerator {
 
         buttonListViewController.itemSelectionHandler = { [weak modalViewController] item in
             button.setTitle(item, for: .normal)
-//            IOSFormViewModel.shared.setTextData(id: id, text: item)
             modalViewController?.dismiss()
         }
 
@@ -186,9 +185,6 @@ private extension IOSFormGenerator {
     
     func addMap(screenTag: Int, id: String) {
         let mapViewController = MapScreenViewController()
-        
-      //  mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
-       // mapViewController.view.heightAnchor.constraint(equalTo: mapViewController.view.widthAnchor).isActive = true
         
         mainView.addArrangedSubview(mapViewController.view)
         presentingViewController?.addChild(mapViewController)
