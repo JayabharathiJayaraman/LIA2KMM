@@ -8,7 +8,6 @@ interface Form {
     val screens: List<FormScreen>
     val type: FormType
     val data: FormData
-
     fun setText(id: String, text: String, state: FormViewModel.State): FormViewModel.State
 
     fun setCoordinates(

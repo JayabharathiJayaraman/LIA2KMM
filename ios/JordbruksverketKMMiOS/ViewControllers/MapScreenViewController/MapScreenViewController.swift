@@ -104,7 +104,7 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
         let lat:Double = locCoord.latitude
         let lng:Double = locCoord.longitude
-        
+        IOSFormViewModel.shared.formViewModel.setCoordinates(id: "hej", latitude: lat, longitude: lng)
           txtLat.text = ("  lat: \(lat)")
           txtLng.text = ("  lon: \(lng)")
         
