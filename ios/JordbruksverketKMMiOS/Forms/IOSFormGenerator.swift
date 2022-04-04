@@ -75,7 +75,7 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .maps:
                 if let mapImage = component as? FormComponentMap {
-                    addMap(screenTag: screenTag)
+                    addMap(screenTag: screenTag, id: mapImage.id)
                 }
             default:
                 print("unknown component")
@@ -184,7 +184,7 @@ private extension IOSFormGenerator {
         playerViewController.didMove(toParent: presentingViewController)
     }
     
-    func addMap(screenTag: Int) {
+    func addMap(screenTag: Int, id: String) {
         let mapViewController = MapScreenViewController()
         
       //  mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -193,6 +193,7 @@ private extension IOSFormGenerator {
         mainView.addArrangedSubview(mapViewController.view)
         presentingViewController?.addChild(mapViewController)
         mapViewController.didMove(toParent: presentingViewController)
+        
     }
 }
 

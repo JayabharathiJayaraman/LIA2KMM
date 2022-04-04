@@ -1,9 +1,6 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentButtonList
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentChecklist
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
@@ -48,6 +45,11 @@ class FormViewModel constructor(
         it is FormComponentTextField
     }.let {
         updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
+    }
+    fun setCordinates(id: String, latitude: Double, longitude: Double) = state.value.components.firstOrNull {
+        it is FormComponentMap
+    }.let {
+        updateStateAndSave { form.setCordinates(id, latitude, longitude, state.value).copy(counter = counter + 1) }
     }
 
     fun setChecklistRating(id: String, rating: Int) = state.value.components.firstOrNull {

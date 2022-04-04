@@ -469,6 +469,14 @@ data class FormInfiltrations(
 
         return state
     }
+    fun setMaps(
+        id: String,
+        state: FormViewModel.State,
+        lon: String,
+        lat: String
+    ): FormViewModel.State {
+        return state
+    }
 
     override fun setChecklistRating(
         id: String,
