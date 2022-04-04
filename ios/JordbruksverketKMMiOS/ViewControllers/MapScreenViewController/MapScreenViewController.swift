@@ -60,10 +60,18 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
     }
     
     private func zoomInViewOnUserLocation () {
-        if let location = locationManger.location?.coordinate {
-            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        if IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.latitude != nil {
+            let latitude = IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.latitude as! CLLocationDegrees
+            let longitude = IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.longitude  as! CLLocationDegrees
+            let region = MKCoordinateRegion.init(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: true)
+        }else{
+            if let location = locationManger.location?.coordinate {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+                mapView.setRegion(region, animated: true)
+            }
         }
+       
     }
     
     private func checkLocationServices() {
@@ -99,6 +107,8 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
     
     @objc
     func addPinAnnotation(_ sender: UITapGestureRecognizer) {
+        print("ÖÖÖÖÖÖ")
+        print(IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.latitude)
         print("==> addPinAnnotation called...")
         let location = sender.location(in: self.mapView)
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
@@ -107,7 +117,8 @@ final class MapScreenViewController: UIViewController, CLLocationManagerDelegate
         IOSFormViewModel.shared.formViewModel.setCoordinates(id: "hej", latitude: lat, longitude: lng)
           txtLat.text = ("  lat: \(lat)")
           txtLng.text = ("  lon: \(lng)")
-        
+        print("ÖÖÖÖÖÖ")
+        print(IOSFormViewModel.shared.formViewModel.currentState.form.data.coordinates.latitude)
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = locCoord
