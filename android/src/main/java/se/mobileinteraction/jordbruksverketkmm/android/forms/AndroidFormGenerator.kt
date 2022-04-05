@@ -1,10 +1,9 @@
 package se.mobileinteraction.jordbruksverketkmm.android.forms
 
+import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
 import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
@@ -12,12 +11,11 @@ import androidx.navigation.findNavController
 import se.mobileinteraction.jordbruksverketkmm.android.MainApplication
 import se.mobileinteraction.jordbruksverketkmm.android.R
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.*
-import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
-class AndroidFormGenerator(private val context: Context, private val viewModel: FormViewModel) :
+class AndroidFormGenerator(context: Context) :
     FormGenerator {
     private var mainView: LinearLayout = LinearLayout(context).also {
         val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
@@ -48,6 +46,10 @@ class AndroidFormGenerator(private val context: Context, private val viewModel: 
                 ComponentType.IMAGE -> {
                     val image = (component as FormComponentImage)
                     mainView.createOrUpdateImage(image.id, image.image, image.caption)
+                }
+                ComponentType.INFORMATION -> {
+                    val information = (component as FormComponentInformation)
+                    mainView.createOrUpdateInformation(information.id, information.components)
                 }
                 ComponentType.CAPTUREIMAGE -> {
                     val capture = (component as FormComponentCaptureImage)
@@ -540,6 +542,42 @@ private fun ViewGroup.createOrUpdateImage(id: String, imageName: String, caption
 
     binding.imageview.setImageResource(getImageResource(imageName))
     binding.textView.text = caption
+}
+
+private fun ViewGroup.createOrUpdateInformation(id: String, components: List<FormComponent>) {
+
+    val binding: FormInformationComponentBinding =
+        FormInformationComponentBinding.inflate(LayoutInflater.from(context))
+
+    this.findViewWithTag(id) ?: binding.informationContainer.rootView.apply { tag = id }
+        .also { view ->
+
+            binding.infoButton.setOnClickListener {
+                val formGenerator = AndroidFormGenerator(context)
+                val componentsView = formGenerator.createInterface(components)
+
+                val dialogBinding = DialogBinding.inflate(LayoutInflater.from(context))
+                dialogBinding.componentScrollview.addView(componentsView)
+
+                val customDialog = AlertDialog.Builder(context).create()
+                customDialog.setView(dialogBinding.root)
+
+                val params = WindowManager.LayoutParams()
+                val height = (resources.displayMetrics.heightPixels * 0.85).toInt()
+                params.width = WindowManager.LayoutParams.MATCH_PARENT
+                params.height = height
+                params.gravity = Gravity.TOP
+
+                customDialog.show()
+                customDialog.window?.attributes = params
+
+                dialogBinding.closeButton.setOnClickListener {
+                    customDialog.dismiss()
+                }
+
+            }
+            this.addView(view)
+        }
 }
 
 private fun ViewGroup.createOrUpdateTimeField(
