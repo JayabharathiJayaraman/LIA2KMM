@@ -20,7 +20,7 @@ data class FormInfiltrations(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
                     id = "descriptionPopupScreen1",
-                    components = InformationScreens().infoPopup.first { it.id == "descriptionScreen" }.components
+                    components = InformationScreens().screens.first { it.id == "descriptionScreen" }.components
                 ),
                 FormComponentText(
                     id = "beskrivningTitleScreen1",
@@ -135,7 +135,7 @@ data class FormInfiltrations(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
                     id = "locationPopupScreen4",
-                    components = InformationScreens().infoPopup.first { it.id == "locationScreen" }.components
+                    components = InformationScreens().screens.first { it.id == "locationScreen" }.components
                 ),
                 FormComponentText(
                     id = "platsTitleScreen4",
@@ -158,7 +158,7 @@ data class FormInfiltrations(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
                     id = "conditionsPopupScreen5",
-                    components = InformationScreens().knowledgeBank.first { it.id == "conditionsScreen" }.components
+                    components = InformationScreens().screens.first { it.id == "conditionsScreen" }.components
                 ),
                 FormComponentText(
                     id = "grundförutsättningarTitleScreen5",
@@ -274,7 +274,7 @@ data class FormInfiltrations(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
                     id = "infiltrationPopupScreen5",
-                    components = InformationScreens().knowledgeBank.first { it.id == "infiltrationScreen" }.components
+                    components = InformationScreens().screens.first { it.id == "infiltrationScreen" }.components
                 ),
                 FormComponentText(
                     id = "infiltrationsmätningTitleScreen7",
