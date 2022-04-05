@@ -10,7 +10,9 @@ import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentKnowl
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.KnowledgebankButtonBinding
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
+import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreen
 import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
+import se.mobileinteraction.jordbruksverketkmm.forms.information.knowledgeBankIds
 
 class KnowledgeBank : Fragment() {
 
@@ -30,10 +32,12 @@ class KnowledgeBank : Fragment() {
     }
 
     private fun displayButtons(binding: FragmentKnowledgeBankBinding) {
-        val list = InformationScreens().knowledgeBank
+        val screens = InformationScreens().screens
+        val knowledgeBankScreens: List<InformationScreen> =
+            screens.filter { knowledgeBankIds.contains(it.id) }
         val usedLetters = arrayListOf("")
 
-        list.forEach {
+        knowledgeBankScreens.forEach {
             val buttonBinding: KnowledgebankButtonBinding =
                 KnowledgebankButtonBinding.inflate(LayoutInflater.from(context))
 
