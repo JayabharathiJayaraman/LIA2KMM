@@ -138,7 +138,7 @@ data class FormSoilStructure(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
                     id = "locationScreen4",
-                    components = InformationScreens().infoPopup.first { it.id == "locationScreen" }.components
+                    components = InformationScreens().screens.first { it.id == "locationScreen" }.components
                 ),
                 FormComponentText(
                     id = "locationTitleScreen4",
