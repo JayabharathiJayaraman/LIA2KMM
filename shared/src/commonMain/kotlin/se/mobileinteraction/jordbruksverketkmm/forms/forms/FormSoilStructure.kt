@@ -5,8 +5,6 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
 import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
@@ -139,8 +137,8 @@ data class FormSoilStructure(
             components = listOf<FormComponent>(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
-                    id = "firstInfo",
-                    components = InformationScreens().screens.first { it.id == "wormScreen1" }.components
+                    id = "locationScreen4",
+                    components = InformationScreens().screens.first { it.id == "locationScreen" }.components
                 ),
                 FormComponentText(
                     id = "locationTitleScreen4",

@@ -30,26 +30,26 @@ class KnowledgeBank : Fragment() {
     }
 
     private fun displayButtons(binding: FragmentKnowledgeBankBinding) {
-        val list = InformationScreens().screens
         val usedLetters = arrayListOf("")
 
-        list.forEach {
-            val buttonBinding: KnowledgebankButtonBinding =
-                KnowledgebankButtonBinding.inflate(LayoutInflater.from(context))
+        InformationScreens().knowledgeBankScreens
+            .forEach {
+                val buttonBinding: KnowledgebankButtonBinding =
+                    KnowledgebankButtonBinding.inflate(LayoutInflater.from(context))
 
-            if (!usedLetters.contains(it.title.first().toString())) {
-                usedLetters.add(it.title.first().toString())
-                buttonBinding.letter.text = it.title.first().toString()
+                if (!usedLetters.contains(it.title.first().toString())) {
+                    usedLetters.add(it.title.first().toString())
+                    buttonBinding.letter.text = it.title.first().toString()
 
-            } else {
-                buttonBinding.letter.visibility = View.GONE
+                } else {
+                    buttonBinding.letter.visibility = View.GONE
+                }
+
+                buttonBinding.button.text = it.title
+                handleButtonClick(buttonBinding, it.components)
+
+                binding.linearLayoutContainer.addView(buttonBinding.buttonContainer)
             }
-
-            buttonBinding.button.text = it.title
-            handleButtonClick(buttonBinding, it.components)
-
-            binding.linearLayoutContainer.addView(buttonBinding.buttonContainer)
-        }
     }
 
     private fun handleButtonClick(

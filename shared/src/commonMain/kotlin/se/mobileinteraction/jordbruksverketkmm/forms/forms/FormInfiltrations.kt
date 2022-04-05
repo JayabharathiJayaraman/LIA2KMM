@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
@@ -16,6 +17,11 @@ data class FormInfiltrations(
         FormScreen
             (
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "descriptionPopupScreen1",
+                    components = InformationScreens().screens.first { it.id == "descriptionScreen" }.components
+                ),
                 FormComponentText(
                     id = "beskrivningTitleScreen1",
                     type = ComponentType.TITLESMALL,
@@ -128,19 +134,8 @@ data class FormInfiltrations(
             components = listOf<FormComponent>(
                 FormComponentInformation(
                     type = ComponentType.INFORMATION,
-                    id = "",
-                    components = listOf(
-                        FormComponentText(
-                            id = "titleIdentifier",
-                            type = ComponentType.TITLEBIG,
-                            text = ""
-                        ),
-                        FormComponentText(
-                            id = "TextIdentifier",
-                            type = ComponentType.BODY,
-                            text = "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder."
-                        )
-                    )
+                    id = "locationPopupScreen4",
+                    components = InformationScreens().screens.first { it.id == "locationScreen" }.components
                 ),
                 FormComponentText(
                     id = "platsTitleScreen4",
@@ -160,6 +155,11 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "conditionsPopupScreen5",
+                    components = InformationScreens().screens.first { it.id == "conditionsScreen" }.components
+                ),
                 FormComponentText(
                     id = "grundförutsättningarTitleScreen5",
                     type = ComponentType.TITLESMALL,
@@ -271,6 +271,11 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "infiltrationPopupScreen5",
+                    components = InformationScreens().screens.first { it.id == "infiltrationScreen" }.components
+                ),
                 FormComponentText(
                     id = "infiltrationsmätningTitleScreen7",
                     type = ComponentType.TITLESMALL,
