@@ -10,9 +10,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentKnowl
 import se.mobileinteraction.jordbruksverketkmm.android.databinding.KnowledgebankButtonBinding
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreen
 import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
-import se.mobileinteraction.jordbruksverketkmm.forms.information.knowledgeBankIds
 
 class KnowledgeBank : Fragment() {
 
@@ -32,28 +30,26 @@ class KnowledgeBank : Fragment() {
     }
 
     private fun displayButtons(binding: FragmentKnowledgeBankBinding) {
-        val screens = InformationScreens().screens
-        val knowledgeBankScreens: List<InformationScreen> =
-            screens.filter { knowledgeBankIds.contains(it.id) }
         val usedLetters = arrayListOf("")
 
-        knowledgeBankScreens.forEach {
-            val buttonBinding: KnowledgebankButtonBinding =
-                KnowledgebankButtonBinding.inflate(LayoutInflater.from(context))
+        InformationScreens().knowledgeBankScreens
+            .forEach {
+                val buttonBinding: KnowledgebankButtonBinding =
+                    KnowledgebankButtonBinding.inflate(LayoutInflater.from(context))
 
-            if (!usedLetters.contains(it.title.first().toString())) {
-                usedLetters.add(it.title.first().toString())
-                buttonBinding.letter.text = it.title.first().toString()
+                if (!usedLetters.contains(it.title.first().toString())) {
+                    usedLetters.add(it.title.first().toString())
+                    buttonBinding.letter.text = it.title.first().toString()
 
-            } else {
-                buttonBinding.letter.visibility = View.GONE
+                } else {
+                    buttonBinding.letter.visibility = View.GONE
+                }
+
+                buttonBinding.button.text = it.title
+                handleButtonClick(buttonBinding, it.components)
+
+                binding.linearLayoutContainer.addView(buttonBinding.buttonContainer)
             }
-
-            buttonBinding.button.text = it.title
-            handleButtonClick(buttonBinding, it.components)
-
-            binding.linearLayoutContainer.addView(buttonBinding.buttonContainer)
-        }
     }
 
     private fun handleButtonClick(
