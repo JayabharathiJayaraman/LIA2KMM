@@ -436,21 +436,28 @@ class InformationScreens {
             )
         ),
     )
+
+    val knowledgeBankIds: List<String> = listOf(
+        "wormScreen",
+        "infiltrationScreen",
+        "conditionsScreen",
+        "groundProfileScreen",
+        "groundStructureScreen",
+        "groundStructureMovieScreen",
+        "groundStructureTipsScreen",
+        "groundStructureReportScreen",
+        "topSoilStructureScreen",
+        "shovelStructureScreen",
+        "layerStructureScreen",
+        "plantStructureScreen",
+        "rootStructureScreen",
+    )
+
+    val knowledgeBankScreens: List<InformationScreen> =
+        screens.filter { knowledgeBankIds.contains(it.id) }
 }
 
-val knowledgeBankIds: List<String> = listOf(
-    "wormScreen",
-    "infiltrationScreen",
-    "conditionsScreen",
-    "groundProfileScreen",
-    "groundStructureScreen",
-    "groundStructureMovieScreen",
-    "groundStructureTipsScreen",
-    "groundStructureReportScreen",
-    "topSoilStructureScreen",
-    "shovelStructureScreen",
-    "layerStructureScreen",
-    "plantStructureScreen",
-    "rootStructureScreen",
-)
+
+
+
 
