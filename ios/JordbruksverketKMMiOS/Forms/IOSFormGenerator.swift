@@ -1,5 +1,3 @@
-import AVFoundation
-import AVKit
 import Foundation
 import shared
 import UIKit
@@ -8,14 +6,14 @@ import MapKit
 class IOSFormGenerator: FormGenerator {
     private var mainView = UIStackView()
     private var currentScreenRendered: Int32 = 0
-
+    
     var presentingViewController: UIViewController?
-
+    
     init() {
         mainView.axis = .vertical
         mainView.distribution = .fillProportionally
     }
-
+    
     func updateInterface(components: [FormComponent], currentScreen: Int32) {
         if currentScreen != currentScreenRendered {
             presentingViewController?.children.forEach { child in
@@ -25,20 +23,20 @@ class IOSFormGenerator: FormGenerator {
             mainView.subviews.forEach { $0.removeFromSuperview() }
             currentScreenRendered = currentScreen
         }
-
+        
         generateInterface(components: components, currentScreen: currentScreen.asKotlinInt)
     }
-
+    
     func createInterface(components: [FormComponent], currentScreen: Int32) -> Any {
         generateInterface(components: components, currentScreen: currentScreen.asKotlinInt)
-
+        
         return mainView
     }
-
+    
     func generateInterface(components: [FormComponent], currentScreen: KotlinInt?) {
         guard let currentScreen = currentScreen else { return }
         let screenTag = Int(truncating: currentScreen)
-
+        
         for component in components {
             switch component.type {
             case .body:
@@ -77,6 +75,18 @@ class IOSFormGenerator: FormGenerator {
                 if let video = component as? FormComponentVideo {
                     addVideo(source: video.source)
                 }
+            case .imagesgrid:
+                if let captionedImages = component as? FormComponentImagesGrid{
+                    mainView.addCaptionedImages(screenTag: screenTag, id: captionedImages.id, imageNames: captionedImages.image, captions: captionedImages.caption)
+                }
+            case .resultsimages:
+                if let resultsImages = component as? FormComponentResultsImages{
+                    mainView.addCaptionedImages(screenTag: screenTag, id: resultsImages.id,imageNames: resultsImages.images,captions: resultsImages.imagesTextList)
+                }
+            case .checklist:
+                if let checkList = component as? FormComponentChecklist{
+                    mainView.createOrUpdateChecklist(screenTag: screenTag, id: checkList.id, title : checkList.title, options: checkList.options, rating: Int(checkList.rating))
+                }
             case .maps:
                 if let mapImage = component as? FormComponentMap {
                     addMap(screenTag: screenTag, id: mapImage.id)
@@ -110,14 +120,14 @@ private extension IOSFormGenerator {
         placeholder: String
     ) {
         mainView.addSmallTitleLabel(screenTag: screenTag, text: title)
-
+        
         let verticalSpacing = mainView.getVerticalSpacingView(withHeight: 5)
         mainView.addArrangedSubview(verticalSpacing)
-
+        
         let button = ButtonWithList()
         button.id = id
         button.list = list
-
+        
         button.setTitle(placeholder, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = .left
@@ -131,10 +141,10 @@ private extension IOSFormGenerator {
         button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.addTarget(self, action: #selector(handleButtonListButtonTap), for: .touchUpInside)
-
+        
         mainView.addArrangedSubview(button)
     }
-
+    
     @objc
     func handleButtonListButtonTap(_ button: ButtonWithList) {
         guard
@@ -142,61 +152,61 @@ private extension IOSFormGenerator {
             let list = button.list,
             let presentingViewController = presentingViewController
         else { return }
-
+        
         let buttonListViewController = ButtonListViewController(list: list)
         let modalViewController = ModalViewController(contentViewController: buttonListViewController)
-
+        
         buttonListViewController.itemSelectionHandler = { [weak modalViewController] item in
             button.setTitle(item, for: .normal)
             modalViewController?.dismiss()
         }
-
+        
         modalViewController.present(using: presentingViewController)
     }
-
+    
     func addInformationView(screenTag: Int, id: String, components: [FormComponent]) {
         let button = ButtonWithComponents()
         button.components = components
         button.setImage(UIImage(named: "infoIcon"), for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(handleInformationButtonTap), for: .touchUpInside)
-
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 53.0).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-
+        
         let stackView = UIStackView(arrangedSubviews: [UIView(), button])
         stackView.axis = .horizontal
-
+        
         mainView.addArrangedSubview(stackView)
     }
-
+    
     @objc
     func handleInformationButtonTap(_ button: ButtonWithComponents) {
         guard
             let components = button.components,
             let presentingViewController = presentingViewController
         else { return }
-
+        
         let informationViewController = InformationViewController(components: components)
         let modalViewController = ModalViewController(contentViewController: informationViewController)
         modalViewController.present(using: presentingViewController)
     }
-
+    
     func addVideo(source: String) {
         guard let url = Bundle.main.url(forResource: source, withExtension: "mp4") else { return }
-
-        let player = AVPlayer(url: url)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        playerViewController.videoGravity = .resizeAspectFill
-
-        playerViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        playerViewController.view.heightAnchor.constraint(equalTo: playerViewController.view.widthAnchor).isActive = true
-
-        mainView.addArrangedSubview(playerViewController.view)
-        presentingViewController?.addChild(playerViewController)
-        playerViewController.didMove(toParent: presentingViewController)
+        
+        /*        let player = AVPlayer(url: url)
+         let playerViewController = AVPlayerViewController()
+         playerViewController.player = player
+         playerViewController.videoGravity = .resizeAspectFill
+         
+         playerViewController.view.translatesAutoresizingMaskIntoConstraints = false
+         playerViewController.view.heightAnchor.constraint(equalTo: playerViewController.view.widthAnchor).isActive = true
+         
+         mainView.addArrangedSubview(playerViewController.view)
+         presentingViewController?.addChild(playerViewController)
+         playerViewController.didMove(toParent: presentingViewController) */
     }
     
     func addMap(screenTag: Int, id: String) {
@@ -213,11 +223,11 @@ extension UIStackView {
     func addImage(imageName: String, caption: String) {
         var verticalSpace = getVerticalSpacingView(withHeight: 20)
         self.addArrangedSubview(verticalSpace)
-
+        
         let imageView = UIImageView()
         let stackView = UIStackView()
         self.addArrangedSubview(stackView)
-
+        
         imageView.image = UIImage(named: imageName)
         imageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
@@ -226,29 +236,29 @@ extension UIStackView {
         label.text = caption
         label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
         label.textAlignment = .left
-
+        
         stackView.addArrangedSubview(imageView)
         verticalSpace = getVerticalSpacingView(withHeight: 10)
         self.addArrangedSubview(verticalSpace)
         self.addArrangedSubview(label)
     }
-
+    
     func addBigTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let label = getDefaultLabel()
             label.text = text
             label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
-
+            
             self.addArrangedSubview(label)
         }
     }
-
+    
     func addSmallTitleLabel(screenTag: Int,text: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 20)
             self.addArrangedSubview(verticalSpacing)
-
+            
             let label = getDefaultLabel()
             label.text = text
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
@@ -274,7 +284,7 @@ extension UIStackView {
             stackView.addArrangedSubview(label)
         }
     }
-
+    
     func createOrUpdateTextField(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
             (view as? TextFieldWithId)?.idString == id
@@ -372,55 +382,59 @@ extension UIStackView {
         }
     }
 
+
+
+
+    
     func addCaptionedImages(screenTag: Int, id: String, imageNames: [String], captions: [String])
     {
-        if imageNames.count == 3
-        {
-            var captionedImages = [UIStackView]()
+        if (id == "resultsImages"){
+            var resultsCaptionedImages = [UIStackView]()
             for i in 0...2{
-                captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
+                resultsCaptionedImages += [addResultsImages(id: id,names: imageNames[i],captions:captions[i])]
             }
-            if (id == "vadNuImagesScreen10"){
+            addHorizontalGridView(captionedImages: resultsCaptionedImages)
+        }
+        
+        if (id == "toolsImages"){
+            if imageNames.count == 3
+            {
                 var captionedImages = [UIStackView]()
                 for i in 0...2{
-                    captionedImages += [addResultsImages(id: id,names: imageNames[i],captions:captions[i])]
+                    captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
                 }
+                addHorizontalGridView(captionedImages: captionedImages)
             }
-            let horizontalImageView1 = UIStackView(arrangedSubviews: captionedImages)
-            horizontalImageView1.axis = .horizontal
-            horizontalImageView1.distribution = .fillEqually
-            horizontalImageView1.alignment = .fill
-            horizontalImageView1.spacing = 10
-            horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
-            self.addArrangedSubview(horizontalImageView1)
-        }
-        if imageNames.count > 3
-        {
-            var captionedImages1 = [UIStackView]()
-            for i in 0...2{
-                captionedImages1 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
+            else if imageNames.count > 3
+            {
+                var captionedImagesRow1 = [UIStackView]()
+                for i in 0...2{
+                    captionedImagesRow1 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
+                }
+                addHorizontalGridView(captionedImages: captionedImagesRow1)
+                
+                var captionedImagesRow2 = [UIStackView]()
+                for i in 3...4{
+                    captionedImagesRow2 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
+                }
+                addHorizontalGridView(captionedImages: captionedImagesRow2)
+                
+                let verticalSpacing = getVerticalSpacingView(withHeight: 3)
+                self.addArrangedSubview(verticalSpacing)
             }
-            let horizontalImageView1 = UIStackView(arrangedSubviews: captionedImages1)
-            horizontalImageView1.axis = .horizontal
-            horizontalImageView1.distribution = .fillEqually
-            horizontalImageView1.alignment = .fill
-            horizontalImageView1.spacing = 10
-            horizontalImageView1.translatesAutoresizingMaskIntoConstraints = false
-            self.addArrangedSubview(horizontalImageView1)
-            var captionedImages2 = [UIStackView]()
-            for i in 3...4{
-                captionedImages2 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
-            }
-            let horizontalImageView2 = UIStackView(arrangedSubviews: captionedImages2)
-            horizontalImageView2.axis = .horizontal
-            horizontalImageView2.distribution = .fillEqually
-            horizontalImageView2.alignment = .fill
-            horizontalImageView2.spacing = 10
-            horizontalImageView2.translatesAutoresizingMaskIntoConstraints = false
-            self.addArrangedSubview(horizontalImageView2)
         }
     }
-
+    
+    func addHorizontalGridView(captionedImages : [UIStackView]){
+        let horizontalImageView = UIStackView(arrangedSubviews: captionedImages)
+        horizontalImageView.axis = .horizontal
+        horizontalImageView.distribution = .fillEqually
+        horizontalImageView.alignment = .fill
+        horizontalImageView.spacing = 10
+        horizontalImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.addArrangedSubview(horizontalImageView)
+    }
+    
     func addGridImages(id: String,names:String,captions:String) -> UIStackView{
         let imageStackView = UIStackView()
         imageStackView.axis = .vertical
@@ -428,71 +442,172 @@ extension UIStackView {
         imageStackView.alignment = .center
         imageStackView.spacing = 5
         imageStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         let imageView = UIImageView()
         imageView.image = UIImage(named: names)
         imageView.contentMode = .scaleAspectFit
         imageView.frame.size = CGSize(width: 10, height: 10)
+        
         let captionStackView = UIStackView()
         captionStackView.axis = .vertical
         captionStackView.distribution = .fillEqually
         captionStackView.alignment = .center
         captionStackView.spacing = 5
         captionStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         let label = UILabel()
         label.text = captions
         captionStackView.addArrangedSubview(label)
+        
         let verticalSpace = getVerticalSpacingView(withHeight: 50)
+        
         imageStackView.addArrangedSubview(verticalSpace)
         imageStackView.addArrangedSubview(imageView)
         imageStackView.addArrangedSubview(captionStackView)
+        
         return imageStackView
     }
-
+    
     func addResultsImages(id: String,names:String,captions:String)-> UIStackView{
+        print("ID inside addResultsImages:", id)
         let imageStackView = UIStackView()
         imageStackView.axis = .vertical
         imageStackView.distribution = .fillEqually
-        imageStackView.alignment = .center
-        imageStackView.spacing = 5
         imageStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         let imageView = UIImageView()
         imageView.image = UIImage(named: names)
         imageView.contentMode = .scaleAspectFit
+        imageView.frame.size = CGSize(width: 30, height: 30)
         imageView.backgroundColor = .white
-        imageView.frame.size = CGSize(width: 10, height: 10)
+        imageView.layer.cornerRadius = 30
+        imageView.clipsToBounds = true
+        
         let captionStackView = UIStackView()
         captionStackView.axis = .vertical
         captionStackView.distribution = .fillEqually
         captionStackView.alignment = .center
         captionStackView.spacing = 5
         captionStackView.translatesAutoresizingMaskIntoConstraints = false
-        captionStackView.backgroundColor = .red
+        
         let label = UILabel()
         label.text = captions
-        label.backgroundColor = .orange
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
+        label.textAlignment = .center
         captionStackView.addArrangedSubview(label)
-        let verticalSpace = getVerticalSpacingView(withHeight: 3)
+        
+        let verticalSpace = getVerticalSpacingView(withHeight: 50)
+        
         imageStackView.addArrangedSubview(verticalSpace)
         imageStackView.addArrangedSubview(imageView)
         imageStackView.addArrangedSubview(captionStackView)
+        
         return imageStackView
     }
-
+    
+    func createOrUpdateChecklist(screenTag: Int, id: String, title: String, options: [String], rating: Int)
+    {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil
+        {
+            var i : Int = 0
+            
+            let verticalChecklist = UIStackView()
+            verticalChecklist.axis = .vertical
+            verticalChecklist.distribution = .fillEqually
+            verticalChecklist.alignment = .fill
+            verticalChecklist.translatesAutoresizingMaskIntoConstraints = false
+            self.addArrangedSubview(verticalChecklist)
+            
+            var radioButtonsGroup = [UIButton]()
+            for option in options
+            {
+                let radioView = UIStackView()
+                radioView.axis = .horizontal
+                self.addArrangedSubview(radioView)
+                radioView.spacing = 5
+                radioView.translatesAutoresizingMaskIntoConstraints = false
+                radioView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                
+                let radioButton = ChecklistWithId()
+                radioView.addArrangedSubview(radioButton)
+                radioButton.translatesAutoresizingMaskIntoConstraints = false
+                radioButton.topAnchor.constraint(equalTo: radioView.topAnchor).isActive = true
+                radioButton.bottomAnchor.constraint(equalTo: radioView.bottomAnchor).isActive = true
+                radioButton.tag = i
+                radioButton.idString = id
+                radioButton.setImage(UIImage(named: "switch_unchecked_green.png"), for: .normal)
+                radioButton.addTarget(self, action: #selector(selectedCheckList(_:)), for: .touchUpInside)
+                
+                radioButtonsGroup.append(radioButton)
+                i += 1
+                radioButton.buttonList = radioButtonsGroup
+                
+            for i in radioButtonsGroup{
+                if i.tag == rating{
+                    i.isSelected = true
+                    i.setImage(UIImage(named: "switch_checked.png"), for: .selected)
+                }
+                else{
+                    i.isSelected = false
+                    i.setImage(UIImage(named: "switch_unchecked_green.png"), for: .normal)
+                    }
+                }
+                
+                let radioLabel = UILabel()
+                radioView.addSubview(radioLabel)
+                radioLabel.translatesAutoresizingMaskIntoConstraints = false
+                radioLabel.font = UIFont(name: UIFont.fontNameRegular, size: 20.0)
+                radioLabel.centerYAnchor.constraint(equalTo: radioView.centerYAnchor).isActive = true
+                radioLabel.leftAnchor.constraint(equalTo: radioButton.rightAnchor, constant: 1).isActive = true
+                radioLabel.textColor = UIColor.Jordbruksverket.defaultTextColor
+                radioLabel.text = option
+                
+                verticalChecklist.addArrangedSubview(radioView)
+                
+                let verticalSpace = getVerticalSpacingView(withHeight: 3)
+                radioView.addArrangedSubview(verticalSpace)
+            }
+            print("radio button list group count:",radioButtonsGroup.count)
+        }
+    }
+    
+    @objc func selectedCheckList(_ sender: ChecklistWithId){
+        let selectedButton = sender
+        
+        print("Inside selected radio button list count ", selectedButton.buttonList.count)
+        print("selected button tag:",selectedButton.tag)
+        
+        for i in 0...selectedButton.buttonList.count-1{
+            print("Inside Selected " , selectedButton.buttonList[i].tag, selectedButton.tag )
+            if (selectedButton.buttonList[i].tag == selectedButton.tag){
+                selectedButton.buttonList[i].isSelected = !selectedButton.buttonList[i].isSelected
+                selectedButton.buttonList[i].setImage(UIImage(named: "switch_checked.png"), for: .selected)
+            }
+            else{
+                selectedButton.buttonList[i].isSelected = false
+                selectedButton.setImage(UIImage(named: "switch_unchecked_green.png"), for: .selected)
+            }
+        }
+        guard let id = sender.idString else { return }
+        IOSFormViewModel.shared.formViewModel.setChecklistRating(id: id, rating:  Int32(selectedButton.tag))
+    }
+    
     func getDefaultLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontForContentSizeCategory = true
         label.textColor = UIColor.Jordbruksverket.defaultTextColor
-
+        
         return label
     }
-
+    
     func getVerticalSpacingView(withHeight height: CGFloat) -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: height).isActive = true
-
+        
         return view
     }
 }
