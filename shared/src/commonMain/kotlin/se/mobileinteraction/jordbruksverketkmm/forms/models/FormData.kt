@@ -13,6 +13,7 @@ interface FormData {
 data class Common(
     val farmInformation: FarmInformation = FarmInformation(),
     var date: Instant = Clock.System.now(),
+    var questionnaireIsAnswered: Boolean = true,
 )
 
 data class FarmInformation(

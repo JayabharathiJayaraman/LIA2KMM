@@ -1,6 +1,8 @@
 package se.mobileinteraction.jordbruksverketkmm.android.ui.bottomnavbar
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
@@ -36,9 +38,15 @@ class BottomNavBarFragment : Fragment() {
         }
 
         binding.bottomNavbarForward.setOnClickListener {
-            application.formViewModel.nextScreen()
-            currentScreen = application.formViewModel.state.value.currentScreen
-            setContent(binding, totalScreens, currentScreen)
+            val isAnswered: Boolean =
+                application.formViewModel.form.data.commonData.questionnaireIsAnswered
+            if (isAnswered) {
+                application.formViewModel.nextScreen()
+                currentScreen = application.formViewModel.state.value.currentScreen
+                setContent(binding, totalScreens, currentScreen)
+            } else {
+                showDialog()
+            }
         }
 
         view.post {
@@ -46,6 +54,18 @@ class BottomNavBarFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun showDialog() {
+        val customDialog = AlertDialog.Builder(context)
+        customDialog.setMessage(getString(R.string.answer_required))
+            .setPositiveButton(R.string.ok,
+                DialogInterface.OnClickListener { dialog, _ ->
+                    dialog.dismiss()
+                })
+
+        customDialog.create()
+        customDialog.show()
     }
 
     private fun setContent(
@@ -77,7 +97,8 @@ class BottomNavBarFragment : Fragment() {
                 if (i == currentScreen) {
                     progressItem.background = getDrawableWithRadius(R.color.lightOlive, false)
                 } else {
-                    progressItem.background = getDrawableWithRadius(R.color.progress_bar_uncolored, false)
+                    progressItem.background =
+                        getDrawableWithRadius(R.color.progress_bar_uncolored, false)
                 }
             }
             binding.progressLayout.addView(progressItem)
@@ -90,22 +111,26 @@ class BottomNavBarFragment : Fragment() {
         totalScreens: Int,
         currentScreen: Int
     ) {
-        binding.bottomNavbarProgressText.text = "${currentScreen + 1} ${getString(R.string.bottom_navbar_text)} $totalScreens"
+        binding.bottomNavbarProgressText.text =
+            "${currentScreen + 1} ${getString(R.string.bottom_navbar_text)} $totalScreens"
     }
 
     private fun getDrawableWithRadius(color: Int, isStart: Boolean): Drawable {
         val gradientDrawable = GradientDrawable()
-        if(isStart){
+        if (isStart) {
             gradientDrawable.cornerRadii = floatArrayOf(20f, 20f, 0f, 0f, 0f, 0f, 20f, 20f)
-        }else{
+        } else {
             gradientDrawable.cornerRadii = floatArrayOf(0f, 0f, 20f, 20f, 20f, 20f, 0f, 0f)
         }
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            gradientDrawable.setColor(resources.getColor(color,
-                getActivity()?.getTheme()
-            ))
-        }else{
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            gradientDrawable.setColor(
+                resources.getColor(
+                    color,
+                    getActivity()?.getTheme()
+                )
+            )
+        } else {
             gradientDrawable.setColor(resources.getColor(color))
         }
         return gradientDrawable

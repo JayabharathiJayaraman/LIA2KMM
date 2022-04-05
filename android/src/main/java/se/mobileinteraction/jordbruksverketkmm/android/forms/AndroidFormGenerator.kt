@@ -296,23 +296,37 @@ private fun ViewGroup.createOrUpdateQuestionnaire(
             binding.radioButtonIndifferent.text = text[1]
             binding.radioButtonHappy.text = text[2]
 
+            println("Answer when empty: $answer")
+            if (answer == null) {
+                setQuestionnaireAnswered(false)
+            }
+
             binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
-                    binding.radioButtonSad.id -> getApplication().formViewModel.setQuestionnaireAnswer(
-                        id,
-                        QuestionnaireAnswer.Poor,
-                        text[0]
-                    )
-                    binding.radioButtonIndifferent.id -> getApplication().formViewModel.setQuestionnaireAnswer(
-                        id,
-                        QuestionnaireAnswer.Mediocre,
-                        text[1]
-                    )
-                    binding.radioButtonHappy.id -> getApplication().formViewModel.setQuestionnaireAnswer(
-                        id,
-                        QuestionnaireAnswer.Good,
-                        text[2]
-                    )
+                    binding.radioButtonSad.id -> {
+                        getApplication().formViewModel.setQuestionnaireAnswer(
+                            id,
+                            QuestionnaireAnswer.Poor,
+                            text[0]
+                        )
+                        setQuestionnaireAnswered(true)
+                    }
+                    binding.radioButtonIndifferent.id -> {
+                        getApplication().formViewModel.setQuestionnaireAnswer(
+                            id,
+                            QuestionnaireAnswer.Mediocre,
+                            text[1]
+                        )
+                        setQuestionnaireAnswered(true)
+                    }
+                    binding.radioButtonHappy.id -> {
+                        getApplication().formViewModel.setQuestionnaireAnswer(
+                            id,
+                            QuestionnaireAnswer.Good,
+                            text[2]
+                        )
+                        setQuestionnaireAnswered(true)
+                    }
                 }
             }
             when (answer) {
@@ -366,7 +380,6 @@ private fun ViewGroup.createOrUpdateQuestionnaireResult(
         }
 }
 
-
 private fun ViewGroup.createOrUpdateResultsRemarks(
     text: String,
     id: String,
@@ -406,7 +419,6 @@ private fun ViewGroup.createOrUpdateCaptureImage(
     } else {
         binding.imageview.setImageResource(getImageResource(placeholderImage))
     }
-
 
     binding.button.setOnClickListener {
         findNavController().navigate(R.id.navigateFromFormFragmentToPermissionsFragment)
@@ -613,7 +625,6 @@ private fun ViewGroup.addResultsImages(
     binding.klarText.text = imagesTextList[3]
 }
 
-
 private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
     val binding: FormVideoBinding = FormVideoBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formVideoviewContainer.rootView.apply { tag = id }
@@ -657,6 +668,10 @@ private fun ViewGroup.getFaceBackgroundColor(colorName: String): Int {
             context.resources.getIdentifier("drawable/$colorName", null, context.packageName)
     }
     return resourceId
+}
+
+private fun ViewGroup.setQuestionnaireAnswered(isAnswered: Boolean) {
+    getApplication().formViewModel.form.data.commonData.questionnaireIsAnswered = isAnswered
 }
 
 private fun ViewGroup.getApplication(): MainApplication {
