@@ -3,6 +3,7 @@ import AVKit
 import Foundation
 import shared
 import UIKit
+import MapKit
 
 class IOSFormGenerator: FormGenerator {
     private var mainView = UIStackView()
@@ -75,6 +76,10 @@ class IOSFormGenerator: FormGenerator {
             case .video:
                 if let video = component as? FormComponentVideo {
                     addVideo(source: video.source)
+                }
+            case .maps:
+                if let mapImage = component as? FormComponentMap {
+                    addMap(screenTag: screenTag, id: mapImage.id)
                 }
             case .textfieldnotes:
                 if let textfieldNotes = component as? FormComponentTextField {
@@ -192,6 +197,15 @@ private extension IOSFormGenerator {
         mainView.addArrangedSubview(playerViewController.view)
         presentingViewController?.addChild(playerViewController)
         playerViewController.didMove(toParent: presentingViewController)
+    }
+    
+    func addMap(screenTag: Int, id: String) {
+        let mapViewController = MapScreenViewController()
+        
+        mainView.addArrangedSubview(mapViewController.view)
+        presentingViewController?.addChild(mapViewController)
+        mapViewController.didMove(toParent: presentingViewController)
+        
     }
 }
 

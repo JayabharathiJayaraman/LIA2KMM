@@ -131,15 +131,35 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "",
+                    components = listOf(
+                        FormComponentText(
+                            id = "titleIdentifier",
+                            type = ComponentType.TITLEBIG,
+                            text = ""
+                        ),
+                        FormComponentText(
+                            id = "TextIdentifier",
+                            type = ComponentType.BODY,
+                            text = "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder."
+                        )
+                    )
+                ),
                 FormComponentText(
                     id = "platsTitleScreen4",
                     type = ComponentType.TITLESMALL,
-                    text = "Plats"
+                    text = "Plats",
                 ),
                 FormComponentText(
                     id = "platsBodyScreen4",
                     type = ComponentType.BODY,
-                    text = "Tryck på kartan för att välja din exakta position"
+                    text = "Tryck på kartan för att välja din exakta position",
+                ),
+                FormComponentMap(
+                    id = "mapScreen4",
+                    type = ComponentType.MAPS,
                 ),
             ),
         ),
@@ -453,6 +473,14 @@ data class FormInfiltrations(
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text =
             text
 
+        return state
+    }
+    fun setMaps(
+        id: String,
+        state: FormViewModel.State,
+        lon: String,
+        lat: String
+    ): FormViewModel.State {
         return state
     }
 
