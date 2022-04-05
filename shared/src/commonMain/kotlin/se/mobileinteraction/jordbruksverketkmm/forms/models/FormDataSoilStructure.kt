@@ -29,7 +29,7 @@ data class PhotoLine(
 data class StompData(
     var level1: String? = null,
     var level2: String? = null,
-    val level3: String? = null,
+    var level3: String? = null,
     var level4: String? = null,
     val showLevel3: Boolean = false,
 )
