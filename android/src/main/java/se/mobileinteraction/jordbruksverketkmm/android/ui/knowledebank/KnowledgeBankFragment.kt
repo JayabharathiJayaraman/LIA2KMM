@@ -30,7 +30,7 @@ class KnowledgeBank : Fragment() {
     }
 
     private fun displayButtons(binding: FragmentKnowledgeBankBinding) {
-        val list = InformationScreens().screens
+        val list = InformationScreens().knowledgeBank
         val usedLetters = arrayListOf("")
 
         list.forEach {
