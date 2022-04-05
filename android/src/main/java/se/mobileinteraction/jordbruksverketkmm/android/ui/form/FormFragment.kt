@@ -3,10 +3,9 @@ package se.mobileinteraction.jordbruksverketkmm.android.ui.form
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -16,7 +15,7 @@ import se.mobileinteraction.jordbruksverketkmm.android.databinding.FragmentFormB
 import se.mobileinteraction.jordbruksverketkmm.android.forms.AndroidFormGenerator
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormInfiltrations
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructure
 
 class FormFragment : Fragment() {
     private var binding: FragmentFormBinding? = null
@@ -24,9 +23,7 @@ class FormFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-        val viewModel = (activity?.application as MainApplication).formViewModel
-        this.formGenerator = AndroidFormGenerator(context, viewModel)
+        this.formGenerator = AndroidFormGenerator(context)
     }
 
     override fun onCreateView(
@@ -45,6 +42,13 @@ class FormFragment : Fragment() {
 
         val application = (activity?.application as MainApplication)
         val viewModel = application.formViewModel
+        val uriFromCamera = arguments?.getString("uri")
+        uriFromCamera?.let {
+            viewModel.setSoilStructurePhoto(
+                FormSoilStructure.ID_SOILSTRUCTUREIMAGE,
+                it
+            )
+        }
 
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

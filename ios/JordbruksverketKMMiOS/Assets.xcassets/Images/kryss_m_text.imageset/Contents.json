@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "kryss_m_text.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "kryss_m_text.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

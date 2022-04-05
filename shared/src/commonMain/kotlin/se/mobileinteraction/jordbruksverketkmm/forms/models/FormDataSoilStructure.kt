@@ -3,7 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.models
 data class FormDataSoilStructure(
     override val commonData: Common = Common(),
     val placeAssesment: PlaceAssesment = PlaceAssesment(),
-    val coordinates: Coordinates = Coordinates(),
+    override val coordinates: Coordinates = Coordinates(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val soilCondition: SoilCondition = SoilCondition(),
     val photoData: PhotoData = PhotoData(),
@@ -15,7 +15,7 @@ data class FormDataSoilStructure(
 // Only used by test 2
 
 data class PhotoData(
-    val photoUri: String? = null,
+    var photoUri: String? = null,
     val photoLines: List<PhotoLine> = emptyList()
 )
 
@@ -27,19 +27,21 @@ data class PhotoLine(
 )
 
 data class StompData(
-    val level1: String? = null,
-    val level2: String? = null,
-    val level3: String? = null,
-    val level4: String? = null,
+    var level1: String? = null,
+    var level2: String? = null,
+    var level3: String? = null,
+    var level4: String? = null,
     val showLevel3: Boolean = false,
 )
 
 data class QuestionnaireWithPhotos(
-    val answers: List<AnswerWithPhoto> = emptyList()
+    val answers: MutableList<AnswerWithPhoto> = mutableListOf()
 )
 
 data class AnswerWithPhoto(
-    val answer: QuestionnaireAnswer? = null,
+    var answer: QuestionnaireAnswer? = null,
+    var id: String = "",
+    val text: String = "",
     val photoUri: String? = null,
-    val comment: String = "",
+    var comment: String = "",
 )

@@ -1,12 +1,12 @@
 package se.mobileinteraction.jordbruksverketkmm.forms
 
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponent
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentButtonList
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentChecklist
-import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentTextField
+import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.forms.Form
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
+import se.mobileinteraction.jordbruksverketkmm.forms.forms.FormSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelState
 import se.mobileinteraction.jordbruksverketkmm.utilities.ViewModelStateImpl
+
 
 class FormViewModel constructor(
     val form: Form
@@ -50,6 +50,16 @@ class FormViewModel constructor(
         updateStateAndSave { form.setText(id, text, state.value).copy(counter = counter + 1) }
     }
 
+    fun setCoordinates(latitude: Double, longitude: Double) =
+        state.value.components.firstOrNull {
+            it is FormComponentMap
+        }.let {
+            updateStateAndSave {
+                form.setCoordinates(latitude, longitude, state.value)
+                    .copy(counter = counter + 1)
+            }
+        }
+
     fun setChecklistRating(id: String, rating: Int) = state.value.components.firstOrNull {
         it is FormComponentChecklist
     }.let {
@@ -58,13 +68,32 @@ class FormViewModel constructor(
         }
     }
 
-    fun setButtonListActive(id: String, value: String) = state.value.components.firstOrNull {
-        it is FormComponentButtonList
-    }.let {
+    fun setButtonListData(id: String, selected: String, position: Int) =
+        state.value.components.firstOrNull {
+            it is FormComponentButtonList
+        }.let {
+            updateStateAndSave {
+                form.setButtonlistData(id, selected, position, state.value)
+                    .copy(counter = counter + 1)
+            }
+        }
+
+    fun setSoilStructurePhoto(id: String, imageUri: String) {
         updateStateAndSave {
-            form.setButtonlistActive(id, value, state.value).copy(counter = counter + 1)
+            (form as? FormSoilStructure)?.setSoilStructurePhoto(id, state.value, imageUri)
+                ?.copy(counter = counter + 1)
+                ?: this
         }
     }
+
+
+    fun setQuestionnaireAnswer(id: String, answer: QuestionnaireAnswer, text: String) =
+        state.value.components.firstOrNull {
+            it is FormComponentQuestionnaire
+        }.let {
+            updateStateAndSave {
+                form.setQuestionnaireAnswer(id, answer, text, state.value)
+                    .copy(counter = counter + 1)
+            }
+        }
 }
-
-

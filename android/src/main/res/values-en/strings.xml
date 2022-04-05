@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="välkommen">WELCOME</string>
+    <string name="hur_mår_min_jord">How is my soil?</string>
+    <string name="läs_mer_om_appen_och_testerna">Read more about the app and tests</string>
+    <string name="mina_test">My test</string>
+    <string name="nytt_test">New test</string>
+    <string name="vårda">Nature</string>
+    <string name="markstruktur">soil structure</string>
     <string name="dummy">dummy</string>
     <string name="CheckList_Grundförbättringar_title">Grundförbättringar</string>
     <string name="CheckList_Grundförbättringar_text">Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.</string>
@@ -60,6 +67,8 @@
          \n\nIt is possible to export performed tests from the app, and to import them back, with position information. So you should be able to come back and follow up on previous tests.
          \n\nYou can also email individual test results as a PDF to yourself or, for example, an advisor. You can also create a PDF with a summary of your three subtests for a site.
     </string>
+    <string name="map_place">Place</string>
+    <string name="map_description">Tap on the map to select your exact location.</string>
 
 
 

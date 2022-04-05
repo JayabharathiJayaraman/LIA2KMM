@@ -1,4 +1,11 @@
 <resources>
+    <string name="välkommen">VÄLKOMMEN</string>
+    <string name="hur_mår_min_jord">Hur mår min jord?</string>
+    <string name="läs_mer_om_appen_och_testerna">Läs mer om appen och testerna</string>
+    <string name="mina_test">Mina test</string>
+    <string name="nytt_test">Nytt test</string>
+    <string name="vårda">Vårda</string>
+    <string name="markstruktur">markstruktur</string>
     <string name="dummy">dummy</string>
     <string name="CheckList_Grundförbättringar_title">Grundförbättringar</string>
     <string name="CheckList_Grundförbättringar_text">Grundförbättringar åtgärder har en mycket långsiktig positiv effekt på markstrukturen och utförs inte varje år.</string>
@@ -59,6 +66,7 @@
         \n\nDet går att exportera utförda test från appen, och att importera tillbaka dem, med uppgifter om position. Så du ska kunna återkomma och följa upp tidigare test.
         \n\nDu kan även skicka enskilda testresultat som PDF med e-post till dig själv eller, till exempel, en rådgivare. Du kan också skapa en PDF med en summering av dina tre deltest för en plats.
     </string>
+
     <string name="settings">Inställningar</string>
     <string name="knowledgebank">Kunskapsbank</string>
     <string name="about">Om appen</string>
@@ -79,6 +87,8 @@
     <string name="data_privacy_policy_hanteringText2">Om du behöver ominstallera appen och har utförda test du vill spara; exportera dem då först så att du kan importera tillbaka dem utan att förlora någon information.</string>
     <string name="data_privacy_policy_header_close">TILLBAKA</string>
     <string name="data_privacy_policy_header">UTVECKLARE</string>
+    <string name="map_place">Plats</string>
+    <string name="map_description">Tryck på kartan för att välja din exakta position.</string>
     <string name="new_picture">Ta ny</string>
     <string name="use_image">Använd</string>
     <string name="bottom_navbar_text">av</string>
@@ -105,4 +115,7 @@
     <string name="check_list_text_3">Flytta reglaget åt höger om åtgärden är utförd.</string>
     <string name="check_list_label_ej_aktuella_atgarder">Ej Aktuella åtgärder</string>
     <string name="check_list_text_4">De åtgärder du tar bort från gårdens lista hamnar här. Lägg till åtgärder till gårdens lista igen genom att trycka på plusset</string>
+    <string name="add_stomp_level3">Lägg till bearbetningssula +</string>
+    <string name="ok">OK</string>
+    <string name="answer_required">Du behöver ange ett svar för att gå vidare.</string>
 </resources>

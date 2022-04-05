@@ -7,13 +7,14 @@
     android:paddingHorizontal="10dp"
     android:paddingVertical="10dp">
 
-        <ImageButton
-            android:id="@+id/checkList_item_add"
-            android:layout_width="30dip"
-            android:layout_height="30dip"
-            android:layout_marginEnd="10dp"
-            android:background="@android:drawable/ic_input_add"
-            android:layout_alignParentStart="true" />
+    <ImageButton
+        android:id="@+id/checkList_item_add"
+        android:layout_width="17dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:drawable/ic_input_add" />
 
         <Switch
             android:id="@+id/checklist_active_item_switch"
@@ -35,18 +36,16 @@
                 android:id="@+id/checklist_active_item_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:text="TextView"
                 android:fontFamily="@font/open_sans_semi_bold"
-                android:textColor="#2f651a"
-                android:textSize="18sp"/>
+                android:paddingBottom="10dp"
+                android:textColor="@color/darkGreen"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/checklist_active_item_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:fontFamily="@font/open_sans_regular"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
         </LinearLayout>
 </RelativeLayout>

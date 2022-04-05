@@ -24,7 +24,7 @@ class MenuFragment : Fragment() {
         fragmentMenuBinding = binding
 
         binding.btnClose.setOnClickListener {
-              view.findNavController().navigateUp()
+            view.findNavController().navigateUp()
         }
 
         binding.textViewSettings.setOnClickListener {
@@ -37,6 +37,10 @@ class MenuFragment : Fragment() {
 
         binding.textViewAboutApp.setOnClickListener {
             view.findNavController().navigate(R.id.navigateToAboutApp)
+        }
+
+        binding.textViewKnowledgebank.setOnClickListener {
+            view.findNavController().navigate(R.id.navigateToKnowledgeBank)
         }
 
         return view

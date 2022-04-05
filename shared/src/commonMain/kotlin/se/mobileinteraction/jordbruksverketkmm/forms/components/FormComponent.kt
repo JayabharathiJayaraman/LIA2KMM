@@ -1,9 +1,12 @@
 package se.mobileinteraction.jordbruksverketkmm.forms.components
+import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
+import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 
 enum class ComponentType {
     TITLEBIG,
     TITLESMALL,
     BODY,
+    CAPTUREIMAGE,
     TEXTFIELD,
     TEXTFIELDNOTES,
     BUTTONLIST,
@@ -11,8 +14,9 @@ enum class ComponentType {
     IMAGE,
     VIDEO,
     BUTTON,
+    QUESTIONNAIRE,
+    QUESTIONNAIRERESULT,
     REMARK,
-    CAPTIONEDIMAGE,
     IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,
@@ -20,6 +24,8 @@ enum class ComponentType {
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
     INFORMATION,
+    STOMPLEVEL3,
+    MAPS,
 }
 
 interface FormComponent {
@@ -40,6 +46,16 @@ class FormComponentButton(
     val text: String,
 ) : FormComponent
 
+class FormComponentCaptureImage(
+    override val type: ComponentType,
+    override val id: String,
+    val title: String,
+    val body: String,
+    var placeholderImage: String,
+    var imageUri: String?,
+    val button_text: String
+) : FormComponent
+
 class FormComponentTextField(
     override val type: ComponentType,
     override val id: String,
@@ -53,6 +69,7 @@ class FormComponentButtonList(
     val title: String,
     val list: List<String>,
     var value: String,
+    var position: Int,
     val placeholder: String,
 ) : FormComponent
 
@@ -64,11 +81,17 @@ class FormComponentChecklist(
     var rating: Int,
 ) : FormComponent
 
-class FormComponentRemark(
+class FormComponentQuestionnaire(
     override val type: ComponentType,
     override val id: String,
-    val text: String,
-    val image: String,
+    val text: List<String>,
+    var answer: QuestionnaireAnswer?
+) : FormComponent
+
+class FormComponentQuestionnaireResult(
+    override val type: ComponentType,
+    override val id: String,
+    val answers: MutableList<AnswerWithPhoto>?,
 ) : FormComponent
 
 class FormComponentImage(
@@ -101,8 +124,9 @@ class FormComponentResultsInfoBody(
 class FormComponentResultsImages(
     override val type: ComponentType,
     override val id: String,
-    val imagesTextList: List<String>
-) : FormComponent
+    val images:List<String>,
+    val imagesTextList:List<String>,
+): FormComponent
 
 class FormComponentResultsRemark(
     override val type: ComponentType,
@@ -118,6 +142,12 @@ class FormComponentVideo(
     val description: String,
     val source: String,
 ) : FormComponent
+
+class FormComponentMap(
+    override val type: ComponentType,
+    override val id: String,
+) : FormComponent
+
 
 class FormComponentImagesGrid(
     override val type: ComponentType,

@@ -26,8 +26,11 @@ class StartScreenFragment : Fragment() {
         binding.imageButtonMenu.setOnClickListener{
             view.findNavController().navigate(R.id.navigateToMenu)
         }
+        binding.imagePlantIconButton.setOnClickListener{
+            view.findNavController().navigate(R.id.navigate_startScreenFragment_to_vardaMarkstrukturFragment)
+        }
 
-        binding.imageNewTestButton.setOnClickListener {
+        binding.imageNewTestButton?.setOnClickListener {
             view.findNavController().navigate(R.id.navigate_from_startScreenFragment_to_newTestFragment)
         }
 

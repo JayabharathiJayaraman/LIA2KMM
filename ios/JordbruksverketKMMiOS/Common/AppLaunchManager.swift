@@ -6,7 +6,7 @@ protocol AppLaunchManager {
 
 struct DefaultAppLaunchManager: AppLaunchManager {
     let rootViewController: UIViewController
-   
+
     init() {
         rootViewController = MainNavigationController(rootViewController: StartScreenViewController())
     }
