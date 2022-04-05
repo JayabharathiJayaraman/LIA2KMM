@@ -16,6 +16,7 @@ enum class ComponentType {
     BUTTON,
     QUESTIONNAIRE,
     QUESTIONNAIRERESULT,
+    REMARK,
     IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,

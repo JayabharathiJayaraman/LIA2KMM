@@ -5,6 +5,8 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.*
 import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
 import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
+import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
@@ -35,7 +37,7 @@ data class FormSoilStructure(
                     text = "Utrustning"
                 ),
                 FormComponentImagesGrid(
-                    id = "braGrävspadeImage",
+                    id = "toolsImages",
                     type = ComponentType.IMAGESGRID,
                     image = listOf("shovel", "knife", "ruler"),
                     caption = listOf("Bra grävspade", "Morakniv", "Tumstock")
@@ -851,10 +853,10 @@ data class FormSoilStructure(
                     text = "Vad vill du göra nu?",
                 ),
                 FormComponentResultsImages(
-                    id = "vadNuImagesScreen19",
+                    id = "resultsImages",
                     type = ComponentType.RESULTSIMAGES,
-                    images = listOf("add_test_icon", "plant_icon", "check"),
-                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
+                    images = listOf("add_test_icon","plant_icon","check"),
+                    imagesTextList = listOf("Nytt test","Vårda\nmarkstruktur","klar")
                 ),
             )
         ),

@@ -21,6 +21,7 @@
 		2E57534427BFF44A00CB01E6 /* MapScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E57534227BFF44A00CB01E6 /* MapScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		2E9CAF5427E873530038C85F /* ChecklistWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CAF5327E873530038C85F /* ChecklistWithId.swift */; };
 		512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */; };
 		512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */; };
 		513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */; };
@@ -175,6 +176,7 @@
 		2E57534227BFF44A00CB01E6 /* MapScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapScreenViewController.xib; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2E9CAF5327E873530038C85F /* ChecklistWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistWithId.swift; sourceTree = "<group>"; };
 		2EBBA3D627D0C4CB0016CA79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VardaMarkstrukturViewController.swift; sourceTree = "<group>"; };
 		512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VardaMarkstrukturViewController.xib; sourceTree = "<group>"; };
@@ -567,6 +569,7 @@
 				63C33FEF27E3810900264125 /* ButtonWithList.swift */,
 				0E9631BF27E9EFA400D02CF6 /* FaceRemarkView */,
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
+				2E9CAF5327E873530038C85F /* ChecklistWithId.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -817,6 +820,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				2E9CAF5427E873530038C85F /* ChecklistWithId.swift in Sources */,
+				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,

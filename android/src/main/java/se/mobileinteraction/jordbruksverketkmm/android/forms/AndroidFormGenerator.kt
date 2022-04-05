@@ -441,8 +441,7 @@ private fun ViewGroup.createOrUpdateTextfield(id: String, text: String, placehol
 }
 
 private fun ViewGroup.addInnerImageLayout(id: String, images: List<String>, caption: List<String>) {
-    val binding: FormCaptionedimageGridlayoutBinding =
-        FormCaptionedimageGridlayoutBinding.inflate(LayoutInflater.from(context))
+    val binding: FormCaptionedimageGridlayoutBinding = FormCaptionedimageGridlayoutBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formImageGridContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
 
@@ -598,10 +597,10 @@ private fun ViewGroup.createOrUpdateTimeField(
     start: String,
     stop: String
 ) {
-    val binding: FormTimeTextviewBinding =
-        FormTimeTextviewBinding.inflate(LayoutInflater.from(context))
+    val binding: FormTimeTextviewBinding = FormTimeTextviewBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.timeViewContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
+
     binding.timeLabelTextview.text = timeLabel
 }
 
@@ -614,15 +613,16 @@ private fun ViewGroup.addResultsImages(
         LayoutInflater.from(context)
     )
     this.findViewWithTag(id) ?: binding.whatNextImagesContainer.rootView.apply { tag = id }
-        .also { this.addView(it) }
+        .also {
+            binding.newTestImage.setImageResource(getImageResource(images[0]))
+            binding.markstrukturImage.setImageResource(getImageResource(images[1]))
+            binding.checkImage.setImageResource(getImageResource(images[2]))
+            binding.newTestText.text = imagesTextList[0]
+            binding.vardaText.text = imagesTextList[1]
+            binding.klarText.text = imagesTextList[2]
 
-    binding.newTestImage.setImageResource(getImageResource(images[0]))
-    binding.markstrukturImage.setImageResource(getImageResource(images[1]))
-    binding.checkImage.setImageResource(getImageResource(images[2]))
-    binding.newTestText.text = imagesTextList[0]
-    binding.vardaText.text = imagesTextList[1]
-    binding.markstrukturText.text = imagesTextList[2]
-    binding.klarText.text = imagesTextList[3]
+            this.addView(it)
+             }
 }
 
 private fun ViewGroup.createOrUpdateVideo(id: String, description: String, source: String) {
@@ -637,10 +637,10 @@ private fun ViewGroup.createOrUpdateVideo(id: String, description: String, sourc
 }
 
 private fun ViewGroup.createOrUpdateResultsInfoBody(text: String, id: String) {
-    val binding: FormResultsInfoBodyBinding =
-        FormResultsInfoBodyBinding.inflate(LayoutInflater.from(context))
+    val binding: FormResultsInfoBodyBinding = FormResultsInfoBodyBinding.inflate(LayoutInflater.from(context))
     this.findViewWithTag(id) ?: binding.formResultsInfoContainer.rootView.apply { tag = id }
         .also { this.addView(it) }
+
     binding.resultsBodyTextview.text = text
 }
 
