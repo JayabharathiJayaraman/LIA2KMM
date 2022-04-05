@@ -20,6 +20,9 @@
             android:id="@+id/navigateToDataPrivacyPolicy"
             app:destination="@id/dataPrivacyPolicyFragment" />
         <action
+            android:id="@+id/navigateToKnowledgeBank"
+            app:destination="@id/knowledgeBank" />
+        <action
             android:id="@+id/navigateToAboutApp"
             app:destination="@id/aboutAppFragment" />
 
@@ -140,4 +143,9 @@
         android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.checklist.CheckListFragment"
         android:label="fragment_check_list"
         tools:layout="@layout/fragment_check_list" />
+    <fragment
+        android:id="@+id/knowledgeBank"
+        android:name="se.mobileinteraction.jordbruksverketkmm.android.ui.knowledebank.KnowledgeBank"
+        android:label="fragment_knowledge_bank"
+        tools:layout="@layout/fragment_knowledge_bank" />
 </navigation>
