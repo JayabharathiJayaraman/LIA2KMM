@@ -5,69 +5,7 @@ import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentIma
 import se.mobileinteraction.jordbruksverketkmm.forms.components.FormComponentText
 
 class InformationScreens {
-    val infoPopup: List<InformationScreen> = listOf(
-        InformationScreen(
-            title = "Beskrivning",
-            id = "descriptionScreen",
-            components = listOf(
-                FormComponentText(
-                    id = "descriptionTitle",
-                    type = ComponentType.TITLESMALL,
-                    text = "Cylinder för mätning av infiltration"
-                ),
-                FormComponentText(
-                    id = "descriptionBody",
-                    type = ComponentType.BODY,
-                    text = "En cylinder för infiltrationsmätning kan du lätt " +
-                            "tillverka själv. Den bör vara cirka 15-20 cm i diameter, " +
-                            "och 10-15 cm hög. \n\nAnvänd till exempel en bit av " +
-                            "ett avloppsrör, eller kapa av botten på en kastrull eller " +
-                            "en gammal plåtburk. Inte alltför tjockt gods, men inte " +
-                            "heller för tunt. Kanten i botten bör vara vass, men stark, " +
-                            "så den går att trycka ner i jorden. \n\nGör en tydlig, " +
-                            "vattenbeständig, markering i cylinderns överkant. I testet " +
-                            "är det viktigt att vattennivån mäts vid samma ställe på " +
-                            "cylindern, både vid start och slut. Då är denna markering " +
-                            "till hjälp."
-                ),
-                FormComponentText(
-                    id = "descriptionTipsTitle",
-                    type = ComponentType.TITLESMALL,
-                    text = "Tips!"
-                ),
-                FormComponentText(
-                    id = "descriptionTipsBody",
-                    type = ComponentType.BODY,
-                    text = "Det kan vara praktiskt med flera cylindrar (2-3 stycken) om " +
-                            "man vet att man vill mäta i flera skikt på samma plats. " +
-                            "Det ger möjlighet att ha flera mätningar igång parallellt."
-                ),
-                FormComponentImage(
-                    id = "cylinderImage",
-                    type = ComponentType.IMAGE,
-                    image = "cylindrar_exempel",
-                    caption = "Exempel på cylinder för infiltrationsmätning: Kastrull med" +
-                            " avkapad botten och avloppsrör med avfasad kant."
-                ),
-            )
-        ),
-        InformationScreen(
-            title = "Plats",
-            id = "locationScreen",
-            components = listOf(
-                FormComponentText(
-                    type = ComponentType.BODY,
-                    id = "locationBody",
-                    text = "Platsen för testet sparas i appen tillsammans med resultaten " +
-                            "av de test du utfört. Dels som hjälp för minnet, för att du " +
-                            "lättare ska kunna veta var du var. Dels för att du ska kunna " +
-                            "återkomma till samma plats senare, för att göra nya test och " +
-                            "följa upp dina åtgärder."
-                ),
-            )
-        ),
-    )
-    val knowledgeBank: List<InformationScreen> = listOf(
+    val screens: List<InformationScreen> = listOf(
         InformationScreen(
             title = "Daggmaskarna och markstrukturen",
             id = "wormScreen",
@@ -437,5 +375,82 @@ class InformationScreens {
                 ),
             )
         ),
+        InformationScreen(
+            title = "Beskrivning",
+            id = "descriptionScreen",
+            components = listOf(
+                FormComponentText(
+                    id = "descriptionTitle",
+                    type = ComponentType.TITLESMALL,
+                    text = "Cylinder för mätning av infiltration"
+                ),
+                FormComponentText(
+                    id = "descriptionBody",
+                    type = ComponentType.BODY,
+                    text = "En cylinder för infiltrationsmätning kan du lätt " +
+                            "tillverka själv. Den bör vara cirka 15-20 cm i diameter, " +
+                            "och 10-15 cm hög. \n\nAnvänd till exempel en bit av " +
+                            "ett avloppsrör, eller kapa av botten på en kastrull eller " +
+                            "en gammal plåtburk. Inte alltför tjockt gods, men inte " +
+                            "heller för tunt. Kanten i botten bör vara vass, men stark, " +
+                            "så den går att trycka ner i jorden. \n\nGör en tydlig, " +
+                            "vattenbeständig, markering i cylinderns överkant. I testet " +
+                            "är det viktigt att vattennivån mäts vid samma ställe på " +
+                            "cylindern, både vid start och slut. Då är denna markering " +
+                            "till hjälp."
+                ),
+                FormComponentText(
+                    id = "descriptionTipsTitle",
+                    type = ComponentType.TITLESMALL,
+                    text = "Tips!"
+                ),
+                FormComponentText(
+                    id = "descriptionTipsBody",
+                    type = ComponentType.BODY,
+                    text = "Det kan vara praktiskt med flera cylindrar (2-3 stycken) om " +
+                            "man vet att man vill mäta i flera skikt på samma plats. " +
+                            "Det ger möjlighet att ha flera mätningar igång parallellt."
+                ),
+                FormComponentImage(
+                    id = "cylinderImage",
+                    type = ComponentType.IMAGE,
+                    image = "cylindrar_exempel",
+                    caption = "Exempel på cylinder för infiltrationsmätning: Kastrull med" +
+                            " avkapad botten och avloppsrör med avfasad kant."
+                ),
+            )
+        ),
+        InformationScreen(
+            title = "Plats",
+            id = "locationScreen",
+            components = listOf(
+                FormComponentText(
+                    type = ComponentType.BODY,
+                    id = "locationBody",
+                    text = "Platsen för testet sparas i appen tillsammans med resultaten " +
+                            "av de test du utfört. Dels som hjälp för minnet, för att du " +
+                            "lättare ska kunna veta var du var. Dels för att du ska kunna " +
+                            "återkomma till samma plats senare, för att göra nya test och " +
+                            "följa upp dina åtgärder."
+                ),
+            )
+        ),
     )
 }
+
+val knowledgeBankIds: List<String> = listOf(
+    "wormScreen",
+    "infiltrationScreen",
+    "conditionsScreen",
+    "groundProfileScreen",
+    "groundStructureScreen",
+    "groundStructureMovieScreen",
+    "groundStructureTipsScreen",
+    "groundStructureReportScreen",
+    "topSoilStructureScreen",
+    "shovelStructureScreen",
+    "layerStructureScreen",
+    "plantStructureScreen",
+    "rootStructureScreen",
+)
+
