@@ -671,7 +671,7 @@ private fun ViewGroup.getFaceBackgroundColor(colorName: String): Int {
 }
 
 private fun ViewGroup.setQuestionnaireAnswered(isAnswered: Boolean) {
-    getApplication().formViewModel.form.data.commonData.questionnaireIsAnswered = isAnswered
+    getApplication().formViewModel.form.data.questionnaireIsAnswered.answered = isAnswered
 }
 
 private fun ViewGroup.getApplication(): MainApplication {
