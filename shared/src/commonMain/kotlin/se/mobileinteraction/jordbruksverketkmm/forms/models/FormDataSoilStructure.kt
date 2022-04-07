@@ -8,6 +8,7 @@ data class FormDataSoilStructure(
     val soilCondition: SoilCondition = SoilCondition(),
     val photoData: PhotoData = PhotoData(),
     val stompData: StompData = StompData(),
+    override val questionnaireIsAnswered: QuestionnaireIsAnswered = QuestionnaireIsAnswered(),
     val questionnaireWithPhotos: QuestionnaireWithPhotos = QuestionnaireWithPhotos(),
     var comment: String? = null,
 ) : FormData

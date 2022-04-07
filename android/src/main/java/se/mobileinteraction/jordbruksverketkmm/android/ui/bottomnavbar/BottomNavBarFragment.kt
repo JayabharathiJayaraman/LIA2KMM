@@ -35,17 +35,19 @@ class BottomNavBarFragment : Fragment() {
             application.formViewModel.previousScreen()
             currentScreen = application.formViewModel.state.value.currentScreen
             setContent(binding, totalScreens, currentScreen)
+            application.formViewModel.form.data.questionnaireIsAnswered.answered = null
         }
 
         binding.bottomNavbarForward.setOnClickListener {
-            val isAnswered: Boolean =
-                application.formViewModel.form.data.commonData.questionnaireIsAnswered
-            if (isAnswered) {
+            val isAnswered: Boolean? =
+                application.formViewModel.form.data.questionnaireIsAnswered.answered
+
+            if (isAnswered == false) {
+                showDialog()
+            } else {
                 application.formViewModel.nextScreen()
                 currentScreen = application.formViewModel.state.value.currentScreen
                 setContent(binding, totalScreens, currentScreen)
-            } else {
-                showDialog()
             }
         }
 
