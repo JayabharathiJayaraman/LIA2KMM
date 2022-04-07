@@ -2,11 +2,12 @@ package se.mobileinteraction.jordbruksverketkmm.forms.models
 
 data class FormDataInfiltration(
     override val commonData: Common = Common(),
-    val placeAssesment: PlaceAssesment = PlaceAssesment(),
     override val coordinates: Coordinates = Coordinates(),
+    val placeAssesment: PlaceAssesment = PlaceAssesment(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val infiltrationTest: InfiltrationTest = InfiltrationTest(),
     var comment: String = "",
+    override val questionnaireIsAnswered: QuestionnaireIsAnswered = QuestionnaireIsAnswered(),
 ) : FormData
 
 // Only used by test 3

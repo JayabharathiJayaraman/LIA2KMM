@@ -5,6 +5,7 @@ data class FormDataGeneralQuestions(
     override val coordinates: Coordinates = Coordinates(),
     val soilAssesment: SoilAssesment = SoilAssesment(),
     val placeAssesment: PlaceAssesment = PlaceAssesment(),
+    override val questionnaireIsAnswered: QuestionnaireIsAnswered = QuestionnaireIsAnswered(),
     val questionnaire: Questionnaire = Questionnaire(),
     var comment: String = "",
 ) : FormData
