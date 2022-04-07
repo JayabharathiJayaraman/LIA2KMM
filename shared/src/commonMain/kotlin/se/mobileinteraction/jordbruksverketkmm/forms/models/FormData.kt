@@ -6,6 +6,7 @@ import kotlinx.datetime.Instant
 interface FormData {
     val commonData: Common
     val coordinates: Coordinates
+    val questionnaireIsAnswered: QuestionnaireIsAnswered
 }
 
 // Used by more than one test
@@ -13,7 +14,6 @@ interface FormData {
 data class Common(
     val farmInformation: FarmInformation = FarmInformation(),
     var date: Instant = Clock.System.now(),
-    var questionnaireIsAnswered: Boolean = true,
 )
 
 data class FarmInformation(
@@ -40,6 +40,10 @@ data class Coordinates(
 
 data class SoilCondition(
     var condition: Int? = null
+)
+
+data class QuestionnaireIsAnswered(
+    var answered: Boolean? = null,
 )
 
 enum class QuestionnaireAnswer {
