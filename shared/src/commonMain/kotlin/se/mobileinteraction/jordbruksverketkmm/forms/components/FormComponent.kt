@@ -16,6 +16,7 @@ enum class ComponentType {
     BUTTON,
     QUESTIONNAIRE,
     QUESTIONNAIRERESULT,
+    REMARK,
     IMAGESGRID,
     TIMEFIELD,
     EMPTYLINE,
@@ -23,6 +24,8 @@ enum class ComponentType {
     RESULTSIMAGES,
     RESULTSREMARKSFACE,
     INFORMATION,
+    STOMPLEVEL3,
+    MAPS,
 }
 
 interface FormComponent {
@@ -139,6 +142,12 @@ class FormComponentVideo(
     val description: String,
     val source: String,
 ) : FormComponent
+
+class FormComponentMap(
+    override val type: ComponentType,
+    override val id: String,
+) : FormComponent
+
 
 class FormComponentImagesGrid(
     override val type: ComponentType,

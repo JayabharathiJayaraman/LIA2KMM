@@ -2,9 +2,9 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
 import se.mobileinteraction.jordbruksverketkmm.forms.models.AnswerWithPhoto
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
-import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataSoilStructure
 import se.mobileinteraction.jordbruksverketkmm.forms.models.QuestionnaireAnswer
 import se.mobileinteraction.jordbruksverketkmm.utilities.DateUtils
@@ -35,7 +35,7 @@ data class FormSoilStructure(
                     text = "Utrustning"
                 ),
                 FormComponentImagesGrid(
-                    id = "braGrävspadeImage",
+                    id = "toolsImages",
                     type = ComponentType.IMAGESGRID,
                     image = listOf("shovel", "knife", "ruler"),
                     caption = listOf("Bra grävspade", "Morakniv", "Tumstock")
@@ -135,6 +135,11 @@ data class FormSoilStructure(
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "locationScreen4",
+                    components = InformationScreens().screens.first { it.id == "locationScreen" }.components
+                ),
                 FormComponentText(
                     id = "locationTitleScreen4",
                     type = ComponentType.TITLESMALL,
@@ -384,14 +389,15 @@ data class FormSoilStructure(
                     position = -1,
                     placeholder = "Välj...",
                 ),
-                /*FormComponentButtonList(
-                    type = ComponentType.BUTTONLIST,
-                    id = "subSoil2ButtonListScreen11",
+                FormComponentButtonList(
+                    type = ComponentType.STOMPLEVEL3,
+                    id = ID_STOMPLEVEL3,
                     title = "Bearbetningssula 2",
                     list = listOf("1", "2", "3", "4", "5", "6 eller fler"),
                     value = (data as? FormDataSoilStructure)?.stompData?.level3 ?: "",
+                    position = -1,
                     placeholder = "Välj...",
-                ),*/
+                ),
                 FormComponentButtonList(
                     type = ComponentType.BUTTONLIST,
                     id = ID_STOMPLEVEL4,
@@ -845,10 +851,10 @@ data class FormSoilStructure(
                     text = "Vad vill du göra nu?",
                 ),
                 FormComponentResultsImages(
-                    id = "vadNuImagesScreen19",
+                    id = "resultsImages",
                     type = ComponentType.RESULTSIMAGES,
-                    images = listOf("add_test_icon", "plant_icon", "check"),
-                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
+                    images = listOf("add_test_icon","plant_icon","check"),
+                    imagesTextList = listOf("Nytt test","Vårda\nmarkstruktur","klar")
                 ),
             )
         ),
@@ -935,10 +941,10 @@ data class FormSoilStructure(
                     selected
                 ID_STOMPLEVEL1 -> (this as? FormDataSoilStructure)?.stompData?.level1 = selected
                 ID_STOMPLEVEL2 -> (this as? FormDataSoilStructure)?.stompData?.level2 = selected
+                ID_STOMPLEVEL3 -> (this as? FormDataSoilStructure)?.stompData?.level3 = selected
                 ID_STOMPLEVEL4 -> (this as? FormDataSoilStructure)?.stompData?.level4 = selected
             }
         }
-        println("Logg active: $position")
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentButtonList).position =
             position
 
@@ -979,5 +985,6 @@ data class FormSoilStructure(
         const val ID_QUESTIONNAIREROOTS = "QUESTIONNAIREROOTS"
         const val ID_QUESTIONNAIREWORMS = "QUESTIONNAIREWORMS"
         const val ID_QUESTIONNAIRERESULT = "QUESTIONNAIRERESULT"
+        const val ID_STOMPLEVEL3 = "SHOWLEVEL3"
     }
 }

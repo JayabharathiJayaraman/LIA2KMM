@@ -2,11 +2,11 @@ package se.mobileinteraction.jordbruksverketkmm.forms.models
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
 
 interface FormData {
     val commonData: Common
+    val coordinates: Coordinates
+    val questionnaireIsAnswered: QuestionnaireIsAnswered
 }
 
 // Used by more than one test
@@ -40,6 +40,10 @@ data class Coordinates(
 
 data class SoilCondition(
     var condition: Int? = null
+)
+
+data class QuestionnaireIsAnswered(
+    var answered: Boolean? = null,
 )
 
 enum class QuestionnaireAnswer {

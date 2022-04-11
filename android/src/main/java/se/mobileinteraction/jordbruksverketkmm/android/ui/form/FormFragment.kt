@@ -23,9 +23,7 @@ class FormFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-        val viewModel = (activity?.application as MainApplication).formViewModel
-        this.formGenerator = AndroidFormGenerator(context, viewModel)
+        this.formGenerator = AndroidFormGenerator(context)
     }
 
     override fun onCreateView(

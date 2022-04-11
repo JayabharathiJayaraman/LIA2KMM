@@ -20,8 +20,11 @@
 		2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F3EAE27D76E21008A336C /* UILabel.swift */; };
 		2E55518527B4579200AD461E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55518327B4579200AD461E /* StartScreenViewController.swift */; };
 		2E55518627B4579200AD461E /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E55518427B4579200AD461E /* StartScreenViewController.xib */; };
+		2E57534327BFF44A00CB01E6 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57534127BFF44A00CB01E6 /* MapScreenViewController.swift */; };
+		2E57534427BFF44A00CB01E6 /* MapScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E57534227BFF44A00CB01E6 /* MapScreenViewController.xib */; };
 		2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */; };
 		2E846FBE27B84ED4004B2E9A /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */; };
+		2E9CAF5427E873530038C85F /* ChecklistWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CAF5327E873530038C85F /* ChecklistWithId.swift */; };
 		512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */; };
 		512382C127E4D49B00016913 /* VardaMarkstrukturViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */; };
 		513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */; };
@@ -167,8 +170,12 @@
 		2E4F3EAE27D76E21008A336C /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		2E55518327B4579200AD461E /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		2E55518427B4579200AD461E /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
+		2E57534127BFF44A00CB01E6 /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		2E57534227BFF44A00CB01E6 /* MapScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapScreenViewController.xib; sourceTree = "<group>"; };
 		2E846FBB27B84ED4004B2E9A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		2E846FBC27B84ED4004B2E9A /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2E9CAF5327E873530038C85F /* ChecklistWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistWithId.swift; sourceTree = "<group>"; };
+		2EBBA3D627D0C4CB0016CA79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		512382BE27E4D49B00016913 /* VardaMarkstrukturViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VardaMarkstrukturViewController.swift; sourceTree = "<group>"; };
 		512382BF27E4D49B00016913 /* VardaMarkstrukturViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VardaMarkstrukturViewController.xib; sourceTree = "<group>"; };
 		513BD48027E8C1DE004FC538 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +278,15 @@
 				2E55518427B4579200AD461E /* StartScreenViewController.xib */,
 			);
 			path = StartScreenViewController;
+			sourceTree = "<group>";
+		};
+		2E57533F27BFF41300CB01E6 /* MapScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E57534127BFF44A00CB01E6 /* MapScreenViewController.swift */,
+				2E57534227BFF44A00CB01E6 /* MapScreenViewController.xib */,
+			);
+			path = MapScreenViewController;
 			sourceTree = "<group>";
 		};
 		2E846FBA27B84E82004B2E9A /* AboutAppViewController */ = {
@@ -456,6 +472,7 @@
 				9D5A8C7827DA252100239E45 /* NavigationBarViewController */,
 				9D5A8C6F27DA23D900239E45 /* MainNavigationController */,
 				2E846FBA27B84E82004B2E9A /* AboutAppViewController */,
+				2E57533F27BFF41300CB01E6 /* MapScreenViewController */,
 				2E55517C27B3BE3200AD461E /* StartScreenViewController */,
 				51C7154627B281730005FE91 /* DataPrivacyViewController */,
 				9D34C54227A14FE40043B5A1 /* FormViewController */,
@@ -548,6 +565,7 @@
 				0E9631BF27E9EFA400D02CF6 /* FaceRemarkView */,
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
 				0E4E02CA27F447EB00E5F381 /* QuestionnaireAnswersSad.swift */,
+				2E9CAF5327E873530038C85F /* ChecklistWithId.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -701,6 +719,7 @@
 				9D34C54827A150180043B5A1 /* FormViewController.xib in Resources */,
 				63F33AE227E8A1E00047BD1D /* InformationViewController.xib in Resources */,
 				9D07BE0F27BBD57100FF1D55 /* DataPrivacyViewController.xib in Resources */,
+				2E57534427BFF44A00CB01E6 /* MapScreenViewController.xib in Resources */,
 				9D34C51427A14C740043B5A1 /* Main.storyboard in Resources */,
 				9D5A8C9727DA37E500239E45 /* SettingsViewController.xib in Resources */,
 				9D07BE3727BBFF1C00FF1D55 /* OpenSans-Bold.ttf in Resources */,
@@ -784,6 +803,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				2E9CAF5427E873530038C85F /* ChecklistWithId.swift in Sources */,
+				9D34C54527A150180043B5A1 /* FormViewController.swift in Sources */,
+				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				9D5A8C7127DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				513BD48227E8C1DE004FC538 /* ChecklistViewController.swift in Sources */,
 				9D07BE0727BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
@@ -811,6 +835,7 @@
 				9D5A8C5627D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
 				9D07BE0C27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
 				9D5A8C5A27D762FB00239E45 /* UIColor.swift in Sources */,
+				2E57534327BFF44A00CB01E6 /* MapScreenViewController.swift in Sources */,
 				9D34C50D27A14C740043B5A1 /* AppDelegate.swift in Sources */,
 				9D65F40A27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				0E9631C127E9EFFB00D02CF6 /* FaceRemarkView.swift in Sources */,
@@ -922,6 +947,7 @@
 			children = (
 				9D5A8C6827D8D7C800239E45 /* sv */,
 				9D5A8C6A27D8D7CF00239E45 /* en */,
+				2EBBA3D627D0C4CB0016CA79 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1059,6 +1085,7 @@
 				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1092,6 +1119,7 @@
 				DEVELOPMENT_TEAM = 8QSKY9M895;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JordbruksverketKMMiOS/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSMainNibFile = StartScreenViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1104,7 +1132,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverketkmm.JordbruksverketKMMiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = se.mobileinteraction.jordbruksverket.kmm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

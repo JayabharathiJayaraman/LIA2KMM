@@ -10,4 +10,7 @@ class FormFactory() {
             FormType.Infiltration -> FormInfiltrations()
         }
     }
+   /* fun createForm(): FormSoilStructure {
+        return FormSoilStructure()
+    }*/
 }

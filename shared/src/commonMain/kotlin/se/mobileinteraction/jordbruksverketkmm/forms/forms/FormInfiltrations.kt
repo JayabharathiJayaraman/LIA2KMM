@@ -2,6 +2,7 @@ package se.mobileinteraction.jordbruksverketkmm.forms.forms
 
 import se.mobileinteraction.jordbruksverketkmm.forms.FormViewModel
 import se.mobileinteraction.jordbruksverketkmm.forms.components.*
+import se.mobileinteraction.jordbruksverketkmm.forms.information.InformationScreens
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormData
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataGeneralQuestions
 import se.mobileinteraction.jordbruksverketkmm.forms.models.FormDataInfiltration
@@ -16,6 +17,11 @@ data class FormInfiltrations(
         FormScreen
             (
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "descriptionPopupScreen1",
+                    components = InformationScreens().screens.first { it.id == "descriptionScreen" }.components
+                ),
                 FormComponentText(
                     id = "beskrivningTitleScreen1",
                     type = ComponentType.TITLESMALL,
@@ -24,8 +30,7 @@ data class FormInfiltrations(
                 FormComponentText(
                     id = "beskrivningBodyScreen1",
                     type = ComponentType.BODY,
-                    text = "I detta test mäter du hur vatten infiltrerar i marken. Hur vatten kan röra sig i marken är ett mycket bra mått på strukturen. Testet tar cirka 30 minuter. " +
-                            "\n\nMät i första hand i matjorden. Om du vill kan du även mäta i andra skikt, som bearbetningssula och alv. Vägledning för hur du hittar skikten finns i markstrukturtestet."
+                    text = "I detta test mäter du hur vatten infiltrerar i marken. Hur vatten kan röra sig i marken är ett mycket bra mått på strukturen. Testet tar cirka 30 minuter.\n\nMät i första hand i matjorden. Om du vill kan du även mäta i andra skikt, som bearbetningssula och alv. Vägledning för hur du hittar skikten finns i markstrukturtestet."
                 ),
                 FormComponentText(
                     id = "utrustningTitleScreen1",
@@ -33,7 +38,7 @@ data class FormInfiltrations(
                     text = "Utrustning"
                 ),
                 FormComponentImagesGrid(
-                    id = "braGrävspadeImage",
+                    id = "toolsImages",
                     type = ComponentType.IMAGESGRID,
                     image = listOf("shovel", "cylinder", "waterdrops", "litre", "ruler"),
                     caption = listOf("Bra grävspade", "Cylinder", "Vatten", "Litermåt", "Tumstock")
@@ -121,30 +126,40 @@ data class FormInfiltrations(
                 FormComponentText(
                     id = "väljaPlatsBodyScreen3",
                     type = ComponentType.BODY,
-                    text = "Välj i första hand en plats som är representativ för skiftet. Den ger en bild av hur fältet ser ut och fungerar i största allmänhet. " +
-                            "\n\nFör att lära dig mer om just din jord så kan du gå vidare och utföra testet på fler platser på fältet. Välj då gärna en plats som är bättre än din representativa plats och eventuellt en plats som är sämre. Då kan du jämföra hur markstrukturen i fältet ser ut i förhållande till hur den kan vara som bäst och som sämst. " +
-                            "\n\nBra plats:\n\nBäst struktur är det ofta vid dikeskant, elstolpe, fältkant eller hörn. " +
-                            "\n\nDålig plats:\n\nSämst struktur finns vid infart och vändteg. " +
-                            "\n\nOm du gör testet på flera platser på skiftet, för att jämföra, så se till att ha så lika förutsättningar som möjligt. Till exempel jordart, markfukt, gröda och tid på året."
+                    text = "Välj i första hand en plats som är representativ för skiftet. Den ger en bild av hur fältet ser ut och fungerar i största allmänhet.\n\nFör att lära dig mer om just din jord så kan du gå vidare och utföra testet på fler platser på fältet. Välj då gärna en plats som är bättre än din representativa plats och eventuellt en plats som är sämre. Då kan du jämföra hur markstrukturen i fältet ser ut i förhållande till hur den kan vara som bäst och som sämst.\n\nBra plats:\n\nBäst struktur är det ofta vid dikeskant, elstolpe, fältkant eller hörn.\n\nDålig plats:\n\nSämst struktur finns vid infart och vändteg.\n\nOm du gör testet på flera platser på skiftet, för att jämföra, så se till att ha så lika förutsättningar som möjligt. Till exempel jordart, markfukt, gröda och tid på året."
                 ),
             ),
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "locationPopupScreen4",
+                    components = InformationScreens().screens.first { it.id == "locationScreen" }.components
+                ),
                 FormComponentText(
                     id = "platsTitleScreen4",
                     type = ComponentType.TITLESMALL,
-                    text = "Plats"
+                    text = "Plats",
                 ),
                 FormComponentText(
                     id = "platsBodyScreen4",
                     type = ComponentType.BODY,
-                    text = "Tryck på kartan för att välja din exakta position"
+                    text = "Tryck på kartan för att välja din exakta position",
+                ),
+                FormComponentMap(
+                    id = "mapScreen4",
+                    type = ComponentType.MAPS,
                 ),
             ),
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "conditionsPopupScreen5",
+                    components = InformationScreens().screens.first { it.id == "conditionsScreen" }.components
+                ),
                 FormComponentText(
                     id = "grundförutsättningarTitleScreen5",
                     type = ComponentType.TITLESMALL,
@@ -178,8 +193,7 @@ data class FormInfiltrations(
                 FormComponentText(
                     id = "tipsBodyScreen5",
                     type = ComponentType.BODY,
-                    text = "Om det finns en markkartering så kan du titta på den för att få en uppfattning om vilken jordart som dominerar på skiftet." +
-                            "\n\nEn grov bedömning av jordarten kan göras ute i fält, utifrån jordens utseende och formbarhet. For mineraljordar gör du det genom ett utrullningsprov. Se hur du gör det i info-bubblan uppe till höger."
+                    text = "Om det finns en markkartering så kan du titta på den för att få en uppfattning om vilken jordart som dominerar på skiftet.\n\nEn grov bedömning av jordarten kan göras ute i fält, utifrån jordens utseende och formbarhet. For mineraljordar gör du det genom ett utrullningsprov. Se hur du gör det i info-bubblan uppe till höger."
                 ),
             ),
         ),
@@ -257,6 +271,11 @@ data class FormInfiltrations(
         ),
         FormScreen(
             components = listOf<FormComponent>(
+                FormComponentInformation(
+                    type = ComponentType.INFORMATION,
+                    id = "infiltrationPopupScreen5",
+                    components = InformationScreens().screens.first { it.id == "infiltrationScreen" }.components
+                ),
                 FormComponentText(
                     id = "infiltrationsmätningTitleScreen7",
                     type = ComponentType.TITLESMALL,
@@ -276,13 +295,7 @@ data class FormInfiltrations(
                 FormComponentText(
                     id = "görSåHärBodyScreen7",
                     type = ComponentType.BODY,
-                    text = "1. Tryck ner cylindern 2-3 cm i marken. Undvik stora sprickor." +
-                            "\n\n2. Häll försiktigt i vattnet till cirka 10 cm vattenhöjd. Häll mot handen så minskar risken att vattnet slammar igen porer. Titta så det inte läcker längs cylinderns nedre kant." +
-                            "\n\n3. Mät avståndet (mm) mellan vattenytan och cylinderns övre kant.  Gör en markering på kanten där du mäter. Avståndet kan variera runt cylindern om den lutar lite, så du måste veta var du mätte först när du ska mäta igen.  Starta tidtagningen, använd timern i din telefon. Mät i cirka 30 minuter." +
-                            "\n\n4. Efter cirka 30 minuter, stoppa timern. Mät avståndet (mm) igen mellan vattenytan och cylinderns övre kant (vid markeringen). " +
-                            "\n\nOBS! Infiltrationen kan ibland gå mycket fort. Stoppa då timern direkt när allt vatten infiltrerat!" +
-                            "\n\nOm infiltrationen går extremt snabbt kan du ha hamnat över en stor spricka. Flytta då cylindern och gör om testet. " +
-                            "\n\nOm infiltrationen går mycket långsamt kan du mäta längre än 30 minuter om du vill."
+                    text = "1. Tryck ner cylindern 2-3 cm i marken. Undvik stora sprickor.\n\n2. Häll försiktigt i vattnet till cirka 10 cm vattenhöjd. Häll mot handen så minskar risken att vattnet slammar igen porer. Titta så det inte läcker längs cylinderns nedre kant.\n\n3. Mät avståndet (mm) mellan vattenytan och cylinderns övre kant.  Gör en markering på kanten där du mäter. Avståndet kan variera runt cylindern om den lutar lite, så du måste veta var du mätte först när du ska mäta igen.  Starta tidtagningen, använd timern i din telefon. Mät i cirka 30 minuter.\n\n4. Efter cirka 30 minuter, stoppa timern. Mät avståndet (mm) igen mellan vattenytan och cylinderns övre kant (vid markeringen).\n\nOBS! Infiltrationen kan ibland gå mycket fort. Stoppa då timern direkt när allt vatten infiltrerat!\n\nOm infiltrationen går extremt snabbt kan du ha hamnat över en stor spricka. Flytta då cylindern och gör om testet.\n\nOm infiltrationen går mycket långsamt kan du mäta längre än 30 minuter om du vill."
                 ),
                 FormComponentText(
                     id = "infiltrationsTestTitleScreen7",
@@ -376,9 +389,9 @@ data class FormInfiltrations(
                     type = ComponentType.TITLEBIG,
                     text = "Resultat"
                 ),
-                FormComponentResultsInfoBody(
+                FormComponentText(
                     id = "resultatInfoBodyScreen10",
-                    type = ComponentType.RESULTSINFOBODY,
+                    type = ComponentType.BODY,
                     text = "Genomsläppligheten för vatten bör överstiga 4 mm per timme för att du ska få en god effekt av din dränering. Intensiteten i ett sommarregn är ofta ca 3 mm per timme."
                 ),
                 FormComponentText(
@@ -389,24 +402,21 @@ data class FormInfiltrations(
                 FormComponentResultsRemark(
                     id = "structureSadRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
-                    text = "<4 mm/tim" +
-                            "\nOj, här behövs det krafttag för att förbättra markstrukturen!",
+                    text = "<4 mm/tim \nOj, här behövs det krafttag för att förbättra markstrukturen!",
                     image = "sad_face",
                     color = "red_round_background"
                 ),
                 FormComponentResultsRemark(
                     id = "structureIndifferentRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
-                    text = "4-12 mm/tim" +
-                            "\nHär finns det en del att göra åt markstrukturen!",
+                    text = "4-12 mm/tim \nHär finns det en del att göra åt markstrukturen!",
                     image = "indifferent_face",
                     color = "orange_round_background"
                 ),
                 FormComponentResultsRemark(
                     id = "structureHappyRemarkScreen10",
                     type = ComponentType.RESULTSREMARKSFACE,
-                    text = ">12 mm/tim" +
-                            "\nMycket bra markstruktur!Vårda den!",
+                    text = ">12 mm/tim \nMycket bra markstruktur!Vårda den!",
                     image = "happy_face",
                     color = "green_round_background"
                 ),
@@ -421,15 +431,15 @@ data class FormInfiltrations(
                     text = "Gå till 'Mina test' och exportera testet som datafil direkt när du är klar!Då har du ditt arbete tryggt sparat även på annan plats. Annars finns det bara i appen i din mobil."
                 ),
                 FormComponentText(
-                    id = "vadNuTitleScreen10",
+                    id = "resultsImagesTitle",
                     type = ComponentType.TITLESMALL,
                     text = "Vad vill du göra nu?"
                 ),
                 FormComponentResultsImages(
-                    id = "vadNuImagesScreen10",
+                    id = "resultsImages",
                     type = ComponentType.RESULTSIMAGES,
-                    images = listOf("add_test_icon", "plant_icon", "check"),
-                    imagesTextList = listOf("Nytt test", "Vårda", "markstruktur", "klar")
+                    images = listOf("add_test_icon","plant_icon","check"),
+                    imagesTextList = listOf("Nytt test","Vårda\nmarkstruktur","klar")
                 ),
             ),
         ),
@@ -453,6 +463,14 @@ data class FormInfiltrations(
         (screens[state.currentScreen].components.firstOrNull { it.id == id } as FormComponentTextField).text =
             text
 
+        return state
+    }
+    fun setMaps(
+        id: String,
+        state: FormViewModel.State,
+        lon: String,
+        lat: String
+    ): FormViewModel.State {
         return state
     }
 

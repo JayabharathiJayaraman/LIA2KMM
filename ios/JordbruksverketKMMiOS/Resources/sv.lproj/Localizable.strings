@@ -93,3 +93,7 @@ Om du behöver ominstallera appen och har utförda test du vill spara; exportera
 "varda_markstruktur_grundforbattringar" = "Grundförbättringar";
 "varda_markstruktur_undvik_eller_minimera" = "Undvik eller minimera";
 "varda_markstruktur_export_button" = "Exportera Checklista (PDF)";
+"HeaderNameLabel" = "MARKSTRUKTURTEST";
+"TitleNameLabel" = "Plats";
+"DescriptionLabel" = "Tryck på kartan för att välja din exakta position.";
+"InfoLabel" = "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder.";
