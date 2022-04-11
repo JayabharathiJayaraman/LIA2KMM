@@ -41,15 +41,15 @@ class IOSFormGenerator: FormGenerator {
             switch component.type {
             case .body:
                 if let body = component as? FormComponentText {
-                    mainView.createBodyLabel(screenTag: screenTag, text: body.text)
+                    mainView.createBodyLabel(id: body.id, text: body.text)
                 }
             case .titlebig:
                 if let title = component as? FormComponentText {
-                    mainView.addBigTitleLabel(screenTag: screenTag, text: title.text)
+                    mainView.addBigTitleLabel(id: title.id, text: title.text)
                 }
             case .titlesmall:
                 if let title = component as? FormComponentText {
-                    mainView.addSmallTitleLabel(screenTag: screenTag, text: title.text)
+                    mainView.addSmallTitleLabel(id: title.id, text: title.text)
                 }
             case .textfield:
                 if let textfield = component as? FormComponentTextField {
@@ -57,19 +57,19 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .buttonlist:
                 if let buttonlist = component as? FormComponentButtonList {
-                    addButtonList(screenTag: screenTag, id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
+                    addButtonList(id: buttonlist.id, title: buttonlist.title, list: buttonlist.list, value: buttonlist.value, placeholder: buttonlist.placeholder)
                 }
             case .button:
                 if let button = component as? FormComponentButton {
-                    mainView.addButton(screenTag: screenTag, id: button.id, text: button.text)
+                    mainView.addButton(id: button.id, text: button.text)
                 }
             case .image:
                 if let image = component as? FormComponentImage {
-                    mainView.addImage(imageName: image.image, caption: image.caption)
+                    mainView.addImage(id: image.id, imageName: image.image, caption: image.caption)
                 }
             case .information:
                 if let information = component as? FormComponentInformation {
-                    addInformationView(screenTag: screenTag, id: information.id, components: information.components)
+                    addInformationView(id: information.id, components: information.components)
                 }
             case .video:
                 if let video = component as? FormComponentVideo {
@@ -112,14 +112,13 @@ class IOSFormGenerator: FormGenerator {
 
 private extension IOSFormGenerator {
     func addButtonList(
-        screenTag: Int,
         id: String,
         title: String,
         list: [String],
         value: String,
         placeholder: String
     ) {
-        mainView.addSmallTitleLabel(screenTag: screenTag, text: title)
+        mainView.addSmallTitleLabel(id: id, text: title)
         
         let verticalSpacing = mainView.getVerticalSpacingView(withHeight: 5)
         mainView.addArrangedSubview(verticalSpacing)
@@ -164,21 +163,24 @@ private extension IOSFormGenerator {
         modalViewController.present(using: presentingViewController)
     }
     
-    func addInformationView(screenTag: Int, id: String, components: [FormComponent]) {
-        let button = ButtonWithComponents()
-        button.components = components
-        button.setImage(UIImage(named: "infoIcon"), for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(handleInformationButtonTap), for: .touchUpInside)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 53.0).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        
-        let stackView = UIStackView(arrangedSubviews: [UIView(), button])
-        stackView.axis = .horizontal
-        
-        mainView.addArrangedSubview(stackView)
+    func addInformationView(id: String, components: [FormComponent]) {
+        if mainView.subviews.first(where: { view in (view as? StackViewWithId)?.idString == id }) == nil {
+            let button = ButtonWithComponents()
+            button.components = components
+            button.setImage(UIImage(named: "infoIcon"), for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.addTarget(self, action: #selector(handleInformationButtonTap), for: .touchUpInside)
+            
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.widthAnchor.constraint(equalToConstant: 53.0).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+            
+            let stackView = StackViewWithId(arrangedSubviews: [UIView(), button])
+            stackView.idString = id
+            stackView.axis = .horizontal
+            
+            mainView.addArrangedSubview(stackView)
+        }
     }
     
     @objc
@@ -220,7 +222,7 @@ private extension IOSFormGenerator {
 }
 
 extension UIStackView {
-    func addImage(imageName: String, caption: String) {
+    func addImage(id: String, imageName: String, caption: String) {
         var verticalSpace = getVerticalSpacingView(withHeight: 20)
         self.addArrangedSubview(verticalSpace)
         
@@ -232,7 +234,7 @@ extension UIStackView {
         imageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         imageView.contentMode = .scaleAspectFit
-        let label = getDefaultLabel()
+        let label = getDefaultLabel(id: id)
         label.text = caption
         label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .callout)
         label.textAlignment = .left
@@ -243,9 +245,9 @@ extension UIStackView {
         self.addArrangedSubview(label)
     }
     
-    func addBigTitleLabel(screenTag: Int,text: String) {
-        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
-            let label = getDefaultLabel()
+    func addBigTitleLabel(id: String, text: String) {
+        if self.subviews.first(where: { view in (view as? DynamicLabel)?.idString == id }) == nil {
+            let label = getDefaultLabel(id: id)
             label.text = text
             label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .title2)
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
@@ -254,12 +256,12 @@ extension UIStackView {
         }
     }
     
-    func addSmallTitleLabel(screenTag: Int,text: String) {
-        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+    func addSmallTitleLabel(id: String, text: String) {
+        if self.subviews.first(where: { view in (view as? DynamicLabel)?.idString == id }) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 20)
             self.addArrangedSubview(verticalSpacing)
             
-            let label = getDefaultLabel()
+            let label = getDefaultLabel(id: id)
             label.text = text
             label.textColor =  UIColor.Jordbruksverket.labelTitleColor
             label.font = UIFont.scaledFont(name: UIFont.fontNameBold, textStyle: .body)
@@ -267,21 +269,17 @@ extension UIStackView {
             self.addArrangedSubview(label)
         }
     }
-
-    func createBodyLabel(screenTag: Int, text: String) {
-        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+    
+    func createBodyLabel(id: String, text: String) {
+        if self.subviews.first(where: { view in (view as? DynamicLabel)?.idString == id}) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
-
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            self.addArrangedSubview(stackView)
-            let label = getDefaultLabel()
-            label.tag = screenTag
+            
+            let label = getDefaultLabel(id: id)
             label.text = text
             label.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             
-            stackView.addArrangedSubview(label)
+            self.addArrangedSubview(label)
         }
     }
     
@@ -311,13 +309,14 @@ extension UIStackView {
         guard let id = sender.idString else { return }
         IOSFormViewModel.shared.formViewModel.setTextData(id: id, text: sender.text ?? "")
     }
-
-    func addButton(screenTag: Int, id: String, text: String){
-        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+    
+    func addButton(id: String, text: String){
+        if self.subviews.first(where: { view in (view as? ButtonWithId)?.idString == id }) == nil {
             let verticalSpacing = getVerticalSpacingView(withHeight: 30)
             self.addArrangedSubview(verticalSpacing)
-
-            let button = UIButton()
+            
+            let button = ButtonWithId()
+            button.idString = id
             let widthConstraint = button.widthAnchor.constraint(equalToConstant: 30.0)
             let heightConstraint = button.heightAnchor.constraint(equalToConstant: 30.0)
             NSLayoutConstraint.activate([widthConstraint, heightConstraint])
@@ -329,16 +328,16 @@ extension UIStackView {
             button.backgroundColor = .white
             button.titleLabel?.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             button.titleLabel?.adjustsFontForContentSizeCategory = true
-
+            
             self.addArrangedSubview(button)
         }
     }
-
+    
     func addRemark(screenTag: Int, text: String, id: String, image: String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpace = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpace)
-
+            
             let faceRemarkView = FaceRemarkView()
             faceRemarkView.configure(image: UIImage(named: image), text: text){
                 print("buttonTapped")
@@ -346,7 +345,7 @@ extension UIStackView {
             self.addArrangedSubview(faceRemarkView)
         }
     }
-
+    
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
             (view as? TextFieldWithId)?.idString == id
@@ -355,7 +354,7 @@ extension UIStackView {
         } else {
             let verticalSpacing = getVerticalSpacingView(withHeight: 30)
             self.addArrangedSubview(verticalSpacing)
-
+            
             let textField = TextFieldWithId()
             let stackView = UIStackView()
             self.addArrangedSubview(stackView)
@@ -365,30 +364,25 @@ extension UIStackView {
             textField.font = UIFont.scaledFont(name: UIFont.fontNameRegular, textStyle: .body)
             textField.textColor = UIColor.Jordbruksverket.defaultTextColor
             textField.heightAnchor.constraint(equalToConstant: 300).isActive = true
-
+            
             stackView.addArrangedSubview(textField)
         }
     }
-
+    
     func addResultRemarks(screenTag: Int, text: String, id: String, image: String,color:String) {
         if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             let verticalSpace = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpace)
-
+            
             let faceRemarkView = FaceRemarkView()
             faceRemarkView.configureResult(image: UIImage(named: image), text: text, color: color)
-
+            
             self.addArrangedSubview(faceRemarkView)
         }
     }
-
-
-
-
     
-    func addCaptionedImages(screenTag: Int, id: String, imageNames: [String], captions: [String])
-    {
-        if (id == "resultsImages"){
+    func addCaptionedImages(screenTag: Int, id: String, imageNames: [String], captions: [String]) {
+        if (id == "resultsImages") {
             var resultsCaptionedImages = [UIStackView]()
             for i in 0...2{
                 resultsCaptionedImages += [addResultsImages(id: id,names: imageNames[i],captions:captions[i])]
@@ -396,17 +390,14 @@ extension UIStackView {
             addHorizontalGridView(captionedImages: resultsCaptionedImages)
         }
         
-        if (id == "toolsImages"){
-            if imageNames.count == 3
-            {
+        if (id == "toolsImages") {
+            if imageNames.count == 3 {
                 var captionedImages = [UIStackView]()
                 for i in 0...2{
                     captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
                 }
                 addHorizontalGridView(captionedImages: captionedImages)
-            }
-            else if imageNames.count > 3
-            {
+            } else if imageNames.count > 3 {
                 var captionedImagesRow1 = [UIStackView]()
                 for i in 0...2{
                     captionedImagesRow1 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
@@ -543,14 +534,14 @@ extension UIStackView {
                 i += 1
                 radioButton.buttonList = radioButtonsGroup
                 
-            for i in radioButtonsGroup{
-                if i.tag == rating{
-                    i.isSelected = true
-                    i.setImage(UIImage(named: "switch_checked.png"), for: .selected)
-                }
-                else{
-                    i.isSelected = false
-                    i.setImage(UIImage(named: "switch_unchecked_green.png"), for: .normal)
+                for i in radioButtonsGroup{
+                    if i.tag == rating{
+                        i.isSelected = true
+                        i.setImage(UIImage(named: "switch_checked.png"), for: .selected)
+                    }
+                    else{
+                        i.isSelected = false
+                        i.setImage(UIImage(named: "switch_unchecked_green.png"), for: .normal)
                     }
                 }
                 
@@ -593,8 +584,9 @@ extension UIStackView {
         IOSFormViewModel.shared.formViewModel.setChecklistRating(id: id, rating:  Int32(selectedButton.tag))
     }
     
-    func getDefaultLabel() -> UILabel {
-        let label = UILabel()
+    func getDefaultLabel(id: String) -> UILabel {
+        let label = DynamicLabel()
+        label.idString = id
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.adjustsFontForContentSizeCategory = true
