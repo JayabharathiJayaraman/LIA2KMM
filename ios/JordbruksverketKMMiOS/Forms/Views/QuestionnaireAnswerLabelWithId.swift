@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
 
-class QuestionnaireAnswersSad : UILabel {
+class QuestionnaireAnswerLabelWithId: UILabel {
     var idString: String?
 }

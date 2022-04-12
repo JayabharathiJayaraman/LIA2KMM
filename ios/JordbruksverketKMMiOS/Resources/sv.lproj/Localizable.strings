@@ -97,3 +97,5 @@ Om du behöver ominstallera appen och har utförda test du vill spara; exportera
 "TitleNameLabel" = "Plats";
 "DescriptionLabel" = "Tryck på kartan för att välja din exakta position.";
 "InfoLabel" = "Platsen för testet sparas i appen tillsammans med resultaten av de test du utfört. Dels som hjälp för minnet, för att du lättare ska kunna veta var du var. Dels för att du ska kunna återkomma till samma plats senare, för att göra nya test och följa upp dina åtgärder.";
+"answer_required" = "Du behöver ange ett svar för att gå vidare.";
+"ok" = "Ok";

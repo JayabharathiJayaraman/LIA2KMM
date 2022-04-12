@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E4E02CB27F447EC00E5F381 /* QuestionnaireAnswersSad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E02CA27F447EB00E5F381 /* QuestionnaireAnswersSad.swift */; };
-		0E4E02CC27F447EC00E5F381 /* QuestionnaireAnswersSad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E02CA27F447EB00E5F381 /* QuestionnaireAnswersSad.swift */; };
-		0E4E02CD27F447EC00E5F381 /* QuestionnaireAnswersSad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E02CA27F447EB00E5F381 /* QuestionnaireAnswersSad.swift */; };
+		0E81C4CB280466980017C851 /* QuestionnaireAnswerLabelWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81C4CA280466980017C851 /* QuestionnaireAnswerLabelWithId.swift */; };
+		0E81C4CC280466980017C851 /* QuestionnaireAnswerLabelWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81C4CA280466980017C851 /* QuestionnaireAnswerLabelWithId.swift */; };
+		0E81C4CD280466980017C851 /* QuestionnaireAnswerLabelWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81C4CA280466980017C851 /* QuestionnaireAnswerLabelWithId.swift */; };
 		0E9631C127E9EFFB00D02CF6 /* FaceRemarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9631C027E9EFFB00D02CF6 /* FaceRemarkView.swift */; };
 		0E9631C227E9EFFB00D02CF6 /* FaceRemarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9631C027E9EFFB00D02CF6 /* FaceRemarkView.swift */; };
 		0E9631C327E9EFFB00D02CF6 /* FaceRemarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9631C027E9EFFB00D02CF6 /* FaceRemarkView.swift */; };
@@ -161,7 +161,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E4E02CA27F447EB00E5F381 /* QuestionnaireAnswersSad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionnaireAnswersSad.swift; sourceTree = "<group>"; };
+		0E81C4CA280466980017C851 /* QuestionnaireAnswerLabelWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionnaireAnswerLabelWithId.swift; sourceTree = "<group>"; };
 		0E9631C027E9EFFB00D02CF6 /* FaceRemarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRemarkView.swift; sourceTree = "<group>"; };
 		0E9631C427E9F01E00D02CF6 /* FaceRemarkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaceRemarkView.xib; sourceTree = "<group>"; };
 		13F627399107F790B3DED651 /* Pods-JordbruksverketKMMiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JordbruksverketKMMiOS.release.xcconfig"; path = "Target Support Files/Pods-JordbruksverketKMMiOS/Pods-JordbruksverketKMMiOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -564,8 +564,8 @@
 				63C33FEF27E3810900264125 /* ButtonWithList.swift */,
 				0E9631BF27E9EFA400D02CF6 /* FaceRemarkView */,
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
-				0E4E02CA27F447EB00E5F381 /* QuestionnaireAnswersSad.swift */,
 				2E9CAF5327E873530038C85F /* ChecklistWithId.swift */,
+				0E81C4CA280466980017C851 /* QuestionnaireAnswerLabelWithId.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -826,8 +826,8 @@
 				2E846FBD27B84ED4004B2E9A /* AboutAppViewController.swift in Sources */,
 				9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */,
 				63F33AE127E8A1E00047BD1D /* InformationViewController.swift in Sources */,
-				0E4E02CB27F447EC00E5F381 /* QuestionnaireAnswersSad.swift in Sources */,
 				9D07BE1327BBFE7A00FF1D55 /* UIFont.swift in Sources */,
+				0E81C4CB280466980017C851 /* QuestionnaireAnswerLabelWithId.swift in Sources */,
 				6314C35427E4C409006DE489 /* ButtonListViewController.swift in Sources */,
 				9D5A8C8127DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D5A8CA027DB52E100239E45 /* NewTestViewController.swift in Sources */,
@@ -860,6 +860,7 @@
 				9D34C52427A14C760043B5A1 /* JordbruksverketKMMiOSTests.swift in Sources */,
 				9D07BE3D27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0827BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
+				0E81C4CC280466980017C851 /* QuestionnaireAnswerLabelWithId.swift in Sources */,
 				9D5A8CA927DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
 				9D5A8C8227DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D5A8C6D27DA0DE700239E45 /* Int32.swift in Sources */,
@@ -871,7 +872,6 @@
 				9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */,
 				9D5A8CA127DB52E100239E45 /* NewTestViewController.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
-				0E4E02CC27F447EC00E5F381 /* QuestionnaireAnswersSad.swift in Sources */,
 				9D34C54627A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C7B27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */,
@@ -885,12 +885,12 @@
 			files = (
 				9D34C54027A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				9D07BE0E27BBD57100FF1D55 /* DataPrivacyViewController.swift in Sources */,
-				0E4E02CD27F447EC00E5F381 /* QuestionnaireAnswersSad.swift in Sources */,
 				9D34C53027A14C760043B5A1 /* JordbruksverketKMMiOSUITestsLaunchTests.swift in Sources */,
 				9D5A8CA227DB52E100239E45 /* NewTestViewController.swift in Sources */,
 				9D5A8C8327DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */,
 				9D5A8C9C27DA37E500239E45 /* SettingsViewController.swift in Sources */,
+				0E81C4CD280466980017C851 /* QuestionnaireAnswerLabelWithId.swift in Sources */,
 				9D5A8C7C27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D07BE3E27BC1E4500FF1D55 /* UIFont.swift in Sources */,
 				9D07BE0927BBC39B00FF1D55 /* IOSFormGenerator.swift in Sources */,
