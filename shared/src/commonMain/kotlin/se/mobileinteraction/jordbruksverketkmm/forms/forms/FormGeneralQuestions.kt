@@ -390,7 +390,7 @@ data class FormGeneralQuestions(
             val existingAnswer = this?.questionnaire?.answers?.firstOrNull { it.id == id }
 
             if (existingAnswer != null) {
-                val newAnswer = existingAnswer.copy(answer = answer)
+                val newAnswer = existingAnswer.copy(answer = answer, text = text)
                 val index = this?.questionnaire?.answers?.indexOf(existingAnswer)
                 index?.let { this?.questionnaire?.answers?.set(index, newAnswer) }
             } else {

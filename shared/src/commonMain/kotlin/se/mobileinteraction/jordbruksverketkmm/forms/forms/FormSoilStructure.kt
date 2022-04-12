@@ -910,7 +910,7 @@ data class FormSoilStructure(
             val existingAnswer = this?.questionnaireWithPhotos?.answers?.firstOrNull { it.id == id }
 
             if (existingAnswer != null) {
-                val newAnswer = existingAnswer.copy(answer = answer)
+                val newAnswer = existingAnswer.copy(answer = answer, text = text)
                 val index = this?.questionnaireWithPhotos?.answers?.indexOf(existingAnswer)
                 index?.let { this?.questionnaireWithPhotos?.answers?.set(index, newAnswer) }
             } else {
