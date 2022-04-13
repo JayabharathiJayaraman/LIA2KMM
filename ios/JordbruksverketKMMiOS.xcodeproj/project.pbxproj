@@ -137,7 +137,13 @@
 		9D8E1E8A27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8B27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
 		9D8E1E8C27A7FA12002E7D94 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8E1E8927A7FA12002E7D94 /* String.swift */; };
-		9DDC751F27EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
+		9DB02910280460D100F5C77A /* ButtonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0290F280460D100F5C77A /* ButtonWithId.swift */; };
+		9DB02911280460D100F5C77A /* ButtonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0290F280460D100F5C77A /* ButtonWithId.swift */; };
+		9DB02912280460D100F5C77A /* ButtonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0290F280460D100F5C77A /* ButtonWithId.swift */; };
+		9DB029142804618200F5C77A /* StackViewWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB029132804618200F5C77A /* StackViewWithId.swift */; };
+		9DB029152804618200F5C77A /* StackViewWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB029132804618200F5C77A /* StackViewWithId.swift */; };
+		9DB029162804618200F5C77A /* StackViewWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB029132804618200F5C77A /* StackViewWithId.swift */; };
+	    9DDC751F27EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
 		9DDC752027EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
 		9DDC752127EC701300EE3EC5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC751E27EC701300EE3EC5 /* UIImage.swift */; };
 		A2E3C9C42D84B45B91E6638A /* Pods_JordbruksverketKMMiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2823A8B169A371D561789DFD /* Pods_JordbruksverketKMMiOS.framework */; };
@@ -233,6 +239,8 @@
 		9D5A8CA727DB5D5D00239E45 /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 		9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithId.swift; sourceTree = "<group>"; };
 		9D8E1E8927A7FA12002E7D94 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9DB0290F280460D100F5C77A /* ButtonWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithId.swift; sourceTree = "<group>"; };
+		9DB029132804618200F5C77A /* StackViewWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewWithId.swift; sourceTree = "<group>"; };
 		9DDC751E27EC701300EE3EC5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -566,6 +574,8 @@
 				9D65F40927CCFEA600646C73 /* TextFieldWithId.swift */,
 				2E9CAF5327E873530038C85F /* ChecklistWithId.swift */,
 				0E81C4CA280466980017C851 /* QuestionnaireAnswerLabelWithId.swift */,
+				9DB0290F280460D100F5C77A /* ButtonWithId.swift */,
+				9DB029132804618200F5C77A /* StackViewWithId.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -820,6 +830,7 @@
 				63C33FF027E3810900264125 /* ButtonWithList.swift in Sources */,
 				2E4F3EAF27D76E21008A336C /* UILabel.swift in Sources */,
 				512382C027E4D49B00016913 /* VardaMarkstrukturViewController.swift in Sources */,
+				9DB02910280460D100F5C77A /* ButtonWithId.swift in Sources */,
 				9D34C53E27A14E090043B5A1 /* AppLaunchManager.swift in Sources */,
 				63C33FED27E361B200264125 /* ModalViewController.swift in Sources */,
 				9DDC751F27EC701300EE3EC5 /* UIImage.swift in Sources */,
@@ -842,6 +853,7 @@
 				9D5A8C6C27DA0DE700239E45 /* Int32.swift in Sources */,
 				9D34C50F27A14C740043B5A1 /* SceneDelegate.swift in Sources */,
 				9D5A8CA827DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
+				9DB029142804618200F5C77A /* StackViewWithId.swift in Sources */,
 				2E22F6D527CCD275005C893A /* StartScreenViewController.swift in Sources */,
 				9D5A8C8E27DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 				9D5A8C9A27DA37E500239E45 /* SettingsViewController.swift in Sources */,
@@ -864,6 +876,7 @@
 				9D5A8CA927DB5D5D00239E45 /* DynamicLabel.swift in Sources */,
 				9D5A8C8227DA258D00239E45 /* NavigationBar.swift in Sources */,
 				9D5A8C6D27DA0DE700239E45 /* Int32.swift in Sources */,
+				9DB02911280460D100F5C77A /* ButtonWithId.swift in Sources */,
 				9D5A8C7627DA240500239E45 /* UINavigationController.swift in Sources */,
 				9D5A8C7227DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				0E9631C227E9EFFB00D02CF6 /* FaceRemarkView.swift in Sources */,
@@ -873,6 +886,7 @@
 				9D5A8CA127DB52E100239E45 /* NewTestViewController.swift in Sources */,
 				9D65F40B27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D34C54627A150180043B5A1 /* FormViewController.swift in Sources */,
+				9DB029152804618200F5C77A /* StackViewWithId.swift in Sources */,
 				9D5A8C7B27DA253500239E45 /* NavigationBarViewController.swift in Sources */,
 				9D5A8C5B27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D5A8C9B27DA37E500239E45 /* SettingsViewController.swift in Sources */,
@@ -898,9 +912,11 @@
 				9D34C54727A150180043B5A1 /* FormViewController.swift in Sources */,
 				9D5A8C5C27D762FB00239E45 /* UIColor.swift in Sources */,
 				9D5A8C5827D75DFD00239E45 /* IOSFormViewModel.swift in Sources */,
+				9DB029162804618200F5C77A /* StackViewWithId.swift in Sources */,
 				9D65F40C27CCFEA600646C73 /* TextFieldWithId.swift in Sources */,
 				9D5A8C9027DA2AEC00239E45 /* MenuViewController.swift in Sources */,
 				9D5A8C8A27DA261400239E45 /* UIView.swift in Sources */,
+				9DB02912280460D100F5C77A /* ButtonWithId.swift in Sources */,
 				0E9631C327E9EFFB00D02CF6 /* FaceRemarkView.swift in Sources */,
 				9D5A8C7327DA23EC00239E45 /* MainNavigationController.swift in Sources */,
 				9D34C52E27A14C760043B5A1 /* JordbruksverketKMMiOSUITests.swift in Sources */,

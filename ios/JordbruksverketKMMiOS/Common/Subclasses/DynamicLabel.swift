@@ -1,6 +1,8 @@
 import UIKit
 
 final class DynamicLabel: UILabel {
+    var idString: String?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
