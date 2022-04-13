@@ -465,7 +465,7 @@ extension UIStackView {
         if (id == "toolsImages") {
             if imageNames.count == 3 {
                 var captionedImages = [UIStackView]()
-                for i in 0...2
+                for i in 0...2{
                     captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
                 }
                 addHorizontalGridView(captionedImages: captionedImages)
