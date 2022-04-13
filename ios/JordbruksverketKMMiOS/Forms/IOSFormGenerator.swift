@@ -393,19 +393,19 @@ extension UIStackView {
         if (id == "toolsImages") {
             if imageNames.count == 3 {
                 var captionedImages = [UIStackView]()
-                for i in 0...2{
+                for i in 0...2
                     captionedImages += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
                 }
                 addHorizontalGridView(captionedImages: captionedImages)
             } else if imageNames.count > 3 {
                 var captionedImagesRow1 = [UIStackView]()
-                for i in 0...2{
+                for i in 0...2 {
                     captionedImagesRow1 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
                 }
                 addHorizontalGridView(captionedImages: captionedImagesRow1)
                 
                 var captionedImagesRow2 = [UIStackView]()
-                for i in 3...4{
+                for i in 3...4 {
                     captionedImagesRow2 += [addGridImages(id: id,names: imageNames[i],captions:captions[i])]
                 }
                 addHorizontalGridView(captionedImages: captionedImagesRow2)
@@ -497,10 +497,8 @@ extension UIStackView {
         return imageStackView
     }
     
-    func createOrUpdateChecklist(screenTag: Int, id: String, title: String, options: [String], rating: Int)
-    {
-        if self.subviews.first(where: { view in view.tag == screenTag }) == nil
-        {
+    func createOrUpdateChecklist(screenTag: Int, id: String, title: String, options: [String], rating: Int) {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             var i : Int = 0
             
             let verticalChecklist = UIStackView()
