@@ -391,7 +391,7 @@ extension UIStackView {
         self.addArrangedSubview(verticalSpaceAnswer)
         self.addArrangedSubview(faceRemarkViewHappy)
     }
-
+}
 
     func handleQuestionnaireAnswersSad(_ sender: QuestionnaireAnswerLabelWithId){
         guard let id = sender.idString else { return }
