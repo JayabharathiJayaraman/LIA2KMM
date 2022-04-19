@@ -35,6 +35,7 @@ class IOSFormGenerator: FormGenerator {
     
     func generateInterface(components: [FormComponent], currentScreen: KotlinInt?) {
         guard let currentScreen = currentScreen else { return }
+        let screenTag = Int(truncating: currentScreen)
         
         for component in components {
             switch component.type {
@@ -76,19 +77,19 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .imagesgrid:
                 if let captionedImages = component as? FormComponentImagesGrid{
-                    mainView.addCaptionedImages(id: captionedImages.id, imageNames: captionedImages.image, captions: captionedImages.caption)
+                    mainView.addCaptionedImages(screenTag: screenTag, id: captionedImages.id, imageNames: captionedImages.image, captions: captionedImages.caption)
                 }
             case .resultsimages:
                 if let resultsImages = component as? FormComponentResultsImages{
-                    mainView.addCaptionedImages(id: resultsImages.id,imageNames: resultsImages.images,captions: resultsImages.imagesTextList)
+                    mainView.addCaptionedImages(screenTag: screenTag, id: resultsImages.id,imageNames: resultsImages.images,captions: resultsImages.imagesTextList)
                 }
             case .checklist:
                 if let checkList = component as? FormComponentChecklist{
-                    mainView.createOrUpdateChecklist(id: checkList.id, title : checkList.title, options: checkList.options, rating: Int(checkList.rating))
+                    mainView.createOrUpdateChecklist(screenTag: screenTag, id: checkList.id, title : checkList.title, options: checkList.options, rating: Int(checkList.rating))
                 }
             case .maps:
                 if let mapImage = component as? FormComponentMap {
-                    addMap(id: mapImage.id)
+                    addMap(screenTag: screenTag, id: mapImage.id)
                 }
             case .textfieldnotes:
                 if let textfieldNotes = component as? FormComponentTextField {
@@ -96,11 +97,11 @@ class IOSFormGenerator: FormGenerator {
                 }
             case .resultsremarksface:
                 if let resultRemarks = component as? FormComponentResultsRemark {
-                    mainView.addResultRemarks(id: resultRemarks.id, text: resultRemarks.text, image: resultRemarks.image, color: resultRemarks.color)
+                    mainView.addResultRemarks(screenTag:screenTag, text: resultRemarks.text, id: resultRemarks.id, image: resultRemarks.image, color: resultRemarks.color)
                 }
             case .resultsimages:
                 if let resultsImages = component as? FormComponentResultsImages{
-                    mainView.addCaptionedImages(id: resultsImages.id,imageNames: resultsImages.images,captions: resultsImages.imagesTextList)
+                    mainView.addCaptionedImages(screenTag: screenTag, id: resultsImages.id,imageNames: resultsImages.images,captions: resultsImages.imagesTextList)
                 }
             case .questionnaire:
                 if let questionnaire = component as? FormComponentQuestionnaire {
@@ -214,7 +215,7 @@ private extension IOSFormGenerator {
          playerViewController.didMove(toParent: presentingViewController) */
     }
     
-    func addMap(id: String) {
+    func addMap(screenTag: Int, id: String) {
         let mapViewController = MapScreenViewController()
         
         mainView.addArrangedSubview(mapViewController.view)
@@ -439,17 +440,19 @@ extension UIStackView {
         }
     }
     
-    func addResultRemarks(id: String, text: String, image: String,color:String) {
-        let verticalSpace = getVerticalSpacingView(withHeight: 10)
-        self.addArrangedSubview(verticalSpace)
-        
-        let faceRemarkView = FaceRemarkView()
-        faceRemarkView.configureResult(image: UIImage(named: image), text: text, color: color)
-        
-        self.addArrangedSubview(faceRemarkView)
+    func addResultRemarks(screenTag: Int, text: String, id: String, image: String,color:String) {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
+            let verticalSpace = getVerticalSpacingView(withHeight: 10)
+            self.addArrangedSubview(verticalSpace)
+            
+            let faceRemarkView = FaceRemarkView()
+            faceRemarkView.configureResult(image: UIImage(named: image), text: text, color: color)
+            
+            self.addArrangedSubview(faceRemarkView)
+        }
     }
     
-    func addCaptionedImages(id: String, imageNames: [String], captions: [String]) {
+    func addCaptionedImages(screenTag: Int, id: String, imageNames: [String], captions: [String]) {
         if (id == "resultsImages") {
             var resultsCaptionedImages = [UIStackView]()
             for i in 0...2{
@@ -565,8 +568,8 @@ extension UIStackView {
         return imageStackView
     }
     
-    func createOrUpdateChecklist(id: String, title: String, options: [String], rating: Int) {
-        if self.subviews.first(where: { view in  (view as? StackViewWithId)?.idString == id }) == nil {
+    func createOrUpdateChecklist(screenTag: Int, id: String, title: String, options: [String], rating: Int) {
+        if self.subviews.first(where: { view in view.tag == screenTag }) == nil {
             var i : Int = 0
             
             let verticalChecklist = UIStackView()
@@ -579,8 +582,7 @@ extension UIStackView {
             var radioButtonsGroup = [UIButton]()
             for option in options
             {
-                let radioView = StackViewWithId()
-                radioView.idString = id
+                let radioView = UIStackView()
                 radioView.axis = .horizontal
                 self.addArrangedSubview(radioView)
                 radioView.spacing = 5
@@ -593,6 +595,7 @@ extension UIStackView {
                 radioButton.topAnchor.constraint(equalTo: radioView.topAnchor).isActive = true
                 radioButton.bottomAnchor.constraint(equalTo: radioView.bottomAnchor).isActive = true
                 radioButton.tag = i
+                radioButton.idString = id
                 radioButton.setImage(UIImage(named: "switch_unchecked_green.png"), for: .normal)
                 radioButton.addTarget(self, action: #selector(selectedCheckList(_:)), for: .touchUpInside)
                 
