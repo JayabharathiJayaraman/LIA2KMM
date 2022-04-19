@@ -111,6 +111,8 @@ class IOSFormGenerator: FormGenerator {
                 print("unknown component")
             }
         }
+        mainView.layoutSubviews()
+        print("Subviews: \(mainView.subviews)")
     }
 }
 
@@ -261,9 +263,12 @@ extension UIStackView {
     }
     
     func addSmallTitleLabel(id: String, text: String) {
+        print("addSmallTitle before IF")
         if self.subviews.first(where: { view in (view as? DynamicLabel)?.idString == id }) == nil {
+            print("addSmallTitle after IF")
             let verticalSpacing = getVerticalSpacingView(withHeight: 20)
             self.addArrangedSubview(verticalSpacing)
+            print("smallTitle \(id)")
             
             let label = getDefaultLabel(id: id)
             label.text = text
@@ -275,9 +280,12 @@ extension UIStackView {
     }
     
     func createBodyLabel(id: String, text: String) {
+        print("createBodyLabel before IF")
         if self.subviews.first(where: { view in (view as? DynamicLabel)?.idString == id}) == nil {
+            print("createBodyLabel after IF")
             let verticalSpacing = getVerticalSpacingView(withHeight: 10)
             self.addArrangedSubview(verticalSpacing)
+            print("bodyTitle \(id)")
             
             let label = getDefaultLabel(id: id)
             label.text = text
