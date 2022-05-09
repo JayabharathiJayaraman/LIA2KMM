@@ -267,12 +267,9 @@ extension UIStackView {
     }
     
     func addSmallTitleLabel(id: String, text: String) {
-        print("addSmallTitle before IF")
         if self.subviews.first(where: { view in (view as? DynamicLabel)?.idString == id }) == nil {
-            print("addSmallTitle after IF")
             let verticalSpacing = getVerticalSpacingView(withHeight: 20)
             self.addArrangedSubview(verticalSpacing)
-            print("smallTitle \(id)")
             
             let label = getDefaultLabel(id: id)
             label.text = text
@@ -350,78 +347,72 @@ extension UIStackView {
     }
     
     func addQuestionnaire(id: String, text: [String],answer: QuestionnaireAnswer?)
-           {
-               if self.subviews.first(where: { view in (view as? StackViewWithId)?.idString == id }) == nil {
-               let verticalSpace = getVerticalSpacingView(withHeight: 30)
-               self.addArrangedSubview(verticalSpace)
-               
-               if (answer == nil){
-                   setQuestionnaireAnswered(isAnswered: false)
-               }
-               
-               let label = QuestionnaireAnswerLabelWithId()
-               label.idString = id
-                   
-               let faceRemarkViewSad = FaceRemarkView()
-               let faceRemarkViewIndifferent = FaceRemarkView()
-               let faceRemarkViewHappy = FaceRemarkView()
-               
-               let stackView = StackViewWithId()
-                   stackView.idString = id
-                   stackView.axis = .vertical
-                   stackView.spacing = 10
-               if (answer == QuestionnaireAnswer.poor) {
-                   faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
-               }
-               else if (answer == QuestionnaireAnswer.mediocre){
-                   faceRemarkViewIndifferent.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
-               }
-               else if (answer == QuestionnaireAnswer.good) {
-                   faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
-               }
-               else {
-                   faceRemarkViewHappy.contentView.backgroundColor = .white
-               }
-               
-               faceRemarkViewSad.configure(image: UIImage(named: "sad_face"), text: text[0]){ [self] in
-                   //label.idString = id
-                   label.text = text[0]
-                   handleQuestionnaireAnswersSad(label)
-                   faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
-                   faceRemarkViewIndifferent.contentView.backgroundColor = .white
-                   faceRemarkViewHappy.contentView.backgroundColor = .white
-               }
-               
-               faceRemarkViewIndifferent.configure(image: UIImage(named: "indifferent_face"), text: text[1]){ [self] in
-                   //label.idString = id
-                   label.text = text[1]
-                   handleQuestionnaireAnswersIndifferent(label)
-                   faceRemarkViewIndifferent.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
-                   faceRemarkViewSad.contentView.backgroundColor = .white
-                   faceRemarkViewHappy.contentView.backgroundColor = .white
-               }
-               
-               faceRemarkViewHappy.configure(image: UIImage(named: "happy_face"), text: text[2]){ [self] in
-                   //label.idString = id
-                   label.text = text[2]
-                   handleQuestionnaireAnswersHappy(label)
-                   faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
-                   faceRemarkViewSad.contentView.backgroundColor = .white
-                   faceRemarkViewIndifferent.contentView.backgroundColor = .white
-               }
-               let verticalSpaceSad = getVerticalSpacingView(withHeight: 15)
-               let verticalSpaceAnswer = getVerticalSpacingView(withHeight: 15)
-               
-                   stackView.addArrangedSubview(faceRemarkViewSad)
-                   //stackView.addArrangedSubview(verticalSpaceSad)
-                   stackView.addArrangedSubview(faceRemarkViewIndifferent)
-                   //stackView.addArrangedSubview(verticalSpaceAnswer)
-                   stackView.addArrangedSubview(faceRemarkViewHappy)
-                  self.addArrangedSubview(stackView)
-           }
-           }
+    {
+        if self.subviews.first(where: { view in (view as? StackViewWithId)?.idString == id }) == nil {
+            let verticalSpace = getVerticalSpacingView(withHeight: 30)
+            self.addArrangedSubview(verticalSpace)
+            
+            if (answer == nil){
+                setQuestionnaireAnswered(isAnswered: false)
+            }
+            
+            let label = QuestionnaireAnswerLabelWithId()
+            label.idString = id
+            
+            let faceRemarkViewSad = FaceRemarkView()
+            let faceRemarkViewIndifferent = FaceRemarkView()
+            let faceRemarkViewHappy = FaceRemarkView()
+            
+            let stackView = StackViewWithId()
+            stackView.idString = id
+            stackView.axis = .vertical
+            stackView.spacing = 10
+            if (answer == QuestionnaireAnswer.poor) {
+                faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
+            }
+            else if (answer == QuestionnaireAnswer.mediocre){
+                faceRemarkViewIndifferent.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
+            }
+            else if (answer == QuestionnaireAnswer.good) {
+                faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
+            }
+            else {
+                faceRemarkViewHappy.contentView.backgroundColor = .white
+            }
+            
+            faceRemarkViewSad.configure(image: UIImage(named: "sad_face"), text: text[0]){ [self] in
+                label.text = text[0]
+                handleQuestionnaireAnswersSad(label)
+                faceRemarkViewSad.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
+                faceRemarkViewIndifferent.contentView.backgroundColor = .white
+                faceRemarkViewHappy.contentView.backgroundColor = .white
+            }
+            
+            faceRemarkViewIndifferent.configure(image: UIImage(named: "indifferent_face"), text: text[1]){ [self] in
+                label.text = text[1]
+                handleQuestionnaireAnswersIndifferent(label)
+                faceRemarkViewIndifferent.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
+                faceRemarkViewSad.contentView.backgroundColor = .white
+                faceRemarkViewHappy.contentView.backgroundColor = .white
+            }
+            
+            faceRemarkViewHappy.configure(image: UIImage(named: "happy_face"), text: text[2]){ [self] in
+                label.text = text[2]
+                handleQuestionnaireAnswersHappy(label)
+                faceRemarkViewHappy.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
+                faceRemarkViewSad.contentView.backgroundColor = .white
+                faceRemarkViewIndifferent.contentView.backgroundColor = .white
+            }
+            let verticalSpaceSad = getVerticalSpacingView(withHeight: 15)
+            let verticalSpaceAnswer = getVerticalSpacingView(withHeight: 15)
+            
+            stackView.addArrangedSubview(faceRemarkViewSad)
+            stackView.addArrangedSubview(faceRemarkViewIndifferent)
+            stackView.addArrangedSubview(faceRemarkViewHappy)
+            self.addArrangedSubview(stackView)
+        }
+    }
 
-    
     func handleQuestionnaireAnswersSad(_ sender: QuestionnaireAnswerLabelWithId){
         guard let id = sender.idString else { return }
         guard let text = sender.text else { return }
@@ -449,28 +440,28 @@ extension UIStackView {
     }
     
     func addQuestionnaireResult(id: String, answers: [AnswerWithPhoto]){
-               let answersCount = answers.count
-               for i in 0...answersCount-1{
-                   let verticalSpaceView = getVerticalSpacingView(withHeight: 15)
-                   self.addArrangedSubview(verticalSpaceView)
-                   let selectedAnswer = answers[i].answer!
-                   let faceRemarkView = FaceRemarkView()
-                   self.addArrangedSubview(faceRemarkView)
-                   switch selectedAnswer {
-                   case QuestionnaireAnswer.poor:
-                       faceRemarkView.configureResult(image: UIImage(named: "sad_face"), text: answers[i].text, color: "red_round_background")
-                       faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
-                   case QuestionnaireAnswer.mediocre:
-                       faceRemarkView.configureResult(image: UIImage(named: "indifferent_face"), text: answers[i].text, color: "orange_round_background")
-                       faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
-                   case QuestionnaireAnswer.good:
-                       faceRemarkView.configureResult(image: UIImage(named: "happy_face"), text: answers[i].text, color: "green_round_background")
-                       faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
-                   default:
-                       print("No Answer Found")
-                   }
-               }
-           }
+        let answersCount = answers.count
+        for i in 0...answersCount-1{
+            let verticalSpaceView = getVerticalSpacingView(withHeight: 15)
+            self.addArrangedSubview(verticalSpaceView)
+            let selectedAnswer = answers[i].answer!
+            let faceRemarkView = FaceRemarkView()
+            self.addArrangedSubview(faceRemarkView)
+            switch selectedAnswer {
+            case QuestionnaireAnswer.poor:
+                faceRemarkView.configureResult(image: UIImage(named: "sad_face"), text: answers[i].text, color: "red_round_background")
+                faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
+            case QuestionnaireAnswer.mediocre:
+                faceRemarkView.configureResult(image: UIImage(named: "indifferent_face"), text: answers[i].text, color: "orange_round_background")
+                faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
+            case QuestionnaireAnswer.good:
+                faceRemarkView.configureResult(image: UIImage(named: "happy_face"), text: answers[i].text, color: "green_round_background")
+                faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
+            default:
+                print("No Answer Found")
+            }
+        }
+    }
     
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
