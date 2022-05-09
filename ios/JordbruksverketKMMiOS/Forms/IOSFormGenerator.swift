@@ -107,6 +107,10 @@ class IOSFormGenerator: FormGenerator {
                 if let questionnaire = component as? FormComponentQuestionnaire {
                     mainView.addQuestionnaire(id: questionnaire.id, text: questionnaire.text, answer: questionnaire.answer)
                 }
+            case .questionnaireresult:
+                if let questionnaireResult = component as? FormComponentQuestionnaireResult {
+                    mainView.addQuestionnaireResult(id: questionnaireResult.id, answers: questionnaireResult.answers as! [AnswerWithPhoto])
+                }
             default:
                 print("unknown component")
             }
@@ -443,6 +447,30 @@ extension UIStackView {
     func setQuestionnaireAnswered(isAnswered: KotlinBoolean) {
         IOSFormViewModel.shared.formViewModel.form.data.questionnaireIsAnswered.answered = isAnswered
     }
+    
+    func addQuestionnaireResult(id: String, answers: [AnswerWithPhoto]){
+               let answersCount = answers.count
+               for i in 0...answersCount-1{
+                   let verticalSpaceView = getVerticalSpacingView(withHeight: 15)
+                   self.addArrangedSubview(verticalSpaceView)
+                   let selectedAnswer = answers[i].answer!
+                   let faceRemarkView = FaceRemarkView()
+                   self.addArrangedSubview(faceRemarkView)
+                   switch selectedAnswer {
+                   case QuestionnaireAnswer.poor:
+                       faceRemarkView.configureResult(image: UIImage(named: "sad_face"), text: answers[i].text, color: "red_round_background")
+                       faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.redRoundBackGround
+                   case QuestionnaireAnswer.mediocre:
+                       faceRemarkView.configureResult(image: UIImage(named: "indifferent_face"), text: answers[i].text, color: "orange_round_background")
+                       faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.orangeRoundBackGround
+                   case QuestionnaireAnswer.good:
+                       faceRemarkView.configureResult(image: UIImage(named: "happy_face"), text: answers[i].text, color: "green_round_background")
+                       faceRemarkView.contentView.backgroundColor = UIColor.Jordbruksverket.greenRoundBackGround
+                   default:
+                       print("No Answer Found")
+                   }
+               }
+           }
     
     func addTextFieldNotes(id: String, text: String, placeholder: String) {
         if let existingView = (self.subviews.first(where: { view in
