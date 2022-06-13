@@ -3,6 +3,7 @@ package se.mobileinteraction.jordbruksverketkmm.android.forms
 import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.core.net.toUri
@@ -373,6 +374,8 @@ private fun ViewGroup.createOrUpdateQuestionnaireResult(
                     }
 
                     imageLayout.textView.text = answers[i].text
+                    Log.d("!!!","${imageLayout.textView.text}")
+                    Log.d("idJaya","${id}")
                     binding.questionnaireResultContainer.addView(imageLayout.questionnaireResultItem)
                 }
             }
