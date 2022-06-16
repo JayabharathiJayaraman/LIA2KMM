@@ -41,7 +41,7 @@ class AndroidFormGenerator(context: Context) :
                     mainView.createOrUpdateSmallTitleLabel(smallTitle.text, smallTitle.id)
                 }
                 ComponentType.BODY -> {
-                    val body = (component as FormComponentText)
+                    val body = (component as FormComponentText)§
                     mainView.createOrUpdateBodyLabel(body.text, body.id)
                 }
                 ComponentType.IMAGE -> {
